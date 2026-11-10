@@ -1,0 +1,27 @@
+0000  LoadParam r6, 1
+0003  GetById r5, r6, 0, "event_name"
+0009  JmpTypeOfIs L97, r5, 507
+0011  GetByIdShort r2, r5, 1, "length"
+0016  LoadConstZero r0
+0018  JStrictEqual L97, r2, r0
+001c  GetParentEnvironment r2, 0
+001f  LoadFromEnvironment r3, r2, 2
+0023  GetByIdShort r4, r3, 2, "default"
+0028  GetById r3, r4, 3, "recordEvent"
+002e  LoadFromEnvironment r2, r2, 4
+0032  JmpTypeOfIs L66, r2, 128
+003a  LoadConstString r8, "Trying to call a non-function"
+003e  CallBuiltin r2, 44, 2
+L66:
+0042  NewObject r2
+0044  Mov r8, r2
+0047  Mov r7, r6
+004a  CallBuiltin r6, 46, 3
+004e  LoadConstString r6, "event_name"
+0052  DelByVal r1, r2, r6, 0
+0057  Call3 r2, r3, r4, r5, r2
+005d  LoadConstUndefined r1
+005f  Ret r1
+L97:
+0061  LoadConstUndefined r1
+0063  Ret r1

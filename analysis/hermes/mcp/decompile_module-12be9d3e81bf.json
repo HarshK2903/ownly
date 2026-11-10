@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3940
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 13,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3940\nconst require = globalThis.__r;\n\n\nexport const EventType = require(\"module_3941\").EventType;\nexport const HomePageConfig = require(\"HomePageConfig\").HomePageConfig;\nexport const InteractionAction = require(\"module_3941\").InteractionAction;\nexport const Priority = require(\"module_3941\").Priority;\nexport const Prop = require(\"Prop\").Prop;\nexport const RestaurantPageConfig = require(\"RestaurantPageConfig\").RestaurantPageConfig;\nexport const ScreenId = require(\"ScreenId\").ScreenId;\nexport const Sink = require(\"module_3941\").Sink;\nexport const createAnalytics = require(\"module_3946\").createAnalytics;\nexport const createGlobalContextStore = require(\"module_3947\").createGlobalContextStore;\nexport const createHomePageAnalytics = require(\"module_3956\").createHomePageAnalytics;\nexport const createRestaurantPageAnalytics = require(\"module_3957\").createRestaurantPageAnalytics;\nexport const createRestaurantSearchAnalytics = require(\"module_3958\").createRestaurantSearchAnalytics;\nexport const generateEventName = require(\"generateEventName\").generateEventName;\nexport const materializeAnalyticsEvent = require(\"materializeAnalyticsEvent\").materializeAnalyticsEvent;\nexport const resolveHomePageInteractionConfig = require(\"HomePageConfig\").resolveHomePageInteractionConfig;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

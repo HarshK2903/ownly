@@ -1,0 +1,816 @@
+// Module 3961
+import _slicedToArray2 from "_slicedToArray" /* 29 */;
+import _mod1728 from "module_1728" /* 1728 */;
+import convertToFlatCustomizations from "convertToFlatCustomizations" /* 3087 */;
+import FoodItem from "FoodItem" /* 3962 */;
+import screenRefreshEmitter2 from "screenRefreshEmitter" /* 3992 */;
+import PriceUpdateManager3 from "PriceUpdateManager" /* 3993 */;
+import module_1 from "module_1" /* 1 */;
+import react from "react" /* 74 */;
+
+let id;
+
+const _slicedToArray = module_1(_slicedToArray2);
+function toItemRatingValue(arg0) {
+
+}
+function toItemRatingCount(arg0) {
+
+}
+function toFiniteNonNegative(arg0) {
+
+}
+function toEtaMinutes(arg0) {
+
+}
+function toFoodItem(foodType, categoryName, subcategoryName, menuData) {
+  let displayMarkupPrice;
+  let itemDisabledStatus;
+  let num;
+  let replaced;
+  let str6;
+  let str7;
+  if (menuData) {
+    itemDisabledStatus = convertToFlatCustomizations.getItemDisabledStatus(foodType, menuData);
+  }
+  if (foodType.foodType != null) {
+    const str2 = foodType.foodType.trim();
+    const str3 = str2.toLowerCase();
+    replaced = str3.replace(/[-_\s]/g, "");
+  }
+  let str5 = foodType.id;
+  if (str5 == null) {
+    str5 = "";
+  }
+  const obj = { id: str5, sourceId: foodType.resId, name: str6, imageUrl: str7, price: num, rating: null, ratingCount: null, itemPromotions: null, description: null, foodType: null, recommended: null, etaInMinutes: null, displayMarkupPrice: null, comparisonPrice: null, inStock: null, nextAvailableAtMessage: null, isDisabled: null, isRestaurantClosed: null, unavailableMessage: null, isCustomisable: null, variantGroupIds: null, addonGroupIds: null, variantGroups: null, addonGroups: null, categoryName: null, subcategoryName: null, trustMarkers: null, tags: null, customTags: null, filterCodes: null, sourceItem: null };
+  str6 = foodType.name;
+  if (str6 == null) {
+    str6 = "";
+  }
+  str7 = foodType.imageUrl;
+  if (str7 == null) {
+    str7 = "";
+  }
+  num = foodType.displayPrice;
+  if (num == null) {
+    num = foodType.price;
+  }
+  if (num == null) {
+    num = 0;
+  }
+  let iter = foodType.rating;
+  const tmp5 = toItemRatingValue;
+  if (iter == null) {
+    iter = foodType.platformRating;
+  }
+  if (typeof tmp5 === "function") {
+    let value;
+    if (iter) {
+      if (typeof iter === "object") {
+        value = iter.value;
+      }
+      let str9 = "";
+      if (value != null) {
+        const _Number = Number;
+        const NumberResult = Number(value);
+        const _Number2 = Number;
+        let str10 = "";
+        if (Number.isFinite(NumberResult)) {
+          str10 = _mod1728.formatRatingDecimal(NumberResult);
+        }
+        str9 = str10;
+      }
+      obj.rating = str9;
+      let platformRating = foodType.rating;
+      const tmp10 = toItemRatingCount;
+      if (platformRating == null) {
+        platformRating = foodType.platformRating;
+      }
+      if (typeof tmp10 === "function") {
+        let str11 = "";
+        if (platformRating) {
+          str11 = "";
+          if (typeof platformRating === "object") {
+            const count = platformRating.count;
+            str11 = "";
+            if (count != null) {
+              str11 = _mod1728.formatRatingCount(count).ratingCountText;
+            }
+          }
+        }
+        obj.ratingCount = str11;
+        ({ itemPromotions: obj.itemPromotions, description: obj.description } = foodType);
+        if (replaced !== "nonveg") {
+          let NonVeg;
+          let tmp13;
+          if (replaced !== "nonvegetarian") {
+            if (replaced === "egg") {
+              NonVeg = FoodItem.FoodType.Egg;
+              tmp13 = require;
+            } else {
+              tmp13 = require;
+              NonVeg = FoodItem.FoodType.Veg;
+            }
+          }
+          obj.foodType = NonVeg;
+          ({ recommended: obj.recommended, etaInMinutes: obj.etaInMinutes, displayMarkupPrice: obj.displayMarkupPrice, displayMarkupPrice } = foodType);
+          if (displayMarkupPrice == null) {
+            displayMarkupPrice = foodType.markupPrice;
+          }
+          obj.comparisonPrice = displayMarkupPrice;
+          ({ inStock: obj.inStock, nextAvailableAtMessage: obj.nextAvailableAtMessage } = foodType);
+          let flag;
+          if (itemDisabledStatus != null) {
+            flag = itemDisabledStatus.isItemDisabled;
+          }
+          if (flag == null) {
+            flag = false;
+          }
+          obj.isDisabled = flag;
+          let isRestaurantClosed;
+          if (itemDisabledStatus != null) {
+            isRestaurantClosed = itemDisabledStatus.isRestaurantClosed;
+          }
+          obj.isRestaurantClosed = isRestaurantClosed;
+          let availabilityMessage;
+          if (itemDisabledStatus != null) {
+            availabilityMessage = itemDisabledStatus.availabilityMessage;
+          }
+          obj.unavailableMessage = availabilityMessage;
+          const obj3 = { isCustomisable: null, hasVariants: null, variantGroups: null, addonGroups: null, variantGroupIds: null, addonGroupIds: null };
+          ({ isCustomisable: obj2.isCustomisable, hasVariants: obj2.hasVariants, variantGroups: obj2.variantGroups, addonGroups: obj2.addonGroups, variantGroupIds: obj2.variantGroupIds, addonGroupIds: obj2.addonGroupIds } = foodType);
+          obj.isCustomisable = tmp13(1728).isRestaurantMenuItemCustomisable(obj3);
+          ({ variantGroupIds: obj.variantGroupIds, addonGroupIds: obj.addonGroupIds, variantGroups: obj.variantGroups, addonGroups: obj.addonGroups } = foodType);
+          obj.categoryName = categoryName;
+          obj.subcategoryName = subcategoryName;
+          ({ trustMarkers: obj.trustMarkers, tags: obj.tags, customTags: obj.customTags, filterCodes: obj.filterCodes } = foodType);
+          obj.sourceItem = foodType;
+          return obj;
+        }
+        NonVeg = FoodItem.FoodType.NonVeg;
+        tmp13 = require;
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+    if (typeof iter === "number") {
+      value = iter;
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+
+export function useRestaurantNewViewModel(menuData1) {
+  let memo21;
+  let params;
+  let prop1;
+  let str;
+  let tmp4;
+  let tmp = params;
+  let tmp2 = str;
+  params = params(str[6]).useRoute().params;
+  if (params == null) {
+    params = {};
+  }
+  str = params.id;
+  if (str == null) {
+    str = params.brandId;
+  }
+  if (str == null) {
+    str = "";
+  }
+  const brandId = params.brandId;
+  let obj2 = react;
+  const isVegMode = tmp(tmp2[7]).useVegMode().isVegMode;
+  const defaultResult = brandId.default(react.useState(0), 2);
+  [tmp4, react] = defaultResult;
+  const restaurantMenu = tmp(tmp2[8]).useRestaurantMenu(str, tmp4, params.searchId, brandId, params.searchFilters, params.curatedListId, menuData1);
+  const effect = react.useEffect(() => {
+    const screenRefreshEmitter = screenRefreshEmitter2.screenRefreshEmitter;
+    return screenRefreshEmitter.subscribe(() => {
+      closure_1_3((arg0) => arg0 + 1);
+    });
+  }, []);
+  const focusEffect = tmp(tmp2[6]).useFocusEffect(react.useCallback(() => {
+    const PriceUpdateManager = PriceUpdateManager3.PriceUpdateManager;
+    if (PriceUpdateManager.getPriceUpdateDismissed()) {
+      const PriceUpdateManager2 = PriceUpdateManager3.PriceUpdateManager;
+      const result = PriceUpdateManager2.clearPriceUpdateDismissed();
+      react((arg0) => arg0 + 1);
+    }
+  }, []));
+  let items = [restaurantMenu.menuData];
+  const memo = react.useMemo(() => {
+    const menuData = restaurantMenu.menuData;
+    let flatMapResult;
+    if (menuData != null) {
+      const menu = menuData.menu;
+      if (menu != null) {
+        const categories = menu.categories;
+        if (categories != null) {
+          flatMapResult = categories.flatMap((subcategories) => {
+            let items = subcategories.items;
+            if (items == null) {
+              items = [];
+            }
+            const items1 = [...items.map((item) => restaurant(item, subcategories.name, undefined, restaurantMenu.menuData))];
+            subcategories = subcategories.subcategories;
+            if (subcategories == null) {
+              subcategories = [];
+            }
+            HermesBuiltin.arraySpread(items1, subcategories.flatMap((items) => {
+              items = items.items;
+              if (items == null) {
+                items = [];
+              }
+              return items.map((item) => restaurant(item, items.name, items.name, restaurantMenu.menuData));
+            }), tmp2);
+            return items1;
+          });
+        }
+      }
+    }
+    if (flatMapResult == null) {
+      flatMapResult = [];
+    }
+    return flatMapResult;
+  }, items);
+  let items1 = [memo];
+  const memo1 = react.useMemo(() => {
+    const map = new Map(memo.map((sourceItem) => {
+      const items = [sourceItem.sourceItem, sourceItem];
+      return items;
+    }));
+    return map;
+  }, items1);
+  const items2 = [restaurantMenu.menuData, memo1];
+  const memo2 = react.useMemo(() => {
+    const menuData = restaurantMenu.menuData;
+    let mapped;
+    if (menuData != null) {
+      const menu = menuData.menu;
+      if (menu != null) {
+        const categories = menu.categories;
+        if (categories != null) {
+          mapped = categories.map((id) => {
+            let items;
+            let obj3;
+            let str2;
+            let tmp2;
+            const name = id;
+            str = id.id;
+            if (str == null) {
+              str = id.name;
+            }
+            if (str == null) {
+              str = "";
+            }
+            let subcategories = id.subcategories;
+            if (subcategories == null) {
+              subcategories = [];
+            }
+            let mapped = subcategories.map((id, index) => {
+              let mapped;
+              let obj3;
+              let str3;
+              const user = id;
+              id = id.id;
+              if (id == null) {
+                const _HermesInternal = HermesInternal;
+                id = "" + str + "-sub-" + index;
+              }
+              let items = id.items;
+              if (items == null) {
+                items = [];
+              }
+              const obj = { id, title: str3, items: mapped };
+              str3 = id.name;
+              mapped = items.map((item) => {
+                let value = memo1.get(item);
+                if (value == null) {
+                  value = restaurant(item, user.name, user.name, restaurantMenu.menuData);
+                }
+                return value;
+              });
+              if (str3 == null) {
+                str3 = "";
+              }
+              if (id.inStock !== undefined) {
+                obj3 = { inStock: id.inStock };
+                const obj2 = { inStock: id.inStock };
+              } else {
+                obj3 = {};
+              }
+              const merged = Object.assign(obj3);
+              const tmp6 = id.inStock === false ? { startAsCollapsed: true } : {};
+              const merged1 = Object.assign(tmp6);
+              return obj;
+            });
+            found = mapped.filter((items) => items.items.length > 0);
+            let obj = {
+              id: str,
+              title: str2,
+              rowType: params(closure_1_1[3]).resolveRestaurantMenuRowType(id.rowType),
+              items: items.map((item) => {
+                let value = memo1.get(item);
+                if (value == null) {
+                  value = restaurant(item, name.name, undefined, restaurantMenu.menuData);
+                }
+                return value;
+              }),
+              subcategories: tmp2
+            };
+            str2 = id.name;
+            if (str2 == null) {
+              str2 = "";
+            }
+            if (id.inStock !== undefined) {
+              let obj2 = { inStock: id.inStock };
+              obj3 = obj2;
+            } else {
+              obj3 = {};
+            }
+            let merged = Object.assign(obj3);
+            items = id.items;
+            if (items == null) {
+              items = [];
+            }
+            tmp2 = undefined;
+            if (found.length > 0) {
+              tmp2 = found;
+            }
+            return obj;
+          });
+        }
+      }
+    }
+    if (mapped == null) {
+      mapped = [];
+    }
+    return mapped;
+  }, items2);
+  let menuData = restaurantMenu.menuData;
+  let restaurant;
+  if (menuData != null) {
+    restaurant = menuData.restaurant;
+  }
+  const outlets = restaurantMenu.outlets;
+  let found = outlets.find((isCurrent) => isCurrent.isCurrent);
+  if (found == null) {
+    found = restaurantMenu.outlets[0];
+  }
+  let menuData2 = restaurantMenu.menuData;
+  let prop;
+  if (menuData2 != null) {
+    prop = menuData2.selectedDeliveryDetails;
+  }
+  let tmp12 = null;
+  if (prop) {
+    let obj = { distanceInKm: restaurantMenu.menuData.selectedDeliveryDetails.distanceInKm, etaInMin: restaurantMenu.menuData.selectedDeliveryDetails.etaInMin, isDeliverable: restaurantMenu.menuData.selectedDeliveryDetails.isDeliverable };
+    tmp12 = obj;
+  }
+  let tmp13 = restaurant;
+  const deriveRestaurantAvailability = tmp(tmp2[3]).deriveRestaurantAvailability;
+  if (restaurant == null) {
+    tmp13 = null;
+  }
+  let obj3 = { restaurant: tmp13, selectedOutletDetails: tmp12, rmlUnserviceabilityReason: prop1 };
+  let menuData3 = restaurantMenu.menuData;
+  prop1 = undefined;
+  if (menuData3 != null) {
+    const rmlPageDisplayConfig = menuData3.rmlPageDisplayConfig;
+    if (rmlPageDisplayConfig != null) {
+      prop1 = rmlPageDisplayConfig.unServiceabilityReason;
+    }
+  }
+  if (prop1 == null) {
+    prop1 = null;
+  }
+  const items3 = [memo];
+  let result = deriveRestaurantAvailability(obj3);
+  let menuData4 = restaurantMenu.menuData;
+  let brandRestaurantsList;
+  const callback = obj2.useCallback((arg0) => _mod1728.rankRestaurantMenuSearchResults(memo, arg0), items3);
+  const useMemo = obj2.useMemo;
+  if (menuData4 != null) {
+    brandRestaurantsList = menuData4.brandRestaurantsList;
+  }
+  const items4 = [brandRestaurantsList, , , , , , ];
+  ({ outlets: arr8[1], selectedRestaurantId: arr8[2] } = restaurantMenu);
+  items4[3] = str;
+  items4[4] = params.id;
+  items4[5] = restaurant;
+  items4[6] = brandId;
+  const memo3 = useMemo(() => {
+    let brandRestaurantsList;
+    let selectedRestaurantId;
+    let tmp = restaurant;
+    const resolveRestaurantIdFromPageContext = _mod1728.resolveRestaurantIdFromPageContext;
+    if (restaurant == null) {
+      tmp = null;
+    }
+    const menuData = restaurantMenu.menuData;
+    const obj = { restaurant: tmp, brandRestaurantsList, outlets: restaurantMenu.outlets, fallbackRestaurantId: selectedRestaurantId };
+    brandRestaurantsList = undefined;
+    if (menuData != null) {
+      brandRestaurantsList = menuData.brandRestaurantsList;
+    }
+    const tmp4 = brandId;
+    if (!tmp4) {
+      selectedRestaurantId = tmp2.selectedRestaurantId;
+    }
+    let selectedRestaurantId2 = resolveRestaurantIdFromPageContext(obj);
+    if (selectedRestaurantId2 == null) {
+      selectedRestaurantId2 = tmp2.selectedRestaurantId;
+    }
+    if (selectedRestaurantId2 == null) {
+      selectedRestaurantId2 = str;
+    }
+    return selectedRestaurantId2;
+  }, items4);
+  const items5 = [memo2.length, , , , , , , , , , , , , , , , , , , , , , ];
+  let menuData5 = restaurantMenu.menuData;
+  let instockItemCount;
+  const useMemo2 = obj2.useMemo;
+  if (menuData5 != null) {
+    let menu = menuData5.menu;
+    if (menu != null) {
+      instockItemCount = menu.instockItemCount;
+    }
+  }
+  items5[1] = instockItemCount;
+  let menuData6 = restaurantMenu.menuData;
+  let outOfStockItems;
+  if (menuData6 != null) {
+    let menu2 = menuData6.menu;
+    if (menu2 != null) {
+      outOfStockItems = menu2.outOfStockItems;
+    }
+  }
+  items5[2] = outOfStockItems;
+  const menuData7 = restaurantMenu.menuData;
+  let noOfOutlets;
+  if (menuData7 != null) {
+    noOfOutlets = menuData7.noOfOutlets;
+  }
+  items5[3] = noOfOutlets;
+  const menuData8 = restaurantMenu.menuData;
+  let distanceInKm;
+  if (menuData8 != null) {
+    let selectedDeliveryDetails = menuData8.selectedDeliveryDetails;
+    if (selectedDeliveryDetails != null) {
+      distanceInKm = selectedDeliveryDetails.distanceInKm;
+    }
+  }
+  items5[4] = distanceInKm;
+  const menuData9 = restaurantMenu.menuData;
+  let etaInMin;
+  if (menuData9 != null) {
+    let selectedDeliveryDetails2 = menuData9.selectedDeliveryDetails;
+    if (selectedDeliveryDetails2 != null) {
+      etaInMin = selectedDeliveryDetails2.etaInMin;
+    }
+  }
+  items5[5] = etaInMin;
+  items5[6] = memo.length;
+  ({ curatedListId: arr9[7], curatedListName: arr9[8], curatedSectionId: arr9[9], curatedSectionName: arr9[10], searchId: arr9[11], searchQuery: arr9[12], searchQueryId: arr9[13], searchSection: arr9[14], sourceContext: arr9[15] } = params);
+  items5[16] = memo3;
+  let name;
+  if (restaurant != null) {
+    name = restaurant.name;
+  }
+  items5[17] = name;
+  let googleRating;
+  if (restaurant != null) {
+    googleRating = restaurant.googleRating;
+  }
+  items5[18] = googleRating;
+  let minDeliveryTime;
+  if (restaurant != null) {
+    minDeliveryTime = restaurant.minDeliveryTime;
+  }
+  items5[19] = minDeliveryTime;
+  let platformRating;
+  if (restaurant != null) {
+    platformRating = restaurant.platformRating;
+  }
+  items5[20] = platformRating;
+  items5[21] = brandId;
+  let name1;
+  if (found != null) {
+    name1 = found.name;
+  }
+  items5[22] = name1;
+  const obj4 = { items: memo, categories: memo2, restaurant, isVegMode, providerId: memo3, trackingContext: memo21, search: callback, selectedOutlet: found, selectedOutletDetails: tmp12, availability: result, routeBrandId: brandId };
+  memo21 = useMemo2(() => {
+    let name;
+    let tmp21;
+    if (params.sourceContext) {
+      let sourceContext;
+      let tmp3;
+      let googleRating;
+      let tmp8;
+      if (typeof params.sourceContext === "object") {
+        sourceContext = tmp.sourceContext;
+      }
+      if ((params.searchSection || sourceContext.searchSection) === "regular results") {
+        tmp3 = params.searchSection || sourceContext.searchSection;
+      }
+      let platformRating;
+      if (restaurant != null) {
+        platformRating = tmp4.platformRating;
+      }
+      if (restaurant != null) {
+        googleRating = tmp4.googleRating;
+      }
+      let iter = platformRating;
+      if (platformRating == null) {
+        iter = googleRating;
+      }
+      if (iter) {
+        let tmp11;
+        if (typeof iter === "object") {
+          const value = iter.value;
+          if (typeof toFiniteNonNegative === "function") {
+            let tmp10;
+            if (typeof value === "number") {
+              const _Number3 = Number;
+              if (Number.isFinite(value)) {
+                if (value >= 0) {
+                  tmp10 = value;
+                }
+              }
+            }
+            tmp8 = tmp10;
+          } else {
+            throw new TypeError("Trying to call a non-function");
+          }
+        }
+        if (platformRating) {
+          let tmp15;
+          let instockItemCount;
+          if (typeof platformRating === "object") {
+            const count = platformRating.count;
+            if (typeof toFiniteNonNegative === "function") {
+              let tmp14;
+              if (typeof count === "number") {
+                const _Number5 = Number;
+                if (Number.isFinite(count)) {
+                  if (count >= 0) {
+                    tmp14 = count;
+                  }
+                }
+              }
+              tmp11 = tmp14;
+            } else {
+              throw new TypeError("Trying to call a non-function");
+            }
+          }
+          if (iter) {
+            if (typeof iter === "object") {
+              const value2 = iter.value;
+              if (typeof toFiniteNonNegative === "function") {
+                let tmp16;
+                if (typeof value2 === "number") {
+                  const _Number6 = Number;
+                  if (Number.isFinite(value2)) {
+                    if (value2 >= 0) {
+                      tmp16 = value2;
+                    }
+                  }
+                }
+                if (tmp16 !== undefined) {
+                  let str5 = "google";
+                  if (platformRating) {
+                    str5 = "ownly";
+                  }
+                  tmp15 = str5;
+                }
+              } else {
+                throw new TypeError("Trying to call a non-function");
+              }
+            }
+          }
+          const menuData = restaurantMenu.menuData;
+          const tmp17 = toFiniteNonNegative;
+          if (menuData != null) {
+            const menu = menuData.menu;
+            if (menu != null) {
+              instockItemCount = menu.instockItemCount;
+            }
+          }
+          if (typeof tmp17 === "function") {
+            let num6;
+            let outOfStockItems;
+            if (typeof instockItemCount === "number") {
+              const _Number7 = Number;
+              if (Number.isFinite(instockItemCount)) {
+                if (instockItemCount >= 0) {
+                  num6 = instockItemCount;
+                }
+              }
+            }
+            const menuData2 = tmp18.menuData;
+            const tmp19 = toFiniteNonNegative;
+            if (menuData2 != null) {
+              const menu2 = menuData2.menu;
+              if (menu2 != null) {
+                outOfStockItems = menu2.outOfStockItems;
+              }
+            }
+            if (typeof tmp19 === "function") {
+              if (typeof outOfStockItems === "number") {
+                const _Number8 = Number;
+              }
+              const obj = { restaurantId: tmp21, restaurantName: name, brandId, searchId: params.searchId || sourceContext.searchId, curatedListId: params.curatedListId, etaMinutes: null, distance: null, curatedSectionId: null, curatedSectionName: null, hasMenu: null, menuCategories: null, outletsCount: null, hasMultipleOutlets: null, currentOutlet: null, totalDishCount: null, oosDishCount: null, ratingValue: null, ratingCount: null, ratingType: null, searchQuery: null, searchQueryId: null, searchSection: null };
+              name = undefined;
+              tmp21 = memo3 || undefined;
+              if (restaurant != null) {
+                name = tmp4.name;
+              }
+              const menuData3 = tmp18.menuData;
+              let etaInMin;
+              const tmp24 = toEtaMinutes;
+              if (menuData3 != null) {
+                const selectedDeliveryDetails = menuData3.selectedDeliveryDetails;
+                if (selectedDeliveryDetails != null) {
+                  etaInMin = selectedDeliveryDetails.etaInMin;
+                }
+              }
+              if (etaInMin == null) {
+                let minDeliveryTime;
+                if (restaurant != null) {
+                  minDeliveryTime = tmp4.minDeliveryTime;
+                }
+                etaInMin = minDeliveryTime;
+              }
+              if (typeof tmp24 === "function") {
+                if (typeof toFiniteNonNegative === "function") {
+                  let distanceInKm;
+                  let tmp28;
+                  if (typeof etaInMin === "number") {
+                    const _Number9 = Number;
+                    if (Number.isFinite(etaInMin)) {
+                      if (etaInMin >= 0) {
+                        tmp28 = etaInMin;
+                      }
+                    }
+                  }
+                  if (tmp28 === undefined) {
+                    if (typeof etaInMin === "string") {
+                      const match = etaInMin.match(/\d+(?:\.\d+)?/);
+                      let tmp32;
+                      if (match) {
+                        const _Number = Number;
+                        const NumberResult = Number(match[0]);
+                        if (typeof tmp27 === "function") {
+                          let tmp31;
+                          if (typeof NumberResult === "number") {
+                            const _Number10 = Number;
+                            if (Number.isFinite(NumberResult)) {
+                              if (NumberResult >= 0) {
+                                tmp31 = NumberResult;
+                              }
+                            }
+                          }
+                          tmp32 = tmp31;
+                        } else {
+                          throw new TypeError("Trying to call a non-function");
+                        }
+                      }
+                      tmp28 = tmp32;
+                    }
+                  }
+                  obj.etaMinutes = tmp28;
+                  const menuData4 = tmp18.menuData;
+                  const tmp33 = toFiniteNonNegative;
+                  if (menuData4 != null) {
+                    const selectedDeliveryDetails2 = menuData4.selectedDeliveryDetails;
+                    if (selectedDeliveryDetails2 != null) {
+                      distanceInKm = selectedDeliveryDetails2.distanceInKm;
+                    }
+                  }
+                  if (typeof tmp33 === "function") {
+                    let tmp34;
+                    if (typeof distanceInKm === "number") {
+                      const _Number11 = Number;
+                      if (Number.isFinite(distanceInKm)) {
+                        if (distanceInKm >= 0) {
+                          tmp34 = distanceInKm;
+                        }
+                      }
+                    }
+                    obj.distance = tmp34;
+                    obj.curatedSectionId = params.curatedSectionId || params.curatedListId;
+                    obj.curatedSectionName = params.curatedSectionName || params.curatedListName;
+                    obj.hasMenu = memo2.length > 0;
+                    obj.menuCategories = memo2.length;
+                    const menuData5 = tmp18.menuData;
+                    let noOfOutlets;
+                    if (menuData5 != null) {
+                      noOfOutlets = menuData5.noOfOutlets;
+                    }
+                    obj.outletsCount = noOfOutlets;
+                    const menuData6 = tmp18.menuData;
+                    let num13;
+                    if (menuData6 != null) {
+                      num13 = menuData6.noOfOutlets;
+                    }
+                    if (num13 == null) {
+                      num13 = 0;
+                    }
+                    obj.hasMultipleOutlets = num13 > 1;
+                    let name1;
+                    if (found != null) {
+                      name1 = found.name;
+                    }
+                    obj.currentOutlet = name1;
+                    if (num6 === undefined) {
+                      let length;
+                      if (tmp20 === undefined) {
+                        length = memo.length;
+                      }
+                      obj.totalDishCount = length;
+                      obj.oosDishCount = tmp20;
+                      obj.ratingValue = tmp8;
+                      obj.ratingCount = tmp11;
+                      obj.ratingType = tmp15;
+                      let tmp39;
+                      if (typeof params.searchQuery || sourceContext.searchQuery || sourceContext.entityName === "string") {
+                        tmp39 = (params.searchQuery || sourceContext.searchQuery || sourceContext.entityName).trim() || undefined;
+                        (params.searchQuery || sourceContext.searchQuery || sourceContext.entityName).trim() || undefined;
+                      }
+                      obj.searchQuery = tmp39;
+                      let tmp41;
+                      if (typeof params.searchQueryId || sourceContext.searchQueryId === "string") {
+                        tmp41 = (params.searchQueryId || sourceContext.searchQueryId).trim() || undefined;
+                        (params.searchQueryId || sourceContext.searchQueryId).trim() || undefined;
+                      }
+                      obj.searchQueryId = tmp41;
+                      obj.searchSection = tmp3;
+                      return obj;
+                    }
+                    if (num6 == null) {
+                      num6 = 0;
+                    }
+                    let num15 = tmp20;
+                    if (tmp20 == null) {
+                      num15 = 0;
+                    }
+                    length = num6 + num15;
+                  } else {
+                    throw new TypeError("Trying to call a non-function");
+                  }
+                } else {
+                  throw new TypeError("Trying to call a non-function");
+                }
+              } else {
+                throw new TypeError("Trying to call a non-function");
+              }
+            } else {
+              throw new TypeError("Trying to call a non-function");
+            }
+          } else {
+            throw new TypeError("Trying to call a non-function");
+          }
+        }
+        if (googleRating) {
+          if (typeof googleRating === "object") {
+            const ratingCount = googleRating.ratingCount;
+            if (typeof toFiniteNonNegative === "function") {
+              let tmp12;
+              if (typeof ratingCount === "number") {
+                const _Number4 = Number;
+                if (Number.isFinite(ratingCount)) {
+                  if (ratingCount >= 0) {
+                    tmp12 = ratingCount;
+                  }
+                }
+              }
+              tmp11 = tmp12;
+            } else {
+              throw new TypeError("Trying to call a non-function");
+            }
+          }
+        }
+      }
+      if (typeof toFiniteNonNegative === "function") {
+        if (typeof iter === "number") {
+          const _Number2 = Number;
+          if (Number.isFinite(iter)) {
+            if (iter >= 0) {
+              tmp8 = iter;
+            }
+          }
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+    sourceContext = {};
+  }, items5);
+  let merged = Object.assign(restaurantMenu);
+  ({ customFilterChips: obj5.customFilterChips, refetch: obj5.refetch, loadOutlets: obj5.loadOutlets, selectOutlet: obj5.selectOutlet } = restaurantMenu);
+  return obj4;
+}

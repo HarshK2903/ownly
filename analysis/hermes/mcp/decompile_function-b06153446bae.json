@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 11682,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 9,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function getBaseURL() {\n  // @0000\n  // @0003\n  // @0007\n  // @000d\n  const cachedBaseURL = closure_1_7.getCachedBaseURL();\n  // @0011\n  // @0013\n  const obj = closure_1_7;\n  if (cachedBaseURL !== undefined) {\n    // @004e\n    return cachedBaseURL;\n  } else {\n    // @0017\n    // @001b\n    // @0020\n    // @0026\n    const _default = closure_1_4.default;\n    const baseURL = _default.getBaseURL();\n    // @002a\n    let tmp4 = null;\n    // @002c\n    if (typeof baseURL === \"string\") {\n      // @0034\n      // @0038\n      tmp4 = null;\n      // @003a\n      if (baseURL !== \"\") {\n        // @003e\n        tmp4 = baseURL;\n      }\n    }\n    // @0041\n    // @0047\n    obj.cacheBaseURL(tmp4);\n    // @004c\n    return tmp4;\n  }\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

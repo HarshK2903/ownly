@@ -1,0 +1,1060 @@
+// Module 2030 (paymentService)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass2 from "_createClass" /* 6 */;
+import CallbackManager from "CallbackManager" /* 2031 */;
+import ConfigManager from "ConfigManager" /* 2032 */;
+import PaymentHandlers from "PaymentHandlers" /* 2035 */;
+import mapFriendlyErrorMessage from "mapFriendlyErrorMessage" /* 2038 */;
+import _mod2039 from "module_2039" /* 2039 */;
+import cleanupGateway2 from "cleanupGateway" /* 2040 */;
+import module_1 from "module_1" /* 1 */;
+import react_native from "react-native" /* 15 */;
+
+let closure_7, closure_9, currentPaymentAttempt, num5, warn;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+const _createClass = module_1(_createClass2);
+class PaymentService {
+  constructor() {
+    _classCallCheck.default(this, PaymentService);
+    this.currentOrderId = null;
+    this.isPolling = false;
+    this.paymentInProgress = false;
+    this.appStateSubscription = null;
+    this.paymentStartTime = null;
+    this.currentOrderResponse = null;
+    this.resumeRecoveryTimeout = null;
+    this.isResumeRecoveryInProgress = false;
+    this.isExplicitCancellationPending = false;
+    this.paymentAttemptId = 0;
+    this.pollingConfig = { retryDelayMs: 5000, maxAttempts: 60, maxConsecutiveFailures: 8 };
+    this.APP_STATE_TIMEOUT_MS = 30000;
+    this.APP_RETURN_RECOVERY_DELAY_MS = 1500;
+    const callbackManager = new CallbackManager.CallbackManager();
+    this.callbackManager = callbackManager;
+    const configManager = new ConfigManager.ConfigManager();
+    this.configManager = configManager;
+    this.paymentHandlers = new PaymentHandlers.PaymentHandlers(this.callbackManager, this.pollingConfig);
+    new PaymentHandlers.PaymentHandlers(this.callbackManager, this.pollingConfig);
+    const result = this.setupAppStateListener();
+  }
+}
+const entry = {
+  key: "setupAppStateListener",
+  value: function setupAppStateListener() {
+    const AppState = react_native.AppState;
+    const handleAppStateChange = this.handleAppStateChange;
+    this.appStateSubscription = AppState.addEventListener("change", handleAppStateChange.bind(this));
+    console.log("PAYMENTSERVICE - AppState listener setup");
+  }
+};
+const items = [
+  entry,
+  {
+    key: "handleAppStateChange",
+    value: function handleAppStateChange(nextAppState) {
+      let callbackManager;
+      let obj5;
+      const self = this;
+      const obj = { paymentInProgress: this.paymentInProgress, isPolling: this.isPolling, hasOrderId: this.currentOrderId, hasCallbacks: callbackManager.hasCallbacks() };
+      callbackManager = this.callbackManager;
+      log("PAYMENTSERVICE - AppState changed to:", nextAppState, obj);
+      const obj2 = { meta: { nextAppState, paymentInProgress: this.paymentInProgress, isPolling: this.isPolling, hasOrderId: this.currentOrderId } };
+      const result = _mod2039.enqueueJuspayDebugSnackbar("payment service appState change", obj2);
+      if (nextAppState === "active") {
+        if (self.paymentInProgress) {
+          if (!self.isPolling) {
+            let num = 0;
+            if (self.paymentStartTime) {
+              const _Date = Date;
+              num = Date.now() - self.paymentStartTime;
+            }
+            const _console = console;
+            const obj3 = { orderId: self.currentOrderId, elapsedTime: num, timeoutThreshold: self.APP_STATE_TIMEOUT_MS };
+            console.log("PAYMENTSERVICE - User returned to app during payment:", obj3);
+            const obj4 = { level: "warn", meta: obj5 };
+            obj5 = { orderId: self.currentOrderId, elapsedTime: num };
+            const result1 = tmp2(2039).enqueueJuspayDebugSnackbar("payment service resume reconciliation scheduled", obj4);
+            const result2 = self.scheduleResumeRecoveryCheck();
+          }
+        }
+      }
+      if (nextAppState === "active") {
+        if (!self.paymentInProgress) {
+          if (!self.isPolling) {
+            if (!self.currentOrderId) {
+              if (cleanupGateway2.getActiveGateway()) {
+                const _console2 = console;
+                console.warn("PAYMENTSERVICE - App returned with stale gateway instance; forcing cleanup");
+                cleanupGateway2.cleanupGateway();
+              }
+            }
+          }
+        }
+      }
+      if (nextAppState !== "active") {
+        const result3 = self.clearResumeRecoveryTimeout();
+      }
+    }
+  },
+  {
+    key: "scheduleResumeRecoveryCheck",
+    value: function scheduleResumeRecoveryCheck() {
+      const self = this;
+      let result = this.clearResumeRecoveryTimeout();
+      this.resumeRecoveryTimeout = setTimeout(() => {
+        const result = self.reconcilePaymentStateOnAppReturn();
+        result.catch((error) => {
+          console.warn("PAYMENTSERVICE - App return reconciliation failed:", error);
+        });
+      }, this.APP_RETURN_RECOVERY_DELAY_MS);
+    }
+  },
+  {
+    key: "clearResumeRecoveryTimeout",
+    value: function clearResumeRecoveryTimeout() {
+      const self = this;
+      if (this.resumeRecoveryTimeout) {
+        const _clearTimeout = clearTimeout;
+        clearTimeout(self.resumeRecoveryTimeout);
+        self.resumeRecoveryTimeout = null;
+      }
+    }
+  },
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+
+];
+const entry1 = {
+  key: "reconcilePaymentStateOnAppReturn",
+  value: function reconcilePaymentStateOnAppReturn() {
+    return closure_0(...arguments);
+  }
+};
+const _default = _createClass.default;
+_asyncToGenerator.default(async function() {
+  let self = this;
+  let c5 = 0;
+  let c6 = 0;
+  let c4 = 0;
+  return (async function(arg0, value) {
+    let c1;
+    let currentOrderId;
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let currentOrderResponse;
+        let closure_4;
+        let closure_5;
+        c6 = 2;
+        if (0 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            closure_2 = self;
+            let closure_6 = self;
+            c1 = undefined;
+            currentOrderId = undefined;
+            currentOrderResponse = undefined;
+            closure_4 = undefined;
+            closure_5 = undefined;
+            num5 = undefined;
+            if (!self.isResumeRecoveryInProgress) {
+              if (!self.isExplicitCancellationPending) {
+                if (self.paymentInProgress) {
+                  if (!self.isPolling) {
+                    if (self.currentOrderId) {
+                      if (self.currentOrderResponse) {
+                        self.isResumeRecoveryInProgress = true;
+                        ({ paymentAttemptId: c1, currentOrderId } = self);
+                        currentOrderResponse = tmp80.currentOrderResponse;
+                        c4 = 2;
+                        const _console4 = console;
+                        const obj4 = { orderId: currentOrderId };
+                        console.log("PAYMENTSERVICE - App return: reconciling payment status with backend", obj4);
+                        num5 = self;
+                        c5 = 3;
+                        c6 = 1;
+                        const obj5 = { value: self(num5[10]).getPaymentDetails(currentOrderId), done: false };
+                        return obj5;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            c6 = 3;
+            return { value: "return", done: null };
+          }
+        } else if (1 === c5) {
+          c4 = 0;
+          closure_2.isResumeRecoveryInProgress = false;
+          throw closure_3;
+        } else {
+          if (2 === c5) {
+            c4 = 1;
+            num5 = 0;
+            if (closure_2.paymentStartTime) {
+              const _Date = Date;
+              num5 = Date.now() - closure_2.paymentStartTime;
+            }
+            if (closure_2.paymentInProgress) {
+              if (closure_2.paymentAttemptId === c1) {
+                if (!closure_2.isExplicitCancellationPending) {
+                  if (!closure_2.isPolling) {
+                    if (num5 >= closure_2.APP_STATE_TIMEOUT_MS) {
+                      if (closure_2.currentOrderId === currentOrderId) {
+                        const _console3 = console;
+                        const obj6 = { orderId: currentOrderId, elapsedTime: num5 };
+                        console.warn("PAYMENTSERVICE - App return reconciliation timed out; treating flow as user-cancelled", obj6);
+                        closure_2.paymentInProgress = false;
+                        const paymentHandlers2 = closure_2.paymentHandlers;
+                        paymentHandlers2.handleCancellation(currentOrderResponse, () => closure_1_6.cleanup());
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          } else if (3 === c5) {
+            if (arg0 === 1) {
+              c6 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c4 = 0;
+              closure_2.isResumeRecoveryInProgress = false;
+              c6 = 3;
+              return { value, done: true };
+            } else {
+              closure_4 = value;
+              if (closure_2.paymentAttemptId === c1) {
+                if (!closure_2.isExplicitCancellationPending) {
+                  if (closure_2.paymentInProgress) {
+                    if (!closure_2.isPolling) {
+                      if (closure_2.currentOrderId === currentOrderId) {
+                        num5 = String;
+                        const str = closure_4.status || "";
+                        num5 = num5(str);
+                        closure_5 = num5.toLowerCase();
+                        if (closure_5 !== "success") {
+                          if (closure_5 !== "pending") {
+                            if (closure_5 !== "initiated") {
+                              if (closure_5 !== "processing") {
+                                if (closure_5 === "failure") {
+                                  const _console = console;
+                                  const obj8 = { orderId: currentOrderId, status: closure_4.status, message: closure_4.message };
+                                  console.log("PAYMENTSERVICE - App return reconciliation: backend indicates failure", obj8);
+                                  closure_2.paymentInProgress = false;
+                                  num5 = Error;
+                                  let str2 = closure_4.message;
+                                  const handleError = closure_2.paymentHandlers.handleError;
+                                  if (!str2) {
+                                    str2 = "Payment verification failed";
+                                  }
+                                  self = this;
+                                  const self2 = this;
+                                  const num51 = new num5(str2);
+                                  num5 = currentOrderResponse;
+                                  handleError(num51, currentOrderResponse, () => closure_1_6.cleanup());
+                                  c4 = 0;
+                                  closure_2.isResumeRecoveryInProgress = false;
+                                  c6 = 3;
+                                  return { value: "return", done: null };
+                                } else {
+                                  c4 = 1;
+                                }
+                              }
+                            }
+                          }
+                        }
+                        const _console2 = console;
+                        const obj9 = { orderId: currentOrderId, status: closure_4.status };
+                        console.log("PAYMENTSERVICE - App return reconciliation: backend indicates success/pending", obj9);
+                        num5 = closure_2.handlePaymentSuccess;
+                        c5 = 4;
+                        c6 = 1;
+                        const obj10 = { value: num5(currentOrderResponse, c1), done: false };
+                        return obj10;
+                      }
+                    }
+                  }
+                }
+              }
+              c4 = 0;
+              closure_2.isResumeRecoveryInProgress = false;
+              c6 = 3;
+              return { value: "return", done: null };
+            }
+          } else if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            closure_2.isResumeRecoveryInProgress = false;
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            c4 = 0;
+            closure_2.isResumeRecoveryInProgress = false;
+            c6 = 3;
+            return { value: "return", done: null };
+          }
+          c4 = 0;
+          closure_2.isResumeRecoveryInProgress = false;
+          c6 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp61) {
+        closure_3 = tmp61;
+        if (0 === c4) {
+          c6 = 3;
+          throw tmp61;
+        } else if (1 === tmp63) {
+          c5 = 1;
+        } else {
+          c5 = 2;
+        }
+      }
+    }
+  })();
+});
+items[4] = entry1;
+items[5] = {
+  key: "setPaymentConfig",
+  value: function setPaymentConfig(arg0) {
+    console.log("PAYMENTSERVICE - setPaymentConfig called with:", arg0);
+    const configManager = this.configManager;
+    configManager.setPaymentConfig(arg0);
+  }
+};
+items[6] = {
+  key: "getPaymentConfig",
+  value: function getPaymentConfig() {
+    const configManager = this.configManager;
+    console.log("PAYMENTSERVICE - getPaymentConfig returning:", configManager.getPaymentConfig());
+    const configManager2 = this.configManager;
+    return configManager2.getPaymentConfig();
+  }
+};
+items[7] = {
+  key: "enableUPIIntentPayment",
+  value: function enableUPIIntentPayment() {
+    console.log("PAYMENTSERVICE - enableUPIIntentPayment");
+    const configManager = this.configManager;
+    configManager.enableUPIIntent();
+  }
+};
+items[8] = {
+  key: "enableDropCheckoutPayment",
+  value: function enableDropCheckoutPayment() {
+    console.log("PAYMENTSERVICE - enableDropCheckoutPayment");
+    const configManager = this.configManager;
+    configManager.enableDropCheckout();
+  }
+};
+items[9] = {
+  key: "enableWebCheckoutPayment",
+  value: function enableWebCheckoutPayment() {
+    console.log("PAYMENTSERVICE - enableWebCheckoutPayment");
+    const configManager = this.configManager;
+    configManager.enableWebCheckout();
+  }
+};
+const entry2 = {
+  key: "processOrder",
+  value: function processOrder(cartApiResponse, arg1, arg2, arg3) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(hasCart, hasSuccessCallback2, hasFailureCallback, arg3) {
+  let hasSuccessCallback;
+  const self = this;
+  let closure_4 = arg3;
+  let c10 = 0;
+  let c11 = 0;
+  let c8 = 0;
+  return (async (arg0, value, arg2, arg3) => {
+    let obj14;
+    let obj6;
+    if (c11 === 2) {
+      c11 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let c3;
+        c11 = 2;
+        if (0 === c10) {
+          if (arg0 === 1) {
+            c11 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c11 = 3;
+            return { value, done: true };
+          } else {
+            closure_7 = self;
+            closure_6 = tmp;
+            hasCart = hasFailureCallback;
+            value = undefined;
+            const sum = self.paymentAttemptId + 1;
+            self.paymentAttemptId = sum;
+            c3 = sum;
+            const _console6 = console;
+            const obj4 = { hasCart, hasSuccessCallback: value, hasFailureCallback };
+            console.log("PAYMENTSERVICE - processOrder called with cartResponse:", obj4);
+            const obj5 = { meta: obj6 };
+            obj6 = { hasCart, hasSuccessCallback: value, hasFailureCallback };
+            const result = self(hasCart[8]).enqueueJuspayDebugSnackbar("payment service processOrder called", obj5);
+            const result1 = self(hasCart[11]).prepareJuspayForCheckoutAttempt();
+            warn = self;
+            self(hasCart[9]).cleanupGateway();
+            const tmp72 = hasCart;
+            const tmp73 = value;
+            const tmp74 = hasFailureCallback;
+            if (!self.paymentInProgress) {
+              const callbackManager = obj15.callbackManager;
+              callbackManager.setCallbacks(tmp73, tmp74);
+              c8 = 1;
+              c10 = 2;
+              c11 = 1;
+              const obj7 = { value: self(hasCart[12]).createOrderWithRetry(tmp72), done: false };
+              return obj7;
+            }
+            const _console5 = console;
+            warn = console.warn;
+            const obj8 = { previousOrderId: null, paymentInProgress: null, isPolling: null };
+            ({ currentOrderId: obj11.previousOrderId, paymentInProgress: obj11.paymentInProgress, isPolling: obj11.isPolling } = self);
+            warn("PAYMENTSERVICE - processOrder called while a previous session was active; cleaning up first", obj8);
+            self.cleanup();
+          }
+        } else if (1 === c10) {
+          let message;
+          c8 = 0;
+          warn = closure_9;
+          const _console4 = console;
+          console.error("PAYMENTSERVICE - Order processing failed:", warn);
+          const _Error = Error;
+          const enqueueJuspayDebugSnackbar = self(hasCart[8]).enqueueJuspayDebugSnackbar;
+          if (warn instanceof Error) {
+            message = warn.message;
+          } else {
+            const _String = String;
+            message = String(warn);
+          }
+          const obj9 = { level: "error", meta: message };
+          const result2 = enqueueJuspayDebugSnackbar("payment service processOrder failed", obj9);
+          if (closure_7.paymentAttemptId === c3) {
+            closure_7.cleanup();
+          }
+          throw warn;
+        } else if (2 === c10) {
+          if (arg0 === 1) {
+            c11 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 0;
+            c11 = 3;
+            return { value, done: true };
+          } else if (closure_7.paymentAttemptId !== c3) {
+            c8 = 0;
+            c11 = 3;
+            return { value, done: true };
+          } else {
+            closure_7.currentOrderId = value.order.id;
+            closure_7.currentOrderResponse = value;
+            closure_7.paymentInProgress = true;
+            const _Date = Date;
+            closure_7.paymentStartTime = Date.now();
+            if (hasSuccessCallback2 != null) {
+              tmp70(value);
+            }
+            const obj13 = { meta: obj14 };
+            obj14 = { orderId: closure_7.currentOrderId };
+            const result3 = self(hasCart[8]).enqueueJuspayDebugSnackbar("payment service order created", obj13);
+            const obj16 = { orderId: closure_7.currentOrderId, paymentDetailsPresent: warn, paymentInProgress: closure_7.paymentInProgress };
+            warn = undefined;
+            const _console2 = console;
+            if (value != null) {
+              warn = value.paymentDetails;
+            }
+            log("PAYMENTSERVICE - Order created successfully:", obj16);
+            const _console3 = console;
+            const obj17 = { hasSuccessCallback, hasFailureCallback: warn };
+            warn = hasCart;
+            console.log("PAYMENTSERVICE - Callbacks set:", obj17);
+            c10 = 3;
+            c11 = 1;
+            const obj18 = { value: closure_7.startPayment(value, c3), done: false };
+            return obj18;
+          }
+        } else if (arg0 === 1) {
+          c11 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c8 = 0;
+          c11 = 3;
+          return { value, done: true };
+        } else {
+          const result4 = self(hasCart[8]).enqueueJuspayDebugSnackbar("payment service startPayment finished");
+          const _console = console;
+          console.log("PAYMENTSERVICE - processOrder completed, returning orderResponse");
+          c8 = 0;
+          c11 = 3;
+          return { value, done: true };
+        }
+      } catch (tmp55) {
+        closure_9 = tmp55;
+        if (0 === c8) {
+          c11 = 3;
+          throw tmp55;
+        } else {
+          c10 = 1;
+        }
+      }
+    }
+  })();
+});
+items[10] = entry2;
+const entry3 = {
+  key: "startPayment",
+  value: function startPayment(value, c3) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0, arg1) {
+  const self = this;
+  let closure_1 = arg0;
+  let closure_2 = arg1;
+  let c4 = 0;
+  let c3 = 0;
+  return (async (arg0, value) => {
+    let configManager;
+    let gateway1;
+    let obj6;
+    let tmp2;
+    if (c3 === 2) {
+      c3 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c3 = 2;
+        if (0 === c4) {
+          if (arg0 === 1) {
+            c3 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c3 = 3;
+            let obj3 = { value, done: true };
+            return obj3;
+          } else {
+            let closure_3 = self;
+            closure_0 = self;
+            let gateway;
+            const resolveGatewayType = self(closure_1[13]).resolveGatewayType;
+            if (closure_1 != null) {
+              const paymentDetails = tmp22.paymentDetails;
+              if (paymentDetails != null) {
+                gateway = paymentDetails.gateway;
+              }
+            }
+            const gatewayType = resolveGatewayType(gateway);
+            let id;
+            let _console = console;
+            if (closure_1 != null) {
+              const order = tmp22.order;
+              if (order != null) {
+                id = order.id;
+              }
+            }
+            let obj4 = { orderId: id, gatewayFromOrderResponse: gateway1, resolvedGateway: gatewayType, paymentConfig: configManager.getPaymentConfig() };
+            gateway1 = undefined;
+            if (closure_1 != null) {
+              const paymentDetails2 = tmp22.paymentDetails;
+              if (paymentDetails2 != null) {
+                gateway1 = paymentDetails2.gateway;
+              }
+            }
+            configManager = tmp20.configManager;
+            log("PAYMENTSERVICE - startPayment:", obj4);
+            let id1;
+            const enqueueJuspayDebugSnackbar = tmp24(tmp25[8]).enqueueJuspayDebugSnackbar;
+            if (closure_1 != null) {
+              const order2 = tmp22.order;
+              if (order2 != null) {
+                id1 = order2.id;
+              }
+            }
+            let obj5 = { meta: obj6 };
+            obj6 = { orderId: id1, resolvedGateway: gatewayType };
+            const result = enqueueJuspayDebugSnackbar("payment service initiating gateway payment", obj5);
+            const configManager2 = tmp20.configManager;
+            const initiatePayment = tmp24(tmp25[9]).initiatePayment;
+            const obj7 = {
+              onSuccess: (() => {
+                        currentPaymentAttempt = closure_2.default(function*(arg0, value) {
+                          if (currentPaymentAttempt === 2) {
+                            currentPaymentAttempt = 3;
+                            throw new TypeError("Generator functions may not be called on executing generators");
+                          } else if (tmp2 === 3) {
+                            if (arg0 === 1) {
+                              throw value;
+                            } else if (arg0 === 2) {
+                              const obj2 = { value, done: true };
+                              return obj2;
+                            } else {
+                              return { value: "return", done: null };
+                            }
+                          } else {
+                            try {
+                              currentPaymentAttempt = 2;
+                              if (0 === c1) {
+                                if (arg0 === 1) {
+                                  currentPaymentAttempt = 3;
+                                  throw value;
+                                } else if (arg0 === 2) {
+                                  currentPaymentAttempt = 3;
+                                  const obj3 = { value, done: true };
+                                  return obj3;
+                                } else {
+                                  const obj6 = currentPaymentAttempt;
+                                  const tmp12 = closure_1_2;
+                                  if (currentPaymentAttempt.isCurrentPaymentAttempt(closure_1_2, c1.order.id)) {
+                                    let id;
+                                    const _console = console;
+                                    if (c1 != null) {
+                                      c1 = tmp13.order;
+                                      if (c1 != null) {
+                                        id = c1.id;
+                                      }
+                                    }
+                                    const obj4 = { orderId: id };
+                                    log("PAYMENTSERVICE - Gateway onSuccess callback triggered for order:", obj4);
+                                    c1 = 1;
+                                    currentPaymentAttempt = 1;
+                                    const obj5 = { value: obj6.handlePaymentSuccess(c1, tmp12), done: false };
+                                    return obj5;
+                                  } else {
+                                    currentPaymentAttempt = 3;
+                                    return { value: "return", done: null };
+                                  }
+                                }
+                              } else if (arg0 === 1) {
+                                currentPaymentAttempt = 3;
+                                throw value;
+                              } else if (arg0 === 2) {
+                                currentPaymentAttempt = 3;
+                                const obj = { value, done: true };
+                                return obj;
+                              } else {
+                                currentPaymentAttempt = 3;
+                                return { value: "return", done: null };
+                              }
+                            } catch (tmp8) {
+                              currentPaymentAttempt = 3;
+                              throw tmp8;
+                            }
+                          }
+                        });
+                        return function onSuccess() {
+                          return currentPaymentAttempt(...arguments);
+                        };
+                      })(),
+              onError(arg0) {
+                        const tmp2 = order;
+                        if (currentPaymentAttempt.isCurrentPaymentAttempt(closure_2, order.order.id)) {
+                          const _console = console;
+                          console.error("PAYMENTSERVICE - Payment error from gateway:", arg0);
+                          currentPaymentAttempt.paymentInProgress = false;
+                          const paymentHandlers = currentPaymentAttempt.paymentHandlers;
+                          paymentHandlers.routeError(arg0, tmp2, () => currentPaymentAttempt.cleanup());
+                        }
+                      }
+            };
+            const paymentConfig = configManager2.getPaymentConfig();
+            const tmp13 = tmp22;
+            c4 = 1;
+            c3 = 1;
+            const obj8 = { value: initiatePayment(closure_1, paymentConfig, obj7, gatewayType), done: false };
+            return obj8;
+          }
+        } else if (arg0 === 1) {
+          c3 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c3 = 3;
+          let obj = { value, done: true };
+          return obj;
+        } else {
+          c3 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp16) {
+        c3 = 3;
+        throw tmp16;
+      }
+    }
+  })();
+});
+items[11] = entry3;
+const entry4 = {
+  key: "handlePaymentSuccess",
+  value: function handlePaymentSuccess(arg0, arg1) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0, arg1) {
+  const self = this;
+  let closure_1 = arg0;
+  let closure_2 = arg1;
+  let c7 = 0;
+  let c8 = 0;
+  let c6 = 0;
+  return (async (arg0, value) => {
+    if (c8 === 2) {
+      c8 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c8 = 2;
+        if (0 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            closure_3 = self;
+            paymentHandlers = self;
+            let id;
+            const tmp30 = closure_2;
+            if (closure_1 != null) {
+              const order = tmp29.order;
+              if (order != null) {
+                id = order.id;
+              }
+            }
+            const _console3 = console;
+            const obj4 = { orderId: id };
+            console.log("PAYMENTSERVICE - handlePaymentSuccess called for order:", obj4);
+            if (self.isCurrentPaymentAttempt(tmp30, id)) {
+              if (!self.isPolling) {
+                if (self.currentOrderId) {
+                  if (id) {
+                    if (self.currentOrderId !== id) {
+                      const _console5 = console;
+                      const obj5 = { incomingOrderId: id, currentOrderId: self.currentOrderId };
+                      console.warn("PAYMENTSERVICE - handlePaymentSuccess ignored stale success callback for mismatched order", obj5);
+                      c8 = 3;
+                      return { value: "return", done: null };
+                    }
+                  }
+                }
+                c6 = 1;
+                self.isPolling = true;
+                self.paymentInProgress = false;
+                const _console4 = console;
+                console.log("PAYMENTSERVICE - Starting polling for order completion");
+                c7 = 2;
+                c8 = 1;
+                const obj6 = { value: paymentHandlers2.handleSuccess(closure_1, () => closure_1_4.cleanup({ deferGatewayTerminate: true }), () => closure_1_4.isCurrentPaymentAttempt(closure_1_2, closure_1_3)), done: false };
+                return obj6;
+              }
+            }
+            const _console6 = console;
+            const obj7 = { orderId: id, currentOrderId: self.currentOrderId };
+            console.log("PAYMENTSERVICE - handlePaymentSuccess ignored duplicate success callback while polling is active", obj7);
+            c8 = 3;
+            return { value: "return", done: null };
+          }
+        } else {
+          if (1 === tmp3) {
+            c6 = 0;
+            closure_0 = closure_5;
+            const _console2 = console;
+            console.error("PAYMENTSERVICE - Error handling payment success:", closure_0);
+            paymentHandlers = paymentHandlers.paymentHandlers;
+            paymentHandlers.handleError(closure_0, closure_1, () => paymentHandlers.cleanup());
+          } else if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 0;
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            const _console = console;
+            console.log("PAYMENTSERVICE - handlePaymentSuccess completed");
+            c6 = 0;
+          }
+          c8 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp20) {
+        closure_5 = tmp20;
+        if (0 === c6) {
+          c8 = 3;
+          throw tmp20;
+        } else {
+          c7 = 1;
+        }
+      }
+    }
+  })();
+});
+items[12] = entry4;
+items[13] = {
+  key: "isCurrentPaymentAttempt",
+  value: function isCurrentPaymentAttempt(arg0, id) {
+    const self = this;
+    let tmp = this.paymentAttemptId === arg0 && !self.isExplicitCancellationPending;
+    if (tmp) {
+      let tmp3 = !id;
+      if (id) {
+        tmp3 = self.currentOrderId === id;
+      }
+      tmp = tmp3;
+    }
+    return tmp;
+  }
+};
+items[14] = {
+  key: "cleanup",
+  value: function cleanup(deferGatewayTerminate) {
+    const obj = { previousOrderId: this.currentOrderId, wasPolling: this.isPolling, paymentInProgress: this.paymentInProgress };
+    console.log("PAYMENTSERVICE - cleanup called", obj);
+    const obj2 = { level: "warn", meta: { previousOrderId: this.currentOrderId, wasPolling: this.isPolling, paymentInProgress: this.paymentInProgress } };
+    const result = _mod2039.enqueueJuspayDebugSnackbar("payment service cleanup", obj2);
+    this.currentOrderId = null;
+    this.currentOrderResponse = null;
+    this.isPolling = false;
+    this.paymentInProgress = false;
+    this.paymentStartTime = null;
+    const result1 = this.clearResumeRecoveryTimeout();
+    this.isResumeRecoveryInProgress = false;
+    this.isExplicitCancellationPending = false;
+    const callbackManager = this.callbackManager;
+    callbackManager.clear();
+    const paymentHandlers = this.paymentHandlers;
+    const result2 = paymentHandlers.resetSuppressedCallbacks();
+    const paymentHandlers2 = this.paymentHandlers;
+    paymentHandlers2.cancelPolling();
+    let prop;
+    const cleanupGateway = cleanupGateway2.cleanupGateway;
+    if (deferGatewayTerminate != null) {
+      prop = deferGatewayTerminate.deferGatewayTerminate;
+    }
+    let obj3;
+    if (prop) {
+      obj3 = { deferTerminate: true };
+    }
+    cleanupGateway(obj3);
+  }
+};
+items[15] = {
+  key: "cancelPayment",
+  value: function cancelPayment() {
+    const self = this;
+    const obj = { paymentInProgress: this.paymentInProgress, isPolling: this.isPolling, currentOrderId: this.currentOrderId };
+    console.log("PAYMENTSERVICE - cancelPayment called", obj);
+    const obj2 = { level: "warn", meta: { paymentInProgress: this.paymentInProgress, isPolling: this.isPolling, currentOrderId: this.currentOrderId } };
+    const result = _mod2039.enqueueJuspayDebugSnackbar("payment service cancelPayment called", obj2);
+    self.cleanup();
+  }
+};
+const entry5 = {
+  key: "cancelPaymentAttempt",
+  value: function cancelPaymentAttempt() {
+    return closure_0(...arguments);
+  }
+};
+const _window = _asyncToGenerator.default(async function() {
+  let self = this;
+  let c6 = 0;
+  let c7 = 0;
+  let c5 = 0;
+  return (async function(arg0, value) {
+    let c1;
+    let currentOrderId;
+    let obj5;
+    if (c7 === 2) {
+      c7 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let error;
+        let paymentAttemptId;
+        c7 = 2;
+        if (0 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c7 = 3;
+            return { value, done: true };
+          } else {
+            closure_3 = self;
+            let closure_5 = self;
+            c1 = undefined;
+            currentOrderId = undefined;
+            error = undefined;
+            ({ currentOrderResponse: c1, currentOrderId } = self);
+            paymentAttemptId = self.paymentAttemptId;
+            self.paymentAttemptId = self.paymentAttemptId + 1;
+            self.isExplicitCancellationPending = true;
+            const result = self.clearResumeRecoveryTimeout();
+            const paymentHandlers = self.paymentHandlers;
+            paymentHandlers.suppressCallbacks();
+            const tmp33 = cleanupGatewayResult;
+            cleanupGatewayResult = self(cleanupGatewayResult[9]).cleanupGateway();
+            const tmp32 = self;
+            if (currentOrderId) {
+              c5 = 1;
+              c6 = 2;
+              c7 = 1;
+              const obj4 = { value: tmp32(tmp33[10]).updateUserDroppedDuringPaymentStatus(currentOrderId), done: false };
+              return obj4;
+            }
+          }
+        } else if (1 === tmp3) {
+          c5 = 0;
+          closure_0 = closure_4;
+          cleanupGatewayResult = console;
+          console.error("PAYMENTSERVICE - Failed to update user-dropped status:", closure_0);
+          const _Error = Error;
+          self = this;
+          const self2 = this;
+          error = new Error("Unable to update your payment status. Please try again.");
+          error.displayMessage = error.message;
+        } else if (arg0 === 1) {
+          c7 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          c7 = 3;
+          return { value, done: true };
+        } else {
+          c5 = 0;
+        }
+        cleanupGatewayResult = paymentAttemptId + 1;
+        if (closure_3.paymentAttemptId !== cleanupGatewayResult) {
+          c7 = 3;
+          return { value: "return", done: null };
+        } else {
+          const paymentHandlers2 = closure_3.paymentHandlers;
+          const result1 = paymentHandlers2.resetSuppressedCallbacks();
+          cleanupGatewayResult = c1;
+          const routeError = paymentHandlers3.routeError;
+          if (c1 == null) {
+            cleanupGatewayResult = { order: obj5 };
+            obj5 = { id: currentOrderId || "" };
+          }
+          cleanupGatewayResult = routeError({ code: "user_aborted", message: "Payment canceled. Please try again!", type: "USER_CANCELLED" }, cleanupGatewayResult, () => closure_1_5.cleanup(), false, error);
+          c7 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp20) {
+        closure_4 = tmp20;
+        if (0 === c5) {
+          c7 = 3;
+          throw tmp20;
+        } else {
+          c6 = 1;
+        }
+      }
+    }
+  })();
+});
+items[16] = entry5;
+items[17] = {
+  key: "isProcessing",
+  value: function isProcessing() {
+    console.log("PAYMENTSERVICE - isProcessing called, returning:", this.paymentInProgress || this.isPolling);
+    return this.paymentInProgress || this.isPolling;
+  }
+};
+items[18] = {
+  key: "hasActivePaymentSession",
+  value: function hasActivePaymentSession() {
+    const self = this;
+    return this.paymentInProgress || self.isPolling || self.currentOrderId;
+  }
+};
+items[19] = {
+  key: "getCurrentOrderId",
+  value: function getCurrentOrderId() {
+    return this.currentOrderId;
+  }
+};
+items[20] = {
+  key: "getErrorMessage",
+  value: function getErrorMessage(error) {
+    return mapFriendlyErrorMessage.mapFriendlyErrorMessage(error);
+  }
+};
+const tmp4 = new _default(PaymentService, items)();
+
+export const paymentService = tmp4;
+export default tmp4;

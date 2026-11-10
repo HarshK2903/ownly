@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 1976
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 7,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 1976 (emitStandardBusiness) exports (6 total):\n  export \"emitStandardBusiness\" -> function 13185 (emitStandardBusiness)\n  export \"emitStandardImpressionBatch\" -> function 13189 (emitStandardImpressionBatch)\n  export \"emitStandardInteraction\" -> function 13183 (emitStandardInteraction)\n  export \"emitStandardNavigation\" -> function 13181 (emitStandardNavigation)\n  export \"emitStandardScreenView\" -> function 13179 (emitStandardScreenView)\n  export \"emitStandardSystem\" -> function 13187 (emitStandardSystem)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

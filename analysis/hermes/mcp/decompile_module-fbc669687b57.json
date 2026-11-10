@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1643
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 7,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1643 (runFetchCustomerDetails)\nimport _asyncToGenerator from \"_asyncToGenerator\" /* 2 */;\nimport module_1 from \"module_1\" /* 1 */;\n\nlet c4, c5;\n\nlet c2 = \"/api/v1/customer/details\";\nfunction createFetchCustomerDetailsRequest() {\n  let obj = arg0;\n  if (arg0 === undefined) {\n    obj = {};\n  }\n  let path = obj.path;\n  if (path == null) {\n    path = c2;\n  }\n  const request = { method: \"GET\", url: path, headers: obj.headers, timeoutMs: obj.timeoutMs, credentials: obj.credentials };\n  return request;\n}\nlet closure_0 = module_1(_asyncToGenerator).default(function*(arg0, value) {\n  let closure_3;\n  closure_0 = arg0;\n  let closure_1 = value;\n  if (c5 === 2) {\n    c5 = 3;\n    throw new TypeError(\"Generator functions may not be called on executing generators\");\n  } else if (tmp3 === 3) {\n    if (arg0 === 1) {\n      throw value;\n    } else if (arg0 === 2) {\n      const obj2 = { value, done: true };\n      return obj2;\n    } else {\n      return { value: \"return\", done: null };\n    }\n  } else {\n    try {\n      let obj4;\n      c5 = 2;\n      if (0 === c4) {\n        if (arg0 === 1) {\n          c5 = 3;\n          throw value;\n        } else if (arg0 === 2) {\n          c5 = 3;\n          const obj3 = { value, done: true };\n          return obj3;\n        } else {\n          let closure_2 = tmp;\n          obj4 = closure_1;\n          if (closure_1 === undefined) {\n            obj4 = {};\n          }\n          c4 = 1;\n          c5 = 1;\n          return { value: \"slice\", done: true };\n        }\n      } else if (arg0 === 1) {\n        c5 = 3;\n        throw value;\n      } else if (arg0 === 2) {\n        c5 = 3;\n        const obj5 = { value, done: true };\n        return obj5;\n      } else {\n        const obj = { operation: \"auth/fetch-customer-details\", includeResponseOnError: true, policy: { safeMethodsOnly: true } };\n        c5 = 3;\n        const obj6 = { value: closure_0(closure_1[2]).requestWithRetry(closure_0, tmp4(obj4), obj), done: true };\n        return obj6;\n      }\n    } catch (tmp13) {\n      c5 = 3;\n      throw tmp13;\n    }\n  }\n});\n\nexport { createFetchCustomerDetailsRequest };\nexport function runFetchCustomerDetails(arg0) {\n  return closure_0(...arguments);\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 17078,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 10,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  GetParentEnvironment r4, 0\n0003  LoadParam r2, 1\n0006  LoadFromEnvironment r1, r4, 5\n000a  GetByIdShort r7, r2, 0, \"path\"\n000f  LoadConstNull r0\n0011  JNotEqual L25, r7, r0\n0015  LoadFromEnvironment r7, r4, 2\nL25:\n0019  GetById r6, r2, 1, \"orderId\"\n001f  JmpTypeOfIs L47, r1, 128\n0027  LoadConstString r13, \"Trying to call a non-function\"\n002b  CallBuiltin r1, 44, 2\nL47:\n002f  LoadFromEnvironment r1, r4, 4\n0033  JmpTypeOfIs L67, r1, 128\n003b  LoadConstString r13, \"Trying to call a non-function\"\n003f  CallBuiltin r1, 44, 2\nL67:\n0043  NewObjectWithBufferLong r1, 3235, 111044\n004d  GetByIdShort r5, r7, 2, \"replace\"\n0052  LoadConstString r9, \"\"\n0056  CreateRegExp r3, \"\\\\/+$\", \"\", 225\n0064  Call3 r8, r5, r7, r3, r9\n006a  GetGlobalObject r3\n006c  TryGetById r5, r3, 3, \"encodeURIComponent\"\n0072  LoadConstUndefined r0\n0074  Call2 r11, r5, r0, r6\n0079  TryGetById r3, r3, 4, \"HermesInternal\"\n007f  GetByIdShort r6, r3, 5, \"concat\"\n0084  LoadConstString r10, \"/track\"\n0088  LoadConstString r12, \"/\"\n008c  Mov r14, r9\n008f  Mov r13, r8\n0092  Call r3, r6, 5\n0096  PutOwnBySlotIdx r1, r3, 1\n009a  NewObject r3\n009c  LoadFromEnvironment r12, r4, 3\n00a0  Mov r13, r3\n00a3  CallBuiltin r4, 46, 3\n00a7  GetById r12, r2, 6, \"headers\"\n00ad  Mov r13, r3\n00b0  CallBuiltin r4, 46, 3\n00b4  PutOwnBySlotIdx r1, r3, 2\n00b8  GetById r3, r2, 7, \"timeoutMs\"\n00be  PutOwnBySlotIdx r1, r3, 3\n00c2  GetById r2, r2, 8, \"credentials\"\n00c8  PutOwnBySlotIdx r1, r2, 4\n00cc  Ret r1\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

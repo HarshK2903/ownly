@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3767
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 12,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3767 (HOME_BOTTOM_BAR_HEIGHT)\nimport BASE_DESIGN_WIDTH from \"BASE_DESIGN_WIDTH\" /* 538 */;\n\n\nexport const HOME_NOVA_DATA_SOURCE = \"api\";\nexport const HOME_BOTTOM_BAR_HEIGHT = BASE_DESIGN_WIDTH.RW(70);\nexport const HOME_CART_DISCOUNT_BANNER_HEIGHT = BASE_DESIGN_WIDTH.RW(18);\nexport const HOME_LIST_CONTENT_EXTRA_PADDING = BASE_DESIGN_WIDTH.RW(24);\nexport const HOME_INITIAL_IMAGE_PRELOAD_SECTION_COUNT = 3;\nexport const HOME_INITIAL_IMAGE_PRELOAD_COUNT = 10;\nexport const HOME_INITIAL_HORIZONTAL_ROW_IMAGE_PRELOAD_COUNT = 5;\nexport const HOME_INITIAL_IMAGE_PRELOAD_CONCURRENCY = 5;\nexport const HOME_INITIAL_IMAGE_PRELOAD_TIMEOUT_MS = 4000;\nexport const HOME_DEFAULT_BACK_TO_TOP_SHOW_AFTER_SCROLL_RATIO = 0.5;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

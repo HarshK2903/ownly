@@ -1,0 +1,8 @@
+Found 7 cross-references for 'recordEvent':
+  Function 11385 (recordEvent) at offset 0027: GetById
+  Function 31971 (isAvailable) at offset 0017: GetById
+  Function 31972 (track) at offset 0028: GetById
+  Function 33291 () at offset 011a: GetById
+  Function 40516 (?anon_0_) at offset 03cb: GetById
+  Function 41656 (?anon_0_) at offset 01bc: GetById
+  Function 42299 (?anon_0_) at offset 00c2: GetById

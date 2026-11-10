@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 11163,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  LoadParam r2, 1\n0003  GetById r3, r2, 0, \"endpoint\"\n0009  LoadConstNull r0\n000b  JNotEqual L66, r3, r0\n000f  GetParentEnvironment r1, 0\n0012  LoadFromEnvironment r1, r1, 2\n0016  GetById r5, r2, 1, \"orderId\"\n001c  JmpTypeOfIs L44, r1, 128\n0024  LoadConstString r6, \"Trying to call a non-function\"\n0028  CallBuiltin r1, 44, 2\nL44:\n002c  GetGlobalObject r1\n002e  TryGetById r1, r1, 2, \"HermesInternal\"\n0034  GetByIdShort r4, r1, 3, \"concat\"\n0039  LoadConstString r1, \"/api/v1/orders/\"\n003d  Call2 r3, r4, r1, r5\nL66:\n0042  NewObjectWithBufferLong r1, 3208, 210065\n004c  PutOwnBySlotIdx r1, r3, 1\n0050  GetById r3, r2, 4, \"headers\"\n0056  PutOwnBySlotIdx r1, r3, 2\n005a  GetById r2, r2, 5, \"credentials\"\n0060  JNotEqual L104, r2, r0\n0064  LoadConstString r2, \"include\"\nL104:\n0068  PutOwnBySlotIdx r1, r2, 3\n006c  Ret r1\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

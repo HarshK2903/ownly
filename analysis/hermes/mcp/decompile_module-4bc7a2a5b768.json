@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1638
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 7,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1638 (selectCanRequestOtp)\nimport _mod1639 from \"module_1639\" /* 1639 */;\n\nfunction onlyDigits(arg0) {\n\n}\n\nexport function createAuthFlowSelectors(profile) {\n  const obj = { otpValue: _mod1639.selectOtpValue(profile), isPhoneValid: _mod1639.selectIsPhoneValid(profile), canRequestOtp: _mod1639.selectCanRequestOtp(profile), canVerifyOtp: _mod1639.selectCanVerifyOtp(profile), canSubmitProfile: _mod1639.selectCanSubmitProfile(profile), isEmailValid: _mod1639.selectIsEmailValid(profile.profile.email) };\n  return obj;\n}\nexport function createAuthFlowActions(arg0) {\n  let closure_0 = arg0;\n  let obj = {\n    setPhone(str) {\n      let replaced;\n      if (typeof onlyDigits === \"function\") {\n        const obj = { type: \"auth/setPhone\", phone: replaced.slice(0, 10) };\n        replaced = str.replace(/\\D/g, \"\");\n        tmp(obj);\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    },\n    setOtpDigit(index, str) {\n      let replaced;\n      const obj = { type: \"auth/setOtpDigit\", index, value: replaced.slice(0, 1) };\n      replaced = str.replace(/\\D/g, \"\");\n      closure_0(obj);\n    },\n    setOtpFromValue(otp) {\n      const obj = { type: \"auth/setOtpFromValue\", otp };\n      closure_0(obj);\n    },\n    clearOtp() {\n      closure_0({ type: \"auth/clearOtp\" });\n    },\n    backToPhone() {\n      closure_0({ type: \"auth/backToPhone\" });\n    },\n    setProfileName(name) {\n      const obj = { type: \"auth/setProfileName\", name };\n      closure_0(obj);\n    },\n    setProfileEmail(email) {\n      const obj = { type: \"auth/setProfileEmail\", email };\n      closure_0(obj);\n    },\n    setProfileDataSharing(value) {\n      const obj = { type: \"auth/setProfileDataSharing\", value };\n      closure_0(obj);\n    },\n    setProfileGender(gender) {\n      const obj = { type: \"auth/setProfileGender\", gender };\n      closure_0(obj);\n    },\n    requestOtpStart() {\n      closure_0({ type: \"auth/requestOtpStart\" });\n    },\n    requestOtpSuccess() {\n      closure_0({ type: \"auth/requestOtpSuccess\" });\n    },\n    requestOtpFailure(message) {\n      const obj = { type: \"auth/requestOtpFailure\", message };\n      closure_0(obj);\n    },\n    verifyOtpStart() {\n      closure_0({ type: \"auth/verifyOtpStart\" });\n    },\n    verifyOtpSuccess(token, isNewUser) {\n      const obj = { type: \"auth/verifyOtpSuccess\", token, isNewUser };\n      closure_0(obj);\n    },\n    verifyOtpFailure(message) {\n      const obj = { type: \"auth/verifyOtpFailure\", message };\n      closure_0(obj);\n    },\n    submitProfileStart() {\n      closure_0({ type: \"auth/submitProfileStart\" });\n    },\n    submitProfileSuccess() {\n      closure_0({ type: \"auth/submitProfileSuccess\" });\n    },\n    submitProfileFailure(message) {\n      const obj = { type: \"auth/submitProfileFailure\", message };\n      closure_0(obj);\n    },\n    resetErrors() {\n      closure_0({ type: \"auth/resetErrors\" });\n    },\n    resetFlow() {\n      closure_0({ type: \"auth/resetFlow\" });\n    }\n  };\n  return obj;\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

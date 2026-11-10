@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1153
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 5,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1153 (API_CONFIGS)\nconst require = globalThis.__r;\n\nfunction getApiConfigs() {\n  return require(\"resolveRuntimeConfig\").resolveApiConfig();\n}\nfunction getAppsFlyerConfig() {\n  return require(\"resolveRuntimeConfig\").resolveAppsFlyerConfig();\n}\nconst obj = {};\nObject.defineProperty(obj, \"APP_ENV\", { get: () => require(\"resolveRuntimeConfig\").getAppEnvironment(), set: undefined });\nObject.defineProperty(obj, \"BASE_URL\", {\n  get: () => {\n    if (typeof getApiConfigs === \"function\") {\n      return require(\"resolveRuntimeConfig\").resolveApiConfig().BASE_URL;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  },\n  set: undefined\n});\nObject.defineProperty(obj, \"API_KEY\", {\n  get: () => {\n    if (typeof getApiConfigs === \"function\") {\n      return require(\"resolveRuntimeConfig\").resolveApiConfig().API_KEY;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  },\n  set: undefined\n});\nObject.defineProperty(obj, \"SERVICEABILITY_API_KEY\", {\n  get: () => {\n    if (typeof getApiConfigs === \"function\") {\n      return require(\"resolveRuntimeConfig\").resolveApiConfig().SERVICEABILITY_API_KEY;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  },\n  set: undefined\n});\nObject.defineProperty(obj, \"UNIVERSAL_HEADERS\", {\n  get: () => {\n    if (typeof getApiConfigs === \"function\") {\n      return require(\"resolveRuntimeConfig\").resolveApiConfig().UNIVERSAL_HEADERS;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  },\n  set: undefined\n});\nconst obj2 = {};\nObject.defineProperty(obj2, \"DEV_KEY\", {\n  get: () => {\n    if (typeof getAppsFlyerConfig === \"function\") {\n      return require(\"resolveRuntimeConfig\").resolveAppsFlyerConfig().DEV_KEY;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  },\n  set: undefined\n});\nObject.defineProperty(obj2, \"IOS_APP_ID\", {\n  get: () => {\n    if (typeof getAppsFlyerConfig === \"function\") {\n      return require(\"resolveRuntimeConfig\").resolveAppsFlyerConfig().IOS_APP_ID;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  },\n  set: undefined\n});\nObject.defineProperty(obj2, \"ONE_LINK_ID\", {\n  get: () => {\n    if (typeof getAppsFlyerConfig === \"function\") {\n      return require(\"resolveRuntimeConfig\").resolveAppsFlyerConfig().ONE_LINK_ID;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  },\n  set: undefined\n});\n\nexport { getApiConfigs };\nexport function getApiEnvironment() {\n  return require(\"resolveRuntimeConfig\").getAppEnvironment();\n}\nexport { getAppsFlyerConfig };\nexport function getRuntimeConfig() {\n  return require(\"resolveRuntimeConfig\").resolveRuntimeConfig();\n}\nexport const API_CONFIGS = obj;\nexport const APPS_FLYER_CONFIG = obj2;\nexport { setAppEnvironmentOverride as setApiEnvironmentOverride } from \"resolveRuntimeConfig\";\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

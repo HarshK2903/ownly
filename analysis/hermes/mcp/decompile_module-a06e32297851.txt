@@ -1,0 +1,26 @@
+// Module 1662
+import _mod1663 from "module_1663" /* 1663 */;
+
+const module_1663 = _interopRequireWildcard(_mod1663);
+
+export default {
+  getCurrentPosition(arg0, arg1, arg2) {
+    const currentPosition = module_1663.getCurrentPosition(arg0, arg1, arg2);
+  },
+  watchPosition(arg0, arg1, arg2) {
+    return module_1663.watchPosition(arg0, arg1, arg2);
+  },
+  clearWatch(arg0) {
+    module_1663.clearWatch(arg0);
+  },
+  stopObserving() {
+    console.warn("`ReactNativeGeolocation.stopObserving` is deprecated and should not be used. Use `ReactNativeGeolocation.clearWatch` instead.");
+    module_1663.stopObserving();
+  },
+  requestAuthorization(arg0, arg1) {
+    const authorization = module_1663.requestAuthorization(arg0, arg1);
+  },
+  setRNConfiguration(arg0) {
+    module_1663.setRNConfiguration(arg0);
+  }
+};

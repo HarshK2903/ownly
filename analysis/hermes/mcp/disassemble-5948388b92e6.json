@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 11168,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 6,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  GetParentEnvironment r4, 0\n0003  LoadParam r3, 1\n0006  GetById r5, r3, 0, \"endpoint\"\n000c  LoadConstNull r1\n000e  JNotEqual L22, r5, r1\n0012  LoadFromEnvironment r5, r4, 2\nL22:\n0016  NewObjectWithBufferLong r2, 3216, 210074\n0020  PutOwnBySlotIdx r2, r5, 1\n0024  LoadFromEnvironment r4, r4, 4\n0028  LoadConstUndefined r0\n002a  Call2 r4, r4, r0, r3\n002f  PutOwnBySlotIdx r2, r4, 2\n0033  GetById r3, r3, 1, \"credentials\"\n0039  JNotEqual L65, r3, r1\n003d  LoadConstString r3, \"include\"\nL65:\n0041  PutOwnBySlotIdx r2, r3, 3\n0045  Ret r2\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

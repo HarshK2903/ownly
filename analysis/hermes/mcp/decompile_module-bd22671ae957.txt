@@ -1,0 +1,563 @@
+// Module 3914 (SearchService)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass from "_createClass" /* 6 */;
+import module_1 from "module_1" /* 1 */;
+
+let _self, closure_4, closure_5, constants;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+class SearchService {
+  constructor() {
+    _classCallCheck.default(this, SearchService);
+  }
+}
+const entry = {
+  key: "getSearchRecommendations",
+  value: function getSearchRecommendations(arg0, arg1) {
+    return closure_0(...arguments);
+  }
+};
+const _default = module_1(_createClass).default;
+_asyncToGenerator.default(async function(arg0, arg1) {
+  let self = this;
+  let closure_1 = arg0;
+  let closure_2 = arg1;
+  let c7 = 0;
+  let c8 = 0;
+  let c6 = 0;
+  return (async function(arg0, value) {
+    let self;
+    if (c8 === 2) {
+      c8 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let EntityResults;
+        c8 = 2;
+        if (0 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            constants = self;
+            _self = undefined;
+            request = undefined;
+            EntityResults = undefined;
+            c6 = 1;
+            const obj4 = {};
+            const tmp54 = self;
+            const tmp56 = closure_1;
+            if (closure_2) {
+              obj4["X-Query-ID"] = closure_2;
+            }
+            const baseApiService = self(closure_1[4]).baseApiService;
+            request = baseApiService.request;
+            const request1 = { endpoint: tmp54.SEARCH_RECOMMENDATIONS_ENDPOINT, method: "POST", body: tmp56 };
+            const _Object = Object;
+            let tmp38 = Object.keys(obj4).length > 0;
+            if (tmp38) {
+              tmp38 = { customHeaders: obj4 };
+              const obj5 = { customHeaders: obj4 };
+            }
+            const merged = Object.assign(tmp38);
+            request = request(request1);
+            c7 = 2;
+            c8 = 1;
+            return { value: request, done: false };
+          }
+        } else if (1 === tmp3) {
+          c6 = 0;
+          let closure_3 = closure_5;
+          const _console2 = console;
+          request = console.error("Search API error:", closure_3);
+          throw closure_3;
+        } else if (arg0 === 1) {
+          c8 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c6 = 0;
+          c8 = 3;
+          return { value, done: true };
+        } else {
+          _self = value;
+          request = _self.success;
+          if (request) {
+            const _console = console;
+            console.log("Search recommendations response:::::::", _self.data);
+            request = _self.data;
+            if (request.EntityResults) {
+              const _Array = Array;
+              request = Array.isArray;
+              if (request(request.EntityResults)) {
+                if (request.EntityResults.length === 0) {
+                  request = { suggestions: [], searchId: str4 };
+                  c6 = 0;
+                  c8 = 3;
+                  return { value: request, done: true };
+                } else {
+                  EntityResults = request.EntityResults;
+                  request = { suggestions: EntityResults.slice(0, constants.MAX_SUGGESTIONS), searchId: str3 };
+                  c6 = 0;
+                  c8 = 3;
+                  return { value: request, done: true };
+                }
+              }
+            }
+            request = { suggestions: [], searchId: str2 };
+            c6 = 0;
+            c8 = 3;
+            return { value: request, done: true };
+          } else {
+            request = _self.status;
+            if (request === 500) {
+              const _Error2 = Error;
+              const self3 = this;
+              const self4 = this;
+              const error1 = new Error("Server error occurred. Please try again later.");
+              request = error1;
+              throw error1;
+            } else {
+              request = _self.error;
+              if (request) {
+                const error = _self.error;
+                request = error.includes("search string length should be greater than 3");
+                if (request) {
+                  const obj = { suggestions: request, searchId: "" };
+                  request = [];
+                  c6 = 0;
+                  c8 = 3;
+                  return { value: obj, done: true };
+                }
+              }
+              request = _self.error;
+              const _Error = Error;
+              if (!request) {
+                const _HermesInternal = HermesInternal;
+                request = "HTTP error! status: " + _self.status;
+              }
+              self = this;
+              const self2 = this;
+              const _Error1 = new _Error(request);
+              request = _Error1;
+              throw _Error1;
+            }
+          }
+        }
+      } catch (tmp42) {
+        closure_5 = tmp42;
+        if (0 === c6) {
+          c8 = 3;
+          throw tmp42;
+        } else {
+          c7 = 1;
+        }
+      }
+    }
+  })();
+});
+const items = [entry, , , , , , ];
+const entry1 = {
+  key: "getFoodItemsGroupByRes",
+  value: function getFoodItemsGroupByRes(arg0, current) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0, arg1) {
+  let self = this;
+  let closure_1 = arg0;
+  let closure_2 = arg1;
+  let c4 = 0;
+  let c7 = 0;
+  let c6 = 0;
+  return (async function(arg0, value) {
+    if (c7 === 2) {
+      c7 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let data;
+        c7 = 2;
+        if (0 === c4) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c7 = 3;
+            return { value, done: true };
+          } else {
+            _self = undefined;
+            data = undefined;
+            c6 = 1;
+            const obj4 = {};
+            const tmp37 = closure_1;
+            if (closure_2) {
+              obj4["X-Search-Id"] = closure_2;
+            }
+            self = self(closure_1[4]).baseApiService;
+            const request1 = { endpoint: self.FOOD_ITEMS_GROUP_BY_RES_ENDPOINT, method: "POST", body: tmp37 };
+            const _Object = Object;
+            const request = self.request;
+            let tmp22 = Object.keys(obj4).length > 0;
+            if (tmp22) {
+              tmp22 = { customHeaders: obj4 };
+              const obj5 = { customHeaders: obj4 };
+            }
+            const merged = Object.assign(tmp22);
+            c4 = 2;
+            c7 = 1;
+            const obj6 = { value: request(request1), done: false };
+            return obj6;
+          }
+        } else if (1 === tmp3) {
+          c6 = 0;
+          closure_2 = closure_5;
+          const _console2 = console;
+          console.error("Food items search API error:", closure_2);
+          throw closure_2;
+        } else if (arg0 === 1) {
+          c7 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c6 = 0;
+          c7 = 3;
+          return { value, done: true };
+        } else {
+          _self = value;
+          if (_self.success) {
+            data = _self.data;
+            const _console = console;
+            console.log("Food items search response:::::::", data);
+            c6 = 0;
+            c7 = 3;
+            return { value: data, done: true };
+          } else {
+            let error = _self.error;
+            const _Error = Error;
+            if (!error) {
+              const _HermesInternal = HermesInternal;
+              error = "HTTP error! status: " + _self.status;
+            }
+            self = this;
+            const self2 = this;
+            const _Error1 = new _Error(error);
+            throw _Error1;
+          }
+        }
+      } catch (tmp26) {
+        closure_5 = tmp26;
+        if (0 === c6) {
+          c7 = 3;
+          throw tmp26;
+        } else {
+          c4 = 1;
+        }
+      }
+    }
+  })();
+});
+items[1] = entry1;
+const entry2 = {
+  key: "getSimilarRestaurants",
+  value: function getSimilarRestaurants(similarRestaurantsRequest, current) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async (request, searchId) => {
+  let c3 = 0;
+  let c4 = 0;
+  return (async function(arg0, value) {
+    if (c4 === 2) {
+      c4 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c4 = 2;
+        if (0 === c3) {
+          if (arg0 === 1) {
+            c4 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 3;
+            return { value, done: true };
+          } else {
+            closure_2 = tmp3;
+            request = undefined;
+            c3 = 1;
+            c4 = 1;
+            const obj4 = { request, searchId };
+            const obj5 = { value: request(searchId[5]).runSearchSimilarRestaurants(request(searchId[6]).rnRequestContext, obj4), done: false };
+            return obj5;
+          }
+        } else if (arg0 === 1) {
+          c4 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 3;
+          return { value, done: true };
+        } else {
+          request = value;
+          if (request.ok) {
+            c4 = 3;
+            return { value: request.data, done: true };
+          } else {
+            let str = request.error.message;
+            const _Error = Error;
+            if (!str) {
+              str = "Failed to load similar restaurants";
+            }
+            const self = this;
+            const self2 = this;
+            const _Error1 = new _Error(str);
+            throw _Error1;
+          }
+        }
+      } catch (tmp17) {
+        c4 = 3;
+        throw tmp17;
+      }
+    }
+  })();
+});
+items[2] = entry2;
+const entry3 = {
+  key: "getMenuItems",
+  value: function getMenuItems(arg0) {
+    return closure_0(...arguments);
+  }
+};
+let closure_0 = _asyncToGenerator.default(async function(body) {
+  let self = this;
+  let c3 = 0;
+  let c6 = 0;
+  let c5 = 0;
+  return (async function(arg0, value) {
+    let obj4;
+    let self;
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let data;
+        c6 = 2;
+        if (0 === c3) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            closure_2 = tmp3;
+            _self = undefined;
+            data = undefined;
+            c5 = 1;
+            const baseApiService = self(body[4]).baseApiService;
+            const request1 = { endpoint: self.MENU_ITEMS_ENDPOINT, method: "POST", customHeaders: obj4, body };
+            const request = baseApiService.request;
+            c3 = 2;
+            c6 = 1;
+            obj4 = { key: self(body[7]).API_CONFIGS.SERVICEABILITY_API_KEY };
+            const obj5 = { value: request(request1), done: false };
+            return obj5;
+          }
+        } else if (1 === c3) {
+          c5 = 0;
+          closure_2 = closure_4;
+          const _console = console;
+          console.error("Menu items API error:", closure_2);
+          throw closure_2;
+        } else if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          c6 = 3;
+          return { value, done: true };
+        } else {
+          _self = value;
+          if (_self.success) {
+            data = _self.data;
+            c5 = 0;
+            c6 = 3;
+            return { value: data, done: true };
+          } else {
+            let error = _self.error;
+            const _Error = Error;
+            if (!error) {
+              const _HermesInternal = HermesInternal;
+              error = "HTTP error! status: " + _self.status;
+            }
+            self = this;
+            const self2 = this;
+            const _Error1 = new _Error(error);
+            throw _Error1;
+          }
+        }
+      } catch (tmp17) {
+        closure_4 = tmp17;
+        if (0 === c5) {
+          c6 = 3;
+          throw tmp17;
+        } else {
+          c3 = 1;
+        }
+      }
+    }
+  })();
+});
+items[3] = entry3;
+items[4] = {
+  key: "debouncedSearch",
+  value: function debouncedSearch(arg0, callback, callback1, searchQueryId) {
+    let closure_0 = arg0;
+    let closure_1 = callback;
+    let closure_2 = callback1;
+    let closure_3 = searchQueryId;
+    const self = this;
+    if (this.debounceTimeout) {
+      const tmp = globalThis;
+      const _clearTimeout = clearTimeout;
+      clearTimeout(self.debounceTimeout);
+    }
+    self.debounceTimeout = setTimeout(_asyncToGenerator.default(async (arg0, value) => {
+      if (c5 === 2) {
+        c5 = 3;
+        throw new TypeError("Generator functions may not be called on executing generators");
+      } else if (tmp3 === 3) {
+        if (arg0 === 1) {
+          throw value;
+        } else if (arg0 === 2) {
+          const obj2 = { value, done: true };
+          return obj2;
+        } else {
+          return { value: "return", done: null };
+        }
+      } else {
+        let c3;
+        try {
+          let suggestions;
+          let searchId;
+          c5 = 2;
+          if (0 === c4) {
+            if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c5 = 3;
+              const obj3 = { value, done: true };
+              return obj3;
+            } else {
+              closure_1 = tmp;
+              closure_0 = undefined;
+              suggestions = undefined;
+              searchId = undefined;
+              c3 = 1;
+              c4 = 2;
+              c5 = 1;
+              const obj4 = { value: self.getSearchRecommendations(closure_0, closure_3), done: false };
+              return obj4;
+            }
+          } else {
+            if (1 === c4) {
+              c3 = 0;
+              closure_3 = closure_2;
+              if (closure_129_2) {
+                closure_129_2(closure_2);
+              }
+            } else if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c3 = 0;
+              c5 = 3;
+              const obj = { value, done: true };
+              return obj;
+            } else {
+              closure_0 = value;
+              suggestions = closure_0.suggestions;
+              searchId = closure_0.searchId;
+              closure_129_1(suggestions, searchId);
+              c3 = 0;
+            }
+            c5 = 3;
+            return { value: "return", done: null };
+          }
+        } catch (tmp20) {
+          closure_2 = tmp20;
+          if (0 === c3) {
+            c5 = 3;
+            throw tmp20;
+          } else {
+            c4 = 1;
+          }
+        }
+      }
+    }), self.DEBOUNCE_DELAY);
+  }
+};
+items[5] = {
+  key: "cancelPendingSearch",
+  value: function cancelPendingSearch() {
+    const self = this;
+    if (this.debounceTimeout) {
+      const _clearTimeout = clearTimeout;
+      clearTimeout(self.debounceTimeout);
+      self.debounceTimeout = null;
+    }
+  }
+};
+items[6] = {
+  key: "minSearchLength",
+  get() {
+    return this.MIN_SEARCH_LENGTH;
+  }
+};
+const _defaultResult = _default(SearchService, null, items);
+_defaultResult.debounceTimeout = null;
+_defaultResult.SEARCH_RECOMMENDATIONS_ENDPOINT = "/api/v1/search/get-search-recommendations";
+_defaultResult.FOOD_ITEMS_GROUP_BY_RES_ENDPOINT = "/api/v1/search/get-food-items-group-by-res";
+_defaultResult.MENU_ITEMS_ENDPOINT = "/api/v1/menu/items";
+_defaultResult.DEBOUNCE_DELAY = 300;
+_defaultResult.MIN_SEARCH_LENGTH = 3;
+_defaultResult.MAX_SUGGESTIONS = 20;
+const SearchService_export = _defaultResult;
+
+export { SearchService_export as SearchService };

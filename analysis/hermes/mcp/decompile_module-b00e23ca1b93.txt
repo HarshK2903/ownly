@@ -1,0 +1,11 @@
+// Module 3938
+const require = globalThis.__r;
+
+
+export const analytics = require("analytics").analytics;
+export const cleverTapSink = require("cleverTapSink").cleverTapSink;
+export const consoleSink = require("consoleSink").consoleSink;
+export const createCleverTapSink = require("cleverTapSink").createCleverTapSink;
+export const createConsoleSink = require("consoleSink").createConsoleSink;
+export const restaurantPageAnalytics = require("analytics").restaurantPageAnalytics;
+export const restaurantSearchAnalytics = require("analytics").restaurantSearchAnalytics;

@@ -1,0 +1,198 @@
+// Module 3939 (analytics)
+import DeviceInfo2 from "DeviceInfo" /* 733 */;
+import _mod1127 from "module_1127" /* 1127 */;
+import _mod1223 from "module_1223" /* 1223 */;
+import DeviceInfoService2 from "DeviceInfoService" /* 1673 */;
+import renewAnalyticsRuntimeSession from "renewAnalyticsRuntimeSession" /* 1693 */;
+import _mod1695 from "module_1695" /* 1695 */;
+import HotUpdater2 from "HotUpdater" /* 1696 */;
+import _mod1714 from "module_1714" /* 1714 */;
+import consumeScreenViewRefocusSuppression from "consumeScreenViewRefocusSuppression" /* 1715 */;
+import _mod1719 from "module_1719" /* 1719 */;
+import _mod2011 from "module_2011" /* 2011 */;
+import _mod3940 from "module_3940" /* 3940 */;
+import consoleSink from "consoleSink" /* 3959 */;
+import cleverTapSink from "cleverTapSink" /* 3960 */;
+import module_1 from "module_1" /* 1 */;
+import react_native from "react-native" /* 15 */;
+
+let HotUpdater;
+let _default;
+let _default2;
+let _default3;
+let _default4;
+let createGlobalContextStore;
+let getRuntimeGlobalContext;
+let obj3;
+let obj4;
+const DeviceInfo = module_1(DeviceInfo2);
+const DeviceInfoService = module_1(DeviceInfoService2);
+const module_1127 = module_1(_mod1127);
+_mod1695.syncRequestSessionId(renewAnalyticsRuntimeSession.getAnalyticsRuntimeSessionId());
+let obj = {
+  scheduleImmediate(task) {
+    const timerId = setTimeout(task, 0);
+  },
+  scheduleDelayed(task, arg1) {
+    const timerId = setTimeout(task, arg1);
+  },
+  now() {
+    return Date.now();
+  }
+};
+const obj2 = {
+  sinks: obj3,
+  globalContext: createGlobalContextStore(obj4),
+  getGlobalContext: getRuntimeGlobalContext,
+  scheduler: obj,
+  getRuntimeConfig() {
+    return { enabled: true };
+  },
+  diagnostics(arg0) {
+
+  }
+};
+obj3 = { console: consoleSink.consoleSink, clevertap: cleverTapSink.cleverTapSink };
+const createAnalytics = _mod3940.createAnalytics;
+obj4 = { app_platform: "android", app_version: _default.getVersion(), app_build: _default2.getBuildNumber(), app_device_model: _default3.getModel(), app_os_version: _default4.getSystemVersion(), app_hotupdater_bundle_id: HotUpdater.getBundleId(), device_id: _default5.getUniqueDeviceIdSync() || undefined };
+_default = DeviceInfo.default;
+createGlobalContextStore = _mod3940.createGlobalContextStore;
+_default2 = DeviceInfo.default;
+_default3 = DeviceInfo.default;
+_default4 = DeviceInfo.default;
+HotUpdater = HotUpdater2.HotUpdater;
+getRuntimeGlobalContext = function getRuntimeGlobalContext() {
+  let num;
+  let num2;
+  let num3;
+  let num4;
+  let str;
+  let str2;
+  let str3;
+  let str4;
+  let str5;
+  const selectCurrentSelectedLocation = _mod2011.selectCurrentSelectedLocation;
+  const store = _mod1719.store;
+  const currentSelectedLocation = selectCurrentSelectedLocation(store.getState());
+  const latestServiceabilityContext = _mod1714.getLatestServiceabilityContext();
+  const _default = module_1127.default;
+  const storedUser = _default.getStoredUser();
+  const _default2 = module_1127.default;
+  const storedCustomerDetails = _default2.getStoredCustomerDetails();
+  const locationService = _mod1223.locationService;
+  const location = locationService.getCachedDeviceLocationSync();
+  const navigationEventContext = consumeScreenViewRefocusSuppression.getNavigationEventContext();
+  const obj = { session_id: renewAnalyticsRuntimeSession.getAnalyticsRuntimeSessionId(), device_id: _default3.getUniqueDeviceIdSync() || "unknown", actor_type: "customer", actor_id: str, geo_selected_city_id: str2, geo_selected_city_name: str3, geo_current_lat: num, geo_current_lng: num2, geo_selected_lat: num3, geo_selected_lng: num4, geo_selected_address_name: str4, geo_selected_area_name: str5, ctx_current_screen: null, ctx_previous_screen: null };
+  str = undefined;
+  DeviceInfoService.default.getUniqueDeviceIdSync() || "unknown";
+  if (storedCustomerDetails != null) {
+    str = storedCustomerDetails.id;
+  }
+  if (!str) {
+    let id;
+    if (storedUser != null) {
+      id = storedUser.id;
+    }
+    str = id;
+  }
+  if (!str) {
+    str = "anonymous";
+  }
+  str2 = undefined;
+  if (latestServiceabilityContext != null) {
+    str2 = latestServiceabilityContext.cityId;
+  }
+  if (!str2) {
+    let cityId;
+    if (currentSelectedLocation != null) {
+      cityId = currentSelectedLocation.cityId;
+    }
+    str2 = cityId;
+  }
+  if (!str2) {
+    str2 = "unknown";
+  }
+  str3 = undefined;
+  if (latestServiceabilityContext != null) {
+    str3 = latestServiceabilityContext.cityName;
+  }
+  if (!str3) {
+    let city;
+    if (currentSelectedLocation != null) {
+      city = currentSelectedLocation.city;
+    }
+    str3 = city;
+  }
+  if (!str3) {
+    str3 = "unknown";
+  }
+  num = undefined;
+  if (location != null) {
+    num = location.latitude;
+  }
+  if (num == null) {
+    num = 0;
+  }
+  num2 = undefined;
+  if (location != null) {
+    num2 = location.longitude;
+  }
+  if (num2 == null) {
+    num2 = 0;
+  }
+  num3 = undefined;
+  if (currentSelectedLocation != null) {
+    const coordinates = currentSelectedLocation.coordinates;
+    if (coordinates != null) {
+      num3 = coordinates.latitude;
+    }
+  }
+  if (num3 == null) {
+    num3 = 0;
+  }
+  num4 = undefined;
+  if (currentSelectedLocation != null) {
+    const coordinates2 = currentSelectedLocation.coordinates;
+    if (coordinates2 != null) {
+      num4 = coordinates2.longitude;
+    }
+  }
+  if (num4 == null) {
+    num4 = 0;
+  }
+  str4 = undefined;
+  if (currentSelectedLocation != null) {
+    str4 = currentSelectedLocation.detailedAddress;
+  }
+  if (!str4) {
+    str4 = "unknown";
+  }
+  str5 = undefined;
+  if (latestServiceabilityContext != null) {
+    str5 = latestServiceabilityContext.opsLayerName;
+  }
+  if (!str5) {
+    let areaName;
+    if (currentSelectedLocation != null) {
+      areaName = currentSelectedLocation.areaName;
+    }
+    str5 = areaName;
+  }
+  if (!str5) {
+    str5 = "unknown";
+  }
+  ({ ctx_current_screen: obj.ctx_current_screen, ctx_previous_screen: obj.ctx_previous_screen } = navigationEventContext);
+  return obj;
+};
+DeviceInfoService.default.getUniqueDeviceIdSync() || undefined;
+const analytics = createAnalytics(obj2);
+const AppState = react_native.AppState;
+const listener = AppState.addEventListener("change", (event) => {
+  if (event === "background") {
+    analytics.flush();
+  }
+});
+
+export { analytics };
+export const restaurantPageAnalytics = _mod3940.createRestaurantPageAnalytics(analytics);
+export const restaurantSearchAnalytics = _mod3940.createRestaurantSearchAnalytics(analytics);

@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 3317
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 11,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 3317 (runFetchRiderTracking) exports (1 total):\n  export \"runFetchRiderTracking\" -> function 30124 (runFetchRiderTracking)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3316
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 17,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3316 (runFetchOrderTrackingOrder)\nimport _asyncToGenerator from \"_asyncToGenerator\" /* 2 */;\nimport module_1 from \"module_1\" /* 1 */;\n\nlet c2 = \"/api/v1/orders\";\nlet closure_3 = { key: \"[REDACTED_EMBEDDED_CREDENTIAL]\" };\nfunction trimTrailingSlash(arg0) {\n\n}\nfunction buildOrderUrl(arg0, arg1) {\n\n}\nfunction normalizeOrderPayload(order) {\n  const tmp = order;\n  if (tmp) {\n    if (typeof order === \"object\") {\n      if (order.order) {\n        if (typeof order.order === \"object\") {\n          return order.order;\n        }\n      }\n      return order;\n    }\n  }\n  return null;\n}\nfunction createFetchOrderTrackingOrderRequest(path) {\n  let obj2;\n  let replaced;\n  let str = path.path;\n  const tmp = buildOrderUrl;\n  if (str == null) {\n    str = c2;\n  }\n  if (typeof tmp === \"function\") {\n    if (typeof trimTrailingSlash === \"function\") {\n      const request = { method: \"GET\", url: \"\" + replaced + \"/\" + encodeURIComponent(tmp2), headers: obj2, timeoutMs: null, credentials: null };\n      const _encodeURIComponent = encodeURIComponent;\n      replaced = str.replace(/\\/+$/, \"\");\n      const _HermesInternal = HermesInternal;\n      obj2 = {};\n      const merged = Object.assign(closure_3);\n      const merged1 = Object.assign(path.headers);\n      ({ timeoutMs: obj.timeoutMs, credentials: obj.credentials } = path);\n      return request;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nlet closure_0 = module_1(_asyncToGenerator).default((value, arg1) => {\n  let closure_2;\n  let closure_1 = arg1;\n  let c4 = 0;\n  let c5 = 0;\n  return (function*(arg0, value) {\n    const obj4 = { operation: \"order-tracking/fetch-order\", includeResponseOnError: true, policy: { safeMethodsOnly: true } };\n    value = yield value(closure_1[2]).requestWithRetry(value, closure_1_7(closure_1), obj4);\n    if (value.ok) {\n      const obj7 = { data: closure_1_6(value.data) };\n      const merged = Object.assign(value);\n      return obj7;\n    }\n    return value;\n  })();\n});\n\nexport { createFetchOrderTrackingOrderRequest };\nexport function runFetchOrderTrackingOrder(arg0, arg1) {\n  return closure_0(...arguments);\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

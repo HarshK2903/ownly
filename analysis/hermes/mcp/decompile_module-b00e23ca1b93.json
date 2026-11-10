@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3938
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 20,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3938\nconst require = globalThis.__r;\n\n\nexport const analytics = require(\"analytics\").analytics;\nexport const cleverTapSink = require(\"cleverTapSink\").cleverTapSink;\nexport const consoleSink = require(\"consoleSink\").consoleSink;\nexport const createCleverTapSink = require(\"cleverTapSink\").createCleverTapSink;\nexport const createConsoleSink = require(\"consoleSink\").createConsoleSink;\nexport const restaurantPageAnalytics = require(\"analytics\").restaurantPageAnalytics;\nexport const restaurantSearchAnalytics = require(\"analytics\").restaurantSearchAnalytics;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

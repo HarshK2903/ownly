@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 18918,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 5,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  LoadParam r2, 1\n0003  GetParentEnvironment r1, 0\n0006  LoadFromEnvironment r3, r1, 1\n000a  GetById r8, r2, 0, \"pageContext\"\n0010  JmpTypeOfIs L32, r3, 128\n0018  LoadConstString r9, \"Trying to call a non-function\"\n001c  CallBuiltin r1, 44, 2\nL32:\n0020  NewObject r1\n0022  CreateFunctionEnvironment r5, 1\n0025  StoreToEnvironment r5, 0, r1\n0029  GetGlobalObject r4\n002b  TryGetById r7, r4, 1, \"Object\"\n0031  GetByIdShort r6, r7, 2, \"entries\"\n0036  Call2 r7, r6, r7, r8\n003b  GetByIdShort r6, r7, 3, \"forEach\"\n0040  CreateClosure r5, r5, 31903\n0045  Call2 r5, r6, r7, r5\n004a  GetByIdShort r8, r2, 4, \"payload\"\n004f  JmpTypeOfIs L95, r3, 128\n0057  LoadConstString r9, \"Trying to call a non-function\"\n005b  CallBuiltin r5, 44, 2\nL95:\n005f  CreateFunctionEnvironment r5, 1\n0062  StoreToEnvironment r5, 0, r1\n0066  TryGetById r7, r4, 1, \"Object\"\n006c  GetByIdShort r6, r7, 2, \"entries\"\n0071  Call2 r7, r6, r7, r8\n0076  GetByIdShort r6, r7, 3, \"forEach\"\n007b  CreateClosure r5, r5, 31903\n0080  Call2 r5, r6, r7, r5\n0085  GetById r6, r2, 5, \"globalContext\"\n008b  JmpTypeOfIs L155, r3, 128\n0093  LoadConstString r9, \"Trying to call a non-function\"\n0097  CallBuiltin r3, 44, 2\nL155:\n009b  CreateFunctionEnvironment r3, 1\n009e  StoreToEnvironment r3, 0, r1\n00a2  TryGetById r5, r4, 1, \"Object\"\n00a8  GetByIdShort r4, r5, 2, \"entries\"\n00ad  Call2 r5, r4, r5, r6\n00b2  GetByIdShort r4, r5, 3, \"forEach\"\n00b7  CreateClosure r3, r3, 31903\n00bc  Call2 r3, r4, r5, r3\n00c1  GetByIdShort r3, r2, 6, \"config\"\n00c6  GetByIdShort r4, r3, 7, \"type\"\n00cb  LoadConstString r3, \"interaction\"\n00cf  JStrictEqual L298, r4, r3\n00d3  GetByIdShort r3, r2, 6, \"config\"\n00d8  GetById r3, r3, 8, \"includeEntityInPayload\"\n00de  LoadConstFalse r0\n00e0  JStrictEqualLong L379, r3, r0\n00e7  GetByIdShort r3, r2, 6, \"config\"\n00ec  GetById r3, r3, 9, \"payloadEntity\"\n00f2  LoadConstNull r0\n00f4  JNotEqual L259, r3, r0\n00f8  GetByIdShort r4, r2, 6, \"config\"\n00fd  GetById r3, r4, 10, \"entity\"\nL259:\n0103  PutByIdLoose r1, r3, 0, \"entity\"\n0109  GetByIdShort r3, r2, 6, \"config\"\n010e  GetById r3, r3, 11, \"payloadAction\"\n0114  JmpFalse L379, r3\n0117  GetByIdShort r3, r2, 6, \"config\"\n011c  GetById r3, r3, 11, \"payloadAction\"\n0122  PutByIdLoose r1, r3, 1, \"action\"\n0128  Jmp L379\nL298:\n012a  GetByIdShort r3, r2, 6, \"config\"\n012f  GetById r3, r3, 12, \"screen\"\n0135  PutByIdLoose r1, r3, 2, \"ui_screen\"\n013b  GetByIdShort r3, r2, 6, \"config\"\n0140  GetById r3, r3, 10, \"entity\"\n0146  PutByIdLoose r1, r3, 3, \"ui_component\"\n014c  GetByIdShort r3, r2, 6, \"config\"\n0151  GetById r3, r3, 13, \"element\"\n0157  JmpFalse L363, r3\n015a  GetByIdShort r3, r2, 6, \"config\"\n015f  GetById r3, r3, 13, \"element\"\n0165  PutByIdLoose r1, r3, 4, \"ui_element\"\nL363:\n016b  GetByIdShort r3, r2, 6, \"config\"\n0170  GetByIdShort r3, r3, 14, \"action\"\n0175  PutByIdLoose r1, r3, 1, \"action\"\nL379:\n017b  GetById r3, r2, 15, \"eventName\"\n0181  PutByIdLoose r1, r3, 5, \"event_name\"\n0187  GetByIdShort r3, r2, 6, \"config\"\n018c  GetByIdShort r3, r3, 7, \"type\"\n0191  PutByIdLoose r1, r3, 6, \"event_type\"\n0197  GetById r3, r2, 16, \"schemaVersion\"\n019d  PutByIdLoose r1, r3, 7, \"schema_version\"\n01a3  GetById r3, r2, 17, \"capturedAtMs\"\n01a9  PutByIdLoose r1, r3, 8, \"ts_ms\"\n01af  GetById r2, r2, 18, \"eventId\"\n01b5  PutByIdLoose r1, r2, 9, \"event_id\"\n01bb  Ret r1\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

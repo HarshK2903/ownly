@@ -1,0 +1,94 @@
+// Module 1153 (API_CONFIGS)
+const require = globalThis.__r;
+
+function getApiConfigs() {
+  return require("resolveRuntimeConfig").resolveApiConfig();
+}
+function getAppsFlyerConfig() {
+  return require("resolveRuntimeConfig").resolveAppsFlyerConfig();
+}
+const obj = {};
+Object.defineProperty(obj, "APP_ENV", { get: () => require("resolveRuntimeConfig").getAppEnvironment(), set: undefined });
+Object.defineProperty(obj, "BASE_URL", {
+  get: () => {
+    if (typeof getApiConfigs === "function") {
+      return require("resolveRuntimeConfig").resolveApiConfig().BASE_URL;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  },
+  set: undefined
+});
+Object.defineProperty(obj, "API_KEY", {
+  get: () => {
+    if (typeof getApiConfigs === "function") {
+      return require("resolveRuntimeConfig").resolveApiConfig().API_KEY;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  },
+  set: undefined
+});
+Object.defineProperty(obj, "SERVICEABILITY_API_KEY", {
+  get: () => {
+    if (typeof getApiConfigs === "function") {
+      return require("resolveRuntimeConfig").resolveApiConfig().SERVICEABILITY_API_KEY;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  },
+  set: undefined
+});
+Object.defineProperty(obj, "UNIVERSAL_HEADERS", {
+  get: () => {
+    if (typeof getApiConfigs === "function") {
+      return require("resolveRuntimeConfig").resolveApiConfig().UNIVERSAL_HEADERS;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  },
+  set: undefined
+});
+const obj2 = {};
+Object.defineProperty(obj2, "DEV_KEY", {
+  get: () => {
+    if (typeof getAppsFlyerConfig === "function") {
+      return require("resolveRuntimeConfig").resolveAppsFlyerConfig().DEV_KEY;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  },
+  set: undefined
+});
+Object.defineProperty(obj2, "IOS_APP_ID", {
+  get: () => {
+    if (typeof getAppsFlyerConfig === "function") {
+      return require("resolveRuntimeConfig").resolveAppsFlyerConfig().IOS_APP_ID;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  },
+  set: undefined
+});
+Object.defineProperty(obj2, "ONE_LINK_ID", {
+  get: () => {
+    if (typeof getAppsFlyerConfig === "function") {
+      return require("resolveRuntimeConfig").resolveAppsFlyerConfig().ONE_LINK_ID;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  },
+  set: undefined
+});
+
+export { getApiConfigs };
+export function getApiEnvironment() {
+  return require("resolveRuntimeConfig").getAppEnvironment();
+}
+export { getAppsFlyerConfig };
+export function getRuntimeConfig() {
+  return require("resolveRuntimeConfig").resolveRuntimeConfig();
+}
+export const API_CONFIGS = obj;
+export const APPS_FLYER_CONFIG = obj2;
+export { setAppEnvironmentOverride as setApiEnvironmentOverride } from "resolveRuntimeConfig";

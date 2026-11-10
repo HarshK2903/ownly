@@ -1,0 +1,23 @@
+# Startup flow
+
+Analyzed only the supplied base APK, package `com.ownly.customer`, version 2.0.7 (358), min SDK 24, target SDK 36. SHA-256: `5495bcf9cf03a7b956e253a2747c10f0222454b1e2106fa53213cd53dc708a05`. REA/JADX headless 0.7.1 reports 16885 classes and 2055 resources. Manifest evidence: `ev_25c9cfa3d80fcfda38c832fe4d5cb009c9b9103ad9dd7c5a94d2943f7697af6f`.
+
+All findings are static artifact observations or reconstructions from decompiled bodies, not runtime observations. No application execution, production requests, or APK modifications were performed. Evidence IDs resolve to records in [rea-evidence.json](rea-evidence.json); [method-evidence.md](method-evidence.md) preserves inspected method bodies, prototypes and limitations. Decompiled display names can be aliases; obfuscated names below are preserved rather than renamed. Dynamic/reflective/JS calls are outside JADX reference coverage. Signatures and split APK contents were not verified.
+
+## Reconstructed startup chain
+
+1. Android selects manifest application `com.pairip.application.Application`; constructor invokes MainApplication constructor. `ev_7ec903b5debf5aec762bc6f00199bf417e7806a4f4eccfe33a1b7fa501692021`
+2. Wrapper `attachBaseContext(Context)` calls `LicenseClient.checkLicense(context)` before `super.attachBaseContext(context)`. This observes a license-check call, not its runtime outcome. `ev_4aaebc6ed8bca4789e06f062599975668c117132b89cc30e81887d693dc8a6f0`
+3. Manifest declares initialization providers, including FirebaseInitProvider (initOrder 100), ReactNativeFirebaseAppInitProvider (99), ReactNativeFirebaseCrashlyticsInitProvider (98), NotifeeInitProvider (-100), AndroidX InitializationProvider, CashfreeCoreContentProvider and PicassoProvider. Android lifecycle ordering before Application.onCreate is an inference from the component lifecycle; no provider execution was captured. Exact declarations are in [AndroidManifest.xml](AndroidManifest.xml). `ev_25c9cfa3d80fcfda38c832fe4d5cb009c9b9103ad9dd7c5a94d2943f7697af6f`
+4. Inherited `com.ownly.customer.MainApplication.onCreate()` calls `com.clevertap.android.sdk.e.b(this)`, `f0.b2(f0.b.VERBOSE)`, `super.onCreate()`, `SoLoader.l(this, OpenSourceMergedSoMapping.a)`, then `DefaultNewArchitectureEntryPoint.load()`, in that order. `f0` is an unqualified decompiler display type here; its fully qualified owner was not resolved. `ev_43f0d6293fbbeb1af5195240ae91d19c673015bdf0082030e8d82650b8755e6a`
+5. DefaultIcon alias launches MainActivity. Its onCreate initializes a timestamp via `h` when zero, applies theme `k.a`, calls `super.onCreate(null)`, invokes `w0.b(getWindow(),true)` and `h.o(this)`. Unqualified helper owners are not expanded without evidence. It intentionally passes null rather than the received saved-state bundle. `ev_b0b721bc80f6352bcba4616ff4046fe77c8184f537ca1e6ff80e6ce58c0e6a72` `ev_25c9cfa3d80fcfda38c832fe4d5cb009c9b9103ad9dd7c5a94d2943f7697af6f`
+6. React component name is `consumerapp`; host entry name is `index`. Generated RN packages are obtained by `new com.facebook.react.i(this).a()` and extended by the host `l()` method. `ev_3274c189887357f0804a6bede9aa0ae0170696b006a19dbff219106ad7e2d45c` `ev_47521fae078ab6d16f593981947c908da3633fb1c4cbaebbcbb666404a78c582` `ev_6e806600d87aa25f4aa105513fbe4ef8fdeae62400799606949b7fdff14eef43` `ev_c687cd1c9935ea85e2d4ffd9efa3131b57f9b47160379144d0861a8f11354402`
+7. Host `g()` delegates to HotUpdater `C.a.d(context)`; that obtains/caches an H instance and calls `H.k()` → `o().a()`. Final path-selection branch is not decoded, so no claim that the packaged bundle always wins over a downloaded update. `ev_87d81435c0813ea7d1979d699c01fef9c49d8103408d08a8d93e331b6b1d5e75` `ev_3ef2b235127c346e02262e6df0746733f73fc0a5f358887933602b21aa40c1ed` `ev_48d64110b292c52b9b8be088c9ca762b51f2a6300e2374346b3268a514c5e6e9` `ev_e38f64ef8d84c6216b07de8f73b57d1c095efc5d8518ce758883231d48ef3405`
+
+## Intent entry paths
+
+MainActivity is exported, singleTask, portrait. Manifest includes `ownlyapp:` and verified-link declarations for `https://ownly.food/app` and `https://ownly.onelink.me/tMlo`. These are declared URI matching rules, not verified server association or API endpoints. `onNewIntent` calls the superclass then `setIntent(intent)`; JS destination resolution remains unknown. `ev_25c9cfa3d80fcfda38c832fe4d5cb009c9b9103ad9dd7c5a94d2943f7697af6f` `ev_55dd3c02665953b74b208ede8037630fd7fa9a16e04be9f20abe97dbb92a2de8`
+
+## Call-graph limits
+
+JADX incoming references to MainApplication.onCreate are zero (`ev_60e2c279d12469e2fb5ec0b35e9be8c93872b3985507a570281bfc3d0fe999da`). This does not negate Android framework invocation. Likewise zero DEX users of a ReactMethod does not prove it is unused: JS calls cross a bridge.

@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 3952
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 8,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 3952 (materializeAnalyticsEvent) exports (1 total):\n  export \"materializeAnalyticsEvent\" -> function 18918 (materializeAnalyticsEvent)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

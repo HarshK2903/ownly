@@ -1,0 +1,1170 @@
+evidence_id: ev_9524b1e714307a8f2b4f7596c473523d8e4e0c6c54c5c2eca97990a4518751d1
+subject:
+  name: base.apk
+  digest:
+    sha256: 5495bcf9cf03a7b956e253a2747c10f0222454b1e2106fa53213cd53dc708a05
+  local_path: /home/bugulnoz/research/ownly/apk/com.ownly.customer/base.apk
+  format: apk
+  architecture: null
+provider:
+  id: jadx
+  name: JADX headless
+  version: 0.7.1
+analysis_profile: null
+predicate_type: rea.analysis
+operation: inspect_android_package
+parameters:
+  path: /home/bugulnoz/research/ownly/apk/com.ownly.customer/base.apk
+raw_result:
+  server:
+    name: rea-jadx-bridge
+    version: "7"
+  bridge_sha256: e5044a8312dd0731f53af3f095508b3e5cff54df6b971c95d4305e2f39b4fa30
+  jar_sha256: 6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75
+  loaded:
+    state: LOADED
+    apk_path: /tmp/rea-android-5PTbXv/target.apk
+    class_count: 16885
+    resource_count: 2055
+    threads: 1
+    resources: full
+  calls[4]:
+    - operation: rea_jvm_status
+      input:
+      response:
+        content[1]{type,text}:
+          text,"{\"metadata_scope\":\"parsed_members\",\"max_heap_bytes\":1908408320,\"java_version\":\"21.0.12.1\",\"available_processors\":12,\"engine_reported_version\":\"0.7.1\"}"
+        isError: false
+    - operation: load_apk
+      input:
+        path: /tmp/rea-android-5PTbXv/target.apk
+        threads: 1
+        resources: full
+      response:
+        content[1]{type,text}:
+          text,"{\"state\":\"LOADED\",\"apk_path\":\"/tmp/rea-android-5PTbXv/target.apk\",\"class_count\":16885,\"raw_class_count\":16885,\"resource_count\":2055,\"load_duration_ms\":5635,\"decompile_timeout_ms\":90000,\"threads\":1,\"code_cache_size\":64,\"resources\":\"full\"}"
+        isError: false
+    - operation: get_app_info
+      input:
+      response:
+        content[1]{type,text}:
+          text,"{\"package\":\"com.ownly.customer\",\"version_name\":\"2.0.7\",\"version_code\":\"358\",\"min_sdk\":\"24\",\"target_sdk\":\"36\",\"permissions\":[\"android.permission.INTERNET\",\"android.permission.ACCESS_NETWORK_STATE\",\"android.permission.ACCESS_COARSE_LOCATION\",\"android.permission.ACCESS_FINE_LOCATION\",\"android.permission.ACCESS_WIFI_STATE\",\"android.permission.CHANGE_WIFI_STATE\",\"android.permission.ACCESS_MEDIA_LOCATION\",\"android.permission.POST_NOTIFICATIONS\",\"android.permission.READ_CONTACTS\",\"android.permission.CAMERA\",\"android.permission.RECORD_AUDIO\",\"com.google.android.gms.permission.AD_ID\",\"android.permission.VIBRATE\",\"android.permission.WAKE_LOCK\",\"android.permission.WRITE_EXTERNAL_STORAGE\",\"android.permission.READ_EXTERNAL_STORAGE\",\"android.permission.DOWNLOAD_WITHOUT_NOTIFICATION\",\"com.android.vending.CHECK_LICENSE\",\"android.permission.NFC\",\"android.permission.READ_BASIC_PHONE_STATE\",\"com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE\",\"android.permission.ACCESS_ADSERVICES_ATTRIBUTION\",\"android.permission.ACCESS_ADSERVICES_AD_ID\",\"com.samsung.android.mapsagent.permission.READ_APP_INFO\",\"com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA\",\"com.google.android.c2dm.permission.RECEIVE\",\"android.permission.RECEIVE_BOOT_COMPLETED\",\"android.permission.FOREGROUND_SERVICE\",\"com.ownly.customer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\",\"android.permission.SCHEDULE_EXACT_ALARM\",\"android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS\",\"android.permission.ACCESS_NOTIFICATION_POLICY\"]}"
+        isError: false
+    - operation: get_android_manifest
+      input:
+      response:
+        content[1]{type,text}:
+          text,"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:versionCode=\"358\"\n    android:versionName=\"2.0.7\"\n    android:compileSdkVersion=\"36\"\n    android:compileSdkVersionCodename=\"16\"\n    android:requiredSplitTypes=\"base__abi,base__density\"\n    android:splitTypes=\"\"\n    package=\"com.ownly.customer\"\n    platformBuildVersionCode=\"36\"\n    platformBuildVersionName=\"16\">\n    <uses-sdk\n        android:minSdkVersion=\"24\"\n        android:targetSdkVersion=\"36\"/>\n    <uses-permission android:name=\"android.permission.INTERNET\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>\n    <uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_MEDIA_LOCATION\"/>\n    <uses-permission android:name=\"android.permission.POST_NOTIFICATIONS\"/>\n    <uses-permission android:name=\"android.permission.READ_CONTACTS\"/>\n    <uses-permission android:name=\"android.permission.CAMERA\"/>\n    <uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>\n    <uses-feature\n        android:name=\"android.hardware.camera\"\n        android:required=\"false\"/>\n    <uses-feature\n        android:name=\"android.hardware.microphone\"\n        android:required=\"false\"/>\n    <queries>\n        <package android:name=\"ai.wizely.android\"/>\n        <package android:name=\"com.abipbl.upi\"/>\n        <package android:name=\"com.angelbroking.angelwealth\"/>\n        <package android:name=\"com.axis.mobile\"/>\n        <package android:name=\"com.bankofbaroda.upi\"/>\n        <package android:name=\"com.bsb.hike\"/>\n        <package android:name=\"com.citrus.citruspay\"/>\n        <package android:name=\"com.csam.icici.bank.imobile\"/>\n        <package android:name=\"com.dbs.in.digitalbank\"/>\n        <package android:name=\"com.dena.upi.gui\"/>\n        <package android:name=\"com.dreamplug.androidapp\"/>\n        <package android:name=\"com.enstage.wibmo.hdfc\"/>\n        <package android:name=\"com.epifi.paisa\"/>\n        <package android:name=\"com.fampay.in\"/>\n        <package android:name=\"com.finopaytech.bpayfino\"/>\n        <package android:name=\"com.freecharge.android\"/>\n        <package android:name=\"com.fss.idfcpsp\"/>\n        <package android:name=\"com.fss.jnkpsp\"/>\n        <package android:name=\"com.fss.pnbpsp\"/>\n        <package android:name=\"com.fss.unbipsp\"/>\n        <package android:name=\"com.fss.vijayapsp\"/>\n        <package android:name=\"com.fundsindia\"/>\n        <package android:name=\"com.gbwhatsapp\"/>\n        <package android:name=\"com.google.android.apps.nbu.paisa.user\"/>\n        <package android:name=\"com.icicibank.pockets\"/>\n        <package android:name=\"com.mgs.induspsp\"/>\n        <package android:name=\"com.mgs.obcbank\"/>\n        <package android:name=\"com.mgs.yesmerchantnative.prod\"/>\n        <package android:name=\"com.microsoft.mobile.polymer\"/>\n        <package android:name=\"com.mobikwik_new\"/>\n        <package android:name=\"com.msf.angelmobile\"/>\n        <package android:name=\"com.muthootfinance.imuthoot\"/>\n        <package android:name=\"com.myairtelapp\"/>\n        <package android:name=\"com.mycompany.kvb\"/>\n        <package android:name=\"com.naviapp\"/>\n        <package android:name=\"com.nextbillion.groww\"/>\n        <package android:name=\"com.olacabs.customer\"/>\n        <package android:name=\"com.olive.dcb.upi\"/>\n        <package android:name=\"com.olive.kotak.upi\"/>\n        <package android:name=\"com.paytmmall\"/>\n        <package android:name=\"com.phonepe.app\"/>\n        <package android:name=\"com.popclub.android\"/>\n        <package android:name=\"com.rblbank.mobank\"/>\n        <package android:name=\"com.samsung.android.spay\"/>\n        <package android:name=\"com.samsung.android.spaymini\"/>\n        <package android:name=\"com.sbi.upi\"/>\n        <package android:name=\"com.SIBMobile\"/>\n        <package android:name=\"com.snapwork.hdfc\"/>\n        <package android:name=\"com.snapwork.hdfcbank\"/>\n        <package android:name=\"com.svs.shriramcity\"/>\n        <package android:name=\"com.tatadigital.tcp\"/>\n        <package android:name=\"com.truecaller\"/>\n        <package android:name=\"com.ultracash.payment.customer\"/>\n        <package android:name=\"com.upi.axispay\"/>\n        <package android:name=\"com.upi.federalbank.org.lotza\"/>\n        <package android:name=\"com.whatsapp\"/>\n        <package android:name=\"com.whatsapp.w4b\"/>\n        <package android:name=\"com.YesBank\"/>\n        <package android:name=\"com.yesbank.yespaynext\"/>\n        <package android:name=\"finance.global.travel.niyo\"/>\n        <package android:name=\"in.amazon.mShop.android.shopping\"/>\n        <package android:name=\"in.bajajfinservmarkets.app\"/>\n        <package android:name=\"in.chillr\"/>\n        <package android:name=\"in.gokiwi.kiwitpap\"/>\n        <package android:name=\"in.org.npci.upiapp\"/>\n        <package android:name=\"money.super.payments\"/>\n        <package android:name=\"net.one97.paytm\"/>\n        <package android:name=\"org.altruist.BajajExperia\"/>\n        <intent>\n            <action android:name=\"android.intent.action.MAIN\"/>\n            <category android:name=\"android.intent.category.LAUNCHER\"/>\n        </intent>\n        <intent>\n            <action android:name=\"org.chromium.intent.action.PAY\"/>\n        </intent>\n        <intent>\n            <action android:name=\"org.chromium.intent.action.IS_READY_TO_PAY\"/>\n        </intent>\n        <intent>\n            <action android:name=\"org.chromium.intent.action.UPDATE_PAYMENT_DETAILS\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"pay\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"mandate\"/>\n        </intent>\n        <package android:name=\"com.android.chrome\"/>\n        <intent>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"pay\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"nb\"\n                android:host=\"pay\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.support.customtabs.action.CustomTabsService\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"mandate\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"upi\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"juspay\"\n                android:host=\"pay\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"credpay\"\n                android:host=\"checkout\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <package android:name=\"com.tatadigital.tcp.dev\"/>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:mimeType=\"application/uri\"/>\n        </intent>\n        <intent>\n            <action android:name=\"com.amazon.identity.auth.device.authorization.MapAuthorizationService\"/>\n        </intent>\n        <intent>\n            <action android:name=\"com.amazon.dcp.sso.action.session.users.changed\"/>\n        </intent>\n        <package android:name=\"com.google.android.apps.maps\"/>\n        <intent>\n            <action android:name=\"com.appsflyer.referrer.INSTALL_PROVIDER\"/>\n        </intent>\n        <package android:name=\"com.facebook.katana\"/>\n        <package android:name=\"com.instagram.android\"/>\n        <package android:name=\"com.facebook.lite\"/>\n        <package android:name=\"com.samsung.android.mapsagent\"/>\n        <intent>\n            <action android:name=\"com.amazon.mShop.kuber.service.PREFETCH_SERVICE\"/>\n        </intent>\n        <package android:name=\"catch_.me_.if_.you_.can_\"/>\n        <package android:name=\"cc.madkite.freedom\"/>\n        <package android:name=\"com.allinone.free\"/>\n        <package android:name=\"com.alephzain.framaroot\"/>\n        <package android:name=\"com.amphoras.hidemyroot\"/>\n        <package android:name=\"com.amphoras.hidemyrootadfree\"/>\n        <package android:name=\"com.formyhm.hiderootPremium\"/>\n        <package android:name=\"com.formyhm.hideroot\"/>\n        <package android:name=\"com.android.vending.billing.InAppBillingService.COIN\"/>\n        <package android:name=\"com.android.vending.billing.InAppBillingService.LUCK\"/>\n        <package android:name=\"com.androVM.vmconfig\"/>\n        <package android:name=\"com.anydesk.anydeskandroid\"/>\n        <package android:name=\"com.applisto.appcloner\"/>\n        <package android:name=\"com.baseappfull.fwd\"/>\n        <package android:name=\"com.bignox.app\"/>\n        <package android:name=\"com.bluestacks\"/>\n        <package android:name=\"com.bluestacks.accelerometerui\"/>\n        <package android:name=\"com.bluestacks.appfinder\"/>\n        <package android:name=\"com.bluestacks.appmart\"/>\n        <package android:name=\"com.bluestacks.home\"/>\n        <package android:name=\"com.charles.lpoqasert\"/>\n        <package android:name=\"com.chelpus.lackypatch\"/>\n        <package android:name=\"com.chelpus.luckypatcher\"/>\n        <package android:name=\"com.cih.game_cih\"/>\n        <package android:name=\"com.devadvance.rootcloak\"/>\n        <package android:name=\"com.devadvance.rootcloak2\"/>\n        <package android:name=\"com.devadvance.rootcloakplus\"/>\n        <package android:name=\"com.dimonvideo.luckypatcher\"/>\n        <package android:name=\"com.ddmnq.dundidevhelper\"/>\n        <package android:name=\"com.dv.marketmod.installer\"/>\n        <package android:name=\"com.google.android.launcher.layouts.genymotion\"/>\n        <package android:name=\"com.kingo.root\"/>\n        <package android:name=\"com.kingroot.kinguser\"/>\n        <package android:name=\"com.koushikdutta.rommanager\"/>\n        <package android:name=\"com.koushikdutta.rommanager.license\"/>\n        <package android:name=\"com.koushikdutta.superuser\"/>\n        <package android:name=\"com.microvirt.download\"/>\n        <package android:name=\"com.microvirt.market\"/>\n        <package android:name=\"com.microvirt.tools\"/>\n        <package android:name=\"com.migu.agent\"/>\n        <package android:name=\"com.migu.controller\"/>\n        <package android:name=\"com.mumu.launcher\"/>\n        <package android:name=\"com.mumu.store\"/>\n        <package android:name=\"com.noshufou.android.su\"/>\n        <package android:name=\"com.noshufou.android.su.elite\"/>\n        <package android:name=\"com.ramdroid.appquarantine\"/>\n        <package android:name=\"com.ramdroid.appquarantinepro\"/>\n        <package android:name=\"com.redfinger.filemanager\"/>\n        <package android:name=\"com.redfinger.monitor\"/>\n        <package android:name=\"com.saurik.substrate\"/>\n        <package android:name=\"com.smedialink.oneclickroot\"/>\n        <package android:name=\"com.solohsu.android.edxp.manager\"/>\n        <package android:name=\"com.teamviewer.host.market\"/>\n        <package android:name=\"com.teamviewer.quicksupport.market\"/>\n        <package android:name=\"com.thirdparty.superuser\"/>\n        <package android:name=\"com.topjohnwu.magisk\"/>\n        <package android:name=\"com.vphone.launcher\"/>\n        <package android:name=\"com.xmodgame\"/>\n        <package android:name=\"com.yellowes.su\"/>\n        <package android:name=\"com.zachspong.temprootremovejb\"/>\n        <package android:name=\"com.zhiqupk.root.global\"/>\n        <package android:name=\"de.robv.android.xposed.installer\"/>\n        <package android:name=\"eu.chainfire.adbd\"/>\n        <package android:name=\"eu.chainfire.flash\"/>\n        <package android:name=\"eu.chainfire.liveboot\"/>\n        <package android:name=\"eu.chainfire.mobileodin.pro\"/>\n        <package android:name=\"eu.chainfire.pryfi\"/>\n        <package android:name=\"eu.chainfire.recently\"/>\n        <package android:name=\"eu.chainfire.stickmount\"/>\n        <package android:name=\"eu.chainfire.stickmount.pro\"/>\n        <package android:name=\"eu.chainfire.supersu\"/>\n        <package android:name=\"eu.chainfire.triangleaway\"/>\n        <package android:name=\"me.weishu.kernelsu\"/>\n        <package android:name=\"me.yourbay.airfrozen\"/>\n        <package android:name=\"org.appspot.apprtc\"/>\n        <package android:name=\"org.meowcat.edxposed.manager\"/>\n        <package android:name=\"me.bmax.apatch\"/>\n        <package android:name=\"com.sand.airdroid\"/>\n        <package android:name=\"com.splashtop.sos\"/>\n        <package android:name=\"com.splashtop.remote.business\"/>\n        <package android:name=\"com.splashtop.remote.pad.v2\"/>\n        <package android:name=\"com.zoho.assist\"/>\n        <package android:name=\"com.koushikdutta.vysor\"/>\n        <package android:name=\"com.sand.airdroidbiz\"/>\n        <package android:name=\"com.splashtop.streamer.csrs\"/>\n        <package android:name=\"com.zoho.remoteplugin.universal\"/>\n        <package android:name=\"com.zoho.vault\"/>\n        <package android:name=\"com.zoho.remoteplugin.unattended\"/>\n        <package android:name=\"com.teamviewer.quicksupport.addon.universal\"/>\n        <package android:name=\"com.anydesk.adcontrol.ad1\"/>\n        <package android:name=\"com.sand.airdroidkids\"/>\n        <package android:name=\"com.rifsxd.ksunext\"/>\n        <package android:name=\"io.github.huskydg.magisk\"/>\n        <package android:name=\"io.github.vvb2060.magisk\"/>\n        <package android:name=\"me.garfieldhan.apatch.next\"/>\n        <package android:name=\"com.cloud.rtcgesture\"/>\n        <package android:name=\"com.android.appstores\"/>\n        <package android:name=\"com.android.expansiontools\"/>\n        <package android:name=\"com.zixun.cmp\"/>\n        <package android:name=\"com.sukisu.ultra\"/>\n        <package android:name=\"com.imyfone.anytoandroid\"/>\n        <package android:name=\"com.theappninjas.fakegpsjoystick\"/>\n        <package android:name=\"com.incorporateapps.fakegps.fre\"/>\n        <package android:name=\"com.rosteam.gpsemulator\"/>\n        <package android:name=\"com.lexa.fakegps\"/>\n        <package android:name=\"com.gsmartstudio.fakegps\"/>\n        <package android:name=\"com.blogspot.newapphorizons.fakegps\"/>\n        <package android:name=\"com.just4funtools.fakegpslocationprofessional\"/>\n        <package android:name=\"fakegps.fakelocation.mocklocation.gpsfaker\"/>\n        <package android:name=\"fr.dvilleneuve.lockito\"/>\n        <intent>\n            <action android:name=\"android.nfc.action.TECH_DISCOVERED\"/>\n        </intent>\n    </queries>\n    <uses-permission android:name=\"com.google.android.gms.permission.AD_ID\"/>\n    <uses-permission android:name=\"android.permission.VIBRATE\"/>\n    <uses-permission android:name=\"android.permission.WAKE_LOCK\"/>\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>\n    <uses-permission android:name=\"android.permission.DOWNLOAD_WITHOUT_NOTIFICATION\"/>\n    <uses-permission android:name=\"com.android.vending.CHECK_LICENSE\"/>\n    <uses-permission\n        android:name=\"android.permission.NFC\"\n        android:required=\"false\"/>\n    <uses-feature\n        android:name=\"android.hardware.nfc\"\n        android:required=\"false\"/>\n    <uses-permission android:name=\"android.permission.READ_BASIC_PHONE_STATE\"/>\n    <uses-feature\n        android:glEsVersion=\"0x20000\"\n        android:required=\"true\"/>\n    <uses-permission android:name=\"com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_ADSERVICES_ATTRIBUTION\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_ADSERVICES_AD_ID\"/>\n    <uses-permission android:name=\"com.samsung.android.mapsagent.permission.READ_APP_INFO\"/>\n    <uses-permission android:name=\"com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA\"/>\n    <uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\"/>\n    <uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>\n    <uses-permission android:name=\"android.permission.FOREGROUND_SERVICE\"/>\n    <permission\n        android:name=\"com.ownly.customer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\"\n        android:protectionLevel=\"signature\"/>\n    <uses-permission android:name=\"com.ownly.customer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\"/>\n    <uses-permission android:name=\"android.permission.SCHEDULE_EXACT_ALARM\"/>\n    <uses-permission\n        android:name=\"android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS\"\n        android:maxSdkVersion=\"30\"/>\n    <uses-permission\n        android:name=\"android.permission.ACCESS_NOTIFICATION_POLICY\"\n        android:minSdkVersion=\"23\"/>\n    <application\n        android:theme=\"@style/AppTheme\"\n        android:label=\"@string/app_name\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:name=\"com.pairip.application.Application\"\n        android:windowSoftInputMode=\"adjustResize\"\n        android:allowBackup=\"false\"\n        android:hardwareAccelerated=\"true\"\n        android:supportsRtl=\"true\"\n        android:extractNativeLibs=\"false\"\n        android:fullBackupContent=\"@xml/appsflyer_backup_rules\"\n        android:usesCleartextTraffic=\"false\"\n        android:networkSecurityConfig=\"@xml/network_security_config\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:appComponentFactory=\"androidx.core.app.CoreComponentFactory\"\n        android:dataExtractionRules=\"@xml/appsflyer_data_extraction_rules\">\n        <meta-data\n            android:name=\"CLEVERTAP_ACCOUNT_ID\"\n            android:value=\"R5K-6K4-847Z\"/>\n        <meta-data\n            android:name=\"CLEVERTAP_TOKEN\"\n            android:value=\"436-352\"/>\n        <meta-data\n            android:name=\"CLEVERTAP_REGION\"\n            android:value=\"eu1\"/>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_channel_id\"\n            android:value=\"transactional\"/>\n        <meta-data\n            android:name=\"CLEVERTAP_DEFAULT_CHANNEL_ID\"\n            android:value=\"CtRNS\"/>\n        <meta-data\n            android:name=\"com.google.android.geo.API_KEY\"\n            android:value=\"AIzaSyA1P6rMnREQ2zdn1bfm0q0JQYgpdoGOptA\"/>\n        <meta-data\n            android:name=\"com.hotupdater.FINGERPRINT_HASH\"\n            android:value=\"e03565a8e86ae7410049d252b4e3662d5bdfe424\"/>\n        <activity\n            android:theme=\"@style/LaunchSplashTheme\"\n            android:label=\"@string/app_name\"\n            android:name=\"com.ownly.customer.MainActivity\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\"\n            android:screenOrientation=\"portrait\"\n            android:configChanges=\"smallestScreenSize|screenSize|uiMode|screenLayout|orientation|keyboardHidden|keyboard\"\n            android:windowSoftInputMode=\"adjustResize\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data android:scheme=\"ownlyapp\"/>\n            </intent-filter>\n            <intent-filter android:autoVerify=\"true\">\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data android:scheme=\"https\"/>\n                <data android:host=\"ownly.food\"/>\n                <data android:pathPrefix=\"/app\"/>\n            </intent-filter>\n            <intent-filter android:autoVerify=\"true\">\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data android:scheme=\"https\"/>\n                <data android:host=\"ownly.onelink.me\"/>\n                <data android:pathPrefix=\"/tMlo\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.intent.action.SEND\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <data android:mimeType=\"text/plain\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.intent.action.SEND\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <data android:mimeType=\"image/*\"/>\n            </intent-filter>\n        </activity>\n        <activity-alias\n            android:label=\"@string/app_name\"\n            android:icon=\"@mipmap/ic_launcher_diwali\"\n            android:name=\"com.ownly.customer.MainActivityDiwaliIcon\"\n            android:enabled=\"false\"\n            android:exported=\"true\"\n            android:targetActivity=\"com.ownly.customer.MainActivity\"\n            android:roundIcon=\"@mipmap/ic_launcher_diwali_round\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n        </activity-alias>\n        <activity-alias\n            android:label=\"@string/app_name\"\n            android:icon=\"@mipmap/ic_launcher_staging\"\n            android:name=\"com.ownly.customer.MainActivityStagingIcon\"\n            android:enabled=\"false\"\n            android:exported=\"true\"\n            android:targetActivity=\"com.ownly.customer.MainActivity\"\n            android:roundIcon=\"@mipmap/ic_launcher_staging_round\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n        </activity-alias>\n        <activity-alias\n            android:label=\"@string/app_name\"\n            android:icon=\"@mipmap/ic_launcher\"\n            android:name=\"com.ownly.customer.MainActivityDefaultIcon\"\n            android:enabled=\"true\"\n            android:exported=\"true\"\n            android:targetActivity=\"com.ownly.customer.MainActivity\"\n            android:roundIcon=\"@mipmap/ic_launcher_round\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n        </activity-alias>\n        <service\n            android:name=\"com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <receiver\n            android:name=\"com.hotupdater.HotUpdaterRecoveryReceiver\"\n            android:exported=\"false\"/>\n        <activity\n            android:theme=\"@android:style/Theme.NoDisplay\"\n            android:name=\"com.hotupdater.HotUpdaterRestartActivity\"\n            android:exported=\"false\"\n            android:process=\":hotupdater_restart\"\n            android:excludeFromRecents=\"true\"\n            android:launchMode=\"singleTask\"\n            android:noHistory=\"true\"/>\n        <provider\n            android:name=\"com.reactnativecommunity.webview.RNCWebViewFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/file_provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"com.ReactNativeBlobUtil.Utils.FileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.provider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"io.invertase.notifee.NotifeeInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.notifee-init-provider\"\n            android:initOrder=\"-100\"/>\n        <meta-data\n            android:name=\"firebase_analytics_collection_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"firebase_analytics_collection_deactivated\"\n            android:value=\"false\"/>\n        <meta-data\n            android:name=\"google_analytics_adid_collection_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_ssaid_collection_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_automatic_screen_reporting_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_analytics_storage\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_ad_storage\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_ad_user_data\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_ad_personalization_signals\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"firebase_crashlytics_collection_enabled\"\n            android:value=\"false\"/>\n        <provider\n            android:name=\"io.invertase.firebase.crashlytics.ReactNativeFirebaseCrashlyticsInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.reactnativefirebasecrashlyticsinitprovider\"\n            android:initOrder=\"98\"/>\n        <service\n            android:name=\"io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <receiver\n            android:name=\"io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n        </receiver>\n        <meta-data\n            android:name=\"delivery_metrics_exported_to_big_query_enabled\"\n            android:value=\"false\"/>\n        <meta-data\n            android:name=\"firebase_messaging_auto_init_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"firebase_messaging_notification_delegation_enabled\"\n            android:value=\"false\"/>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_color\"\n            android:resource=\"@color/white\"/>\n        <meta-data\n            android:name=\"app_data_collection_default_enabled\"\n            android:value=\"true\"/>\n        <service\n            android:name=\"com.google.firebase.components.ComponentDiscoveryService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <meta-data\n                android:name=\"com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.remoteconfig.FirebaseRemoteConfigKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n        </service>\n        <provider\n            android:name=\"io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.reactnativefirebaseappinitprovider\"\n            android:initOrder=\"99\"/>\n        <activity\n            android:theme=\"@style/Theme.AppCompat.Juspay.Translucent\"\n            android:label=\"Juspay Payment Page Activity\"\n            android:name=\"in.juspay.hypersdkreact.ProcessActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:configChanges=\"smallestScreenSize|screenSize|uiMode|screenLayout|orientation|keyboardHidden|keyboard|locale\"\n            android:windowSoftInputMode=\"adjustResize\"/>\n        <provider\n            android:name=\"com.imagepicker.ImagePickerProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.imagepickerprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/imagepicker_provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"cl.json.RNShareFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.rnshare.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/share_download_paths\"/>\n        </provider>\n        <provider\n            android:name=\"com.RNFetchBlob.Utils.FileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.provider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"androidx.startup.InitializationProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.androidx-startup\">\n            <meta-data\n                android:name=\"androidx.work.WorkManagerInitializer\"\n                android:value=\"androidx.startup\"/>\n            <meta-data\n                android:name=\"androidx.emoji2.text.EmojiCompatInitializer\"\n                android:value=\"androidx.startup\"/>\n            <meta-data\n                android:name=\"androidx.lifecycle.ProcessLifecycleInitializer\"\n                android:value=\"androidx.startup\"/>\n            <meta-data\n                android:name=\"androidx.profileinstaller.ProfileInstallerInitializer\"\n                android:value=\"androidx.startup\"/>\n        </provider>\n        <provider\n            android:name=\"com.clevertap.android.sdk.CleverTapFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.clevertap.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/clevertap_notification_file_paths\"/>\n        </provider>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.clevertap.android.sdk.InAppNotificationActivity\"\n            android:configChanges=\"keyboardHidden\"/>\n        <activity\n            android:theme=\"@style/CTInboxActivityTheme\"\n            android:name=\"com.clevertap.android.sdk.inbox.CTInboxActivity\"\n            android:configChanges=\"keyboardHidden\"/>\n        <receiver\n            android:name=\"com.clevertap.android.sdk.pushnotification.CTPushNotificationReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.clevertap.android.sdk.pushnotification.fcm.CTFirebaseMessagingReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter android:priority=\"-1\">\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n        </receiver>\n        <activity\n            android:name=\"in.juspay.hypernfc.NfcActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\">\n            <intent-filter>\n                <action android:name=\"android.nfc.action.TECH_DISCOVERED\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n            </intent-filter>\n        </activity>\n        <meta-data\n            android:name=\"com.google.android.gms.version\"\n            android:value=\"@integer/google_play_services_version\"/>\n        <provider\n            android:name=\"com.cashfree.pg.api.CashfreeCoreContentProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.cashfreecorecontentprovider\"/>\n        <meta-data\n            android:name=\"cashfree_pg_core_auto_initialization_enabled\"\n            android:value=\"@bool/cashfree_pg_core_auto_initialize_enabled\"/>\n        <meta-data\n            android:name=\"cashfree_pg_core_reporting_enabled\"\n            android:value=\"@bool/cashfree_pg_core_reporting_enabled\"/>\n        <activity\n            android:theme=\"@style/CFUITheme\"\n            android:name=\"com.cashfree.pg.ui.hidden.checkout.CashfreeNativeCheckoutActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"\n            android:windowSoftInputMode=\"adjustPan\">\n            <intent-filter>\n                <action android:name=\"android.nfc.action.TECH_DISCOVERED\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.nfc.action.TAG_DISCOVERED\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.nfc.action.NDEF_DISCOVERED\"/>\n            </intent-filter>\n        </activity>\n        <activity\n            android:theme=\"@style/CFSeamlessStyle\"\n            android:name=\"com.cashfree.pg.ui.hidden.seamless.CFDropSeamlessActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <meta-data\n            android:name=\"android.webkit.WebView.EnableSafeBrowsing\"\n            android:value=\"true\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFCoreUPIPaymentActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFCoreModalActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFCoreTheme\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeCoreNativeVerificationActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"/>\n        <activity\n            android:theme=\"@style/CFCoreTheme\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeSubscriptionVerificationActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"/>\n        <activity\n            android:theme=\"@style/CFCoreTheme\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeSubscriptionCheckoutActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFSubsCoreUpiPaymentActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFSubsCoreModalActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFWebCheckoutStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeWebCheckoutActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <meta-data\n            android:name=\"cashfree_pg_logging_level\"\n            android:value=\"@integer/cashfree_pg_logging_level\"/>\n        <activity\n            android:name=\"in.juspay.hypersdk.core.CustomtabActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTask\"/>\n        <activity\n            android:name=\"in.juspay.hypersdk.core.CustomtabResult\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"juspay\"\n                    android:host=\"com.ownly.customer\"/>\n            </intent-filter>\n        </activity>\n        <activity\n            android:name=\"in.juspay.hypersdk.core.RedirectResponseActivity\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"juspayexternalapp\"\n                    android:host=\"com.ownly.customer\"/>\n            </intent-filter>\n        </activity>\n        <activity\n            android:theme=\"@style/AppTheme.Translucent\"\n            android:name=\"com.amazon.identity.auth.apay.activity.AuthActivity\"\n            android:exported=\"false\"\n            android:screenOrientation=\"portrait\"\n            android:configChanges=\"screenSize|uiMode|orientation\"/>\n        <activity\n            android:theme=\"@android:style/Theme.NoDisplay\"\n            android:name=\"com.amazon.identity.auth.device.workflow.WorkflowActivity\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\"\n            android:allowTaskReparenting=\"true\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"amzn\"\n                    android:host=\"com.ownly.customer\"/>\n            </intent-filter>\n        </activity>\n        <meta-data\n            android:name=\"cashfree_custom_analytics_subscriber_enabled\"\n            android:value=\"@bool/cashfree_custom_analytics_subscriber_enabled\"/>\n        <meta-data\n            android:name=\"cashfree_pg_core_encrypt_pref_enabled\"\n            android:value=\"@bool/cashfree_pg_core_encrypt_pref_enabled\"/>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.google.android.gms.auth.api.signin.internal.SignInHubActivity\"\n            android:exported=\"false\"\n            android:excludeFromRecents=\"true\"/>\n        <service\n            android:name=\"com.google.android.gms.auth.api.signin.RevocationBoundService\"\n            android:permission=\"com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION\"\n            android:exported=\"true\"\n            android:visibleToInstantApps=\"true\"/>\n        <uses-library\n            android:name=\"org.apache.http.legacy\"\n            android:required=\"false\"/>\n        <receiver\n            android:name=\"com.google.android.gms.measurement.AppMeasurementReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementService\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementJobService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.google.firebase.iid.FirebaseInstanceIdReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n            <meta-data\n                android:name=\"com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED\"\n                android:value=\"true\"/>\n        </receiver>\n        <service\n            android:name=\"com.google.firebase.messaging.FirebaseMessagingService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <intent-filter android:priority=\"-500\">\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <service\n            android:name=\"com.google.firebase.sessions.SessionLifecycleService\"\n            android:enabled=\"false\"\n            android:exported=\"false\"/>\n        <provider\n            android:name=\"com.google.firebase.provider.FirebaseInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.firebaseinitprovider\"\n            android:initOrder=\"100\"\n            android:directBootAware=\"true\"/>\n        <activity\n            android:theme=\"@style/AppTheme.Translucent\"\n            android:name=\"com.amazon.android.apay.commonlibrary.browsinglib.activity.BrowsingActivity\"\n            android:exported=\"false\"\n            android:configChanges=\"screenSize|uiMode|orientation\"/>\n        <activity\n            android:name=\"com.amazon.android.apay.commonlibrary.browsinglib.activity.RedirectUriReceiverActivity\"\n            android:exported=\"true\">\n            <intent-filter>\n                <data\n                    android:scheme=\"amzn\"\n                    android:host=\"amazonpay.amazon.in\"\n                    android:path=\"/com.ownly.customer\"/>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n            </intent-filter>\n        </activity>\n        <service\n            android:name=\"androidx.work.impl.background.systemalarm.SystemAlarmService\"\n            android:enabled=\"@bool/enable_system_alarm_service_default\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\"/>\n        <service\n            android:name=\"androidx.work.impl.background.systemjob.SystemJobService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:enabled=\"@bool/enable_system_job_service_default\"\n            android:exported=\"true\"\n            android:directBootAware=\"false\"/>\n        <service\n            android:name=\"androidx.work.impl.foreground.SystemForegroundService\"\n            android:enabled=\"@bool/enable_system_foreground_service_default\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\"/>\n        <receiver\n            android:name=\"androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\"/>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryChargingProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.ACTION_POWER_CONNECTED\"/>\n                <action android:name=\"android.intent.action.ACTION_POWER_DISCONNECTED\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryNotLowProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BATTERY_OKAY\"/>\n                <action android:name=\"android.intent.action.BATTERY_LOW\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.StorageNotLowProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.DEVICE_STORAGE_LOW\"/>\n                <action android:name=\"android.intent.action.DEVICE_STORAGE_OK\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.NetworkStateProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.net.conn.CONNECTIVITY_CHANGE\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.RescheduleReceiver\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\"/>\n                <action android:name=\"android.intent.action.TIME_SET\"/>\n                <action android:name=\"android.intent.action.TIMEZONE_CHANGED\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver\"\n            android:enabled=\"@bool/enable_system_alarm_service_default\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"androidx.work.impl.background.systemalarm.UpdateProxies\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.diagnostics.DiagnosticsReceiver\"\n            android:permission=\"android.permission.DUMP\"\n            android:enabled=\"true\"\n            android:exported=\"true\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"androidx.work.diagnostics.REQUEST_DIAGNOSTICS\"/>\n            </intent-filter>\n        </receiver>\n        <meta-data\n            android:name=\"com.bumptech.glide.integration.okhttp3.OkHttpGlideModule\"\n            android:value=\"GlideModule\"/>\n        <meta-data\n            android:name=\"com.bumptech.glide.integration.webp.WebpGlideModule\"\n            android:value=\"GlideModule\"/>\n        <receiver\n            android:name=\"in.juspay.hypersmshandler.SmsRetrieverReceiver\"\n            android:permission=\"com.google.android.gms.auth.api.phone.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.gms.auth.api.phone.SMS_RETRIEVED\"/>\n            </intent-filter>\n        </receiver>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.google.android.gms.common.api.GoogleApiActivity\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"androidx.room.MultiInstanceInvalidationService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\"/>\n        <uses-library\n            android:name=\"android.ext.adservices\"\n            android:required=\"false\"/>\n        <provider\n            android:name=\"com.squareup.picasso.PicassoProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.com.squareup.picasso\"/>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.backends.TransportBackendDiscovery\"\n            android:exported=\"false\">\n            <meta-data\n                android:name=\"backend:com.google.android.datatransport.cct.CctBackendFactory\"\n                android:value=\"cct\"/>\n        </service>\n        <receiver\n            android:name=\"androidx.profileinstaller.ProfileInstallReceiver\"\n            android:permission=\"android.permission.DUMP\"\n            android:enabled=\"true\"\n            android:exported=\"true\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.INSTALL_PROFILE\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.SKIP_FILE\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.SAVE_PROFILE\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.BENCHMARK_OPERATION\"/>\n            </intent-filter>\n        </receiver>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"app.notifee.core.ReceiverService\"\n            android:exported=\"false\"/>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"app.notifee.core.NotificationReceiverActivity\"\n            android:exported=\"true\"\n            android:taskAffinity=\"\"\n            android:excludeFromRecents=\"true\"\n            android:noHistory=\"true\"/>\n        <service\n            android:name=\"app.notifee.core.ForegroundService\"\n            android:exported=\"false\"\n            android:foregroundServiceType=\"shortService\"/>\n        <receiver\n            android:name=\"app.notifee.core.RebootBroadcastReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\"/>\n                <action android:name=\"android.intent.action.QUICKBOOT_POWERON\"/>\n                <action android:name=\"com.htc.intent.action.QUICKBOOT_POWERON\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"app.notifee.core.AlarmPermissionBroadcastReceiver\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"app.notifee.core.NotificationAlarmReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\"/>\n                <action android:name=\"android.intent.action.QUICKBOOT_POWERON\"/>\n                <action android:name=\"com.htc.intent.action.QUICKBOOT_POWERON\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"app.notifee.core.BlockStateBroadcastReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.app.action.APP_BLOCK_STATE_CHANGED\"/>\n                <action android:name=\"android.app.action.NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED\"/>\n                <action android:name=\"android.app.action.NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED\"/>\n            </intent-filter>\n        </receiver>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.jakewharton.processphoenix.ProcessPhoenix\"\n            android:exported=\"false\"\n            android:process=\":phoenix\"/>\n        <meta-data\n            android:name=\"com.facebook.soloader.enabled\"\n            android:value=\"false\"/>\n        <activity\n            android:theme=\"@style/Theme.PlayCore.Transparent\"\n            android:name=\"com.google.android.play.core.common.PlayCoreDialogWrapperActivity\"\n            android:exported=\"false\"\n            android:stateNotNeeded=\"true\"/>\n        <activity\n            android:name=\"com.pairip.licensecheck.LicenseActivity\"\n            android:exported=\"false\"/>\n        <meta-data\n            android:name=\"com.android.vending.splits.required\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"com.android.stamp.source\"\n            android:value=\"https://play.google.com/store\"/>\n        <meta-data\n            android:name=\"com.android.stamp.type\"\n            android:value=\"STAMP_TYPE_DISTRIBUTION_APK\"/>\n        <meta-data\n            android:name=\"com.android.vending.splits\"\n            android:resource=\"@xml/splits0\"/>\n        <meta-data\n            android:name=\"com.android.vending.derived.apk.id\"\n            android:value=\"3\"/>\n    </application>\n</manifest>"
+        isError: false
+normalized_result:
+  engine:
+    name: jadx-headless-mcp
+    version: 0.7.1
+    artifact_sha256: 6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75
+    source_revision: 5844800a486d2248fa949b74c9896285f5b54de2
+    worker_count: 1
+    heap_limit_mib: 1820
+  package_name: com.ownly.customer
+  version_name: 2.0.7
+  version_code: "358"
+  min_sdk: "24"
+  target_sdk: "36"
+  permissions[32]: android.permission.INTERNET,android.permission.ACCESS_NETWORK_STATE,android.permission.ACCESS_COARSE_LOCATION,android.permission.ACCESS_FINE_LOCATION,android.permission.ACCESS_WIFI_STATE,android.permission.CHANGE_WIFI_STATE,android.permission.ACCESS_MEDIA_LOCATION,android.permission.POST_NOTIFICATIONS,android.permission.READ_CONTACTS,android.permission.CAMERA,android.permission.RECORD_AUDIO,com.google.android.gms.permission.AD_ID,android.permission.VIBRATE,android.permission.WAKE_LOCK,android.permission.WRITE_EXTERNAL_STORAGE,android.permission.READ_EXTERNAL_STORAGE,android.permission.DOWNLOAD_WITHOUT_NOTIFICATION,com.android.vending.CHECK_LICENSE,android.permission.NFC,android.permission.READ_BASIC_PHONE_STATE,com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE,android.permission.ACCESS_ADSERVICES_ATTRIBUTION,android.permission.ACCESS_ADSERVICES_AD_ID,com.samsung.android.mapsagent.permission.READ_APP_INFO,com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA,com.google.android.c2dm.permission.RECEIVE,android.permission.RECEIVE_BOOT_COMPLETED,android.permission.FOREGROUND_SERVICE,com.ownly.customer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION,android.permission.SCHEDULE_EXACT_ALARM,android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS,android.permission.ACCESS_NOTIFICATION_POLICY
+  manifest:
+    status: complete
+    text: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:versionCode=\"358\"\n    android:versionName=\"2.0.7\"\n    android:compileSdkVersion=\"36\"\n    android:compileSdkVersionCodename=\"16\"\n    android:requiredSplitTypes=\"base__abi,base__density\"\n    android:splitTypes=\"\"\n    package=\"com.ownly.customer\"\n    platformBuildVersionCode=\"36\"\n    platformBuildVersionName=\"16\">\n    <uses-sdk\n        android:minSdkVersion=\"24\"\n        android:targetSdkVersion=\"36\"/>\n    <uses-permission android:name=\"android.permission.INTERNET\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>\n    <uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_MEDIA_LOCATION\"/>\n    <uses-permission android:name=\"android.permission.POST_NOTIFICATIONS\"/>\n    <uses-permission android:name=\"android.permission.READ_CONTACTS\"/>\n    <uses-permission android:name=\"android.permission.CAMERA\"/>\n    <uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>\n    <uses-feature\n        android:name=\"android.hardware.camera\"\n        android:required=\"false\"/>\n    <uses-feature\n        android:name=\"android.hardware.microphone\"\n        android:required=\"false\"/>\n    <queries>\n        <package android:name=\"ai.wizely.android\"/>\n        <package android:name=\"com.abipbl.upi\"/>\n        <package android:name=\"com.angelbroking.angelwealth\"/>\n        <package android:name=\"com.axis.mobile\"/>\n        <package android:name=\"com.bankofbaroda.upi\"/>\n        <package android:name=\"com.bsb.hike\"/>\n        <package android:name=\"com.citrus.citruspay\"/>\n        <package android:name=\"com.csam.icici.bank.imobile\"/>\n        <package android:name=\"com.dbs.in.digitalbank\"/>\n        <package android:name=\"com.dena.upi.gui\"/>\n        <package android:name=\"com.dreamplug.androidapp\"/>\n        <package android:name=\"com.enstage.wibmo.hdfc\"/>\n        <package android:name=\"com.epifi.paisa\"/>\n        <package android:name=\"com.fampay.in\"/>\n        <package android:name=\"com.finopaytech.bpayfino\"/>\n        <package android:name=\"com.freecharge.android\"/>\n        <package android:name=\"com.fss.idfcpsp\"/>\n        <package android:name=\"com.fss.jnkpsp\"/>\n        <package android:name=\"com.fss.pnbpsp\"/>\n        <package android:name=\"com.fss.unbipsp\"/>\n        <package android:name=\"com.fss.vijayapsp\"/>\n        <package android:name=\"com.fundsindia\"/>\n        <package android:name=\"com.gbwhatsapp\"/>\n        <package android:name=\"com.google.android.apps.nbu.paisa.user\"/>\n        <package android:name=\"com.icicibank.pockets\"/>\n        <package android:name=\"com.mgs.induspsp\"/>\n        <package android:name=\"com.mgs.obcbank\"/>\n        <package android:name=\"com.mgs.yesmerchantnative.prod\"/>\n        <package android:name=\"com.microsoft.mobile.polymer\"/>\n        <package android:name=\"com.mobikwik_new\"/>\n        <package android:name=\"com.msf.angelmobile\"/>\n        <package android:name=\"com.muthootfinance.imuthoot\"/>\n        <package android:name=\"com.myairtelapp\"/>\n        <package android:name=\"com.mycompany.kvb\"/>\n        <package android:name=\"com.naviapp\"/>\n        <package android:name=\"com.nextbillion.groww\"/>\n        <package android:name=\"com.olacabs.customer\"/>\n        <package android:name=\"com.olive.dcb.upi\"/>\n        <package android:name=\"com.olive.kotak.upi\"/>\n        <package android:name=\"com.paytmmall\"/>\n        <package android:name=\"com.phonepe.app\"/>\n        <package android:name=\"com.popclub.android\"/>\n        <package android:name=\"com.rblbank.mobank\"/>\n        <package android:name=\"com.samsung.android.spay\"/>\n        <package android:name=\"com.samsung.android.spaymini\"/>\n        <package android:name=\"com.sbi.upi\"/>\n        <package android:name=\"com.SIBMobile\"/>\n        <package android:name=\"com.snapwork.hdfc\"/>\n        <package android:name=\"com.snapwork.hdfcbank\"/>\n        <package android:name=\"com.svs.shriramcity\"/>\n        <package android:name=\"com.tatadigital.tcp\"/>\n        <package android:name=\"com.truecaller\"/>\n        <package android:name=\"com.ultracash.payment.customer\"/>\n        <package android:name=\"com.upi.axispay\"/>\n        <package android:name=\"com.upi.federalbank.org.lotza\"/>\n        <package android:name=\"com.whatsapp\"/>\n        <package android:name=\"com.whatsapp.w4b\"/>\n        <package android:name=\"com.YesBank\"/>\n        <package android:name=\"com.yesbank.yespaynext\"/>\n        <package android:name=\"finance.global.travel.niyo\"/>\n        <package android:name=\"in.amazon.mShop.android.shopping\"/>\n        <package android:name=\"in.bajajfinservmarkets.app\"/>\n        <package android:name=\"in.chillr\"/>\n        <package android:name=\"in.gokiwi.kiwitpap\"/>\n        <package android:name=\"in.org.npci.upiapp\"/>\n        <package android:name=\"money.super.payments\"/>\n        <package android:name=\"net.one97.paytm\"/>\n        <package android:name=\"org.altruist.BajajExperia\"/>\n        <intent>\n            <action android:name=\"android.intent.action.MAIN\"/>\n            <category android:name=\"android.intent.category.LAUNCHER\"/>\n        </intent>\n        <intent>\n            <action android:name=\"org.chromium.intent.action.PAY\"/>\n        </intent>\n        <intent>\n            <action android:name=\"org.chromium.intent.action.IS_READY_TO_PAY\"/>\n        </intent>\n        <intent>\n            <action android:name=\"org.chromium.intent.action.UPDATE_PAYMENT_DETAILS\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"pay\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"mandate\"/>\n        </intent>\n        <package android:name=\"com.android.chrome\"/>\n        <intent>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"pay\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"nb\"\n                android:host=\"pay\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.support.customtabs.action.CustomTabsService\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"upi\"\n                android:host=\"mandate\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"upi\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"juspay\"\n                android:host=\"pay\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <intent>\n            <data\n                android:scheme=\"credpay\"\n                android:host=\"checkout\"\n                android:pathPattern=\".*\"/>\n        </intent>\n        <package android:name=\"com.tatadigital.tcp.dev\"/>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:mimeType=\"application/uri\"/>\n        </intent>\n        <intent>\n            <action android:name=\"com.amazon.identity.auth.device.authorization.MapAuthorizationService\"/>\n        </intent>\n        <intent>\n            <action android:name=\"com.amazon.dcp.sso.action.session.users.changed\"/>\n        </intent>\n        <package android:name=\"com.google.android.apps.maps\"/>\n        <intent>\n            <action android:name=\"com.appsflyer.referrer.INSTALL_PROVIDER\"/>\n        </intent>\n        <package android:name=\"com.facebook.katana\"/>\n        <package android:name=\"com.instagram.android\"/>\n        <package android:name=\"com.facebook.lite\"/>\n        <package android:name=\"com.samsung.android.mapsagent\"/>\n        <intent>\n            <action android:name=\"com.amazon.mShop.kuber.service.PREFETCH_SERVICE\"/>\n        </intent>\n        <package android:name=\"catch_.me_.if_.you_.can_\"/>\n        <package android:name=\"cc.madkite.freedom\"/>\n        <package android:name=\"com.allinone.free\"/>\n        <package android:name=\"com.alephzain.framaroot\"/>\n        <package android:name=\"com.amphoras.hidemyroot\"/>\n        <package android:name=\"com.amphoras.hidemyrootadfree\"/>\n        <package android:name=\"com.formyhm.hiderootPremium\"/>\n        <package android:name=\"com.formyhm.hideroot\"/>\n        <package android:name=\"com.android.vending.billing.InAppBillingService.COIN\"/>\n        <package android:name=\"com.android.vending.billing.InAppBillingService.LUCK\"/>\n        <package android:name=\"com.androVM.vmconfig\"/>\n        <package android:name=\"com.anydesk.anydeskandroid\"/>\n        <package android:name=\"com.applisto.appcloner\"/>\n        <package android:name=\"com.baseappfull.fwd\"/>\n        <package android:name=\"com.bignox.app\"/>\n        <package android:name=\"com.bluestacks\"/>\n        <package android:name=\"com.bluestacks.accelerometerui\"/>\n        <package android:name=\"com.bluestacks.appfinder\"/>\n        <package android:name=\"com.bluestacks.appmart\"/>\n        <package android:name=\"com.bluestacks.home\"/>\n        <package android:name=\"com.charles.lpoqasert\"/>\n        <package android:name=\"com.chelpus.lackypatch\"/>\n        <package android:name=\"com.chelpus.luckypatcher\"/>\n        <package android:name=\"com.cih.game_cih\"/>\n        <package android:name=\"com.devadvance.rootcloak\"/>\n        <package android:name=\"com.devadvance.rootcloak2\"/>\n        <package android:name=\"com.devadvance.rootcloakplus\"/>\n        <package android:name=\"com.dimonvideo.luckypatcher\"/>\n        <package android:name=\"com.ddmnq.dundidevhelper\"/>\n        <package android:name=\"com.dv.marketmod.installer\"/>\n        <package android:name=\"com.google.android.launcher.layouts.genymotion\"/>\n        <package android:name=\"com.kingo.root\"/>\n        <package android:name=\"com.kingroot.kinguser\"/>\n        <package android:name=\"com.koushikdutta.rommanager\"/>\n        <package android:name=\"com.koushikdutta.rommanager.license\"/>\n        <package android:name=\"com.koushikdutta.superuser\"/>\n        <package android:name=\"com.microvirt.download\"/>\n        <package android:name=\"com.microvirt.market\"/>\n        <package android:name=\"com.microvirt.tools\"/>\n        <package android:name=\"com.migu.agent\"/>\n        <package android:name=\"com.migu.controller\"/>\n        <package android:name=\"com.mumu.launcher\"/>\n        <package android:name=\"com.mumu.store\"/>\n        <package android:name=\"com.noshufou.android.su\"/>\n        <package android:name=\"com.noshufou.android.su.elite\"/>\n        <package android:name=\"com.ramdroid.appquarantine\"/>\n        <package android:name=\"com.ramdroid.appquarantinepro\"/>\n        <package android:name=\"com.redfinger.filemanager\"/>\n        <package android:name=\"com.redfinger.monitor\"/>\n        <package android:name=\"com.saurik.substrate\"/>\n        <package android:name=\"com.smedialink.oneclickroot\"/>\n        <package android:name=\"com.solohsu.android.edxp.manager\"/>\n        <package android:name=\"com.teamviewer.host.market\"/>\n        <package android:name=\"com.teamviewer.quicksupport.market\"/>\n        <package android:name=\"com.thirdparty.superuser\"/>\n        <package android:name=\"com.topjohnwu.magisk\"/>\n        <package android:name=\"com.vphone.launcher\"/>\n        <package android:name=\"com.xmodgame\"/>\n        <package android:name=\"com.yellowes.su\"/>\n        <package android:name=\"com.zachspong.temprootremovejb\"/>\n        <package android:name=\"com.zhiqupk.root.global\"/>\n        <package android:name=\"de.robv.android.xposed.installer\"/>\n        <package android:name=\"eu.chainfire.adbd\"/>\n        <package android:name=\"eu.chainfire.flash\"/>\n        <package android:name=\"eu.chainfire.liveboot\"/>\n        <package android:name=\"eu.chainfire.mobileodin.pro\"/>\n        <package android:name=\"eu.chainfire.pryfi\"/>\n        <package android:name=\"eu.chainfire.recently\"/>\n        <package android:name=\"eu.chainfire.stickmount\"/>\n        <package android:name=\"eu.chainfire.stickmount.pro\"/>\n        <package android:name=\"eu.chainfire.supersu\"/>\n        <package android:name=\"eu.chainfire.triangleaway\"/>\n        <package android:name=\"me.weishu.kernelsu\"/>\n        <package android:name=\"me.yourbay.airfrozen\"/>\n        <package android:name=\"org.appspot.apprtc\"/>\n        <package android:name=\"org.meowcat.edxposed.manager\"/>\n        <package android:name=\"me.bmax.apatch\"/>\n        <package android:name=\"com.sand.airdroid\"/>\n        <package android:name=\"com.splashtop.sos\"/>\n        <package android:name=\"com.splashtop.remote.business\"/>\n        <package android:name=\"com.splashtop.remote.pad.v2\"/>\n        <package android:name=\"com.zoho.assist\"/>\n        <package android:name=\"com.koushikdutta.vysor\"/>\n        <package android:name=\"com.sand.airdroidbiz\"/>\n        <package android:name=\"com.splashtop.streamer.csrs\"/>\n        <package android:name=\"com.zoho.remoteplugin.universal\"/>\n        <package android:name=\"com.zoho.vault\"/>\n        <package android:name=\"com.zoho.remoteplugin.unattended\"/>\n        <package android:name=\"com.teamviewer.quicksupport.addon.universal\"/>\n        <package android:name=\"com.anydesk.adcontrol.ad1\"/>\n        <package android:name=\"com.sand.airdroidkids\"/>\n        <package android:name=\"com.rifsxd.ksunext\"/>\n        <package android:name=\"io.github.huskydg.magisk\"/>\n        <package android:name=\"io.github.vvb2060.magisk\"/>\n        <package android:name=\"me.garfieldhan.apatch.next\"/>\n        <package android:name=\"com.cloud.rtcgesture\"/>\n        <package android:name=\"com.android.appstores\"/>\n        <package android:name=\"com.android.expansiontools\"/>\n        <package android:name=\"com.zixun.cmp\"/>\n        <package android:name=\"com.sukisu.ultra\"/>\n        <package android:name=\"com.imyfone.anytoandroid\"/>\n        <package android:name=\"com.theappninjas.fakegpsjoystick\"/>\n        <package android:name=\"com.incorporateapps.fakegps.fre\"/>\n        <package android:name=\"com.rosteam.gpsemulator\"/>\n        <package android:name=\"com.lexa.fakegps\"/>\n        <package android:name=\"com.gsmartstudio.fakegps\"/>\n        <package android:name=\"com.blogspot.newapphorizons.fakegps\"/>\n        <package android:name=\"com.just4funtools.fakegpslocationprofessional\"/>\n        <package android:name=\"fakegps.fakelocation.mocklocation.gpsfaker\"/>\n        <package android:name=\"fr.dvilleneuve.lockito\"/>\n        <intent>\n            <action android:name=\"android.nfc.action.TECH_DISCOVERED\"/>\n        </intent>\n    </queries>\n    <uses-permission android:name=\"com.google.android.gms.permission.AD_ID\"/>\n    <uses-permission android:name=\"android.permission.VIBRATE\"/>\n    <uses-permission android:name=\"android.permission.WAKE_LOCK\"/>\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>\n    <uses-permission android:name=\"android.permission.DOWNLOAD_WITHOUT_NOTIFICATION\"/>\n    <uses-permission android:name=\"com.android.vending.CHECK_LICENSE\"/>\n    <uses-permission\n        android:name=\"android.permission.NFC\"\n        android:required=\"false\"/>\n    <uses-feature\n        android:name=\"android.hardware.nfc\"\n        android:required=\"false\"/>\n    <uses-permission android:name=\"android.permission.READ_BASIC_PHONE_STATE\"/>\n    <uses-feature\n        android:glEsVersion=\"0x20000\"\n        android:required=\"true\"/>\n    <uses-permission android:name=\"com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_ADSERVICES_ATTRIBUTION\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_ADSERVICES_AD_ID\"/>\n    <uses-permission android:name=\"com.samsung.android.mapsagent.permission.READ_APP_INFO\"/>\n    <uses-permission android:name=\"com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA\"/>\n    <uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\"/>\n    <uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>\n    <uses-permission android:name=\"android.permission.FOREGROUND_SERVICE\"/>\n    <permission\n        android:name=\"com.ownly.customer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\"\n        android:protectionLevel=\"signature\"/>\n    <uses-permission android:name=\"com.ownly.customer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\"/>\n    <uses-permission android:name=\"android.permission.SCHEDULE_EXACT_ALARM\"/>\n    <uses-permission\n        android:name=\"android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS\"\n        android:maxSdkVersion=\"30\"/>\n    <uses-permission\n        android:name=\"android.permission.ACCESS_NOTIFICATION_POLICY\"\n        android:minSdkVersion=\"23\"/>\n    <application\n        android:theme=\"@style/AppTheme\"\n        android:label=\"@string/app_name\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:name=\"com.pairip.application.Application\"\n        android:windowSoftInputMode=\"adjustResize\"\n        android:allowBackup=\"false\"\n        android:hardwareAccelerated=\"true\"\n        android:supportsRtl=\"true\"\n        android:extractNativeLibs=\"false\"\n        android:fullBackupContent=\"@xml/appsflyer_backup_rules\"\n        android:usesCleartextTraffic=\"false\"\n        android:networkSecurityConfig=\"@xml/network_security_config\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:appComponentFactory=\"androidx.core.app.CoreComponentFactory\"\n        android:dataExtractionRules=\"@xml/appsflyer_data_extraction_rules\">\n        <meta-data\n            android:name=\"CLEVERTAP_ACCOUNT_ID\"\n            android:value=\"R5K-6K4-847Z\"/>\n        <meta-data\n            android:name=\"CLEVERTAP_TOKEN\"\n            android:value=\"436-352\"/>\n        <meta-data\n            android:name=\"CLEVERTAP_REGION\"\n            android:value=\"eu1\"/>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_channel_id\"\n            android:value=\"transactional\"/>\n        <meta-data\n            android:name=\"CLEVERTAP_DEFAULT_CHANNEL_ID\"\n            android:value=\"CtRNS\"/>\n        <meta-data\n            android:name=\"com.google.android.geo.API_KEY\"\n            android:value=\"AIzaSyA1P6rMnREQ2zdn1bfm0q0JQYgpdoGOptA\"/>\n        <meta-data\n            android:name=\"com.hotupdater.FINGERPRINT_HASH\"\n            android:value=\"e03565a8e86ae7410049d252b4e3662d5bdfe424\"/>\n        <activity\n            android:theme=\"@style/LaunchSplashTheme\"\n            android:label=\"@string/app_name\"\n            android:name=\"com.ownly.customer.MainActivity\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\"\n            android:screenOrientation=\"portrait\"\n            android:configChanges=\"smallestScreenSize|screenSize|uiMode|screenLayout|orientation|keyboardHidden|keyboard\"\n            android:windowSoftInputMode=\"adjustResize\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data android:scheme=\"ownlyapp\"/>\n            </intent-filter>\n            <intent-filter android:autoVerify=\"true\">\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data android:scheme=\"https\"/>\n                <data android:host=\"ownly.food\"/>\n                <data android:pathPrefix=\"/app\"/>\n            </intent-filter>\n            <intent-filter android:autoVerify=\"true\">\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data android:scheme=\"https\"/>\n                <data android:host=\"ownly.onelink.me\"/>\n                <data android:pathPrefix=\"/tMlo\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.intent.action.SEND\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <data android:mimeType=\"text/plain\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.intent.action.SEND\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <data android:mimeType=\"image/*\"/>\n            </intent-filter>\n        </activity>\n        <activity-alias\n            android:label=\"@string/app_name\"\n            android:icon=\"@mipmap/ic_launcher_diwali\"\n            android:name=\"com.ownly.customer.MainActivityDiwaliIcon\"\n            android:enabled=\"false\"\n            android:exported=\"true\"\n            android:targetActivity=\"com.ownly.customer.MainActivity\"\n            android:roundIcon=\"@mipmap/ic_launcher_diwali_round\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n        </activity-alias>\n        <activity-alias\n            android:label=\"@string/app_name\"\n            android:icon=\"@mipmap/ic_launcher_staging\"\n            android:name=\"com.ownly.customer.MainActivityStagingIcon\"\n            android:enabled=\"false\"\n            android:exported=\"true\"\n            android:targetActivity=\"com.ownly.customer.MainActivity\"\n            android:roundIcon=\"@mipmap/ic_launcher_staging_round\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n        </activity-alias>\n        <activity-alias\n            android:label=\"@string/app_name\"\n            android:icon=\"@mipmap/ic_launcher\"\n            android:name=\"com.ownly.customer.MainActivityDefaultIcon\"\n            android:enabled=\"true\"\n            android:exported=\"true\"\n            android:targetActivity=\"com.ownly.customer.MainActivity\"\n            android:roundIcon=\"@mipmap/ic_launcher_round\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n        </activity-alias>\n        <service\n            android:name=\"com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <receiver\n            android:name=\"com.hotupdater.HotUpdaterRecoveryReceiver\"\n            android:exported=\"false\"/>\n        <activity\n            android:theme=\"@android:style/Theme.NoDisplay\"\n            android:name=\"com.hotupdater.HotUpdaterRestartActivity\"\n            android:exported=\"false\"\n            android:process=\":hotupdater_restart\"\n            android:excludeFromRecents=\"true\"\n            android:launchMode=\"singleTask\"\n            android:noHistory=\"true\"/>\n        <provider\n            android:name=\"com.reactnativecommunity.webview.RNCWebViewFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/file_provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"com.ReactNativeBlobUtil.Utils.FileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.provider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"io.invertase.notifee.NotifeeInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.notifee-init-provider\"\n            android:initOrder=\"-100\"/>\n        <meta-data\n            android:name=\"firebase_analytics_collection_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"firebase_analytics_collection_deactivated\"\n            android:value=\"false\"/>\n        <meta-data\n            android:name=\"google_analytics_adid_collection_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_ssaid_collection_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_automatic_screen_reporting_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_analytics_storage\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_ad_storage\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_ad_user_data\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"google_analytics_default_allow_ad_personalization_signals\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"firebase_crashlytics_collection_enabled\"\n            android:value=\"false\"/>\n        <provider\n            android:name=\"io.invertase.firebase.crashlytics.ReactNativeFirebaseCrashlyticsInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.reactnativefirebasecrashlyticsinitprovider\"\n            android:initOrder=\"98\"/>\n        <service\n            android:name=\"io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <receiver\n            android:name=\"io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n        </receiver>\n        <meta-data\n            android:name=\"delivery_metrics_exported_to_big_query_enabled\"\n            android:value=\"false\"/>\n        <meta-data\n            android:name=\"firebase_messaging_auto_init_enabled\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"firebase_messaging_notification_delegation_enabled\"\n            android:value=\"false\"/>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_color\"\n            android:resource=\"@color/white\"/>\n        <meta-data\n            android:name=\"app_data_collection_default_enabled\"\n            android:value=\"true\"/>\n        <service\n            android:name=\"com.google.firebase.components.ComponentDiscoveryService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <meta-data\n                android:name=\"com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.remoteconfig.FirebaseRemoteConfigKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n        </service>\n        <provider\n            android:name=\"io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.reactnativefirebaseappinitprovider\"\n            android:initOrder=\"99\"/>\n        <activity\n            android:theme=\"@style/Theme.AppCompat.Juspay.Translucent\"\n            android:label=\"Juspay Payment Page Activity\"\n            android:name=\"in.juspay.hypersdkreact.ProcessActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:configChanges=\"smallestScreenSize|screenSize|uiMode|screenLayout|orientation|keyboardHidden|keyboard|locale\"\n            android:windowSoftInputMode=\"adjustResize\"/>\n        <provider\n            android:name=\"com.imagepicker.ImagePickerProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.imagepickerprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/imagepicker_provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"cl.json.RNShareFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.rnshare.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/share_download_paths\"/>\n        </provider>\n        <provider\n            android:name=\"com.RNFetchBlob.Utils.FileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.provider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/provider_paths\"/>\n        </provider>\n        <provider\n            android:name=\"androidx.startup.InitializationProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.androidx-startup\">\n            <meta-data\n                android:name=\"androidx.work.WorkManagerInitializer\"\n                android:value=\"androidx.startup\"/>\n            <meta-data\n                android:name=\"androidx.emoji2.text.EmojiCompatInitializer\"\n                android:value=\"androidx.startup\"/>\n            <meta-data\n                android:name=\"androidx.lifecycle.ProcessLifecycleInitializer\"\n                android:value=\"androidx.startup\"/>\n            <meta-data\n                android:name=\"androidx.profileinstaller.ProfileInstallerInitializer\"\n                android:value=\"androidx.startup\"/>\n        </provider>\n        <provider\n            android:name=\"com.clevertap.android.sdk.CleverTapFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.clevertap.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/clevertap_notification_file_paths\"/>\n        </provider>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.clevertap.android.sdk.InAppNotificationActivity\"\n            android:configChanges=\"keyboardHidden\"/>\n        <activity\n            android:theme=\"@style/CTInboxActivityTheme\"\n            android:name=\"com.clevertap.android.sdk.inbox.CTInboxActivity\"\n            android:configChanges=\"keyboardHidden\"/>\n        <receiver\n            android:name=\"com.clevertap.android.sdk.pushnotification.CTPushNotificationReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.clevertap.android.sdk.pushnotification.fcm.CTFirebaseMessagingReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter android:priority=\"-1\">\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n        </receiver>\n        <activity\n            android:name=\"in.juspay.hypernfc.NfcActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\">\n            <intent-filter>\n                <action android:name=\"android.nfc.action.TECH_DISCOVERED\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n            </intent-filter>\n        </activity>\n        <meta-data\n            android:name=\"com.google.android.gms.version\"\n            android:value=\"@integer/google_play_services_version\"/>\n        <provider\n            android:name=\"com.cashfree.pg.api.CashfreeCoreContentProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.cashfreecorecontentprovider\"/>\n        <meta-data\n            android:name=\"cashfree_pg_core_auto_initialization_enabled\"\n            android:value=\"@bool/cashfree_pg_core_auto_initialize_enabled\"/>\n        <meta-data\n            android:name=\"cashfree_pg_core_reporting_enabled\"\n            android:value=\"@bool/cashfree_pg_core_reporting_enabled\"/>\n        <activity\n            android:theme=\"@style/CFUITheme\"\n            android:name=\"com.cashfree.pg.ui.hidden.checkout.CashfreeNativeCheckoutActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"\n            android:windowSoftInputMode=\"adjustPan\">\n            <intent-filter>\n                <action android:name=\"android.nfc.action.TECH_DISCOVERED\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.nfc.action.TAG_DISCOVERED\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.nfc.action.NDEF_DISCOVERED\"/>\n            </intent-filter>\n        </activity>\n        <activity\n            android:theme=\"@style/CFSeamlessStyle\"\n            android:name=\"com.cashfree.pg.ui.hidden.seamless.CFDropSeamlessActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <meta-data\n            android:name=\"android.webkit.WebView.EnableSafeBrowsing\"\n            android:value=\"true\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFCoreUPIPaymentActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFCoreModalActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFCoreTheme\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeCoreNativeVerificationActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"/>\n        <activity\n            android:theme=\"@style/CFCoreTheme\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeSubscriptionVerificationActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"/>\n        <activity\n            android:theme=\"@style/CFCoreTheme\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeSubscriptionCheckoutActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"\n            android:screenOrientation=\"portrait\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFSubsCoreUpiPaymentActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFCoreUPIStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CFSubsCoreModalActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <activity\n            android:theme=\"@style/CFWebCheckoutStyle\"\n            android:name=\"com.cashfree.pg.core.api.ui.CashfreeWebCheckoutActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTop\"/>\n        <meta-data\n            android:name=\"cashfree_pg_logging_level\"\n            android:value=\"@integer/cashfree_pg_logging_level\"/>\n        <activity\n            android:name=\"in.juspay.hypersdk.core.CustomtabActivity\"\n            android:exported=\"false\"\n            android:launchMode=\"singleTask\"/>\n        <activity\n            android:name=\"in.juspay.hypersdk.core.CustomtabResult\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"juspay\"\n                    android:host=\"com.ownly.customer\"/>\n            </intent-filter>\n        </activity>\n        <activity\n            android:name=\"in.juspay.hypersdk.core.RedirectResponseActivity\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"juspayexternalapp\"\n                    android:host=\"com.ownly.customer\"/>\n            </intent-filter>\n        </activity>\n        <activity\n            android:theme=\"@style/AppTheme.Translucent\"\n            android:name=\"com.amazon.identity.auth.apay.activity.AuthActivity\"\n            android:exported=\"false\"\n            android:screenOrientation=\"portrait\"\n            android:configChanges=\"screenSize|uiMode|orientation\"/>\n        <activity\n            android:theme=\"@android:style/Theme.NoDisplay\"\n            android:name=\"com.amazon.identity.auth.device.workflow.WorkflowActivity\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\"\n            android:allowTaskReparenting=\"true\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"amzn\"\n                    android:host=\"com.ownly.customer\"/>\n            </intent-filter>\n        </activity>\n        <meta-data\n            android:name=\"cashfree_custom_analytics_subscriber_enabled\"\n            android:value=\"@bool/cashfree_custom_analytics_subscriber_enabled\"/>\n        <meta-data\n            android:name=\"cashfree_pg_core_encrypt_pref_enabled\"\n            android:value=\"@bool/cashfree_pg_core_encrypt_pref_enabled\"/>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.google.android.gms.auth.api.signin.internal.SignInHubActivity\"\n            android:exported=\"false\"\n            android:excludeFromRecents=\"true\"/>\n        <service\n            android:name=\"com.google.android.gms.auth.api.signin.RevocationBoundService\"\n            android:permission=\"com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION\"\n            android:exported=\"true\"\n            android:visibleToInstantApps=\"true\"/>\n        <uses-library\n            android:name=\"org.apache.http.legacy\"\n            android:required=\"false\"/>\n        <receiver\n            android:name=\"com.google.android.gms.measurement.AppMeasurementReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementService\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementJobService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.google.firebase.iid.FirebaseInstanceIdReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n            <meta-data\n                android:name=\"com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED\"\n                android:value=\"true\"/>\n        </receiver>\n        <service\n            android:name=\"com.google.firebase.messaging.FirebaseMessagingService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <intent-filter android:priority=\"-500\">\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <service\n            android:name=\"com.google.firebase.sessions.SessionLifecycleService\"\n            android:enabled=\"false\"\n            android:exported=\"false\"/>\n        <provider\n            android:name=\"com.google.firebase.provider.FirebaseInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.firebaseinitprovider\"\n            android:initOrder=\"100\"\n            android:directBootAware=\"true\"/>\n        <activity\n            android:theme=\"@style/AppTheme.Translucent\"\n            android:name=\"com.amazon.android.apay.commonlibrary.browsinglib.activity.BrowsingActivity\"\n            android:exported=\"false\"\n            android:configChanges=\"screenSize|uiMode|orientation\"/>\n        <activity\n            android:name=\"com.amazon.android.apay.commonlibrary.browsinglib.activity.RedirectUriReceiverActivity\"\n            android:exported=\"true\">\n            <intent-filter>\n                <data\n                    android:scheme=\"amzn\"\n                    android:host=\"amazonpay.amazon.in\"\n                    android:path=\"/com.ownly.customer\"/>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n            </intent-filter>\n        </activity>\n        <service\n            android:name=\"androidx.work.impl.background.systemalarm.SystemAlarmService\"\n            android:enabled=\"@bool/enable_system_alarm_service_default\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\"/>\n        <service\n            android:name=\"androidx.work.impl.background.systemjob.SystemJobService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:enabled=\"@bool/enable_system_job_service_default\"\n            android:exported=\"true\"\n            android:directBootAware=\"false\"/>\n        <service\n            android:name=\"androidx.work.impl.foreground.SystemForegroundService\"\n            android:enabled=\"@bool/enable_system_foreground_service_default\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\"/>\n        <receiver\n            android:name=\"androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\"/>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryChargingProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.ACTION_POWER_CONNECTED\"/>\n                <action android:name=\"android.intent.action.ACTION_POWER_DISCONNECTED\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryNotLowProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BATTERY_OKAY\"/>\n                <action android:name=\"android.intent.action.BATTERY_LOW\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.StorageNotLowProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.DEVICE_STORAGE_LOW\"/>\n                <action android:name=\"android.intent.action.DEVICE_STORAGE_OK\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxy.NetworkStateProxy\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.net.conn.CONNECTIVITY_CHANGE\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.RescheduleReceiver\"\n            android:enabled=\"false\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\"/>\n                <action android:name=\"android.intent.action.TIME_SET\"/>\n                <action android:name=\"android.intent.action.TIMEZONE_CHANGED\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver\"\n            android:enabled=\"@bool/enable_system_alarm_service_default\"\n            android:exported=\"false\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"androidx.work.impl.background.systemalarm.UpdateProxies\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"androidx.work.impl.diagnostics.DiagnosticsReceiver\"\n            android:permission=\"android.permission.DUMP\"\n            android:enabled=\"true\"\n            android:exported=\"true\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"androidx.work.diagnostics.REQUEST_DIAGNOSTICS\"/>\n            </intent-filter>\n        </receiver>\n        <meta-data\n            android:name=\"com.bumptech.glide.integration.okhttp3.OkHttpGlideModule\"\n            android:value=\"GlideModule\"/>\n        <meta-data\n            android:name=\"com.bumptech.glide.integration.webp.WebpGlideModule\"\n            android:value=\"GlideModule\"/>\n        <receiver\n            android:name=\"in.juspay.hypersmshandler.SmsRetrieverReceiver\"\n            android:permission=\"com.google.android.gms.auth.api.phone.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.gms.auth.api.phone.SMS_RETRIEVED\"/>\n            </intent-filter>\n        </receiver>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.google.android.gms.common.api.GoogleApiActivity\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"androidx.room.MultiInstanceInvalidationService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\"/>\n        <uses-library\n            android:name=\"android.ext.adservices\"\n            android:required=\"false\"/>\n        <provider\n            android:name=\"com.squareup.picasso.PicassoProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.ownly.customer.com.squareup.picasso\"/>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.backends.TransportBackendDiscovery\"\n            android:exported=\"false\">\n            <meta-data\n                android:name=\"backend:com.google.android.datatransport.cct.CctBackendFactory\"\n                android:value=\"cct\"/>\n        </service>\n        <receiver\n            android:name=\"androidx.profileinstaller.ProfileInstallReceiver\"\n            android:permission=\"android.permission.DUMP\"\n            android:enabled=\"true\"\n            android:exported=\"true\"\n            android:directBootAware=\"false\">\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.INSTALL_PROFILE\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.SKIP_FILE\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.SAVE_PROFILE\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"androidx.profileinstaller.action.BENCHMARK_OPERATION\"/>\n            </intent-filter>\n        </receiver>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"app.notifee.core.ReceiverService\"\n            android:exported=\"false\"/>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"app.notifee.core.NotificationReceiverActivity\"\n            android:exported=\"true\"\n            android:taskAffinity=\"\"\n            android:excludeFromRecents=\"true\"\n            android:noHistory=\"true\"/>\n        <service\n            android:name=\"app.notifee.core.ForegroundService\"\n            android:exported=\"false\"\n            android:foregroundServiceType=\"shortService\"/>\n        <receiver\n            android:name=\"app.notifee.core.RebootBroadcastReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\"/>\n                <action android:name=\"android.intent.action.QUICKBOOT_POWERON\"/>\n                <action android:name=\"com.htc.intent.action.QUICKBOOT_POWERON\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"app.notifee.core.AlarmPermissionBroadcastReceiver\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"app.notifee.core.NotificationAlarmReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\"/>\n                <action android:name=\"android.intent.action.QUICKBOOT_POWERON\"/>\n                <action android:name=\"com.htc.intent.action.QUICKBOOT_POWERON\"/>\n            </intent-filter>\n        </receiver>\n        <receiver\n            android:name=\"app.notifee.core.BlockStateBroadcastReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.app.action.APP_BLOCK_STATE_CHANGED\"/>\n                <action android:name=\"android.app.action.NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED\"/>\n                <action android:name=\"android.app.action.NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED\"/>\n            </intent-filter>\n        </receiver>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.jakewharton.processphoenix.ProcessPhoenix\"\n            android:exported=\"false\"\n            android:process=\":phoenix\"/>\n        <meta-data\n            android:name=\"com.facebook.soloader.enabled\"\n            android:value=\"false\"/>\n        <activity\n            android:theme=\"@style/Theme.PlayCore.Transparent\"\n            android:name=\"com.google.android.play.core.common.PlayCoreDialogWrapperActivity\"\n            android:exported=\"false\"\n            android:stateNotNeeded=\"true\"/>\n        <activity\n            android:name=\"com.pairip.licensecheck.LicenseActivity\"\n            android:exported=\"false\"/>\n        <meta-data\n            android:name=\"com.android.vending.splits.required\"\n            android:value=\"true\"/>\n        <meta-data\n            android:name=\"com.android.stamp.source\"\n            android:value=\"https://play.google.com/store\"/>\n        <meta-data\n            android:name=\"com.android.stamp.type\"\n            android:value=\"STAMP_TYPE_DISTRIBUTION_APK\"/>\n        <meta-data\n            android:name=\"com.android.vending.splits\"\n            android:resource=\"@xml/splits0\"/>\n        <meta-data\n            android:name=\"com.android.vending.derived.apk.id\"\n            android:value=\"3\"/>\n    </application>\n</manifest>"
+    reported_total_bytes: null
+  components:
+    status: complete
+    items[83]:
+      - kind: activity
+        declared_name: com.ownly.customer.MainActivity
+        name: com.ownly.customer.MainActivity
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 5
+        actions[2]: android.intent.action.VIEW,android.intent.action.SEND
+        categories[2]: android.intent.category.DEFAULT,android.intent.category.BROWSABLE
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity-alias
+        declared_name: com.ownly.customer.MainActivityDiwaliIcon
+        name: com.ownly.customer.MainActivityDiwaliIcon
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.intent.action.MAIN
+        categories[1]: android.intent.category.LAUNCHER
+        foreground_service_type: null
+        authorities: null
+        target_activity: com.ownly.customer.MainActivity
+      - kind: activity-alias
+        declared_name: com.ownly.customer.MainActivityStagingIcon
+        name: com.ownly.customer.MainActivityStagingIcon
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.intent.action.MAIN
+        categories[1]: android.intent.category.LAUNCHER
+        foreground_service_type: null
+        authorities: null
+        target_activity: com.ownly.customer.MainActivity
+      - kind: activity-alias
+        declared_name: com.ownly.customer.MainActivityDefaultIcon
+        name: com.ownly.customer.MainActivityDefaultIcon
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.intent.action.MAIN
+        categories[1]: android.intent.category.LAUNCHER
+        foreground_service_type: null
+        authorities: null
+        target_activity: com.ownly.customer.MainActivity
+      - kind: service
+        declared_name: com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService
+        name: com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: com.google.firebase.MESSAGING_EVENT
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: com.hotupdater.HotUpdaterRecoveryReceiver
+        name: com.hotupdater.HotUpdaterRecoveryReceiver
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.hotupdater.HotUpdaterRestartActivity
+        name: com.hotupdater.HotUpdaterRestartActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: provider
+        declared_name: com.reactnativecommunity.webview.RNCWebViewFileProvider
+        name: com.reactnativecommunity.webview.RNCWebViewFileProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.fileprovider
+        target_activity: null
+      - kind: provider
+        declared_name: com.ReactNativeBlobUtil.Utils.FileProvider
+        name: com.ReactNativeBlobUtil.Utils.FileProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.provider
+        target_activity: null
+      - kind: provider
+        declared_name: io.invertase.notifee.NotifeeInitProvider
+        name: io.invertase.notifee.NotifeeInitProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.notifee-init-provider
+        target_activity: null
+      - kind: provider
+        declared_name: io.invertase.firebase.crashlytics.ReactNativeFirebaseCrashlyticsInitProvider
+        name: io.invertase.firebase.crashlytics.ReactNativeFirebaseCrashlyticsInitProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.reactnativefirebasecrashlyticsinitprovider
+        target_activity: null
+      - kind: service
+        declared_name: io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService
+        name: io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService
+        name: io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: com.google.firebase.MESSAGING_EVENT
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver
+        name: io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver
+        exported: true
+        exported_default: true
+        permission: com.google.android.c2dm.permission.SEND
+        permission_source: component
+        intent_filter_count: 1
+        actions[1]: com.google.android.c2dm.intent.RECEIVE
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: com.google.firebase.components.ComponentDiscoveryService
+        name: com.google.firebase.components.ComponentDiscoveryService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: provider
+        declared_name: io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider
+        name: io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.reactnativefirebaseappinitprovider
+        target_activity: null
+      - kind: activity
+        declared_name: in.juspay.hypersdkreact.ProcessActivity
+        name: in.juspay.hypersdkreact.ProcessActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: provider
+        declared_name: com.imagepicker.ImagePickerProvider
+        name: com.imagepicker.ImagePickerProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.imagepickerprovider
+        target_activity: null
+      - kind: provider
+        declared_name: cl.json.RNShareFileProvider
+        name: cl.json.RNShareFileProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.rnshare.fileprovider
+        target_activity: null
+      - kind: provider
+        declared_name: com.RNFetchBlob.Utils.FileProvider
+        name: com.RNFetchBlob.Utils.FileProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.provider
+        target_activity: null
+      - kind: provider
+        declared_name: androidx.startup.InitializationProvider
+        name: androidx.startup.InitializationProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.androidx-startup
+        target_activity: null
+      - kind: provider
+        declared_name: com.clevertap.android.sdk.CleverTapFileProvider
+        name: com.clevertap.android.sdk.CleverTapFileProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.clevertap.fileprovider
+        target_activity: null
+      - kind: activity
+        declared_name: com.clevertap.android.sdk.InAppNotificationActivity
+        name: com.clevertap.android.sdk.InAppNotificationActivity
+        exported: null
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.clevertap.android.sdk.inbox.CTInboxActivity
+        name: com.clevertap.android.sdk.inbox.CTInboxActivity
+        exported: null
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: com.clevertap.android.sdk.pushnotification.CTPushNotificationReceiver
+        name: com.clevertap.android.sdk.pushnotification.CTPushNotificationReceiver
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: com.clevertap.android.sdk.pushnotification.fcm.CTFirebaseMessagingReceiver
+        name: com.clevertap.android.sdk.pushnotification.fcm.CTFirebaseMessagingReceiver
+        exported: true
+        exported_default: true
+        permission: com.google.android.c2dm.permission.SEND
+        permission_source: component
+        intent_filter_count: 1
+        actions[1]: com.google.android.c2dm.intent.RECEIVE
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: in.juspay.hypernfc.NfcActivity
+        name: in.juspay.hypernfc.NfcActivity
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.nfc.action.TECH_DISCOVERED
+        categories[1]: android.intent.category.DEFAULT
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: provider
+        declared_name: com.cashfree.pg.api.CashfreeCoreContentProvider
+        name: com.cashfree.pg.api.CashfreeCoreContentProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.cashfreecorecontentprovider
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.ui.hidden.checkout.CashfreeNativeCheckoutActivity
+        name: com.cashfree.pg.ui.hidden.checkout.CashfreeNativeCheckoutActivity
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 3
+        actions[3]: android.nfc.action.TECH_DISCOVERED,android.nfc.action.TAG_DISCOVERED,android.nfc.action.NDEF_DISCOVERED
+        categories[1]: android.intent.category.DEFAULT
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.ui.hidden.seamless.CFDropSeamlessActivity
+        name: com.cashfree.pg.ui.hidden.seamless.CFDropSeamlessActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CFCoreUPIPaymentActivity
+        name: com.cashfree.pg.core.api.ui.CFCoreUPIPaymentActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CFCoreModalActivity
+        name: com.cashfree.pg.core.api.ui.CFCoreModalActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CashfreeCoreNativeVerificationActivity
+        name: com.cashfree.pg.core.api.ui.CashfreeCoreNativeVerificationActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CashfreeSubscriptionVerificationActivity
+        name: com.cashfree.pg.core.api.ui.CashfreeSubscriptionVerificationActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CashfreeSubscriptionCheckoutActivity
+        name: com.cashfree.pg.core.api.ui.CashfreeSubscriptionCheckoutActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CFSubsCoreUpiPaymentActivity
+        name: com.cashfree.pg.core.api.ui.CFSubsCoreUpiPaymentActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CFSubsCoreModalActivity
+        name: com.cashfree.pg.core.api.ui.CFSubsCoreModalActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.cashfree.pg.core.api.ui.CashfreeWebCheckoutActivity
+        name: com.cashfree.pg.core.api.ui.CashfreeWebCheckoutActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: in.juspay.hypersdk.core.CustomtabActivity
+        name: in.juspay.hypersdk.core.CustomtabActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: in.juspay.hypersdk.core.CustomtabResult
+        name: in.juspay.hypersdk.core.CustomtabResult
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.intent.action.VIEW
+        categories[2]: android.intent.category.DEFAULT,android.intent.category.BROWSABLE
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: in.juspay.hypersdk.core.RedirectResponseActivity
+        name: in.juspay.hypersdk.core.RedirectResponseActivity
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.intent.action.VIEW
+        categories[2]: android.intent.category.DEFAULT,android.intent.category.BROWSABLE
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.amazon.identity.auth.apay.activity.AuthActivity
+        name: com.amazon.identity.auth.apay.activity.AuthActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.amazon.identity.auth.device.workflow.WorkflowActivity
+        name: com.amazon.identity.auth.device.workflow.WorkflowActivity
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.intent.action.VIEW
+        categories[2]: android.intent.category.DEFAULT,android.intent.category.BROWSABLE
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+        name: com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: com.google.android.gms.auth.api.signin.RevocationBoundService
+        name: com.google.android.gms.auth.api.signin.RevocationBoundService
+        exported: true
+        exported_default: false
+        permission: com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION
+        permission_source: component
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: com.google.android.gms.measurement.AppMeasurementReceiver
+        name: com.google.android.gms.measurement.AppMeasurementReceiver
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: com.google.android.gms.measurement.AppMeasurementService
+        name: com.google.android.gms.measurement.AppMeasurementService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: com.google.android.gms.measurement.AppMeasurementJobService
+        name: com.google.android.gms.measurement.AppMeasurementJobService
+        exported: false
+        exported_default: false
+        permission: android.permission.BIND_JOB_SERVICE
+        permission_source: component
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: com.google.firebase.iid.FirebaseInstanceIdReceiver
+        name: com.google.firebase.iid.FirebaseInstanceIdReceiver
+        exported: true
+        exported_default: true
+        permission: com.google.android.c2dm.permission.SEND
+        permission_source: component
+        intent_filter_count: 1
+        actions[1]: com.google.android.c2dm.intent.RECEIVE
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: com.google.firebase.messaging.FirebaseMessagingService
+        name: com.google.firebase.messaging.FirebaseMessagingService
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: com.google.firebase.MESSAGING_EVENT
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: com.google.firebase.sessions.SessionLifecycleService
+        name: com.google.firebase.sessions.SessionLifecycleService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: provider
+        declared_name: com.google.firebase.provider.FirebaseInitProvider
+        name: com.google.firebase.provider.FirebaseInitProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.firebaseinitprovider
+        target_activity: null
+      - kind: activity
+        declared_name: com.amazon.android.apay.commonlibrary.browsinglib.activity.BrowsingActivity
+        name: com.amazon.android.apay.commonlibrary.browsinglib.activity.BrowsingActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.amazon.android.apay.commonlibrary.browsinglib.activity.RedirectUriReceiverActivity
+        name: com.amazon.android.apay.commonlibrary.browsinglib.activity.RedirectUriReceiverActivity
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.intent.action.VIEW
+        categories[2]: android.intent.category.DEFAULT,android.intent.category.BROWSABLE
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: androidx.work.impl.background.systemalarm.SystemAlarmService
+        name: androidx.work.impl.background.systemalarm.SystemAlarmService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: androidx.work.impl.background.systemjob.SystemJobService
+        name: androidx.work.impl.background.systemjob.SystemJobService
+        exported: true
+        exported_default: false
+        permission: android.permission.BIND_JOB_SERVICE
+        permission_source: component
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: androidx.work.impl.foreground.SystemForegroundService
+        name: androidx.work.impl.foreground.SystemForegroundService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver
+        name: androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryChargingProxy
+        name: androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryChargingProxy
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[2]: android.intent.action.ACTION_POWER_CONNECTED,android.intent.action.ACTION_POWER_DISCONNECTED
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryNotLowProxy
+        name: androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryNotLowProxy
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[2]: android.intent.action.BATTERY_OKAY,android.intent.action.BATTERY_LOW
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.background.systemalarm.ConstraintProxy.StorageNotLowProxy
+        name: androidx.work.impl.background.systemalarm.ConstraintProxy.StorageNotLowProxy
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[2]: android.intent.action.DEVICE_STORAGE_LOW,android.intent.action.DEVICE_STORAGE_OK
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.background.systemalarm.ConstraintProxy.NetworkStateProxy
+        name: androidx.work.impl.background.systemalarm.ConstraintProxy.NetworkStateProxy
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.net.conn.CONNECTIVITY_CHANGE
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.background.systemalarm.RescheduleReceiver
+        name: androidx.work.impl.background.systemalarm.RescheduleReceiver
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[3]: android.intent.action.BOOT_COMPLETED,android.intent.action.TIME_SET,android.intent.action.TIMEZONE_CHANGED
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver
+        name: androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: androidx.work.impl.background.systemalarm.UpdateProxies
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.work.impl.diagnostics.DiagnosticsReceiver
+        name: androidx.work.impl.diagnostics.DiagnosticsReceiver
+        exported: true
+        exported_default: true
+        permission: android.permission.DUMP
+        permission_source: component
+        intent_filter_count: 1
+        actions[1]: androidx.work.diagnostics.REQUEST_DIAGNOSTICS
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: in.juspay.hypersmshandler.SmsRetrieverReceiver
+        name: in.juspay.hypersmshandler.SmsRetrieverReceiver
+        exported: true
+        exported_default: true
+        permission: com.google.android.gms.auth.api.phone.permission.SEND
+        permission_source: component
+        intent_filter_count: 1
+        actions[1]: com.google.android.gms.auth.api.phone.SMS_RETRIEVED
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.google.android.gms.common.api.GoogleApiActivity
+        name: com.google.android.gms.common.api.GoogleApiActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: androidx.room.MultiInstanceInvalidationService
+        name: androidx.room.MultiInstanceInvalidationService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: provider
+        declared_name: com.squareup.picasso.PicassoProvider
+        name: com.squareup.picasso.PicassoProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.ownly.customer.com.squareup.picasso
+        target_activity: null
+      - kind: service
+        declared_name: com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+        name: com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: androidx.profileinstaller.ProfileInstallReceiver
+        name: androidx.profileinstaller.ProfileInstallReceiver
+        exported: true
+        exported_default: true
+        permission: android.permission.DUMP
+        permission_source: component
+        intent_filter_count: 4
+        actions[4]: androidx.profileinstaller.action.INSTALL_PROFILE,androidx.profileinstaller.action.SKIP_FILE,androidx.profileinstaller.action.SAVE_PROFILE,androidx.profileinstaller.action.BENCHMARK_OPERATION
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+        name: com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+        exported: false
+        exported_default: false
+        permission: android.permission.BIND_JOB_SERVICE
+        permission_source: component
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+        name: com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: app.notifee.core.ReceiverService
+        name: app.notifee.core.ReceiverService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: app.notifee.core.NotificationReceiverActivity
+        name: app.notifee.core.NotificationReceiverActivity
+        exported: true
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: service
+        declared_name: app.notifee.core.ForegroundService
+        name: app.notifee.core.ForegroundService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: shortService
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: app.notifee.core.RebootBroadcastReceiver
+        name: app.notifee.core.RebootBroadcastReceiver
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[3]: android.intent.action.BOOT_COMPLETED,android.intent.action.QUICKBOOT_POWERON,com.htc.intent.action.QUICKBOOT_POWERON
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: app.notifee.core.AlarmPermissionBroadcastReceiver
+        name: app.notifee.core.AlarmPermissionBroadcastReceiver
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: app.notifee.core.NotificationAlarmReceiver
+        name: app.notifee.core.NotificationAlarmReceiver
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[3]: android.intent.action.BOOT_COMPLETED,android.intent.action.QUICKBOOT_POWERON,com.htc.intent.action.QUICKBOOT_POWERON
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: receiver
+        declared_name: app.notifee.core.BlockStateBroadcastReceiver
+        name: app.notifee.core.BlockStateBroadcastReceiver
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[3]: android.app.action.APP_BLOCK_STATE_CHANGED,android.app.action.NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED,android.app.action.NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.jakewharton.processphoenix.ProcessPhoenix
+        name: com.jakewharton.processphoenix.ProcessPhoenix
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+        name: com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+      - kind: activity
+        declared_name: com.pairip.licensecheck.LicenseActivity
+        name: com.pairip.licensecheck.LicenseActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+    limitations: []
+  class_count: 16885
+  resource_count: 2055
+  signature_verification: not_performed
+confidence: observed
+authority: shipped-artifact
+environment: null
+limitations[5]: Static decompiler observations do not establish runtime behavior; the APK is never executed.,"Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.","Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.","Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.","Manifest summaries are parsed once by REA's bridge from the exact root AndroidManifest.xml resource, using namespace-aware XML attributes; decoded XML is retained. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+relationship_coverage: null
+locations[1]{kind,path}:
+  artifact-path,AndroidManifest.xml
+evidence_links: []

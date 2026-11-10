@@ -1,0 +1,4 @@
+Module 1681 (FIREBASE_EVENTS) exports (3 total):
+  export "getFirebaseAppInstanceId" -> function 11553 (getFirebaseAppInstanceId)
+  export "setFirebaseUserId" -> function 11555 (setFirebaseUserId)
+  export "trackFirebaseEvent" -> function 11551 (trackFirebaseEvent)

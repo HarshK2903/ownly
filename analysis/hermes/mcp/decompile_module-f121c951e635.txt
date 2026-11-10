@@ -1,0 +1,35 @@
+// Module 1648
+
+export function getAuthErrorMessage(ok, arg1) {
+  if (ok.ok) {
+    return "";
+  } else {
+    const response = ok.response;
+    let data;
+    if (response != null) {
+      data = response.data;
+    }
+    let message;
+    if (data) {
+      if (typeof data.message === "string") {
+        message = data.message;
+      }
+    }
+    if (message == null) {
+      message = ok.error.message;
+    }
+    if (message == null) {
+      message = arg1;
+    }
+    return message;
+  }
+}
+export function isNewUserFromCustomerDetails(data) {
+  let trimmed;
+  if (data != null) {
+    if (data.name != null) {
+      trimmed = str.trim();
+    }
+  }
+  return !trimmed;
+}

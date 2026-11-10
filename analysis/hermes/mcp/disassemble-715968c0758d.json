@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 31972,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 13,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  LoadParam r6, 1\n0003  GetById r5, r6, 0, \"event_name\"\n0009  JmpTypeOfIs L97, r5, 507\n0011  GetByIdShort r2, r5, 1, \"length\"\n0016  LoadConstZero r0\n0018  JStrictEqual L97, r2, r0\n001c  GetParentEnvironment r2, 0\n001f  LoadFromEnvironment r3, r2, 2\n0023  GetByIdShort r4, r3, 2, \"default\"\n0028  GetById r3, r4, 3, \"recordEvent\"\n002e  LoadFromEnvironment r2, r2, 4\n0032  JmpTypeOfIs L66, r2, 128\n003a  LoadConstString r8, \"Trying to call a non-function\"\n003e  CallBuiltin r2, 44, 2\nL66:\n0042  NewObject r2\n0044  Mov r8, r2\n0047  Mov r7, r6\n004a  CallBuiltin r6, 46, 3\n004e  LoadConstString r6, \"event_name\"\n0052  DelByVal r1, r2, r6, 0\n0057  Call3 r2, r3, r4, r5, r2\n005d  LoadConstUndefined r1\n005f  Ret r1\nL97:\n0061  LoadConstUndefined r1\n0063  Ret r1\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

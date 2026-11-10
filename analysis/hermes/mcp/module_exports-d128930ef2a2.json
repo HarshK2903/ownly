@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 1622
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 9,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 1622 (runCheckoutPreflight) exports (1 total):\n  export \"runCheckoutPreflight\" -> function 25391 (runCheckoutPreflight)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

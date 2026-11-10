@@ -1,0 +1,43 @@
+0000  LoadParam r0, 1
+0003  GetByIdShort r2, r0, 0, "type"
+0008  LoadConstString r1, "interaction"
+000c  JStrictEqual L57, r2, r1
+0010  GetByIdShort r5, r0, 0, "type"
+0015  GetById r4, r0, 1, "entity"
+001b  GetGlobalObject r1
+001d  TryGetById r1, r1, 2, "HermesInternal"
+0023  GetByIdShort r3, r1, 3, "concat"
+0028  LoadConstString r2, "_"
+002c  LoadConstString r1, ""
+0030  Call4 r1, r3, r1, r5, r2, r4
+0037  Ret r1
+L57:
+0039  GetByIdShort r7, r0, 0, "type"
+003e  GetById r6, r0, 4, "screen"
+0044  GetById r5, r0, 1, "entity"
+004a  GetById r1, r0, 5, "element"
+0050  LoadConstString r4, ""
+0054  Mov r3, r4
+0057  JmpFalse L118, r1
+005a  GetById r8, r0, 5, "element"
+0060  GetGlobalObject r1
+0062  TryGetById r1, r1, 2, "HermesInternal"
+0068  GetByIdShort r2, r1, 3, "concat"
+006d  LoadConstString r1, "_"
+0071  Call2 r3, r2, r1, r8
+L118:
+0076  GetByIdShort r9, r0, 6, "action"
+007b  GetGlobalObject r0
+007d  TryGetById r0, r0, 2, "HermesInternal"
+0083  GetByIdShort r1, r0, 3, "concat"
+0088  LoadConstString r0, "_"
+008c  Mov r17, r4
+008f  Mov r16, r7
+0092  Mov r15, r0
+0095  Mov r14, r6
+0098  Mov r13, r0
+009b  Mov r12, r5
+009e  Mov r11, r3
+00a1  Mov r10, r0
+00a4  Call r0, r1, 9
+00a8  Ret r0

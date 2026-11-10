@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1618
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 13,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1618\nfunction isSafeMethod(arg0) {\n  return arg0 === \"GET\";\n}\n\nexport function createDefaultRetryPolicy() {\n  return { maxAttempts: 1, baseDelayMs: 250, maxDelayMs: 5000, jitterRatio: 0.2, retryOnStatuses: [408, 429, 500, 502, 503, 504], retryOnNetworkError: true, retryOnTimeout: true, safeMethodsOnly: true };\n}\nexport { isSafeMethod };\nexport function isRetryableResult(arg0, ok, safeMethodsOnly) {\n  if (ok.ok) {\n    return false;\n  } else {\n    if (safeMethodsOnly.safeMethodsOnly) {\n      if (typeof isSafeMethod === \"function\") {\n        if (tmp4 !== \"GET\") {\n          return false;\n        }\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    }\n    const status = ok.status;\n    if (status === 401) {\n      return false;\n    } else if (status === 0) {\n      const kind = ok.error.kind;\n      if (kind === \"timeout\") {\n        return safeMethodsOnly.retryOnTimeout;\n      } else {\n        return safeMethodsOnly.retryOnNetworkError;\n      }\n    } else {\n      const retryOnStatuses = safeMethodsOnly.retryOnStatuses;\n      return retryOnStatuses.includes(status);\n    }\n  }\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

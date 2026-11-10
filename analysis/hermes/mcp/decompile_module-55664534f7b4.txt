@@ -1,0 +1,351 @@
+// Module 1611 (cartReducer)
+import _objectWithoutProperties2 from "_objectWithoutProperties" /* 71 */;
+import _mod1598 from "module_1598" /* 1598 */;
+import generateCartId from "generateCartId" /* 1607 */;
+import calculateCartTotals from "calculateCartTotals" /* 1609 */;
+import _mod1613 from "module_1613" /* 1613 */;
+import module_1 from "module_1" /* 1 */;
+
+const _objectWithoutProperties = module_1(_objectWithoutProperties2);
+let closure_3 = ["newRestaurantName", "currentRestaurantName", "isCustomisable", "restaurantImageUrl"];
+function normalizeRestaurantImageUrl(arg0) {
+
+}
+function withTotals(arg0) {
+
+}
+function finalizeCartState(restaurantImageUrl, arg1) {
+  let cartId;
+  let length;
+  let resolveCartIdForItems;
+  if (typeof withTotals === "function") {
+    let restaurantId = null;
+    const calculateCartTotalsResult = calculateCartTotals.calculateCartTotals(restaurantImageUrl.items);
+    const tmp2 = require;
+    if (restaurantImageUrl.items.length) {
+      restaurantId = restaurantImageUrl.items[0].restaurantId;
+    }
+    const obj = { restaurantId, restaurantImageUrl };
+    const merged = Object.assign(restaurantImageUrl);
+    restaurantImageUrl = null;
+    if (restaurantId) {
+      restaurantImageUrl = restaurantImageUrl.restaurantImageUrl;
+    }
+    ({ totalItems: obj.totalItems, totalAmount: obj.totalAmount } = calculateCartTotalsResult);
+    const obj2 = { cartId: resolveCartIdForItems(cartId, length, obj3) };
+    const merged1 = Object.assign(obj);
+    let regenerateCartId;
+    resolveCartIdForItems = tmp2(1612).resolveCartIdForItems;
+    cartId = obj.cartId;
+    length = obj.items.length;
+    if (arg1 != null) {
+      regenerateCartId = arg1.regenerateCartId;
+    }
+    return obj2;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function upsertItem(arg0, arg1) {
+
+}
+
+export function cartReducer(restaurantId, type) {
+  let currentRestaurantName;
+  let found;
+  let items9;
+  let newRestaurantName;
+  let restaurantImageUrl;
+  let restaurantImageUrl2;
+  let trimmed;
+  let trimmed1;
+  let closure_0 = type;
+  type = type.type;
+  if ("cart/hydrate" === type) {
+    let obj2 = { version: 1, pendingConflict: null };
+    let merged = Object.assign(type.state);
+    return finalizeCartState(obj2);
+  } else if ("cart/clear" === type) {
+    return _mod1598.createInitialCartState();
+  } else if ("cart/removeItem" === type) {
+    const items1 = restaurantId.items;
+    const obj3 = { items: found, pendingConflict: null };
+    found = items1.filter((id) => id.id !== user.id);
+    const merged1 = Object.assign(restaurantId);
+    return finalizeCartState(obj3);
+  } else if ("cart/setQuantity" === type) {
+    let found1;
+    const _Math5 = Math;
+    const _Math6 = Math;
+    const bound = Math.max(0, Math.floor(type.quantity));
+    if (bound === 0) {
+      const items2 = restaurantId.items;
+      found1 = items2.filter((id) => id.id !== user.id);
+    } else {
+      const items3 = restaurantId.items;
+      found1 = items3.map((id) => {
+        let tmp = id;
+        if (id.id === user.id) {
+          const obj = { quantity: bound };
+          const merged = Object.assign(id);
+          tmp = obj;
+        }
+        return tmp;
+      });
+    }
+    const obj4 = { items: found1, pendingConflict: null };
+    const merged2 = Object.assign(restaurantId);
+    return finalizeCartState(obj4);
+  } else if ("cart/setQuantitiesBatch" === type) {
+    const patches = type.patches;
+    const _Array = Array;
+    if (Array.isArray(patches)) {
+      if (patches.length !== 0) {
+        const _Map = Map;
+        const self = this;
+        const self2 = this;
+        const map = new Map();
+        const item1 = patches.forEach((id) => {
+          id = undefined;
+          if (id != null) {
+            id = id.id;
+          }
+          if (id) {
+            if (typeof id.quantity === "number") {
+              const _Math = Math;
+              const _Math2 = Math;
+              const result = map.set(id.id, Math.max(0, Math.floor(id.quantity)));
+            }
+          }
+        });
+        if (map.size === 0) {
+          return restaurantId;
+        } else {
+          let c3 = false;
+          const items4 = [];
+          const items5 = restaurantId.items;
+          const item2 = items5.forEach((id) => {
+            const obj = map;
+            if (map.has(id.id)) {
+              const value = obj.get(id.id);
+              if (value === id.quantity) {
+                items4.push(id);
+              } else {
+                c3 = true;
+                if (value > 0) {
+                  const push = items4.push;
+                  const obj2 = { quantity: value };
+                  const merged = Object.assign(id);
+                  push(obj2);
+                }
+              }
+            } else {
+              items4.push(id);
+            }
+          });
+          const tmp87 = c3;
+          if (tmp87) {
+            const obj6 = { items: items4, pendingConflict: null };
+            const merged3 = Object.assign(restaurantId);
+            return finalizeCartState(obj6);
+          } else {
+            return restaurantId;
+          }
+        }
+      }
+    }
+    return restaurantId;
+  } else if ("cart/addItem" === type) {
+    let num3 = type.item.quantity;
+    const _Math3 = Math;
+    const _Math4 = Math;
+    if (num3 == null) {
+      num3 = 1;
+    }
+    const maxResult = max(1, floor(num3));
+    let id = type.item.id;
+    if (id == null) {
+      id = generateCartId.generateCartItemId(type.item.restaurantId, type.item.foodId, type.item.customizations);
+    }
+    const item = type.item;
+    ({ newRestaurantName, currentRestaurantName, restaurantImageUrl } = item);
+    const isCustomisable = item.isCustomisable;
+    const obj7 = { id, quantity: maxResult };
+    const merged4 = Object.assign(_objectWithoutProperties.default(item, closure_3));
+    const tmp51 = require;
+    if (_mod1613.hasRestaurantConflict(restaurantId.items, obj7.restaurantId, restaurantId.restaurantId)) {
+      const obj8 = { id: null, restaurantId: null, foodId: null, name: null, price: null, customizations: null };
+      ({ id: obj9.id, restaurantId: obj9.restaurantId, foodId: obj9.foodId, name: obj9.name, price: obj9.price, customizations: obj9.customizations } = obj7);
+      const obj11 = {};
+      const obj10 = { isCustomisable, customizations: obj7.customizations };
+      const restaurantConflictNeedsCustomization = tmp51(1614).resolveRestaurantConflictNeedsCustomization(obj10);
+      const merged5 = Object.assign(restaurantId);
+      let str3 = restaurantId.restaurantId;
+      if (str3 == null) {
+        const first = restaurantId.items[0];
+        restaurantId = undefined;
+        if (first != null) {
+          restaurantId = first.restaurantId;
+        }
+        str3 = restaurantId;
+      }
+      if (str3 == null) {
+        str3 = "";
+      }
+      const obj12 = { currentRestaurantId: str3, newRestaurantId: obj7.restaurantId, currentRestaurantName: trimmed, newRestaurantName: trimmed1, attemptedItem: obj8, attemptedQuantity: maxResult, needsCustomization: restaurantConflictNeedsCustomization, restaurantImageUrl: null };
+      trimmed = undefined;
+      if (currentRestaurantName != null) {
+        trimmed = currentRestaurantName.trim();
+      }
+      trimmed1 = undefined;
+      if (newRestaurantName != null) {
+        trimmed1 = newRestaurantName.trim();
+      }
+      if (typeof normalizeRestaurantImageUrl === "function") {
+        let tmp83 = null;
+        if (typeof restaurantImageUrl === "string") {
+          const trimmed2 = restaurantImageUrl.trim();
+          let tmp84 = null;
+          if (trimmed2.length > 0) {
+            tmp84 = trimmed2;
+          }
+          tmp83 = tmp84;
+        }
+        obj12.restaurantImageUrl = tmp83;
+        obj11.pendingConflict = obj12;
+        return obj11;
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    } else {
+      const items6 = restaurantId.items;
+      if (typeof upsertItem === "function") {
+        let tmp63;
+        const findIndexResult = items6.findIndex((id) => id.id === obj7.id);
+        if (findIndexResult === -1) {
+          const items7 = [];
+          items7[HermesBuiltin.arraySpread(items7, items6, 0)] = obj7;
+          tmp63 = items7;
+        } else {
+          const obj13 = { quantity: items6[findIndexResult].quantity + obj7.quantity };
+          const merged6 = Object.assign(tmp55);
+          const merged7 = Object.assign(obj7);
+          const substr = items6.slice();
+          substr[findIndexResult] = obj13;
+          tmp63 = substr;
+        }
+        if (typeof normalizeRestaurantImageUrl === "function") {
+          let tmp67 = null;
+          if (typeof restaurantImageUrl === "string") {
+            const trimmed3 = restaurantImageUrl.trim();
+            let tmp68 = null;
+            if (trimmed3.length > 0) {
+              tmp68 = trimmed3;
+            }
+            tmp67 = tmp68;
+          }
+          if (tmp67 == null) {
+            let restaurantImageUrl1 = null;
+            if (restaurantId.restaurantId === obj7.restaurantId) {
+              restaurantImageUrl1 = restaurantId.restaurantImageUrl;
+            }
+            tmp67 = restaurantImageUrl1;
+          }
+          const obj14 = { items: tmp63, restaurantImageUrl: tmp67, pendingConflict: null };
+          const merged8 = Object.assign(restaurantId);
+          return finalizeCartState(obj14);
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+  } else if ("cart/updateItem" === type) {
+    const items = restaurantId.items;
+    const findIndexResult1 = items.findIndex((id) => id.id === user.id);
+    if (findIndexResult1 === -1) {
+      return restaurantId;
+    } else {
+      let quantity;
+      if (typeof type.item.quantity === "number") {
+        let _Math = Math;
+        let _Math2 = Math;
+        quantity = Math.max(1, Math.floor(type.item.quantity));
+      } else {
+        quantity = tmp114.quantity;
+      }
+      const obj15 = { id: restaurantId.items[findIndexResult1].id, quantity };
+      const merged9 = Object.assign(tmp114);
+      const merged10 = Object.assign(type.item);
+      const items8 = restaurantId.items;
+      const substr1 = items8.slice();
+      substr1[findIndexResult1] = obj15;
+      const obj16 = { items: substr1, pendingConflict: null };
+      const merged11 = Object.assign(restaurantId);
+      if (typeof withTotals === "function") {
+        let restaurantId1 = null;
+        const calculateCartTotalsResult = calculateCartTotals.calculateCartTotals(obj16.items);
+        if (obj16.items.length) {
+          restaurantId1 = obj16.items[0].restaurantId;
+        }
+        const obj17 = { restaurantId: restaurantId1, restaurantImageUrl: restaurantImageUrl2 };
+        const merged12 = Object.assign(obj16);
+        restaurantImageUrl2 = null;
+        if (restaurantId1) {
+          restaurantImageUrl2 = obj16.restaurantImageUrl;
+        }
+        ({ totalItems: obj5.totalItems, totalAmount: obj5.totalAmount } = calculateCartTotalsResult);
+        return obj17;
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+  } else if ("cart/resolveConflict" === type) {
+    const pendingConflict = restaurantId.pendingConflict;
+    if (pendingConflict) {
+      if (type.resolution === "cancel") {
+        const obj33 = { pendingConflict: null };
+        const merged13 = Object.assign(restaurantId);
+        return obj33;
+      } else {
+        const obj34 = {};
+        if (pendingConflict.needsCustomization) {
+          const merged14 = Object.assign(restaurantId);
+          obj34.items = [];
+          obj34.restaurantImageUrl = null;
+          obj34.pendingConflict = null;
+          return finalizeCartState(obj34);
+        } else {
+          const merged15 = Object.assign(pendingConflict.attemptedItem);
+          obj34.quantity = pendingConflict.attemptedQuantity;
+          obj34.id = pendingConflict.attemptedItem.id;
+          let obj = { items: items9 };
+          const merged16 = Object.assign(restaurantId);
+          items9 = [obj34];
+          const tmp4 = finalizeCartState;
+          if (typeof normalizeRestaurantImageUrl === "function") {
+            let tmp10 = null;
+            if (typeof pendingConflict.restaurantImageUrl === "string") {
+              const trimmed4 = str2.trim();
+              let tmp11 = null;
+              if (trimmed4.length > 0) {
+                tmp11 = trimmed4;
+              }
+              tmp10 = tmp11;
+            }
+            obj.restaurantImageUrl = tmp10;
+            obj.pendingConflict = null;
+            return tmp4(obj, { regenerateCartId: true });
+          } else {
+            throw new TypeError("Trying to call a non-function");
+          }
+        }
+      }
+    } else {
+      return restaurantId;
+    }
+  } else {
+    return restaurantId;
+  }
+}

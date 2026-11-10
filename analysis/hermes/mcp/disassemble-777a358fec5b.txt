@@ -1,0 +1,97 @@
+0000  LoadParam r2, 1
+0003  GetParentEnvironment r1, 0
+0006  LoadFromEnvironment r3, r1, 1
+000a  GetById r8, r2, 0, "pageContext"
+0010  JmpTypeOfIs L32, r3, 128
+0018  LoadConstString r9, "Trying to call a non-function"
+001c  CallBuiltin r1, 44, 2
+L32:
+0020  NewObject r1
+0022  CreateFunctionEnvironment r5, 1
+0025  StoreToEnvironment r5, 0, r1
+0029  GetGlobalObject r4
+002b  TryGetById r7, r4, 1, "Object"
+0031  GetByIdShort r6, r7, 2, "entries"
+0036  Call2 r7, r6, r7, r8
+003b  GetByIdShort r6, r7, 3, "forEach"
+0040  CreateClosure r5, r5, 31903
+0045  Call2 r5, r6, r7, r5
+004a  GetByIdShort r8, r2, 4, "payload"
+004f  JmpTypeOfIs L95, r3, 128
+0057  LoadConstString r9, "Trying to call a non-function"
+005b  CallBuiltin r5, 44, 2
+L95:
+005f  CreateFunctionEnvironment r5, 1
+0062  StoreToEnvironment r5, 0, r1
+0066  TryGetById r7, r4, 1, "Object"
+006c  GetByIdShort r6, r7, 2, "entries"
+0071  Call2 r7, r6, r7, r8
+0076  GetByIdShort r6, r7, 3, "forEach"
+007b  CreateClosure r5, r5, 31903
+0080  Call2 r5, r6, r7, r5
+0085  GetById r6, r2, 5, "globalContext"
+008b  JmpTypeOfIs L155, r3, 128
+0093  LoadConstString r9, "Trying to call a non-function"
+0097  CallBuiltin r3, 44, 2
+L155:
+009b  CreateFunctionEnvironment r3, 1
+009e  StoreToEnvironment r3, 0, r1
+00a2  TryGetById r5, r4, 1, "Object"
+00a8  GetByIdShort r4, r5, 2, "entries"
+00ad  Call2 r5, r4, r5, r6
+00b2  GetByIdShort r4, r5, 3, "forEach"
+00b7  CreateClosure r3, r3, 31903
+00bc  Call2 r3, r4, r5, r3
+00c1  GetByIdShort r3, r2, 6, "config"
+00c6  GetByIdShort r4, r3, 7, "type"
+00cb  LoadConstString r3, "interaction"
+00cf  JStrictEqual L298, r4, r3
+00d3  GetByIdShort r3, r2, 6, "config"
+00d8  GetById r3, r3, 8, "includeEntityInPayload"
+00de  LoadConstFalse r0
+00e0  JStrictEqualLong L379, r3, r0
+00e7  GetByIdShort r3, r2, 6, "config"
+00ec  GetById r3, r3, 9, "payloadEntity"
+00f2  LoadConstNull r0
+00f4  JNotEqual L259, r3, r0
+00f8  GetByIdShort r4, r2, 6, "config"
+00fd  GetById r3, r4, 10, "entity"
+L259:
+0103  PutByIdLoose r1, r3, 0, "entity"
+0109  GetByIdShort r3, r2, 6, "config"
+010e  GetById r3, r3, 11, "payloadAction"
+0114  JmpFalse L379, r3
+0117  GetByIdShort r3, r2, 6, "config"
+011c  GetById r3, r3, 11, "payloadAction"
+0122  PutByIdLoose r1, r3, 1, "action"
+0128  Jmp L379
+L298:
+012a  GetByIdShort r3, r2, 6, "config"
+012f  GetById r3, r3, 12, "screen"
+0135  PutByIdLoose r1, r3, 2, "ui_screen"
+013b  GetByIdShort r3, r2, 6, "config"
+0140  GetById r3, r3, 10, "entity"
+0146  PutByIdLoose r1, r3, 3, "ui_component"
+014c  GetByIdShort r3, r2, 6, "config"
+0151  GetById r3, r3, 13, "element"
+0157  JmpFalse L363, r3
+015a  GetByIdShort r3, r2, 6, "config"
+015f  GetById r3, r3, 13, "element"
+0165  PutByIdLoose r1, r3, 4, "ui_element"
+L363:
+016b  GetByIdShort r3, r2, 6, "config"
+0170  GetByIdShort r3, r3, 14, "action"
+0175  PutByIdLoose r1, r3, 1, "action"
+L379:
+017b  GetById r3, r2, 15, "eventName"
+0181  PutByIdLoose r1, r3, 5, "event_name"
+0187  GetByIdShort r3, r2, 6, "config"
+018c  GetByIdShort r3, r3, 7, "type"
+0191  PutByIdLoose r1, r3, 6, "event_type"
+0197  GetById r3, r2, 16, "schemaVersion"
+019d  PutByIdLoose r1, r3, 7, "schema_version"
+01a3  GetById r3, r2, 17, "capturedAtMs"
+01a9  PutByIdLoose r1, r3, 8, "ts_ms"
+01af  GetById r2, r2, 18, "eventId"
+01b5  PutByIdLoose r1, r2, 9, "event_id"
+01bb  Ret r1

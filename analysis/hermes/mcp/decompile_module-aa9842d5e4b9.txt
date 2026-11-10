@@ -1,0 +1,64 @@
+// Module 3320 (orderTrackingScreenReducer)
+import _mod3318 from "module_3318" /* 3318 */;
+
+function sanitizeTimestamp(arg0) {
+
+}
+
+export function orderTrackingScreenReducer(arg0, type) {
+  type = type.type;
+  if ("order-tracking/setOrderId" === type) {
+    const obj2 = { orderId: type.orderId };
+    const merged = Object.assign(arg0);
+    return obj2;
+  } else if ("order-tracking/setOrder" === type) {
+    const obj3 = { order: type.order };
+    const merged1 = Object.assign(arg0);
+    return obj3;
+  } else if ("order-tracking/setRiderTracking" === type) {
+    const obj4 = { riderTracking: type.riderTracking };
+    const merged2 = Object.assign(arg0);
+    return obj4;
+  } else if ("order-tracking/setLoading" === type) {
+    const obj5 = { isLoading: type.loading };
+    const merged3 = Object.assign(arg0);
+    return obj5;
+  } else if ("order-tracking/setRefreshing" === type) {
+    const obj6 = { isRefreshing: type.refreshing };
+    const merged4 = Object.assign(arg0);
+    return obj6;
+  } else if ("order-tracking/setSupportLoading" === type) {
+    const obj7 = { supportLoading: type.loading };
+    const merged5 = Object.assign(arg0);
+    return obj7;
+  } else if ("order-tracking/setError" === type) {
+    const obj8 = { errorMessage: type.message };
+    const merged6 = Object.assign(arg0);
+    return obj8;
+  } else if ("order-tracking/touchUpdatedAt" === type) {
+    const obj = {};
+    const merged7 = Object.assign(arg0);
+    const timestamp = type.timestamp;
+    if (typeof sanitizeTimestamp === "function") {
+      const _Number = Number;
+      if (Number.isFinite(timestamp)) {
+        let truncResult;
+        if (timestamp > 0) {
+          const _Math = Math;
+          truncResult = Math.trunc(timestamp);
+        }
+        obj.lastUpdatedAt = truncResult;
+        return obj;
+      }
+      const _Date = Date;
+      truncResult = Date.now();
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else if ("order-tracking/reset" === type) {
+    return _mod3318.createInitialOrderTrackingScreenState();
+  } else {
+    return arg0;
+  }
+}
+export const createOrderTrackingScreenState = _mod3318.createInitialOrderTrackingScreenState;

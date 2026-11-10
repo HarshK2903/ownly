@@ -1,0 +1,19 @@
+{
+  "tool": "xref_search",
+  "arguments": {
+    "query": "refreshToken"
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 12,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Found 0 cross-references for 'refreshToken':\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

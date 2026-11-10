@@ -1,0 +1,321 @@
+// Module 2015 (trackGpsEnablingAttempt)
+import AnalyticsComponent from "AnalyticsComponent" /* 1670 */;
+import _mod1850 from "module_1850" /* 1850 */;
+import emitStandardBusiness2 from "emitStandardBusiness" /* 1976 */;
+import _mod1996 from "module_1996" /* 1996 */;
+
+const f26978 = () => {
+
+};
+
+export function trackGpsEnablingAttempt(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const obj2 = { action: "gps_enabling_attempted", entity: AnalyticsComponent.AnalyticsEntity.LOCATION, ctx_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE };
+  const emitStandardSystem = emitStandardBusiness2.emitStandardSystem;
+  const merged = Object.assign(obj);
+  const emitStandardSystemResult = emitStandardSystem(obj2);
+  emitStandardSystemResult.catch(() => {
+
+  });
+}
+export function trackGpsEnablingResult(prop_success, arg1) {
+  let obj = arg1;
+  if (arg1 === undefined) {
+    obj = {};
+  }
+  const obj2 = { action: "gps_enabling_result", entity: AnalyticsComponent.AnalyticsEntity.LOCATION, ctx_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, prop_success };
+  const emitStandardSystem = emitStandardBusiness2.emitStandardSystem;
+  const merged = Object.assign(obj);
+  const emitStandardSystemResult = emitStandardSystem(obj2);
+  emitStandardSystemResult.catch(() => {
+
+  });
+}
+export function trackLocationAddressDeletionInitiated(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const obj2 = { entity: AnalyticsComponent.AnalyticsEntity.ADDRESS, action: "deletion_initiated", ctx_screen: AnalyticsComponent.AnalyticsScreen.ADDRESS_MANAGEMENT_PAGE };
+  const emitStandardBusiness = emitStandardBusiness2.emitStandardBusiness;
+  const merged = Object.assign(obj);
+  const emitStandardBusinessResult = emitStandardBusiness(obj2);
+  emitStandardBusinessResult.catch(() => {
+
+  });
+}
+export function trackLocationAddressSaved(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const obj2 = { entity: AnalyticsComponent.AnalyticsEntity.ADDRESS, action: "saved", ctx_screen: AnalyticsComponent.AnalyticsScreen.ADDRESS_FORM_PAGE };
+  const emitStandardBusiness = emitStandardBusiness2.emitStandardBusiness;
+  const merged = Object.assign(obj);
+  const emitStandardBusinessResult = emitStandardBusiness(obj2);
+  emitStandardBusinessResult.catch(() => {
+
+  });
+}
+export function trackLocationPermissionDialogAddManuallyTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const MODAL = AnalyticsComponent.AnalyticsComponent.MODAL;
+  const obj2 = { prop_cta: "permission_add_manually" };
+  const LINK = AnalyticsComponent.AnalyticsElement.LINK;
+  const merged = Object.assign(obj);
+  const obj3 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: MODAL, ui_element: LINK, action: "tap" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  const merged1 = Object.assign(obj2);
+  const result = emitStandardInteraction(obj3);
+  result.catch(f26978);
+}
+export function trackLocationPermissionDialogCloseTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const MODAL = AnalyticsComponent.AnalyticsComponent.MODAL;
+  const obj2 = { prop_cta: "permission_dialog_close" };
+  const CLOSE_BUTTON = AnalyticsComponent.AnalyticsElement.CLOSE_BUTTON;
+  const merged = Object.assign(obj);
+  const obj3 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: MODAL, ui_element: CLOSE_BUTTON, action: "tap" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  const merged1 = Object.assign(obj2);
+  const result = emitStandardInteraction(obj3);
+  result.catch(f26978);
+}
+export function trackLocationPermissionDialogEnableLocationTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const MODAL = AnalyticsComponent.AnalyticsComponent.MODAL;
+  const obj2 = { prop_cta: "permission_enable_location" };
+  const CONFIRM_BUTTON = AnalyticsComponent.AnalyticsElement.CONFIRM_BUTTON;
+  const merged = Object.assign(obj);
+  const obj3 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: MODAL, ui_element: CONFIRM_BUTTON, action: "tap" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  const merged1 = Object.assign(obj2);
+  const result = emitStandardInteraction(obj3);
+  result.catch(f26978);
+}
+export function trackLocationPopupShown(screen) {
+  let extraProps;
+  const obj = { ui_screen: screen.screen, ui_component: AnalyticsComponent.AnalyticsComponent.MODAL, ui_element: AnalyticsComponent.AnalyticsElement.POPUP, action: "impression", prop_popup_type: null };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  ({ popupType: obj.prop_popup_type, extraProps } = screen);
+  if (extraProps == null) {
+    extraProps = {};
+  }
+  const merged = Object.assign(extraProps);
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackLocationScreenAddNewAddressTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const LOCATION_ACTIONS = AnalyticsComponent.AnalyticsComponent.LOCATION_ACTIONS;
+  const obj2 = { prop_cta: "add_new_address" };
+  const ADD_BUTTON = AnalyticsComponent.AnalyticsElement.ADD_BUTTON;
+  const merged = Object.assign(obj);
+  const obj3 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: LOCATION_ACTIONS, ui_element: ADD_BUTTON, action: "tap" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  const merged1 = Object.assign(obj2);
+  const result = emitStandardInteraction(obj3);
+  result.catch(f26978);
+}
+export function trackLocationScreenBackTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const HEADER = AnalyticsComponent.AnalyticsComponent.HEADER;
+  const BACK_BUTTON = AnalyticsComponent.AnalyticsElement.BACK_BUTTON;
+  if (obj === undefined) {
+    obj = {};
+  }
+  const obj2 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: HEADER, ui_element: BACK_BUTTON, action: "tap" };
+  const emitStandardInteraction = tmp(1976).emitStandardInteraction;
+  const merged = Object.assign(obj);
+  const result = emitStandardInteraction(obj2);
+  result.catch(f26978);
+}
+export function trackLocationScreenContextLoaded(ctx_screen) {
+  let extraProps = ctx_screen.extraProps;
+  const obj = { ctx_screen: ctx_screen.screen };
+  const emitStandardScreenView = emitStandardBusiness2.emitStandardScreenView;
+  if (extraProps == null) {
+    extraProps = {};
+  }
+  const merged = Object.assign(extraProps);
+  const result = emitStandardScreenView(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackLocationScreenDeleteAddressConfirmTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const MODAL = AnalyticsComponent.AnalyticsComponent.MODAL;
+  const obj2 = { prop_dialog: "delete_address" };
+  const CONFIRM_BUTTON = AnalyticsComponent.AnalyticsElement.CONFIRM_BUTTON;
+  const merged = Object.assign(obj);
+  const obj3 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: MODAL, ui_element: CONFIRM_BUTTON, action: "tap" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  const merged1 = Object.assign(obj2);
+  const result = emitStandardInteraction(obj3);
+  result.catch(f26978);
+}
+export function trackLocationScreenDeleteAddressMenuTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const ADDRESS_LIST = AnalyticsComponent.AnalyticsComponent.ADDRESS_LIST;
+  const DELETE_BUTTON = AnalyticsComponent.AnalyticsElement.DELETE_BUTTON;
+  if (obj === undefined) {
+    obj = {};
+  }
+  const obj2 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: ADDRESS_LIST, ui_element: DELETE_BUTTON, action: "tap" };
+  const emitStandardInteraction = tmp(1976).emitStandardInteraction;
+  const merged = Object.assign(obj);
+  const result = emitStandardInteraction(obj2);
+  result.catch(f26978);
+}
+export function trackLocationScreenEditAddressTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const ADDRESS_LIST = AnalyticsComponent.AnalyticsComponent.ADDRESS_LIST;
+  const EDIT_BUTTON = AnalyticsComponent.AnalyticsElement.EDIT_BUTTON;
+  if (obj === undefined) {
+    obj = {};
+  }
+  const obj2 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: ADDRESS_LIST, ui_element: EDIT_BUTTON, action: "tap" };
+  const emitStandardInteraction = tmp(1976).emitStandardInteraction;
+  const merged = Object.assign(obj);
+  const result = emitStandardInteraction(obj2);
+  result.catch(f26978);
+}
+export function trackLocationScreenRecentSearchTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const LOCATION_RECENT_SEARCH_LIST = AnalyticsComponent.AnalyticsComponent.LOCATION_RECENT_SEARCH_LIST;
+  const RESULT_CARD = AnalyticsComponent.AnalyticsElement.RESULT_CARD;
+  if (obj === undefined) {
+    obj = {};
+  }
+  const obj2 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: LOCATION_RECENT_SEARCH_LIST, ui_element: RESULT_CARD, action: "tap" };
+  const emitStandardInteraction = tmp(1976).emitStandardInteraction;
+  const merged = Object.assign(obj);
+  const result = emitStandardInteraction(obj2);
+  result.catch(f26978);
+}
+export function trackLocationScreenSavedAddressTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const ADDRESS_LIST = AnalyticsComponent.AnalyticsComponent.ADDRESS_LIST;
+  const ADDRESS_CARD = AnalyticsComponent.AnalyticsElement.ADDRESS_CARD;
+  if (obj === undefined) {
+    obj = {};
+  }
+  const obj2 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: ADDRESS_LIST, ui_element: ADDRESS_CARD, action: "tap" };
+  const emitStandardInteraction = tmp(1976).emitStandardInteraction;
+  const merged = Object.assign(obj);
+  const result = emitStandardInteraction(obj2);
+  result.catch(f26978);
+}
+export function trackLocationScreenSearchPredictionTap(arg0) {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const LOCATION_PREDICTION_LIST = AnalyticsComponent.AnalyticsComponent.LOCATION_PREDICTION_LIST;
+  const RESULT_CARD = AnalyticsComponent.AnalyticsElement.RESULT_CARD;
+  if (obj === undefined) {
+    obj = {};
+  }
+  const obj2 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: LOCATION_PREDICTION_LIST, ui_element: RESULT_CARD, action: "tap" };
+  const emitStandardInteraction = tmp(1976).emitStandardInteraction;
+  const merged = Object.assign(obj);
+  const result = emitStandardInteraction(obj2);
+  result.catch(f26978);
+}
+export function trackLocationScreenUseCurrentLocationTap() {
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const LOCATION_ACTIONS = AnalyticsComponent.AnalyticsComponent.LOCATION_ACTIONS;
+  const obj2 = { prop_cta: "use_current_location" };
+  const TEXT_BUTTON = AnalyticsComponent.AnalyticsElement.TEXT_BUTTON;
+  const merged = Object.assign(obj);
+  const obj3 = { ui_screen: AnalyticsComponent.AnalyticsScreen.LOCATION_SELECTION_PAGE, ui_component: LOCATION_ACTIONS, ui_element: TEXT_BUTTON, action: "tap" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  const merged1 = Object.assign(obj2);
+  const result = emitStandardInteraction(obj3);
+  result.catch(f26978);
+}
+export function trackLocationSelected(arg0, prop_cart_id) {
+  let analyticsScreenForRoute;
+  let obj4;
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const obj2 = { entity: AnalyticsComponent.AnalyticsEntity.LOCATION, action: "selected", ctx_screen: analyticsScreenForRoute };
+  const emitStandardBusiness = emitStandardBusiness2.emitStandardBusiness;
+  const merged = Object.assign(obj);
+  if (prop_cart_id) {
+    obj4 = { prop_cart_id };
+    const obj3 = { prop_cart_id };
+  } else {
+    obj4 = {};
+  }
+  const merged1 = Object.assign(obj4);
+  const LOCATION_SELECTION_PAGE = tmp(1670).AnalyticsScreen.LOCATION_SELECTION_PAGE;
+  analyticsScreenForRoute = tmp(1996).getAnalyticsScreenForRoute(tmp(1850).getCurrentRouteName());
+  if (analyticsScreenForRoute == null) {
+    analyticsScreenForRoute = LOCATION_SELECTION_PAGE;
+  }
+  const emitStandardBusinessResult = emitStandardBusiness(obj2);
+  emitStandardBusinessResult.catch(() => {
+
+  });
+}
+export function trackManualLocationAdded() {
+  let analyticsScreenForRoute;
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  const obj2 = { entity: AnalyticsComponent.AnalyticsEntity.LOCATION, action: "manual_added", ctx_screen: analyticsScreenForRoute };
+  const emitStandardBusiness = emitStandardBusiness2.emitStandardBusiness;
+  const merged = Object.assign(obj);
+  const ADDRESS_FORM_PAGE = AnalyticsComponent.AnalyticsScreen.ADDRESS_FORM_PAGE;
+  analyticsScreenForRoute = _mod1996.getAnalyticsScreenForRoute(_mod1850.getCurrentRouteName());
+  if (analyticsScreenForRoute == null) {
+    analyticsScreenForRoute = ADDRESS_FORM_PAGE;
+  }
+  const emitStandardBusinessResult = emitStandardBusiness(obj2);
+  emitStandardBusinessResult.catch(() => {
+
+  });
+}

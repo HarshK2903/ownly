@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3847
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 25,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3847\nconst require = globalThis.__r;\n\n\nexport const useDeliveryPromiseCountdown = require(\"module_3848\").useDeliveryPromiseCountdown;\nexport const useDeliveryPromiseExpirySync = require(\"react\").useDeliveryPromiseExpirySync;\nexport const useMapControls = require(\"module_3850\").useMapControls;\nexport const useOrderTracking = require(\"module_3851\").useOrderTracking;\nexport const useOrderTrackingState = require(\"module_3853\").useOrderTrackingState;\nexport const usePollingManager = require(\"module_3855\").usePollingManager;\nexport const useRiderTracking = require(\"module_3854\").useRiderTracking;\nexport const useTrackingState = require(\"module_3857\").useTrackingState;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

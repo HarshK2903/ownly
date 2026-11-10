@@ -1,0 +1,175 @@
+// Module 3317 (runFetchRiderTracking)
+import _asyncToGenerator from "_asyncToGenerator" /* 2 */;
+import module_1 from "module_1" /* 1 */;
+
+let c2 = "/api/v1/order";
+let closure_3 = { "Content-Type": "application/json" };
+function trimTrailingSlash(arg0) {
+
+}
+function buildRiderTrackingUrl(arg0, arg1) {
+
+}
+function toCoordinate(arg0) {
+
+}
+function normalizeLocation(lat) {
+  const tmp = lat;
+  if (tmp) {
+    if (typeof lat === "object") {
+      if (typeof toCoordinate === "function") {
+        let tmp5;
+        if (typeof lat.lat === "number") {
+          const _Number3 = Number;
+          let tmp7 = null;
+          if (!Number.isNaN(lat.lat)) {
+            tmp7 = str2;
+          }
+          tmp5 = tmp7;
+        } else {
+          tmp5 = null;
+          if (typeof lat.lat === "string") {
+            tmp5 = null;
+            if (lat.lat.trim().length > 0) {
+              const _Number = Number;
+              const NumberResult = Number(lat.lat);
+              const _Number2 = Number;
+              let tmp4 = null;
+              if (!Number.isNaN(NumberResult)) {
+                tmp4 = NumberResult;
+              }
+              tmp5 = tmp4;
+            }
+          }
+        }
+        if (typeof tmp14 === "function") {
+          let tmp11;
+          if (typeof lat.lng === "number") {
+            const _Number6 = Number;
+            let tmp13 = null;
+            if (!Number.isNaN(lat.lng)) {
+              tmp13 = str;
+            }
+            tmp11 = tmp13;
+          } else {
+            tmp11 = null;
+            if (typeof lat.lng === "string") {
+              tmp11 = null;
+              if (lat.lng.trim().length > 0) {
+                const _Number4 = Number;
+                const NumberResult1 = Number(lat.lng);
+                const _Number5 = Number;
+                let tmp10 = null;
+                if (!Number.isNaN(NumberResult1)) {
+                  tmp10 = NumberResult1;
+                }
+                tmp11 = tmp10;
+              }
+            }
+          }
+          return { lat: tmp5, lng: tmp11 };
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+  }
+}
+function normalizeRiderData(arg0) {
+
+}
+function normalizeRiderTrackingResponse(data) {
+  let tmp10;
+  const tmp = data;
+  if (tmp) {
+    if (typeof data === "object") {
+      data = data.data;
+      if (typeof normalizeRiderData === "function") {
+        let tmp3 = null;
+        if (data) {
+          tmp3 = null;
+          if (typeof data === "object") {
+            const tracking = data.tracking;
+            let captainLocation;
+            if (tracking != null) {
+              captainLocation = tracking.captainLocation;
+            }
+            const tmp17Result = normalizeLocation(captainLocation);
+            let tmp17Result2 = tmp17Result;
+            if (tmp17Result == null) {
+              tmp17Result2 = tmp17(data.location);
+            }
+            const obj = { location: tmp17Result2, tracking: tmp10 };
+            const merged = Object.assign(data);
+            tmp10 = undefined;
+            if (data.tracking) {
+              const obj2 = { captainLocation: tmp17Result };
+              const merged1 = Object.assign(data.tracking);
+              tmp10 = obj2;
+            }
+            tmp3 = obj;
+          }
+        }
+        if (tmp3) {
+          const obj3 = { data: tmp3 };
+          const merged2 = Object.assign(data);
+          return obj3;
+        } else {
+          return null;
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+  }
+  return null;
+}
+function createFetchRiderTrackingRequest(path) {
+  let obj2;
+  let replaced;
+  let str = path.path;
+  const tmp = buildRiderTrackingUrl;
+  if (str == null) {
+    str = c2;
+  }
+  if (typeof tmp === "function") {
+    if (typeof trimTrailingSlash === "function") {
+      const request = { method: "GET", url: "" + replaced + "/" + encodeURIComponent(tmp2) + "/track", headers: obj2, timeoutMs: null, credentials: null };
+      replaced = str.replace(/\/+$/, "");
+      const _encodeURIComponent = encodeURIComponent;
+      const _HermesInternal = HermesInternal;
+      obj2 = {};
+      const merged = Object.assign(closure_3);
+      const merged1 = Object.assign(path.headers);
+      ({ timeoutMs: obj.timeoutMs, credentials: obj.credentials } = path);
+      return request;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+let closure_0 = module_1(_asyncToGenerator).default((value, arg1) => {
+  let closure_2;
+  let closure_1 = arg1;
+  let c4 = 0;
+  let c5 = 0;
+  return (function*(arg0, value) {
+    const obj4 = { operation: "order-tracking/fetch-rider-tracking", includeResponseOnError: true, policy: { safeMethodsOnly: true } };
+    value = yield value(closure_1[2]).requestWithRetry(value, closure_1_10(closure_1), obj4);
+    if (value.ok) {
+      const obj7 = { data: closure_1_9(value.data) };
+      const merged = Object.assign(value);
+      return obj7;
+    }
+    return value;
+  })();
+});
+
+export { createFetchRiderTrackingRequest };
+export function runFetchRiderTracking(arg0, arg1) {
+  return closure_0(...arguments);
+}

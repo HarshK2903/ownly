@@ -1,0 +1,211 @@
+// Module 3994
+import react from "react" /* 74 */;
+
+const require = globalThis.__r;
+let _require;
+
+
+export function useRestaurantNewInteractionViewModel(current, restaurantPageAnalytics) {
+  _require = current;
+  let obj = current;
+  let ref = current.useRef(current);
+  ref.current = current;
+  const ref1 = current.useRef(null);
+  if (ref1.current === null) {
+    ref1.current = require("module_3995").createRestaurantTrackingController(() => ref.current, restaurantPageAnalytics);
+  }
+  current = ref1.current;
+  const isFocused = require("module_1851").useIsFocused();
+  const ref2 = obj.useRef(isFocused);
+  ref2.current = isFocused;
+  const ref3 = obj.useRef(false);
+  if (isFocused) {
+    ref3.current = true;
+  }
+  let closure_5 = tmp9;
+  ref = obj.useRef(null);
+  const items = [current, isFocused, , , ];
+  ({ hasMenu: arr[2], restaurantId: arr[3], restaurantName: arr[4] } = current);
+  const effect = obj.useEffect(() => {
+    const tmp = isFocused;
+    if (tmp) {
+      if (current.hasMenu) {
+        if (current.restaurantId) {
+          if (current.restaurantName) {
+            let str = tmp6.restaurantId;
+            if (str == null) {
+              str = "unknown";
+            }
+            if (ref.current !== str) {
+              tmp8.current = str;
+              current.trackScreenView();
+            }
+          }
+        }
+      }
+    } else {
+      ref.current = null;
+      current.resetScreenView();
+    }
+  }, items);
+  const items1 = [current, tmp9];
+  const effect1 = obj.useEffect(() => {
+    const tmp = closure_5;
+    if (tmp) {
+      let closure_0 = current.register();
+      return () => {
+        closure_0();
+      };
+    }
+  }, items1);
+  const items2 = [current];
+  const items3 = [current];
+  const memo = obj.useMemo(() => {
+    let obj = {
+      toggleFilter(itemId) {
+        const obj = { componentType: "filterRow", role: "toggleFilter", itemKey: itemId.itemId, sectionKey: itemId.sectionKey, values: itemId.values };
+        return current.emitPress(obj);
+      },
+      openFilters() {
+        return current.emitPress({ componentType: "filters", role: "openFilters" });
+      },
+      dismissFilters() {
+        return current.emitPress({ componentType: "filters", role: "dismissFilters" });
+      },
+      clearFilters() {
+        return current.emitPress({ componentType: "filters", role: "clearFilters" });
+      },
+      applyFilters(arg0) {
+        const obj = { componentType: "filters", role: "applyFilters", values: { [closure_2_0(closure_2_1[3]).Prop.FILTER_COUNT]: arg0 } };
+        ({ [closure_2_0(closure_2_1[3]).Prop.FILTER_COUNT]: arg0 });
+        return current.emitPress(obj);
+      },
+      chooseOutlet() {
+        return current.emitPress({ componentType: "restaurantContent", role: "chooseOutlet" });
+      },
+      shareRestaurant() {
+        return current.emitPress({ componentType: "restaurantHeader", role: "shareRestaurant" });
+      },
+      shareRestaurantImpression() {
+        return current.trackShareImpression();
+      },
+      openSearch() {
+        return current.emitPress({ componentType: "search", role: "openSearch" });
+      },
+      closeSearch() {
+        return current.emitPress({ componentType: "search", role: "closeSearch" });
+      },
+      dismissSearchKeyboard() {
+        return current.emitPress({ componentType: "search", role: "dismissKeyboard" });
+      },
+      submitSearch(arg0) {
+        return current.submitSearch(arg0);
+      },
+      seeMoreMenuItem(itemId) {
+        let obj2;
+        let obj4;
+        const emitPress = closure_1_2.emitPress;
+        const obj = { componentType: "menuItemDescription", role: "seeMore", itemKey: itemId.itemId, variant: "default", sectionKey: itemId.sectionKey, values: obj2 };
+        obj2 = {};
+        const merged = Object.assign(itemId.values);
+        if (itemId.itemName !== undefined) {
+          const obj3 = {};
+          obj3[closure_0(ref[3]).Prop.FOOD_ITEM_NAME] = itemId.itemName;
+          obj4 = obj3;
+        } else {
+          obj4 = {};
+        }
+        const merged1 = Object.assign(obj4);
+        return emitPress(obj);
+      },
+      seeAllGridItems(itemKey, values) {
+        const obj = { componentType: "gridRow", role: "seeAllItems", itemKey, values };
+        return current.emitPress(obj);
+      },
+      back() {
+        return current.emitPress({ componentType: "restaurantHeader", role: "back" });
+      },
+      toggleSection(itemKey, expanded, arg2) {
+        let obj2;
+        let str = "expandSection";
+        const emitPress = current.emitPress;
+        if (expanded) {
+          str = "collapseSection";
+        }
+        const obj = { componentType: "menuSection", role: str, itemKey, sectionKey: itemKey, values: obj2 };
+        obj2 = { expanded: !expanded };
+        const merged = Object.assign(arg2);
+        return emitPress(obj);
+      },
+      expandGrid(itemKey) {
+        const obj = { componentType: "menuContent", role: "expandGrid", itemKey };
+        return current.emitPress(obj);
+      },
+      pressMenuItem(itemId) {
+        let obj2;
+        let obj4;
+        const emitPress = closure_1_2.emitPress;
+        const obj = { componentType: "menuContent", role: "menuItem", itemKey: itemId.itemId, variant: "menuItem", sectionKey: itemId.sectionKey, values: obj2 };
+        obj2 = {};
+        const merged = Object.assign(itemId.values);
+        if (itemId.itemName !== undefined) {
+          const obj3 = {};
+          obj3[closure_0(ref[3]).Prop.FOOD_ITEM_NAME] = itemId.itemName;
+          obj4 = obj3;
+        } else {
+          obj4 = {};
+        }
+        const merged1 = Object.assign(obj4);
+        return emitPress(obj);
+      },
+      toggleFabMenu(open) {
+        let str = "closeFabMenu";
+        const emitPress = current.emitPress;
+        if (open) {
+          str = "openFabMenu";
+        }
+        const obj = { componentType: "fabMenu", role: str, values: { open } };
+        return emitPress(obj);
+      },
+      toggleFabCategory(itemKey, expanded) {
+        let str = "collapseFabCategory";
+        const emitPress = current.emitPress;
+        if (expanded) {
+          str = "expandFabCategory";
+        }
+        const obj = { componentType: "fabMenu", role: str, itemKey, values: { expanded } };
+        return emitPress(obj);
+      },
+      selectCategory(itemKey, arg1) {
+        const obj = { componentType: "fabMenu", role: "selectCategory", itemKey, values: { [closure_2_0(closure_2_1[3]).Prop.CATEGORY_ID]: itemKey, [closure_2_0(closure_2_1[3]).Prop.CATEGORY_NAME]: arg1 } };
+        ({ [closure_2_0(closure_2_1[3]).Prop.CATEGORY_ID]: itemKey, [closure_2_0(closure_2_1[3]).Prop.CATEGORY_NAME]: arg1 });
+        return current.emitPress(obj);
+      },
+      selectSubcategory(itemKey, arg1) {
+        const obj = { componentType: "fabMenu", role: "selectSubcategory", itemKey, values: { [closure_2_0(closure_2_1[3]).Prop.CATEGORY_ID]: itemKey, [closure_2_0(closure_2_1[3]).Prop.CATEGORY_NAME]: arg1 } };
+        ({ [closure_2_0(closure_2_1[3]).Prop.CATEGORY_ID]: itemKey, [closure_2_0(closure_2_1[3]).Prop.CATEGORY_NAME]: arg1 });
+        return current.emitPress(obj);
+      }
+    };
+    return obj;
+  }, items2);
+  let obj2 = {
+    interactions: memo,
+    novaHandlers: obj.useMemo(() => {
+      const novaHandlers = current.novaHandlers;
+      return {
+        emitFact(arg0) {
+          if (ref2.current) {
+            novaHandlers.emitFact(arg0);
+          }
+        },
+        emitScreenView(arg0) {
+          if (ref2.current) {
+            novaHandlers.emitScreenView(arg0);
+          }
+        }
+      };
+    }, items3)
+  };
+  return obj2;
+}

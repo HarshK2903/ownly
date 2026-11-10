@@ -1,0 +1,2 @@
+Module 3952 (materializeAnalyticsEvent) exports (1 total):
+  export "materializeAnalyticsEvent" -> function 18918 (materializeAnalyticsEvent)

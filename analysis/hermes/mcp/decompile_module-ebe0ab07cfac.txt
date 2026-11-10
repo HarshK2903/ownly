@@ -1,0 +1,188 @@
+// Module 1635 (authFlowReducer)
+import _mod1636 from "module_1636" /* 1636 */;
+
+function fillOtpDigits(arg0) {
+
+}
+
+export function authFlowReducer(otp, type) {
+  let length;
+  let obj14;
+  let obj16;
+  let obj18;
+  let obj20;
+  let obj22;
+  let str3;
+  let token;
+  switch (type.type) {
+    case "auth/setPhone":
+    {
+      const obj2 = { phone: type.phone, requestOtpError: null };
+      const merged = Object.assign(otp);
+      return obj2;
+    }
+    case "auth/requestOtpStart":
+    {
+      const obj3 = { requestOtpLoading: true, requestOtpError: null };
+      const merged1 = Object.assign(otp);
+      return obj3;
+    }
+    case "auth/requestOtpSuccess":
+    {
+      const obj4 = { stage: "otp", requestOtpLoading: false, requestOtpError: null, verifyOtpError: null, otp: ["", "", "", ""] };
+      const merged2 = Object.assign(otp);
+      return obj4;
+    }
+    case "auth/requestOtpFailure":
+    {
+      const obj5 = { requestOtpLoading: false, requestOtpError: type.message };
+      const merged3 = Object.assign(otp);
+      return obj5;
+    }
+    case "auth/setOtpDigit":
+    {
+      if (type.index >= 0) {
+        if (type.index <= 3) {
+          const items = [];
+          HermesBuiltin.arraySpread(items, otp.otp, 0);
+          items[type.index] = type.value;
+          const obj6 = { otp: items, verifyOtpError: null };
+          const merged4 = Object.assign(otp);
+          return obj6;
+        }
+      }
+      return otp;
+    }
+    case "auth/setOtpFromValue":
+    {
+      const obj7 = {};
+      const merged5 = Object.assign(otp);
+      const str4 = type.otp;
+      if (typeof fillOtpDigits === "function") {
+        const replaced = str4.replace(/\D/g, "");
+        const str6 = replaced.slice(0, 4);
+        const parts = str6.split("");
+        if (parts.length < 4) {
+          do {
+            let arr = parts.push("");
+            length = parts.length;
+          } while (length < 4);
+        }
+        obj7.otp = parts;
+        obj7.verifyOtpError = null;
+        return obj7;
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+      break;
+    }
+    case "auth/clearOtp":
+    {
+      const obj8 = { otp: ["", "", "", ""], verifyOtpError: null };
+      const merged6 = Object.assign(otp);
+      return obj8;
+    }
+    case "auth/verifyOtpStart":
+    {
+      const obj9 = { verifyOtpLoading: true, verifyOtpError: null };
+      const merged7 = Object.assign(otp);
+      return obj9;
+    }
+    case "auth/verifyOtpSuccess":
+    {
+      const obj10 = { verifyOtpLoading: false, verifyOtpError: null, token, isNewUser: type.isNewUser, stage: str3 };
+      const merged8 = Object.assign(otp);
+      token = type.token ?? null;
+      str3 = "authenticated";
+      if (type.isNewUser) {
+        str3 = "profile";
+      }
+      return obj10;
+    }
+    case "auth/verifyOtpFailure":
+    {
+      const obj11 = { verifyOtpLoading: false, verifyOtpError: type.message };
+      const merged9 = Object.assign(otp);
+      return obj11;
+    }
+    case "auth/backToPhone":
+    {
+      const obj12 = { stage: "phone", otp: ["", "", "", ""], verifyOtpError: null };
+      const merged10 = Object.assign(otp);
+      return obj12;
+    }
+    case "auth/setProfileName":
+    {
+      const obj13 = { profileError: null, profile: obj14 };
+      const merged11 = Object.assign(otp);
+      obj14 = { name: type.name };
+      const merged12 = Object.assign(otp.profile);
+      return obj13;
+    }
+    case "auth/setProfileEmail":
+    {
+      const obj15 = { profileError: null, profile: obj16 };
+      const merged13 = Object.assign(otp);
+      obj16 = { email: type.email };
+      const merged14 = Object.assign(otp.profile);
+      return obj15;
+    }
+    case "auth/setProfileGender":
+    {
+      const obj17 = { profile: obj18 };
+      const merged15 = Object.assign(otp);
+      obj18 = { gender: type.gender };
+      const merged16 = Object.assign(otp.profile);
+      return obj17;
+    }
+    case "auth/setProfileDataSharing":
+    {
+      const obj19 = { profile: obj20 };
+      const merged17 = Object.assign(otp);
+      obj20 = { dataSharingAgreed: type.value };
+      const merged18 = Object.assign(otp.profile);
+      return obj19;
+    }
+    case "auth/patchProfile":
+    {
+      const obj21 = { profile: obj22 };
+      const merged19 = Object.assign(otp);
+      obj22 = {};
+      const merged20 = Object.assign(otp.profile);
+      const merged21 = Object.assign(type.profile);
+      return obj21;
+    }
+    case "auth/submitProfileStart":
+    {
+      const obj23 = { submitProfileLoading: true, profileError: null };
+      const merged22 = Object.assign(otp);
+      return obj23;
+    }
+    case "auth/submitProfileSuccess":
+    {
+      const obj24 = { submitProfileLoading: false, profileError: null, stage: "authenticated" };
+      const merged23 = Object.assign(otp);
+      return obj24;
+    }
+    case "auth/submitProfileFailure":
+    {
+      const obj25 = { submitProfileLoading: false, profileError: type.message };
+      const merged24 = Object.assign(otp);
+      return obj25;
+    }
+    case "auth/resetErrors":
+    {
+      const obj = { requestOtpError: null, verifyOtpError: null, profileError: null };
+      const merged25 = Object.assign(otp);
+      return obj;
+    }
+    case "auth/resetFlow":
+    {
+      return _mod1636.createInitialAuthFlowState();
+    }
+    default:
+    {
+      return otp;
+    }
+  }
+}

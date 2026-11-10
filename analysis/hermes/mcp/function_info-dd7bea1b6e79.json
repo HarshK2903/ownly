@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 18662
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 21,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#18662 \"usePollingManager\" params=2 frame=25 regs=2(num=0,nonptr=2) size=722 offset=0xef3f63 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

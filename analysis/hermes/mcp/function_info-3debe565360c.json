@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 17078
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 15,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#17078 \"createFetchRiderTrackingRequest\" params=2 frame=22 regs=1(num=0,nonptr=1) size=206 offset=0xea5383 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

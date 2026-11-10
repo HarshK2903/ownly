@@ -1,0 +1,19 @@
+// Module 2039
+
+export function clearJuspayDebugLogs() {
+
+}
+export function enqueueJuspayDebugSnackbar(process_result, arg1) {
+
+}
+export function getJuspayDebugLogs() {
+  return [];
+}
+export function isJuspayDebugSnackbarEnabled() {
+  return false;
+}
+export function subscribeToJuspayDebugLogs(arg0) {
+  return () => {
+
+  };
+}

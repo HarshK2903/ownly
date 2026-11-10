@@ -1,0 +1,68 @@
+function f1641(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+  // @0000
+  // @0003
+  // @0006
+  // @0008
+  // @000e
+  // @0013
+  // @0017
+  // @0021
+  // @0028
+  // @002a
+  arg5.selectCanRequestOtp = undefined;
+  // @0030
+  arg5.selectCanSubmitProfile = undefined;
+  // @0036
+  arg5.selectCanVerifyOtp = undefined;
+  // @003c
+  arg5.selectIsEmailValid = undefined;
+  // @0042
+  arg5.selectIsOtpComplete = undefined;
+  // @0048
+  arg5.selectIsPhoneValid = undefined;
+  // @004e
+  arg5.selectOtpValue = undefined;
+  // @0054
+  // @0062
+  closure_0 = /^\d{10}$/;
+  // @0066
+  // @0074
+  closure_1 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // @0078
+  // @007d
+  closure_2 = function normalizedOtp() { /* body not rendered: F11271 */ };
+  // @0081
+  function selectOtpValue() { /* body not rendered: F11272 */ }
+  // @0086
+  closure_3 = selectOtpValue;
+  // @008a
+  arg5.selectOtpValue = selectOtpValue;
+  // @0090
+  function selectIsPhoneValid() { /* body not rendered: F11273 */ }
+  // @0095
+  closure_4 = selectIsPhoneValid;
+  // @0099
+  arg5.selectIsPhoneValid = selectIsPhoneValid;
+  // @009f
+  function selectIsOtpComplete() { /* body not rendered: F11274 */ }
+  // @00a4
+  closure_5 = selectIsOtpComplete;
+  // @00a8
+  arg5.selectIsOtpComplete = selectIsOtpComplete;
+  // @00ae
+  function selectIsEmailValid() { /* body not rendered: F11275 */ }
+  // @00b3
+  closure_6 = selectIsEmailValid;
+  // @00b7
+  arg5.selectIsEmailValid = selectIsEmailValid;
+  // @00bd
+  // @00c2
+  arg5.selectCanRequestOtp = function selectCanRequestOtp() { /* body not rendered: F11276 */ };
+  // @00c8
+  // @00cd
+  arg5.selectCanVerifyOtp = function selectCanVerifyOtp() { /* body not rendered: F11277 */ };
+  // @00d3
+  // @00d8
+  arg5.selectCanSubmitProfile = function selectCanSubmitProfile() { /* body not rendered: F11278 */ };
+  // @00de
+}

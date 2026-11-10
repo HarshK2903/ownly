@@ -1,0 +1,40 @@
+function track(arg0) {
+  // @0000
+  // @0003
+  const event_name = arg0.event_name;
+  // @0009
+  if (typeof event_name === "string") {
+    // @0011
+    // @0016
+    // @0018
+    if (event_name.length !== 0) {
+      // @001c
+      // @001f
+      // @0023
+      // @0028
+      // @002e
+      // @0032
+      if (typeof closure_1_4 === "function") {
+        // @0042
+        const obj = {};
+        // @0044
+        // @0047
+        // @004a
+        const merged = Object.assign(arg0);
+        // @004e
+        // @0052
+        delete obj["event_name"];
+        // @0057
+        tmp2(event_name, obj);
+        // @005d
+        // @005f
+      } else {
+        // @003a
+        // @003e
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+  }
+  // @0061
+  // @0063
+}

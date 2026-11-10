@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1639
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 6,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1639\nconst re0 = /^\\d{10}$/;\nconst re1 = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\nfunction normalizedOtp(arg0) {\n\n}\nfunction selectOtpValue(otp) {\n  otp = otp.otp;\n  if (typeof normalizedOtp === \"function\") {\n    const str2 = otp.join(\"\");\n    const replaced = str2.replace(/\\D/g, \"\");\n    return replaced.slice(0, 4);\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nfunction selectIsPhoneValid(phone) {\n  const str = phone.phone;\n  return re0.test(str.trim());\n}\nfunction selectIsOtpComplete(otp) {\n  if (typeof selectOtpValue === \"function\") {\n    otp = otp.otp;\n    if (typeof normalizedOtp === \"function\") {\n      const str2 = otp.join(\"\");\n      const replaced = str2.replace(/\\D/g, \"\");\n      return replaced.slice(0, 4).length === 4;\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nfunction selectIsEmailValid(email) {\n  if (email.trim()) {\n    return re1.test(email.trim());\n  } else {\n    return true;\n  }\n}\n\nexport { selectOtpValue };\nexport { selectIsPhoneValid };\nexport { selectIsOtpComplete };\nexport { selectIsEmailValid };\nexport function selectCanRequestOtp(phone) {\n  if (typeof selectIsPhoneValid === \"function\") {\n    const str = phone.phone;\n    const tmp3 = re0.test(str.trim()) && !phone.requestOtpLoading;\n    return tmp3;\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nexport function selectCanVerifyOtp(otp) {\n  if (typeof selectIsOtpComplete === \"function\") {\n    if (typeof selectOtpValue === \"function\") {\n      otp = otp.otp;\n      if (typeof normalizedOtp === \"function\") {\n        const str2 = otp.join(\"\");\n        const replaced = str2.replace(/\\D/g, \"\");\n        const tmp4 = replaced.slice(0, 4).length === 4 && !otp.verifyOtpLoading;\n        return tmp4;\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nexport function selectCanSubmitProfile(profile) {\n  const str = profile.profile.name;\n  let tmp = str.trim().length > 0;\n  if (typeof selectIsEmailValid === \"function\") {\n    let flag = true;\n    if (profile.profile.email.trim()) {\n      flag = re1.test(str2.trim());\n    }\n    const dataSharingAgreed = profile.profile.dataSharingAgreed;\n    if (tmp) {\n      tmp = flag;\n    }\n    if (tmp) {\n      tmp = dataSharingAgreed;\n    }\n    if (tmp) {\n      tmp = !profile.submitProfileLoading;\n    }\n    return tmp;\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

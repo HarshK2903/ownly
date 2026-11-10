@@ -1,0 +1,12 @@
+function verifyOTP(arg0, arg1) {
+  // @0000
+  // @0003
+  // @0007
+  // @000c
+  // @0012
+  // @0015
+  // @0018
+  // @001e
+  const _default = closure_1_0.default;
+  return _default.verifyOTP(arg0, arg1);
+}

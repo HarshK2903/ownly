@@ -1,0 +1,73 @@
+// Module 3316 (runFetchOrderTrackingOrder)
+import _asyncToGenerator from "_asyncToGenerator" /* 2 */;
+import module_1 from "module_1" /* 1 */;
+
+let c2 = "/api/v1/orders";
+let closure_3 = { key: "[REDACTED_EMBEDDED_CREDENTIAL]" };
+function trimTrailingSlash(arg0) {
+
+}
+function buildOrderUrl(arg0, arg1) {
+
+}
+function normalizeOrderPayload(order) {
+  const tmp = order;
+  if (tmp) {
+    if (typeof order === "object") {
+      if (order.order) {
+        if (typeof order.order === "object") {
+          return order.order;
+        }
+      }
+      return order;
+    }
+  }
+  return null;
+}
+function createFetchOrderTrackingOrderRequest(path) {
+  let obj2;
+  let replaced;
+  let str = path.path;
+  const tmp = buildOrderUrl;
+  if (str == null) {
+    str = c2;
+  }
+  if (typeof tmp === "function") {
+    if (typeof trimTrailingSlash === "function") {
+      const request = { method: "GET", url: "" + replaced + "/" + encodeURIComponent(tmp2), headers: obj2, timeoutMs: null, credentials: null };
+      const _encodeURIComponent = encodeURIComponent;
+      replaced = str.replace(/\/+$/, "");
+      const _HermesInternal = HermesInternal;
+      obj2 = {};
+      const merged = Object.assign(closure_3);
+      const merged1 = Object.assign(path.headers);
+      ({ timeoutMs: obj.timeoutMs, credentials: obj.credentials } = path);
+      return request;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+let closure_0 = module_1(_asyncToGenerator).default((value, arg1) => {
+  let closure_2;
+  let closure_1 = arg1;
+  let c4 = 0;
+  let c5 = 0;
+  return (function*(arg0, value) {
+    const obj4 = { operation: "order-tracking/fetch-order", includeResponseOnError: true, policy: { safeMethodsOnly: true } };
+    value = yield value(closure_1[2]).requestWithRetry(value, closure_1_7(closure_1), obj4);
+    if (value.ok) {
+      const obj7 = { data: closure_1_6(value.data) };
+      const merged = Object.assign(value);
+      return obj7;
+    }
+    return value;
+  })();
+});
+
+export { createFetchOrderTrackingOrderRequest };
+export function runFetchOrderTrackingOrder(arg0, arg1) {
+  return closure_0(...arguments);
+}

@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 1641,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 5,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function f1641(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {\n  // @0000\n  // @0003\n  // @0006\n  // @0008\n  // @000e\n  // @0013\n  // @0017\n  // @0021\n  // @0028\n  // @002a\n  arg5.selectCanRequestOtp = undefined;\n  // @0030\n  arg5.selectCanSubmitProfile = undefined;\n  // @0036\n  arg5.selectCanVerifyOtp = undefined;\n  // @003c\n  arg5.selectIsEmailValid = undefined;\n  // @0042\n  arg5.selectIsOtpComplete = undefined;\n  // @0048\n  arg5.selectIsPhoneValid = undefined;\n  // @004e\n  arg5.selectOtpValue = undefined;\n  // @0054\n  // @0062\n  closure_0 = /^\\d{10}$/;\n  // @0066\n  // @0074\n  closure_1 = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n  // @0078\n  // @007d\n  closure_2 = function normalizedOtp() { /* body not rendered: F11271 */ };\n  // @0081\n  function selectOtpValue() { /* body not rendered: F11272 */ }\n  // @0086\n  closure_3 = selectOtpValue;\n  // @008a\n  arg5.selectOtpValue = selectOtpValue;\n  // @0090\n  function selectIsPhoneValid() { /* body not rendered: F11273 */ }\n  // @0095\n  closure_4 = selectIsPhoneValid;\n  // @0099\n  arg5.selectIsPhoneValid = selectIsPhoneValid;\n  // @009f\n  function selectIsOtpComplete() { /* body not rendered: F11274 */ }\n  // @00a4\n  closure_5 = selectIsOtpComplete;\n  // @00a8\n  arg5.selectIsOtpComplete = selectIsOtpComplete;\n  // @00ae\n  function selectIsEmailValid() { /* body not rendered: F11275 */ }\n  // @00b3\n  closure_6 = selectIsEmailValid;\n  // @00b7\n  arg5.selectIsEmailValid = selectIsEmailValid;\n  // @00bd\n  // @00c2\n  arg5.selectCanRequestOtp = function selectCanRequestOtp() { /* body not rendered: F11276 */ };\n  // @00c8\n  // @00cd\n  arg5.selectCanVerifyOtp = function selectCanVerifyOtp() { /* body not rendered: F11277 */ };\n  // @00d3\n  // @00d8\n  arg5.selectCanSubmitProfile = function selectCanSubmitProfile() { /* body not rendered: F11278 */ };\n  // @00de\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

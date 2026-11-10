@@ -1,0 +1,38 @@
+// Module 1618
+function isSafeMethod(arg0) {
+  return arg0 === "GET";
+}
+
+export function createDefaultRetryPolicy() {
+  return { maxAttempts: 1, baseDelayMs: 250, maxDelayMs: 5000, jitterRatio: 0.2, retryOnStatuses: [408, 429, 500, 502, 503, 504], retryOnNetworkError: true, retryOnTimeout: true, safeMethodsOnly: true };
+}
+export { isSafeMethod };
+export function isRetryableResult(arg0, ok, safeMethodsOnly) {
+  if (ok.ok) {
+    return false;
+  } else {
+    if (safeMethodsOnly.safeMethodsOnly) {
+      if (typeof isSafeMethod === "function") {
+        if (tmp4 !== "GET") {
+          return false;
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+    const status = ok.status;
+    if (status === 401) {
+      return false;
+    } else if (status === 0) {
+      const kind = ok.error.kind;
+      if (kind === "timeout") {
+        return safeMethodsOnly.retryOnTimeout;
+      } else {
+        return safeMethodsOnly.retryOnNetworkError;
+      }
+    } else {
+      const retryOnStatuses = safeMethodsOnly.retryOnStatuses;
+      return retryOnStatuses.includes(status);
+    }
+  }
+}

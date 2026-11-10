@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 18073,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 11,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  LoadParam r2, 1\n0003  GetByIdShort r3, r2, 0, \"path\"\n0008  LoadConstNull r0\n000a  JNotEqual L21, r3, r0\n000e  GetParentEnvironment r1, 0\n0011  LoadFromEnvironment r3, r1, 2\nL21:\n0015  NewObjectWithBufferLong r1, 3232, 209995\n001f  PutOwnBySlotIdx r1, r3, 1\n0023  NewObjectWithBufferLong r3, 5115, 110836\n002d  GetById r4, r2, 1, \"searchString\"\n0033  PutOwnBySlotIdx r3, r4, 0\n0037  GetByIdShort r4, r2, 2, \"location\"\n003c  PutOwnBySlotIdx r3, r4, 1\n0040  GetById r4, r2, 3, \"cityId\"\n0046  PutOwnBySlotIdx r3, r4, 2\n004a  PutOwnBySlotIdx r1, r3, 2\n004e  GetById r3, r2, 4, \"timeoutMs\"\n0054  PutOwnBySlotIdx r1, r3, 3\n0058  GetById r2, r2, 5, \"credentials\"\n005e  PutOwnBySlotIdx r1, r2, 4\n0062  Ret r1\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

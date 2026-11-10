@@ -1,0 +1,22 @@
+0000  LoadParam r2, 1
+0003  GetByIdShort r3, r2, 0, "path"
+0008  LoadConstNull r0
+000a  JNotEqual L21, r3, r0
+000e  GetParentEnvironment r1, 0
+0011  LoadFromEnvironment r3, r1, 2
+L21:
+0015  NewObjectWithBufferLong r1, 3232, 209995
+001f  PutOwnBySlotIdx r1, r3, 1
+0023  NewObjectWithBufferLong r3, 5115, 110836
+002d  GetById r4, r2, 1, "searchString"
+0033  PutOwnBySlotIdx r3, r4, 0
+0037  GetByIdShort r4, r2, 2, "location"
+003c  PutOwnBySlotIdx r3, r4, 1
+0040  GetById r4, r2, 3, "cityId"
+0046  PutOwnBySlotIdx r3, r4, 2
+004a  PutOwnBySlotIdx r1, r3, 2
+004e  GetById r3, r2, 4, "timeoutMs"
+0054  PutOwnBySlotIdx r1, r3, 3
+0058  GetById r2, r2, 5, "credentials"
+005e  PutOwnBySlotIdx r1, r2, 4
+0062  Ret r1

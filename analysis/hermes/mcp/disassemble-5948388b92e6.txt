@@ -1,0 +1,19 @@
+0000  GetParentEnvironment r4, 0
+0003  LoadParam r3, 1
+0006  GetById r5, r3, 0, "endpoint"
+000c  LoadConstNull r1
+000e  JNotEqual L22, r5, r1
+0012  LoadFromEnvironment r5, r4, 2
+L22:
+0016  NewObjectWithBufferLong r2, 3216, 210074
+0020  PutOwnBySlotIdx r2, r5, 1
+0024  LoadFromEnvironment r4, r4, 4
+0028  LoadConstUndefined r0
+002a  Call2 r4, r4, r0, r3
+002f  PutOwnBySlotIdx r2, r4, 2
+0033  GetById r3, r3, 1, "credentials"
+0039  JNotEqual L65, r3, r1
+003d  LoadConstString r3, "include"
+L65:
+0041  PutOwnBySlotIdx r2, r3, 3
+0045  Ret r2

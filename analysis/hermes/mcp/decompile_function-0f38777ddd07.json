@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 2,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function f2(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {\n  // @0000\n  // @0003\n  // @0006\n  closure_0 = require;\n  // @000a\n  // @000d\n  closure_1 = dependencyMap;\n  // @0011\n  // @0016\n  closure_6 = function _interopRequireWildcard() { /* body not rendered: F5864 */ };\n  // @001a\n  // @001e\n  // @0020\n  const _module = require(dependencyMap[0]);\n  // @0025\n  // @0029\n  // @002e\n  // @0033\n  closure_2 = _module(require(dependencyMap[1]));\n  // @0037\n  // @003b\n  // @003f\n  // @0044\n  // @0049\n  closure_3 = closure_6(require(dependencyMap[2]));\n  // @004d\n  // @0051\n  // @0056\n  // @005a\n  const _module1 = require(dependencyMap[3]);\n  // @005f\n  // @0064\n  closure_4 = _module(require(dependencyMap[4]));\n  // @0068\n  // @006c\n  const _module2 = require(dependencyMap[5]);\n  // @0071\n  // @0075\n  // @007a\n  // @007f\n  closure_5 = _module(require(dependencyMap[6]));\n  // @0083\n  // @0087\n  // @008c\n  // @0092\n  // @0094\n  require(dependencyMap[7]).enableScreens(true);\n  // @0099\n  // @009d\n  // @00a2\n  // @00a8\n  require(dependencyMap[7]).enableFreeze(true);\n  // @00ad\n  // @00b2\n  (function logReanimatedStaticFlags() { /* body not rendered: F5865 */ })();\n  // @00b6\n  // @00b8\n  closure_7 = null;\n  // @00bc\n  // @00be\n  closure_8 = false;\n  // @00c2\n  // @00c7\n  closure_9 = function getCrashlyticsInstance() { /* body not rendered: F5866 */ };\n  // @00cb\n  // @00d0\n  closure_10 = function setupGlobalErrorHandler() { /* body not rendered: F5867 */ };\n  // @00d4\n  closure_11 = null;\n  // @00d8\n  // @00dd\n  closure_12 = function getMessagingInstance() { /* body not rendered: F5868 */ };\n  // @00e1\n  // @00e3\n  // @00e9\n  // @00eb\n  // @00f0\n  const timerId = setTimeout(function() { /* body not rendered: F5869 */ }, 0);\n  // @00f6\n  const AppRegistry = _module1.AppRegistry;\n  // @00fc\n  // @0102\n  // @0106\n  // @010b\n  // @0110\n  // @0115\n  AppRegistry.registerComponent(require(dependencyMap[18]).name, function() { /* body not rendered: F5870 */ });\n  // @011b\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

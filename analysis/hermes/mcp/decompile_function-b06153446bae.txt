@@ -1,0 +1,39 @@
+function getBaseURL() {
+  // @0000
+  // @0003
+  // @0007
+  // @000d
+  const cachedBaseURL = closure_1_7.getCachedBaseURL();
+  // @0011
+  // @0013
+  const obj = closure_1_7;
+  if (cachedBaseURL !== undefined) {
+    // @004e
+    return cachedBaseURL;
+  } else {
+    // @0017
+    // @001b
+    // @0020
+    // @0026
+    const _default = closure_1_4.default;
+    const baseURL = _default.getBaseURL();
+    // @002a
+    let tmp4 = null;
+    // @002c
+    if (typeof baseURL === "string") {
+      // @0034
+      // @0038
+      tmp4 = null;
+      // @003a
+      if (baseURL !== "") {
+        // @003e
+        tmp4 = baseURL;
+      }
+    }
+    // @0041
+    // @0047
+    obj.cacheBaseURL(tmp4);
+    // @004c
+    return tmp4;
+  }
+}

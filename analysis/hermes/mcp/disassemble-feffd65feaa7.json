@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 11145,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  GetParentEnvironment r2, 0\n0003  LoadParam r3, 1\n0006  LoadFromEnvironment r4, r2, 4\n000a  GetById r5, r3, 0, \"checkoutPayload\"\n0010  JmpTypeOfIs L32, r4, 128\n0018  LoadConstString r7, \"Trying to call a non-function\"\n001c  CallBuiltin r4, 44, 2\nL32:\n0020  LoadFromEnvironment r4, r2, 3\n0024  JmpTypeOfIs L52, r4, 128\n002c  LoadConstString r7, \"Trying to call a non-function\"\n0030  CallBuiltin r4, 44, 2\nL52:\n0034  TypeOfIs r0, r5, 258\n0039  JmpTypeOfIs L71, r5, 253\n0041  LoadConstNull r1\n0043  StrictNeq r0, r5, r1\nL71:\n0047  JmpFalse L82, r0\n004a  LoadConstString r4, \"cart\"\n004e  IsIn r0, r4, r5\nL82:\n0052  JmpTrue L114, r0\n0055  GetGlobalObject r4\n0057  TryGetById r6, r4, 1, \"Error\"\n005d  CreateThisForNew r5, r6, 2\n0061  LoadConstString r7, \"Invalid checkout payload: missing cart data\"\n0065  Mov r8, r5\n0068  Construct r4, r6, 2\n006c  SelectObject r4, r5, r4\n0070  Throw r4\nL114:\n0072  GetById r4, r3, 3, \"endpoint\"\n0078  LoadConstNull r0\n007a  JNotEqual L130, r4, r0\n007e  LoadFromEnvironment r4, r2, 2\nL130:\n0082  NewObjectWithBufferLong r2, 3203, 209995\n008c  PutOwnBySlotIdx r2, r4, 1\n0090  GetById r4, r3, 0, \"checkoutPayload\"\n0096  PutOwnBySlotIdx r2, r4, 2\n009a  GetById r4, r3, 4, \"headers\"\n00a0  PutOwnBySlotIdx r2, r4, 3\n00a4  GetById r3, r3, 5, \"credentials\"\n00aa  JNotEqual L178, r3, r0\n00ae  LoadConstString r3, \"include\"\nL178:\n00b2  PutOwnBySlotIdx r2, r3, 4\n00b6  Ret r2\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

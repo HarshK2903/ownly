@@ -1,0 +1,38 @@
+function trackAddToCart(arg0) {
+  // @0000
+  // @0003
+  // @0006
+  const obj = { event_name: "food_item_added_to_cart", food_item_name: arg0.food_item_name, food_item_id: arg0.food_item_id, cart_id: arg0.cart_id, restaurant_id: arg0.restaurant_id, price: arg0.price, quantity: arg0.quantity };
+  // @0010
+  // @0016
+  // @001a
+  // @0020
+  // @0024
+  // @002a
+  // @002e
+  // @0034
+  // @0038
+  // @003d
+  // @0041
+  // @0046
+  // @004a
+  // @004e
+  // @0053
+  // @0059
+  // @005e
+  // @0064
+  // @006a
+  const _default = closure_1_10.default;
+  _default.trackEvent(closure_1_10.default.EVENTS.ADD_TO_CART, obj);
+  // @0070
+  // @0074
+  // @0079
+  // @007f
+  // @0084
+  // @008a
+  // @0090
+  const _default2 = closure_1_9.default;
+  _default2.trackEvent(closure_1_9.default.EVENTS.ADD_TO_CART, obj);
+  // @0096
+  // @0098
+}

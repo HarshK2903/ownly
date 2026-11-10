@@ -1,0 +1,16 @@
+// Module 1996
+const require = globalThis.__r;
+
+const obj = { SplashScreen: require("AnalyticsComponent").AnalyticsScreen.SPLASH_PAGE, Home: require("AnalyticsComponent").AnalyticsScreen.HOME_PAGE, LoginScreen: require("AnalyticsComponent").AnalyticsScreen.LOGIN_PAGE, OnboardingScreen: require("AnalyticsComponent").AnalyticsScreen.ONBOARDING_PAGE, Search: require("AnalyticsComponent").AnalyticsScreen.SEARCH_PAGE, SearchResults: require("AnalyticsComponent").AnalyticsScreen.SEARCH_RESULT_PAGE, SearchFeedback: require("AnalyticsComponent").AnalyticsScreen.SEARCH_FEEDBACK_PAGE, RestaurantSearch: require("AnalyticsComponent").AnalyticsScreen.RESTAURANT_SEARCH_PAGE, RestaurantSearchPage: require("AnalyticsComponent").AnalyticsScreen.RESTAURANT_SEARCH_PAGE, CategoryListingNova: require("AnalyticsComponent").AnalyticsScreen.CATEGORY_LIST_PAGE, RestaurantListingNova: require("AnalyticsComponent").AnalyticsScreen.RESTAURANT_LIST_PAGE, RestaurantListing: require("AnalyticsComponent").AnalyticsScreen.RESTAURANT_LIST_PAGE, RestaurantPage: require("AnalyticsComponent").AnalyticsScreen.RESTAURANT_PAGE, LocationScreen: require("AnalyticsComponent").AnalyticsScreen.LOCATION_SELECTION_PAGE, LocationSearchScreen: require("AnalyticsComponent").AnalyticsScreen.LOCATION_SELECTION_PAGE, MapScreen: require("AnalyticsComponent").AnalyticsScreen.LOCATION_MAP_PAGE, AddressesScreen: require("AnalyticsComponent").AnalyticsScreen.ADDRESS_MANAGEMENT_PAGE, CartPage: require("AnalyticsComponent").AnalyticsScreen.CART_PAGE, ProfileScreen: require("AnalyticsComponent").AnalyticsScreen.PROFILE_PAGE, EditProfileScreen: require("AnalyticsComponent").AnalyticsScreen.PROFILE_EDIT_PAGE, AppSettingsScreen: require("AnalyticsComponent").AnalyticsScreen.APP_SETTINGS_PAGE, HelpIngressScreen: require("AnalyticsComponent").AnalyticsScreen.HELP_PAGE, PastOrderHelpScreen: require("AnalyticsComponent").AnalyticsScreen.HELP_PAGE, SupportWebViewScreen: require("AnalyticsComponent").AnalyticsScreen.SUPPORT_PAGE, OrderTrackingScreen: require("AnalyticsComponent").AnalyticsScreen.ORDER_TRACKING_PAGE, OrderDetailsScreen: require("AnalyticsComponent").AnalyticsScreen.ORDER_DETAIL_PAGE, PastOrdersScreen: require("AnalyticsComponent").AnalyticsScreen.ORDER_HISTORY_PAGE, RatingScreen: require("AnalyticsComponent").AnalyticsScreen.RATING_PAGE };
+
+export function getAnalyticsScreenForRoute(currentRouteName) {
+  if (currentRouteName) {
+    let tmp2 = obj[currentRouteName];
+    if (tmp2 == null) {
+      tmp2 = null;
+    }
+    return tmp2;
+  } else {
+    return null;
+  }
+}

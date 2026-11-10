@@ -1,0 +1,438 @@
+// Module 3946
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import module_1 from "module_1" /* 1 */;
+
+const require = globalThis.__r;
+let _require, c10, closure_2, shutdown, sum;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+let c3 = 1;
+
+export function createAnalytics(diagnostics) {
+  _require = diagnostics;
+  let fn = diagnostics.diagnostics;
+  if (fn == null) {
+    fn = () => {
+
+    };
+  }
+  let globalContext = diagnostics.globalContext;
+  if (globalContext == null) {
+    let tmp = _require;
+    let tmp2 = fn;
+    globalContext = require("module_3947").createGlobalContextStore();
+  }
+  let tmp3 = _require;
+  let tmp4 = fn;
+  let closure_3 = require("module_3948").createPageContextStore();
+  let closure_4 = require("module_3949").createFlowContextStore();
+  const values = Object.values(diagnostics.sinks);
+  const found = values.filter(Boolean);
+  let closure_6 = found.map((sink) => sink.sink);
+  const map1 = new Map();
+  const map = found.map;
+  _require = globalContext.default((arg0) => {
+    const available = arg0;
+    let c4 = 0;
+    let c5 = 0;
+    c3 = 0;
+    return (function*(arg0, value) {
+      if (c5 === 2) {
+        c5 = 3;
+        throw new TypeError("Generator functions may not be called on executing generators");
+      } else if (tmp3 === 3) {
+        if (arg0 === 1) {
+          throw value;
+        } else if (arg0 === 2) {
+          return { value, done: true };
+        } else {
+          return { value: "return", done: null };
+        }
+      } else {
+        try {
+          c5 = 2;
+          if (0 === c4) {
+            if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c5 = 3;
+              return { value, done: true };
+            } else {
+              closure_2 = tmp;
+              closure_1 = tmp4;
+              const obj3 = available;
+              if (available.isAvailable()) {
+                c3 = 1;
+                c4 = 2;
+                c5 = 1;
+                const obj5 = { value: obj3.initialize(), done: false };
+                return obj5;
+              } else {
+                c5 = 3;
+                return { value: "return", done: null };
+              }
+            }
+          } else {
+            if (1 === c4) {
+              c3 = 0;
+              const result = closure_1_7.set(available.sink, false);
+              const obj6 = { code: "sink_initialization_failure", sink: available.sink };
+              closure_1(obj6);
+            } else if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c3 = 0;
+              c5 = 3;
+              return { value, done: true };
+            } else {
+              const result1 = closure_1_7.set(available.sink, true);
+              c3 = 0;
+            }
+            c5 = 3;
+            return { value: "return", done: null };
+          }
+        } catch (tmp18) {
+          if (0 === c3) {
+            c5 = 3;
+            throw tmp18;
+          } else {
+            c4 = 1;
+          }
+        }
+      }
+    })();
+  });
+  let c8 = false;
+  let closure_9 = 0;
+  let closure_11 = 0;
+  let c12 = false;
+  const mapped = map(function(arg0) {
+    return closure_0(...arguments);
+  });
+  let num = diagnostics.maxPerLane;
+  const createEventQueue = require("module_3950").createEventQueue;
+  if (num == null) {
+    num = 500;
+  }
+  let closure_13 = createEventQueue(num, (eventName) => {
+    const obj = { code: "queue_pressure_drop", eventName: eventName.eventName, priority: eventName.priority, queueSize: closure_13.size() };
+    fn(obj);
+  });
+  let fn2 = diagnostics.createEventId;
+  if (fn2 == null) {
+    fn2 = () => {
+      const scheduler = diagnostics.scheduler;
+      closure_9 = closure_9 + 1;
+      return "evt_" + scheduler.now() + "_" + closure_9;
+    };
+  }
+  function configEnabled() {
+
+  }
+  const allSettledResult = Promise.allSettled(mapped);
+  allSettledResult.then(() => {
+    c8 = true;
+    const tmp = c12;
+    if (!tmp) {
+      if (closure_13.size() > 0) {
+        const tmp3 = c10;
+        if (!tmp3) {
+          scheduleDrain("immediate");
+        }
+      }
+    }
+  });
+  function deliver(actorEpoch) {
+    diagnostics = actorEpoch;
+    if (typeof configEnabled === "function") {
+      const getRuntimeConfig = diagnostics.getRuntimeConfig;
+      let flag;
+      if (getRuntimeConfig != null) {
+        flag = getRuntimeConfig().enabled;
+      }
+      if (flag == null) {
+        flag = true;
+      }
+      if (flag) {
+        const tmp4 = profileCoordinator;
+        if (actorEpoch.actorEpoch !== profileCoordinator.getActorEpoch()) {
+          let obj2 = { code: "stale_actor_epoch", eventName: actorEpoch.eventName };
+          fn(obj2);
+        } else {
+          const requestedSinks = actorEpoch.requestedSinks;
+          const item = requestedSinks.forEach((sink) => {
+            actorEpoch = sink;
+            let obj = actorEpoch.sinks[sink];
+            if (obj) {
+              if (map1.get(sink)) {
+                const obj2 = { code: "delivery_attempt", eventName: actorEpoch.eventName, sink };
+                closure_1_1(obj2);
+                const tmp3 = closure_1_1;
+                try {
+                  const resolved = Promise.resolve(obj.track(actorEpoch(fn[6]).materializeAnalyticsEvent(tmp4)));
+                  resolved.catch(() => {
+                    const obj = { code: "adapter_invocation_failure", eventName: sink.eventName, sink };
+                    fn(obj);
+                  });
+                } catch (err) {
+                  const obj3 = { code: "adapter_invocation_failure", eventName: actorEpoch.eventName, sink };
+                  tmp3(obj3);
+                }
+              }
+            }
+            const obj4 = { code: "sink_unavailable", eventName: actorEpoch.eventName, sink };
+            closure_1_1(obj4);
+          });
+        }
+      } else {
+        let obj = { code: "event_disabled", eventName: actorEpoch.eventName };
+        let tmp3 = fn(obj);
+      }
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  }
+  function drain(immediate) {
+    const tmp = c8;
+    if (tmp) {
+      let obj2 = closure_13;
+      const obj = { code: "drain_started", drainKind: immediate, queueSize: closure_13.size() };
+      fn(obj);
+      try {
+        let num2 = 0;
+        const tmp6 = c12;
+        if (!tmp6) {
+          if (obj2.size() > 0) {
+            const num3 = diagnostics.maxEventsPerDrain ?? 50;
+            if (num2 < num3) {
+              obj2 = closure_13;
+              const takeNextResult = closure_13.takeNext();
+              while (takeNextResult) {
+                let tmp13 = deliver(tmp10);
+                num2 = num2 + 1;
+                let tmp15 = c12;
+                if (tmp15) {
+                  break;
+                } else if (obj2.size() <= 0) {
+                  break;
+                } else {
+                  let num6 = diagnostics.maxEventsPerDrain ?? 50;
+                  if (num2 >= num6) {
+                    break;
+                  }
+                }
+              }
+            }
+          }
+        }
+        const obj3 = { code: "drain_completed", drainKind: immediate, queueSize: obj2.size() };
+        fn(obj3);
+        const tmp22 = c12;
+        if (!tmp22) {
+          if (obj2.size() > 0) {
+            scheduleDrain("immediate");
+          }
+        }
+      } catch (tmp26) {
+        const obj4 = { code: "drain_completed", drainKind: immediate, queueSize: obj2.size() };
+        fn(obj4);
+        throw tmp26;
+      }
+    }
+  }
+  function scheduleDrain(immediate) {
+    let obj;
+    let sum1;
+    diagnostics = immediate;
+    const tmp = c12;
+    if (!tmp) {
+      if (obj) {
+        if (immediate === "immediate") {
+          if (tmp2.kind !== "immediate") {
+            sum = sum1 + 1;
+            sum1 = sum;
+            fn = sum;
+            obj = { kind: "immediate", generation: sum };
+            const obj2 = { kind: "immediate", generation: sum };
+            const obj3 = { code: "drain_recovered", drainKind: "immediate", queueSize: closure_13.size() };
+            fn(obj3);
+            const scheduler3 = diagnostics.scheduler;
+            scheduler3.scheduleImmediate(() => {
+              let generation;
+              if (c10 != null) {
+                generation = c10.generation;
+              }
+              if (generation === fn) {
+                c10 = undefined;
+                drain("immediate");
+              }
+            });
+          }
+        }
+      } else {
+        sum1 = sum1 + 1;
+        obj = { kind: immediate, generation: sum1 };
+        const obj4 = { code: "drain_scheduled", drainKind: immediate, queueSize: closure_13.size() };
+        fn(obj4);
+        function task() {
+          let generation;
+          if (c10 != null) {
+            generation = c10.generation;
+          }
+          if (generation === sum1) {
+            c10 = undefined;
+            drain(immediate);
+          }
+        }
+        if (immediate === "delayed") {
+          const scheduler2 = diagnostics.scheduler;
+          scheduler2.scheduleDelayed(task, 100);
+        } else {
+          const scheduler = diagnostics.scheduler;
+          scheduler.scheduleImmediate(task);
+        }
+      }
+    }
+  }
+  function track(arg0, arg1, arg2, arg3) {
+
+  }
+  const profileCoordinator = tmp3(tmp4[9]).createProfileCoordinator(found, fn);
+  let obj = {
+    forPage(HOME_PAGE, arg1) {
+      let closure_1 = arg1;
+      let obj = {
+        track(sinks, arg1) {
+          let entries;
+          let fromEntries;
+          let obj;
+          let obj4;
+          let scheduler;
+          let schemaVersion;
+          const tmp = HOME_PAGE;
+          if (typeof track === "function") {
+            const eventName = HOME_PAGE(closure_1[7]).generateEventName(sinks);
+            sinks = HOME_PAGE(closure_1[8]).resolveSinks(sinks.sinks, closure_6);
+            if (sinks.length === 0) {
+              const obj2 = { code: "sink_unavailable", eventName };
+              fn(obj2);
+            } else {
+              const obj3 = {
+                eventId: fn2(),
+                eventName,
+                config: sinks,
+                priority: sinks.priority,
+                capturedAtMs: scheduler.now(),
+                schemaVersion,
+                actorEpoch: profileCoordinator.getActorEpoch(),
+                requestedSinks: sinks,
+                screen: tmp,
+                payload: fromEntries(entries.filter((item) => {
+                      let tmp;
+                      [, tmp] = item;
+                      return tmp !== undefined;
+                    })),
+                globalContext: obj,
+                pageContext: obj4
+              };
+              scheduler = HOME_PAGE.scheduler;
+              schemaVersion = HOME_PAGE.schemaVersion;
+              const tmp29 = HOME_PAGE;
+              if (schemaVersion == null) {
+                schemaVersion = closure_1_3;
+              }
+              const _Object = Object;
+              const _Object2 = Object;
+              fromEntries = Object.fromEntries;
+              entries = Object.entries(arg1);
+              obj = {};
+              const merged = Object.assign(globalContext.getSnapshot());
+              const getGlobalContext = tmp29.getGlobalContext;
+              globalContext = undefined;
+              if (getGlobalContext != null) {
+                globalContext = getGlobalContext();
+              }
+              if (globalContext == null) {
+                globalContext = {};
+              }
+              const merged1 = Object.assign(globalContext);
+              obj4 = {};
+              const merged2 = Object.assign(closure_3.get(tmp, tmp2));
+              closure_13.enqueue(obj3);
+              const obj5 = { code: "event_captured", eventName, priority: sinks.priority, queueSize: closure_13.size() };
+              fn(obj5);
+              let str = "delayed";
+              const tmp24 = scheduleDrain;
+              if (sinks.priority === "high") {
+                str = "immediate";
+              }
+              tmp24(str);
+            }
+          } else {
+            throw new TypeError("Trying to call a non-function");
+          }
+        }
+      };
+      return obj;
+    },
+    setPageContext(arg0, arg1, arg2) {
+      return closure_3.set(arg0, arg1, arg2);
+    },
+    clearPageContext(arg0, arg1) {
+      return closure_3.clear(arg0, arg1);
+    },
+    setFlow(arg0, arg1) {
+      return closure_4.set(arg0, arg1);
+    },
+    getFlow(arg0) {
+      return closure_4.get(arg0);
+    },
+    clearFlow(arg0) {
+      return closure_4.clear(arg0);
+    },
+    clearAllFlows() {
+      return closure_4.clearAll();
+    },
+    flush() {
+      const tmp = c12;
+      if (!tmp) {
+        const tmp2 = c8;
+        if (tmp2) {
+          if (closure_13.size() !== 0) {
+            c10 = undefined;
+            closure_11 = closure_11 + 1;
+            drain("immediate");
+          }
+        }
+      }
+    },
+    profile: profileCoordinator,
+    dispose() {
+      c12 = true;
+      c10 = undefined;
+      closure_11 = closure_11 + 1;
+      closure_13.clear();
+      closure_3.clearAll();
+      closure_4.clearAll();
+      const item = found.forEach((shutdown) => {
+        try {
+          shutdown = shutdown.shutdown;
+          let shutdownResult;
+          if (shutdown != null) {
+            shutdownResult = shutdown();
+          }
+          const resolveResult = resolve(shutdownResult);
+          resolveResult.catch(() => {
+
+          });
+        } catch (err) {
+          const obj = { code: "adapter_invocation_failure", sink: shutdown.sink };
+          fn(obj);
+        }
+      });
+    }
+  };
+  return obj;
+}

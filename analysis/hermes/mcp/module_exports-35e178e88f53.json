@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 3893
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 11,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 3893 (trackRecentSearchTap) exports (13 total):\n  export \"trackRecentSearchTap\" -> function 18770 (trackRecentSearchTap)\n  export \"trackSearchCategoryGridTap\" -> function 18773 (trackSearchCategoryGridTap)\n  export \"trackSearchFeedbackScreenContextLoaded\" -> function 18779 (trackSearchFeedbackScreenContextLoaded)\n  export \"trackSearchFeedbackSubmitted\" -> function 18780 (trackSearchFeedbackSubmitted)\n  export \"trackSearchNoResults\" -> function 18775 (trackSearchNoResults)\n  export \"trackSearchPopularInAreaTap\" -> function 18772 (trackSearchPopularInAreaTap)\n  export \"trackSearchQuerySubmitted\" -> function 18768 (trackSearchQuerySubmitted)\n  export \"trackSearchResultsFeedbackPromptTap\" -> function 18778 (trackSearchResultsFeedbackPromptTap)\n  export \"trackSearchResultsImpressions\" -> function 18777 (trackSearchResultsImpressions)\n  export \"trackSearchResultsRestaurantTap\" -> function 18774 (trackSearchResultsRestaurantTap)\n  export \"trackSearchScreenContextLoaded\" -> function 18769 (trackSearchScreenContextLoaded)\n  export \"trackSearchSuggestionTap\" -> function 18771 (trackSearchSuggestionTap)\n  export \"trackSearchSuggestionsImpressions\" -> function 18776 (trackSearchSuggestionsImpressions)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

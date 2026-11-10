@@ -1,0 +1,132 @@
+function trackBeginCheckout(arg0) {
+  // @0000
+  // @0003
+  const obj = { event_name: "cart_proceedtopayment_button_pressed", screen_name: "cartpage", cart_id: arg0.cart_id, cart_total_amount: arg0.cart_total_amount, cart_items_count: arg0.cart_items_count, total_cart_item_count: arg0.total_cart_item_count, restaurant_name: arg0.restaurant_name, restaurant_id: arg0.restaurant_id, total_payable: arg0.total_payable, gst: arg0.gst };
+  // @000d
+  // @0013
+  // @0017
+  // @001d
+  // @0021
+  // @0027
+  // @002b
+  // @0031
+  // @0035
+  // @003b
+  // @003f
+  // @0045
+  // @0049
+  // @004f
+  // @0053
+  // @0059
+  // @005d
+  // @0063
+  if (arg0.other_price_components) {
+    // @0066
+    // @006c
+    obj.other_price_components = arg0.other_price_components;
+  }
+  // @0072
+  const obj1 = { event_name: obj.event_name, screen_name: obj.screen_name, cart_id: obj.cart_id, cart_total_amount: obj.cart_total_amount, cart_items_count: obj.cart_items_count, total_cart_item_count: obj.total_cart_item_count, restaurant_name: obj.restaurant_name, restaurant_id: obj.restaurant_id, total_payable: obj.total_payable, gst: obj.gst, discount: null, delivery_fees: null };
+  // @007c
+  // @0082
+  // @0086
+  // @008c
+  // @0090
+  // @0096
+  // @009a
+  // @00a0
+  // @00a4
+  // @00aa
+  // @00ae
+  // @00b4
+  // @00b8
+  // @00be
+  // @00c2
+  // @00c8
+  // @00cc
+  // @00d2
+  // @00d6
+  // @00dc
+  // @00e0
+  // @00e2
+  // @00e8
+  const other_price_components = arg0.other_price_components;
+  // @00ee
+  // @00f0
+  // @00f4
+  // @00f6
+  let discount;
+  // @00f8
+  const _Number = Number;
+  if (other_price_components != null) {
+    // @00fb
+    discount = other_price_components.discount;
+  }
+  // @0101
+  let num = _Number(discount);
+  // @0106
+  if (!num) {
+    // @0109
+    num = 0;
+  }
+  // @010b
+  obj1.discount = num;
+  // @010f
+  // @0115
+  const other_price_components2 = arg0.other_price_components;
+  // @011b
+  // @011f
+  let delivery_fees;
+  // @0121
+  const _Number2 = Number;
+  if (other_price_components2 != null) {
+    // @0124
+    delivery_fees = other_price_components2.delivery_fees;
+  }
+  // @012a
+  let num2 = _Number2(delivery_fees);
+  // @012f
+  if (!num2) {
+    // @0132
+    // @0138
+    const other_price_components3 = arg0.other_price_components;
+    // @013e
+    // @0142
+    let delivery_fee;
+    // @0144
+    const _Number3 = Number;
+    if (other_price_components3 != null) {
+      // @0147
+      delivery_fee = other_price_components3.delivery_fee;
+    }
+    // @014d
+    num2 = _Number3(delivery_fee);
+  }
+  // @0152
+  if (!num2) {
+    // @0155
+    num2 = 0;
+  }
+  // @0157
+  // @015a
+  obj1.delivery_fees = num2;
+  // @015e
+  // @0162
+  // @0167
+  // @016d
+  // @0172
+  // @0178
+  // @017e
+  const _default = closure_1_10.default;
+  _default.trackEvent(closure_1_10.default.EVENTS.BEGIN_CHECKOUT, obj1);
+  // @0184
+  // @0188
+  // @018d
+  // @0193
+  // @0198
+  // @019e
+  // @01a4
+  const _default2 = closure_1_9.default;
+  _default2.trackEvent(closure_1_9.default.EVENTS.INITIATED_CHECKOUT, obj);
+  // @01aa
+}

@@ -1,0 +1,20 @@
+0000  LoadParam r2, 1
+0003  GetByIdShort r3, r2, 0, "path"
+0008  LoadConstNull r0
+000a  JNotEqual L21, r3, r0
+000e  GetParentEnvironment r1, 0
+0011  LoadFromEnvironment r3, r1, 2
+L21:
+0015  NewObjectWithBufferLong r1, 3232, 209995
+001f  PutOwnBySlotIdx r1, r3, 1
+0023  NewObjectWithBufferLong r3, 3241, 111672
+002d  GetById r4, r2, 1, "phoneNumber"
+0033  PutOwnBySlotIdx r3, r4, 0
+0037  GetById r4, r2, 2, "otp"
+003d  PutOwnBySlotIdx r3, r4, 1
+0041  PutOwnBySlotIdx r1, r3, 2
+0045  GetById r3, r2, 3, "timeoutMs"
+004b  PutOwnBySlotIdx r1, r3, 3
+004f  GetById r2, r2, 4, "credentials"
+0055  PutOwnBySlotIdx r1, r2, 4
+0059  Ret r1

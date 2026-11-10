@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 25531,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 5,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function trackBeginCheckout(arg0) {\n  // @0000\n  // @0003\n  const obj = { event_name: \"cart_proceedtopayment_button_pressed\", screen_name: \"cartpage\", cart_id: arg0.cart_id, cart_total_amount: arg0.cart_total_amount, cart_items_count: arg0.cart_items_count, total_cart_item_count: arg0.total_cart_item_count, restaurant_name: arg0.restaurant_name, restaurant_id: arg0.restaurant_id, total_payable: arg0.total_payable, gst: arg0.gst };\n  // @000d\n  // @0013\n  // @0017\n  // @001d\n  // @0021\n  // @0027\n  // @002b\n  // @0031\n  // @0035\n  // @003b\n  // @003f\n  // @0045\n  // @0049\n  // @004f\n  // @0053\n  // @0059\n  // @005d\n  // @0063\n  if (arg0.other_price_components) {\n    // @0066\n    // @006c\n    obj.other_price_components = arg0.other_price_components;\n  }\n  // @0072\n  const obj1 = { event_name: obj.event_name, screen_name: obj.screen_name, cart_id: obj.cart_id, cart_total_amount: obj.cart_total_amount, cart_items_count: obj.cart_items_count, total_cart_item_count: obj.total_cart_item_count, restaurant_name: obj.restaurant_name, restaurant_id: obj.restaurant_id, total_payable: obj.total_payable, gst: obj.gst, discount: null, delivery_fees: null };\n  // @007c\n  // @0082\n  // @0086\n  // @008c\n  // @0090\n  // @0096\n  // @009a\n  // @00a0\n  // @00a4\n  // @00aa\n  // @00ae\n  // @00b4\n  // @00b8\n  // @00be\n  // @00c2\n  // @00c8\n  // @00cc\n  // @00d2\n  // @00d6\n  // @00dc\n  // @00e0\n  // @00e2\n  // @00e8\n  const other_price_components = arg0.other_price_components;\n  // @00ee\n  // @00f0\n  // @00f4\n  // @00f6\n  let discount;\n  // @00f8\n  const _Number = Number;\n  if (other_price_components != null) {\n    // @00fb\n    discount = other_price_components.discount;\n  }\n  // @0101\n  let num = _Number(discount);\n  // @0106\n  if (!num) {\n    // @0109\n    num = 0;\n  }\n  // @010b\n  obj1.discount = num;\n  // @010f\n  // @0115\n  const other_price_components2 = arg0.other_price_components;\n  // @011b\n  // @011f\n  let delivery_fees;\n  // @0121\n  const _Number2 = Number;\n  if (other_price_components2 != null) {\n    // @0124\n    delivery_fees = other_price_components2.delivery_fees;\n  }\n  // @012a\n  let num2 = _Number2(delivery_fees);\n  // @012f\n  if (!num2) {\n    // @0132\n    // @0138\n    const other_price_components3 = arg0.other_price_components;\n    // @013e\n    // @0142\n    let delivery_fee;\n    // @0144\n    const _Number3 = Number;\n    if (other_price_components3 != null) {\n      // @0147\n      delivery_fee = other_price_components3.delivery_fee;\n    }\n    // @014d\n    num2 = _Number3(delivery_fee);\n  }\n  // @0152\n  if (!num2) {\n    // @0155\n    num2 = 0;\n  }\n  // @0157\n  // @015a\n  obj1.delivery_fees = num2;\n  // @015e\n  // @0162\n  // @0167\n  // @016d\n  // @0172\n  // @0178\n  // @017e\n  const _default = closure_1_10.default;\n  _default.trackEvent(closure_1_10.default.EVENTS.BEGIN_CHECKOUT, obj1);\n  // @0184\n  // @0188\n  // @018d\n  // @0193\n  // @0198\n  // @019e\n  // @01a4\n  const _default2 = closure_1_9.default;\n  _default2.trackEvent(closure_1_9.default.EVENTS.INITIATED_CHECKOUT, obj);\n  // @01aa\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "xref_search",
+  "arguments": {
+    "query": "createNativeStackNavigator"
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 10,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Found 4 cross-references for 'createNativeStackNavigator':\n  Function 2075 () at offset 03d0: GetById\n  Function 4414 () at offset 007d: LoadConstString\n  Function 4521 () at offset 004d: PutByIdStrict\n  Function 19833 (get) at offset 0016: GetById\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

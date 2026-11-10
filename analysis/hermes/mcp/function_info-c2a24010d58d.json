@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 18073
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 16,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#18073 \"createSearchRecommendationsRequest\" params=2 frame=5 regs=1(num=0,nonptr=1) size=100 offset=0xed2066 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

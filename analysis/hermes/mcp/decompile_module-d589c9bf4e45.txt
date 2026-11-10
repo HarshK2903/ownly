@@ -1,0 +1,381 @@
+// Module 3776
+import _slicedToArray2 from "_slicedToArray" /* 29 */;
+import selectDiscountPromoOverlayModel from "selectDiscountPromoOverlayModel" /* 3755 */;
+import selectInitialPromoOverlayMediaAsset from "selectInitialPromoOverlayMediaAsset" /* 3777 */;
+import homePromoOverlayStorage from "homePromoOverlayStorage" /* 3779 */;
+import module_1 from "module_1" /* 1 */;
+import react from "react" /* 74 */;
+
+const _slicedToArray = module_1(_slicedToArray2);
+let c4 = 2000;
+let c5 = 3;
+function isOverlayExpired(arg0) {
+
+}
+function pickEligibleOverlay(arg0) {
+
+}
+
+export function useHomeOverlayController(overlays) {
+  let _undefined;
+  let _undefined2;
+  let c6;
+  let c7;
+  let c8;
+  let tmp11;
+  let tmp18;
+  let tmp7;
+  let tmp9;
+  overlays = overlays.overlays;
+  const isDataReady = overlays.isDataReady;
+  const showServiceabilityScreen = overlays.showServiceabilityScreen;
+  c6 = undefined;
+  c7 = undefined;
+  c8 = undefined;
+  let kind;
+  let isMediaPreloaded;
+  let num;
+  let combined;
+  let closure_20;
+  let c21;
+  let callback1;
+  let callback2;
+  let callback3;
+  let callback4;
+  let callback5;
+  let callback6;
+  let tmp = overlays;
+  let tmp2 = isDataReady;
+  const isFocused = overlays(isDataReady[7]).useIsFocused();
+  let obj = isFocused;
+  const defaultResult = showServiceabilityScreen.default(isFocused.useState(0), 2);
+  const first = defaultResult[0];
+  let closure_5 = defaultResult[1];
+  [tmp7, c6] = showServiceabilityScreen.default(isFocused.useState(null), 2);
+  showServiceabilityScreen.default(isFocused.useState(null), 2);
+  [tmp9, c7] = showServiceabilityScreen.default(isFocused.useState(null), 2);
+  showServiceabilityScreen.default(isFocused.useState(null), 2);
+  [tmp11, c8] = showServiceabilityScreen.default(isFocused.useState(null), 2);
+  showServiceabilityScreen.default(isFocused.useState(null), 2);
+  const ref = isFocused.useRef(null);
+  const ref2 = isFocused.useRef(null);
+  const callback = isFocused.useCallback(() => {
+    if (ref2.current) {
+      const _clearTimeout = clearTimeout;
+      clearTimeout(ref2.current);
+      ref2.current = null;
+    }
+  }, []);
+  const items = [isDataReady, overlays, showServiceabilityScreen];
+  const memo = isFocused.useMemo(() => {
+    const tmp = showServiceabilityScreen;
+    if (!tmp) {
+      const tmp2 = isDataReady;
+      if (tmp2) {
+        if (typeof pickEligibleOverlay === "function") {
+          const result = selectInitialPromoOverlayMediaAsset.pickHighestPriorityPromoOverlay(tmp4);
+          let tmp8 = null;
+          if (result) {
+            const discountPromoOverlayModel = tmp5(3755).selectDiscountPromoOverlayModel(result.data);
+            tmp8 = null;
+            if (discountPromoOverlayModel) {
+              const expiresAt = discountPromoOverlayModel.expiresAt;
+              if (typeof isOverlayExpired === "function") {
+                let flag = false;
+                if (expiresAt) {
+                  const _Date = Date;
+                  const parsed = Date.parse(expiresAt);
+                  const _Number = Number;
+                  let isFiniteResult = Number.isFinite(parsed);
+                  if (isFiniteResult) {
+                    const _Date2 = Date;
+                    isFiniteResult = Date.now() >= parsed;
+                  }
+                  flag = isFiniteResult;
+                }
+                tmp8 = null;
+                if (!flag) {
+                  const obj = { overlayId: result.id, frequency: null, maxTimes: null, getRecord: homePromoOverlayStorage.homePromoOverlayStorage.getFrequencyRecord };
+                  ({ frequency: obj.frequency, maxTimes: obj.maxTimes } = discountPromoOverlayModel);
+                  const isEligibleByFrequency = tmp5(3778).isEligibleByFrequency;
+                  tmp8 = null;
+                  if (isEligibleByFrequency(obj)) {
+                    tmp8 = result;
+                  }
+                }
+              } else {
+                throw new TypeError("Trying to call a non-function");
+              }
+            }
+          }
+          return tmp8;
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      }
+    }
+    return null;
+  }, items);
+  const items1 = [memo];
+  const memo1 = isFocused.useMemo(() => {
+    let discountPromoOverlayModel = null;
+    if (memo) {
+      discountPromoOverlayModel = selectDiscountPromoOverlayModel.selectDiscountPromoOverlayModel(tmp.data);
+    }
+    return discountPromoOverlayModel;
+  }, items1);
+  const items2 = [memo];
+  const memo2 = isFocused.useMemo(() => {
+    let promoOverlayMedia = null;
+    if (memo) {
+      promoOverlayMedia = selectInitialPromoOverlayMediaAsset.getPromoOverlayMedia(tmp);
+    }
+    return promoOverlayMedia;
+  }, items2);
+  let url;
+  if (memo2 != null) {
+    url = memo2.url;
+  }
+  if (url == null) {
+    url = null;
+  }
+  kind = undefined;
+  if (memo2 != null) {
+    kind = memo2.kind;
+  }
+  if (kind == null) {
+    kind = null;
+  }
+  if (kind === "rive") {
+    tmp18 = url != null;
+  } else {
+    tmp18 = url != null && tmp9 === url;
+  }
+  isMediaPreloaded = tmp18;
+  let mediaUrl;
+  if (tmp11 != null) {
+    mediaUrl = tmp11.mediaUrl;
+  }
+  num = 0;
+  if (mediaUrl === url) {
+    num = tmp11.attempt;
+  }
+  combined = null;
+  if (memo) {
+    let _HermesInternal = HermesInternal;
+    let str = "|";
+    combined = "" + memo.id + "|" + first;
+  }
+  let frequency;
+  if (memo1 != null) {
+    frequency = memo1.frequency;
+  }
+  closure_20 = tmp23;
+  let tmp24 = memo;
+  const _Boolean = Boolean;
+  if (memo) {
+    let rowId;
+    if (tmp7 != null) {
+      rowId = tmp7.rowId;
+    }
+    tmp24 = rowId === memo.id;
+  }
+  if (tmp24) {
+    tmp24 = tmp7.focusVisit === first;
+  }
+  if (tmp24) {
+    let tmp26 = !tmp23;
+    if (frequency === "everyVisit") {
+      tmp26 = isFocused;
+    }
+    tmp24 = tmp26;
+  }
+  const _BooleanResult = _Boolean(tmp24);
+  c21 = _BooleanResult;
+  const items3 = [frequency === "everyVisit"];
+  const focusEffect = tmp(tmp2[7]).useFocusEffect(obj.useCallback(() => () => {
+    const tmp = closure_1_20;
+    if (tmp) {
+      closure_1_5((arg0) => arg0 + 1);
+      _undefined(null);
+      ref.current = null;
+    }
+  }, items3));
+  const items4 = [callback, url];
+  const effect = obj.useEffect(() => callback, items4);
+  const items5 = [callback, url];
+  callback1 = obj.useCallback(() => {
+    if (url) {
+      callback();
+      _undefined2(tmp);
+    }
+  }, items5);
+  const items6 = [callback, num, url];
+  callback2 = obj.useCallback(() => {
+    let tmp = callback();
+    if (num + 1 < c5) {
+      const _setTimeout = setTimeout;
+      ref2.current = setTimeout(() => {
+        ref2.current = null;
+        if (url) {
+          let tmp = closure_1_8;
+          closure_1_8((mediaUrl) => {
+            const obj = { mediaUrl, attempt: num };
+            mediaUrl = undefined;
+            const tmp = mediaUrl;
+            if (mediaUrl != null) {
+              mediaUrl = mediaUrl.mediaUrl;
+            }
+            num = 1;
+            if (mediaUrl === tmp) {
+              num = mediaUrl.attempt + 1;
+            }
+            return obj;
+          });
+        }
+      }, c4);
+    }
+  }, items6);
+  const items7 = [url, callback2];
+  callback3 = obj.useCallback(() => {
+    let tmp = _undefined2((arg0) => {
+      let tmp = null;
+      if (arg0 !== url) {
+        tmp = arg0;
+      }
+      return tmp;
+    });
+    callback2();
+  }, items7);
+  const items8 = [isDataReady, isFocused, tmp18, url, , , ];
+  let trigger;
+  const useCallback = obj.useCallback;
+  if (memo1 != null) {
+    trigger = memo1.trigger;
+  }
+  items8[4] = trigger;
+  items8[5] = combined;
+  items8[6] = memo;
+  callback4 = useCallback(() => {
+    const tmp = memo;
+    if (tmp) {
+      const tmp2 = url;
+      if (tmp2) {
+        const tmp3 = isMediaPreloaded;
+        if (tmp3) {
+          if (combined) {
+            if (ref.current !== tmp4) {
+              let str;
+              if (memo1 != null) {
+                str = memo1.trigger;
+              }
+              if (str == null) {
+                str = "onMount";
+              }
+              if (str === "onFocus") {
+                return isFocused;
+              } else {
+                return isDataReady;
+              }
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }, items8);
+  const items9 = [first, memo1, combined, memo, callback4];
+  const effect1 = obj.useEffect(() => {
+    let closure_0;
+    let focusVisit;
+    let timeout = null;
+    if (callback4()) {
+      num = undefined;
+      if (memo1 != null) {
+        num = memo1.delayMs;
+      }
+      if (num == null) {
+        num = 0;
+      }
+      function showOverlay() {
+        if (memo) {
+          if (memo1) {
+            if (combined) {
+              const obj = { overlayId: memo.id, frequency: null, maxTimes: null, getRecord: overlays(isDataReady[6]).homePromoOverlayStorage.getFrequencyRecord };
+              ({ frequency: obj.frequency, maxTimes: obj.maxTimes } = memo1);
+              const isEligibleByFrequency = overlays(isDataReady[5]).isEligibleByFrequency;
+              ref.current = tmp3;
+              if (isEligibleByFrequency(obj)) {
+                const obj2 = { rowId: memo.id, focusVisit };
+                _undefined(obj2);
+                const obj3 = { overlayId: memo.id, frequency: memo1.frequency, getRecord: overlays(isDataReady[6]).homePromoOverlayStorage.getFrequencyRecord, setRecord: overlays(isDataReady[6]).homePromoOverlayStorage.setFrequencyRecord };
+                const markOverlayShown = tmp4(tmp5[5]).markOverlayShown;
+                markOverlayShown(obj3);
+              }
+            }
+          }
+        }
+      }
+      if (num > 0) {
+        const _setTimeout = setTimeout;
+        timeout = setTimeout(showOverlay, num);
+      } else {
+        showOverlay();
+      }
+    }
+    return () => {
+      if (closure_0) {
+        const _clearTimeout = clearTimeout;
+        clearTimeout(tmp);
+      }
+    };
+  }, items9);
+  let autoDismissMs;
+  const useEffect = obj.useEffect;
+  if (memo1 != null) {
+    autoDismissMs = memo1.autoDismissMs;
+  }
+  const items10 = [autoDismissMs, _BooleanResult];
+  const effect2 = useEffect(() => {
+    let closure_0;
+    num = undefined;
+    if (memo1 != null) {
+      num = memo1.autoDismissMs;
+    }
+    if (num == null) {
+      num = 0;
+    }
+    const tmp = c21;
+    if (tmp) {
+      if (num > 0) {
+        const _setTimeout = setTimeout;
+        const timeout = setTimeout(() => _undefined(null), num);
+        return () => clearTimeout(closure_0);
+      }
+    }
+  }, items10);
+  callback5 = obj.useCallback(() => {
+    _undefined(null);
+  }, []);
+  const items11 = [callback3];
+  callback6 = obj.useCallback(() => {
+    _undefined(null);
+    callback3();
+  }, items11);
+  const items12 = [callback5, tmp18, memo2, kind, num, url, callback6, callback1, callback3, memo, showServiceabilityScreen, _BooleanResult];
+  return obj.useMemo(() => {
+    let tmp2;
+    const obj = { overlayRow: memo, visible: tmp2, media: memo2, mediaUrl: url, mediaKind: kind, isMediaPreloaded, mediaPreloadKey: combined, actions: obj2 };
+    let str = kind;
+    combined = null;
+    tmp2 = c21 && tmp != null && !showServiceabilityScreen;
+    if (url) {
+      if (str == null) {
+        str = "media";
+      }
+      const _HermesInternal = HermesInternal;
+      combined = "" + str + "|" + tmp5 + "|" + num;
+    }
+    return obj;
+  }, items12);
+}

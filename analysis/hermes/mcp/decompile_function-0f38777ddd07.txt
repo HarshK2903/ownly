@@ -1,0 +1,90 @@
+function f2(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+  // @0000
+  // @0003
+  // @0006
+  closure_0 = require;
+  // @000a
+  // @000d
+  closure_1 = dependencyMap;
+  // @0011
+  // @0016
+  closure_6 = function _interopRequireWildcard() { /* body not rendered: F5864 */ };
+  // @001a
+  // @001e
+  // @0020
+  const _module = require(dependencyMap[0]);
+  // @0025
+  // @0029
+  // @002e
+  // @0033
+  closure_2 = _module(require(dependencyMap[1]));
+  // @0037
+  // @003b
+  // @003f
+  // @0044
+  // @0049
+  closure_3 = closure_6(require(dependencyMap[2]));
+  // @004d
+  // @0051
+  // @0056
+  // @005a
+  const _module1 = require(dependencyMap[3]);
+  // @005f
+  // @0064
+  closure_4 = _module(require(dependencyMap[4]));
+  // @0068
+  // @006c
+  const _module2 = require(dependencyMap[5]);
+  // @0071
+  // @0075
+  // @007a
+  // @007f
+  closure_5 = _module(require(dependencyMap[6]));
+  // @0083
+  // @0087
+  // @008c
+  // @0092
+  // @0094
+  require(dependencyMap[7]).enableScreens(true);
+  // @0099
+  // @009d
+  // @00a2
+  // @00a8
+  require(dependencyMap[7]).enableFreeze(true);
+  // @00ad
+  // @00b2
+  (function logReanimatedStaticFlags() { /* body not rendered: F5865 */ })();
+  // @00b6
+  // @00b8
+  closure_7 = null;
+  // @00bc
+  // @00be
+  closure_8 = false;
+  // @00c2
+  // @00c7
+  closure_9 = function getCrashlyticsInstance() { /* body not rendered: F5866 */ };
+  // @00cb
+  // @00d0
+  closure_10 = function setupGlobalErrorHandler() { /* body not rendered: F5867 */ };
+  // @00d4
+  closure_11 = null;
+  // @00d8
+  // @00dd
+  closure_12 = function getMessagingInstance() { /* body not rendered: F5868 */ };
+  // @00e1
+  // @00e3
+  // @00e9
+  // @00eb
+  // @00f0
+  const timerId = setTimeout(function() { /* body not rendered: F5869 */ }, 0);
+  // @00f6
+  const AppRegistry = _module1.AppRegistry;
+  // @00fc
+  // @0102
+  // @0106
+  // @010b
+  // @0110
+  // @0115
+  AppRegistry.registerComponent(require(dependencyMap[18]).name, function() { /* body not rendered: F5870 */ });
+  // @011b
+}

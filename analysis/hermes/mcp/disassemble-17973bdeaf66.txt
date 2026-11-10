@@ -1,0 +1,36 @@
+0000  LoadParam r2, 1
+0003  GetByIdShort r3, r2, 0, "path"
+0008  LoadConstNull r0
+000a  JNotEqual L21, r3, r0
+000e  GetParentEnvironment r1, 0
+0011  LoadFromEnvironment r3, r1, 2
+L21:
+0015  NewObjectWithBufferLong r1, 3232, 209995
+001f  PutOwnBySlotIdx r1, r3, 1
+0023  NewObjectWithBufferLong r3, 3236, 111672
+002d  GetById r4, r2, 1, "phoneNumber"
+0033  PutOwnBySlotIdx r3, r4, 0
+0037  GetById r4, r2, 2, "smsType"
+003d  JNotEqual L69, r4, r0
+0041  LoadConstString r4, "otp"
+L69:
+0045  PutOwnBySlotIdx r3, r4, 1
+0049  GetById r4, r2, 3, "channel"
+004f  JmpTrue L86, r4
+0052  NewObject r4
+0054  Jmp L109
+L86:
+0056  NewObjectWithBufferLong r5, 3237, 110776
+0060  GetById r6, r2, 3, "channel"
+0066  PutOwnBySlotIdx r5, r6, 0
+006a  Mov r4, r5
+L109:
+006d  Mov r8, r3
+0070  Mov r7, r4
+0073  CallBuiltin r4, 46, 3
+0077  PutOwnBySlotIdx r1, r3, 2
+007b  GetById r3, r2, 4, "timeoutMs"
+0081  PutOwnBySlotIdx r1, r3, 3
+0085  GetById r2, r2, 5, "credentials"
+008b  PutOwnBySlotIdx r1, r2, 4
+008f  Ret r1

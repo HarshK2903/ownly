@@ -1,0 +1,79 @@
+function trackLocationSelected() {
+  let obj6;
+  // @0000
+  let obj = arg0;
+  // @0003
+  // @0005
+  if (arg0 === undefined) {
+    // @0009
+    obj = {};
+  }
+  // @000b
+  // @000e
+  // @0011
+  const tmp = closure_1_0;
+  // @0015
+  const tmp2 = closure_1_1;
+  // @0019
+  // @001d
+  // @0022
+  // @0028
+  const obj1 = { entity: null, action: "selected" };
+  // @0032
+  // @0036
+  const emitStandardBusiness = closure_1_0(closure_1_1[2]).emitStandardBusiness;
+  // @003b
+  // @0041
+  // @0047
+  obj1.entity = closure_1_0(closure_1_1[3]).AnalyticsEntity.LOCATION;
+  // @004b
+  // @004e
+  // @0051
+  const merged = Object.assign(obj);
+  // @0055
+  if (arg1) {
+    // @005c
+    const obj5 = { prop_cart_id: null };
+    // @0066
+    obj5.prop_cart_id = arg1;
+    // @006a
+    obj6 = obj5;
+  } else {
+    // @0058
+    obj6 = {};
+    // @005a
+  }
+  // @006d
+  // @0070
+  // @0073
+  const merged1 = Object.assign(obj6);
+  // @0077
+  // @007b
+  // @0080
+  // @0085
+  // @008b
+  // @008f
+  const LOCATION_SELECTION_PAGE = tmp(tmp2[3]).AnalyticsScreen.LOCATION_SELECTION_PAGE;
+  // @0094
+  // @009a
+  // @009e
+  // @00a3
+  // @00a9
+  // @00ad
+  let analyticsScreenForRoute = tmp(tmp2[0]).getAnalyticsScreenForRoute(tmp(tmp2[1]).getCurrentRouteName());
+  // @00b2
+  // @00b4
+  if (analyticsScreenForRoute == null) {
+    // @00b8
+    analyticsScreenForRoute = LOCATION_SELECTION_PAGE;
+  }
+  // @00bb
+  obj1.ctx_screen = analyticsScreenForRoute;
+  // @00c1
+  // @00c6
+  // @00cb
+  // @00d0
+  const emitStandardBusinessResult = emitStandardBusiness(obj1);
+  emitStandardBusinessResult.catch(function() { /* body not rendered: F26973 */ });
+  // @00d5
+}

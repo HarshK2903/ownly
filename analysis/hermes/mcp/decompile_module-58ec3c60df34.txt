@@ -1,0 +1,134 @@
+// Module 1758 (RESTAURANT_PAGE_PATH)
+let c0 = "/api/v1/restaurant-page";
+function createCommonHeaders(arg0, arg1) {
+
+}
+function buildRestaurantPageUrl(arg0) {
+
+}
+function createInitialRestaurantPagePayload(lat, arg1) {
+  let tmp = null;
+  const obj = { menu: true, details: true, outlets: false, lat: lat.lat, lng: lat.lng };
+  if (arg1) {
+    const obj3 = { filters: null, location: null, page: null, size: null };
+    ({ filters: obj2.filters, location: obj2.location, page: obj2.page, size: obj2.size } = arg1);
+    tmp = obj3;
+  }
+  const merged = Object.assign(tmp);
+  return obj;
+}
+function createOutletsRestaurantPagePayload(lat) {
+  return { menu: false, details: false, outlets: true, lat: lat.lat, lng: lat.lng };
+}
+
+export const RESTAURANT_PAGE_PATH = "/api/v1/restaurant-page";
+export { createInitialRestaurantPagePayload };
+export { createOutletsRestaurantPagePayload };
+export function createRestaurantPagePayloadForLoadKind(loadKind, value, searchFilters) {
+  if (loadKind === "outlets") {
+    if (typeof createOutletsRestaurantPagePayload === "function") {
+      const obj5 = { menu: false, details: false, outlets: true, lat: null, lng: null };
+      ({ lat: obj3.lat, lng: obj3.lng } = value);
+      return obj5;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else if (typeof createInitialRestaurantPagePayload === "function") {
+    const obj = { menu: true, details: true, outlets: false, lat: null, lng: null };
+    ({ lat: obj.lat, lng: obj.lng } = value);
+    let tmp3 = null;
+    if (searchFilters) {
+      const obj6 = { filters: null, location: null, page: null, size: null };
+      ({ filters: obj2.filters, location: obj2.location, page: obj2.page, size: obj2.size } = searchFilters);
+      tmp3 = obj6;
+    }
+    const merged = Object.assign(tmp3);
+    return obj;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+export function createFetchRestaurantPageRequest(arg0) {
+  let apiKey;
+  let brandId;
+  let curatedListId;
+  let path;
+  let restaurantId;
+  let searchId;
+  ({ restaurantId, brandId, curatedListId, path } = arg0);
+  if (typeof buildRestaurantPageUrl === "function") {
+    const _URLSearchParams = URLSearchParams;
+    const self = this;
+    const self2 = this;
+    const str = new URLSearchParams();
+    if (brandId) {
+      const result = str.set("brand-id", brandId);
+    } else if (restaurantId) {
+      const result1 = str.set("restaurant-id", restaurantId);
+    }
+    if (curatedListId) {
+      str.append("curatedListId", curatedListId);
+    }
+    if (path == null) {
+      path = c0;
+    }
+    const request = { method: "POST", url: "" + path + "?" + str.toString(), headers: null, body: null, timeoutMs: null, credentials: null };
+    const _HermesInternal = HermesInternal;
+    ({ apiKey, searchId } = arg0);
+    if (typeof createCommonHeaders === "function") {
+      const obj2 = { Accept: "application/json", "Content-Type": "application/json" };
+      const trimmed = apiKey.trim();
+      if (trimmed.length > 0) {
+        obj2.key = trimmed;
+      }
+      if (searchId) {
+        obj2["X-Search-Id"] = searchId;
+      }
+      request.headers = obj2;
+      ({ payload: obj.body, timeoutMs: obj.timeoutMs, credentials: obj.credentials } = arg0);
+      return request;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+export function createRestaurantPageCacheKey(loadKind) {
+  let combined;
+  const items = ["restaurant-page", loadKind.loadKind];
+  if (loadKind.brandId) {
+    const _HermesInternal2 = HermesInternal;
+    combined = "brand:" + loadKind.brandId;
+  } else {
+    let str = loadKind.restaurantId;
+    if (str == null) {
+      str = "";
+    }
+    const _HermesInternal = HermesInternal;
+    combined = "restaurant:" + str;
+  }
+  items[2] = combined;
+  let str4 = loadKind.searchId;
+  if (str4 == null) {
+    str4 = "";
+  }
+  items[3] = str4;
+  let str5 = loadKind.curatedListId;
+  if (str5 == null) {
+    str5 = "";
+  }
+  items[4] = str5;
+  let searchFilters = loadKind.searchFilters;
+  const _JSON = JSON;
+  if (searchFilters == null) {
+    searchFilters = null;
+  }
+  items[5] = stringify(searchFilters);
+  let str6 = loadKind.path;
+  if (str6 == null) {
+    str6 = "";
+  }
+  items[6] = str6;
+  return items.join("|");
+}

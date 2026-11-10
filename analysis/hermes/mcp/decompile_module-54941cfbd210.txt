@@ -1,0 +1,1531 @@
+// Module 1661 (LocationFetcher)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass2 from "_createClass" /* 6 */;
+import cachedImageLogger from "cachedImageLogger" /* 1205 */;
+import _mod1662 from "module_1662" /* 1662 */;
+import module_1 from "module_1" /* 1 */;
+
+let _self, c0, closure_3, closure_6, coordinates2, coordinates3, errorResult, locationWithFallbacks;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+const _createClass = module_1(_createClass2);
+const module_1662 = module_1(_mod1662);
+class LocationFetcher {
+  constructor() {
+    _classCallCheck.default(this, LocationFetcher);
+    this.lastKnownLocation = null;
+    this.watchId = null;
+  }
+}
+const entry = {
+  key: "getCurrentLocation",
+  value: function getCurrentLocation() {
+    return closure_0(...arguments);
+  }
+};
+let _default = _createClass.default;
+_asyncToGenerator.default(async function() {
+  let self = this;
+  let closure_1 = arg0;
+  let c5 = 0;
+  let c6 = 0;
+  const iter = (async function(arg0, value) {
+    let tmp;
+    let tmp2;
+    let tmp3;
+    let tmp8;
+    if (c6 === 2) {
+      let num12 = 3;
+      let num13 = 3;
+      c6 = 3;
+      let str = "Generator functions may not be called on executing generators";
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else {
+      let tmp10 = arg0;
+      let tmp11 = tmp2;
+      let num14 = 3;
+      if (tmp3 === 3) {
+        let num11 = 1;
+        if (arg0 === 1) {
+          throw value;
+        } else if (arg0 === 2) {
+          let obj2 = { value, done: true };
+          return obj2;
+        } else {
+          return { value: "return", done: null };
+        }
+      } else {
+        try {
+          let num6;
+          let num = 2;
+          c6 = 2;
+          const tmp4 = c5;
+          let num2 = 0;
+          if (0 === c5) {
+            let num5 = 1;
+            if (arg0 === 1) {
+              let num9 = 3;
+              c6 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              let num8 = 3;
+              c6 = 3;
+              let obj3 = { value, done: true };
+              return obj3;
+            } else {
+              let tmp6 = self;
+              let tmp7 = self;
+              closure_4 = self;
+              closure_3 = self;
+              closure_2 = tmp;
+              num6 = closure_1;
+              if (closure_1 === undefined) {
+                num6 = 1;
+              }
+              closure_1 = undefined;
+              let c2;
+              c5 = 1;
+              let num7 = 1;
+              c6 = 1;
+              return { value: "slice", done: true };
+            }
+          } else if (arg0 === 1) {
+            let num4 = 3;
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            let num3 = 3;
+            c6 = 3;
+            let obj4 = { value, done: true };
+            return obj4;
+          } else {
+            let tmp12 = closure_2;
+            let tmp13 = closure_3;
+            let tmp14 = closure_4;
+            closure_1 = closure_4;
+            let tmp15 = self;
+            let service = self(closure_1[5]).loggerService.location.service;
+            let tmp17 = num6;
+            let tmp18 = globalThis;
+            let _HermesInternal = HermesInternal;
+            let str2 = "getCurrentLocation - Attempt: ";
+            let debugResult = service.debug("getCurrentLocation - Attempt: " + num6);
+            c2 = 3;
+            self = this;
+            let self2 = this;
+            let promise = new Promise((() => {
+              closure_0 = closure_1_2.default(function*(arg0, value) {
+                closure_0 = arg0;
+                closure_1 = value;
+                if (c5 === 2) {
+                  c5 = 3;
+                  const str9 = "Generator functions may not be called on executing generators";
+                  throw new TypeError("Generator functions may not be called on executing generators");
+                } else if (tmp4 === 3) {
+                  if (arg0 === 1) {
+                    throw value;
+                  } else if (arg0 === 2) {
+                    let obj2 = { value, done: true };
+                    return obj2;
+                  } else {
+                    return { value: "return", done: null };
+                  }
+                } else {
+                  try {
+                    let resolve;
+                    let reject;
+                    let message;
+                    let num4;
+                    let num6;
+                    let obj6;
+                    let obj7;
+                    let promise;
+                    let promise2;
+                    let c13;
+                    let c14;
+                    let closure_17;
+                    let timeout;
+                    let closure_19;
+                    c5 = 2;
+                    let tmp5 = c4;
+                    if (0 === c4) {
+                      if (arg0 === 1) {
+                        c5 = 3;
+                        throw value;
+                      } else if (arg0 === 2) {
+                        c5 = 3;
+                        let obj3 = { value, done: true };
+                        return obj3;
+                      } else {
+                        resolve = closure_0;
+                        reject = closure_1;
+                        closure_3 = undefined;
+                        message = undefined;
+                        num4 = undefined;
+                        num6 = undefined;
+                        let c7;
+                        obj6 = undefined;
+                        obj7 = undefined;
+                        promise = undefined;
+                        promise2 = undefined;
+                        let c12;
+                        c13 = undefined;
+                        c14 = undefined;
+                        let c15;
+                        let c16;
+                        closure_17 = undefined;
+                        timeout = undefined;
+                        closure_19 = undefined;
+                        let timeout2;
+                        let closure_21;
+                        let closure_22;
+                        const _Date = Date;
+                        closure_2 = Date.now();
+                        const service6 = closure_0(closure_2_1[5]).loggerService.location.service;
+                        let _HermesInternal4 = HermesInternal;
+                        const str10 = ")";
+                        const str11 = "getCurrentLocation: Starting location fetch (Attempt ";
+                        const debugResult = service6.debug("getCurrentLocation: Starting location fetch (Attempt " + closure_0 + ")");
+                        const permissionManager = closure_0(closure_2_1[6]).permissionManager;
+                        c4 = 1;
+                        c5 = 1;
+                        let obj4 = { value: permissionManager.requestLocationPermission(), done: false };
+                        return obj4;
+                      }
+                    } else if (arg0 === 1) {
+                      c5 = 3;
+                      throw value;
+                    } else if (arg0 === 2) {
+                      c5 = 3;
+                      const obj5 = { value, done: true };
+                      return obj5;
+                    } else {
+                      closure_3 = value;
+                      if (closure_3) {
+                        let service2 = closure_0(closure_2_1[5]).loggerService.location.service;
+                        let tmp15 = globalThis;
+                        let _HermesInternal = HermesInternal;
+                        const str2 = ")";
+                        const str3 = "getCurrentLocation: Permission granted, setting up location promises (Attempt ";
+                        const debugResult1 = service2.debug("getCurrentLocation: Permission granted, setting up location promises (Attempt " + closure_0 + ")");
+                        let tmp17 = closure_0;
+                        num4 = 8000;
+                        if (closure_0 !== 1) {
+                          let tmp18 = closure_3;
+                          const tmp19 = closure_0;
+                          let num5 = 25000;
+                          if (closure_0 === 2) {
+                            num5 = 15000;
+                          }
+                          num4 = num5;
+                        }
+                        const tmp20 = closure_2;
+                        num6 = 20000;
+                        if (closure_0 !== 1) {
+                          let num7 = 45000;
+                          if (closure_0 === 2) {
+                            num7 = 30000;
+                          }
+                          num6 = num7;
+                        }
+                        c7 = 2000;
+                        obj6 = { enableHighAccuracy: false, timeout: num4, maximumAge: 60000 };
+                        obj7 = { enableHighAccuracy: true, timeout: num6, maximumAge: 30000 };
+                        c12 = null;
+                        const flag = false;
+                        c13 = false;
+                        c14 = false;
+                        c15 = null;
+                        c16 = null;
+                        let service3 = closure_0(closure_2_1[5]).loggerService.location.service;
+                        let _HermesInternal2 = HermesInternal;
+                        const str4 = "ms)";
+                        const str5 = "getCurrentLocation: Starting High Accuracy location fetch (timeout: ";
+                        service3.debug("getCurrentLocation: Starting High Accuracy location fetch (timeout: " + num6 + "ms)");
+                        promise = closure_1.getLocationPromise(obj7);
+                        const nextPromise = promise.then((lastKnownLocation) => {
+                          const diff = Date.now() - closure_1_2;
+                          const tmp2 = c13;
+                          if (tmp2) {
+                            const tmp3 = c14;
+                            if (!tmp3) {
+                              const service = closure_0(closure_3_1[5]).loggerService.location.service;
+                              const _HermesInternal = HermesInternal;
+                              service.debug("getCurrentLocation: HA succeeded after LA, and is preferred (Attempt " + closure_0 + ") - elapsed: " + diff + "ms");
+                            }
+                            c14 = true;
+                            const tmp10 = closure_12;
+                            if (tmp10) {
+                              const _clearTimeout = clearTimeout;
+                              clearTimeout(closure_12);
+                            }
+                            closure_1.lastKnownLocation = lastKnownLocation;
+                            const tmp15 = c13;
+                            if (!tmp15) {
+                              closure_1_0(lastKnownLocation);
+                            }
+                          }
+                          const service2 = closure_0(closure_3_1[5]).loggerService.location.service;
+                          service2.debug("getCurrentLocation: HA succeeded directly (Attempt " + closure_0 + ") - elapsed: " + diff + "ms");
+                        });
+                        nextPromise.catch(function(error) {
+                          let closure_1_15 = error;
+                          const diff = Date.now() - closure_1_2;
+                          const service = closure_0(closure_3_1[5]).loggerService.location.service;
+                          service.warn("getCurrentLocation: HA promise rejected (Attempt " + closure_0 + ") after " + diff + "ms: " + error.message);
+                          const tmp2 = closure_0;
+                          const tmp3 = closure_3_1;
+                          if (error.message) {
+                            message = error.message;
+                            if (message.includes("No location provider available")) {
+                              const service2 = tmp2(tmp3[5]).loggerService.location.service;
+                              service2.warn("Location services are disabled on device. Rejecting immediately.");
+                              const _Error = Error;
+                              self = this;
+                              const self2 = this;
+                              error = new Error("Location services are disabled on device. Please enable location services in device settings.");
+                              closure_1_1(error);
+                            }
+                          }
+                        });
+                        let service4 = closure_0(closure_2_1[5]).loggerService.location.service;
+                        let _HermesInternal3 = HermesInternal;
+                        const str6 = "getCurrentLocation: Starting Low Accuracy location fetch (timeout: ";
+                        service4.debug("getCurrentLocation: Starting Low Accuracy location fetch (timeout: " + num4 + "ms)");
+                        promise2 = closure_1.getLocationPromise(obj6);
+                        const nextPromise1 = promise2.then((lastKnownLocation) => {
+                          const diff = Date.now() - closure_1_2;
+                          const tmp2 = c14;
+                          if (!tmp2) {
+                            c13 = true;
+                            let service = closure_0(closure_3_1[5]).loggerService.location.service;
+                            let _HermesInternal = HermesInternal;
+                            service.debug("getCurrentLocation: LA succeeded (Attempt " + closure_0 + ") after " + diff + "ms. Resolving with LA for now.");
+                            closure_1.lastKnownLocation = lastKnownLocation;
+                            closure_1_0(lastKnownLocation);
+                            const _setTimeout = setTimeout;
+                            const timeout = setTimeout(() => {
+                              const tmp = closure_1_14;
+                              if (!tmp) {
+                                const service = closure_0(closure_1[5]).loggerService.location.service;
+                                const _HermesInternal = HermesInternal;
+                                service.debug("getCurrentLocation: HA superiority window timed out after LA success. Sticking with LA (Attempt " + closure_2_0 + ").");
+                              }
+                            }, closure_1_7);
+                          }
+                        });
+                        nextPromise1.catch(function(error) {
+                          let closure_1_16 = error;
+                          const diff = Date.now() - closure_1_2;
+                          const service = closure_0(closure_3_1[5]).loggerService.location.service;
+                          service.warn("getCurrentLocation: LA promise rejected (Attempt " + closure_0 + ") after " + diff + "ms: " + error.message);
+                          const tmp2 = closure_0;
+                          const tmp3 = closure_3_1;
+                          if (error.message) {
+                            message = error.message;
+                            if (message.includes("No location provider available")) {
+                              const service2 = tmp2(tmp3[5]).loggerService.location.service;
+                              service2.warn("Location services are disabled on device. Rejecting immediately.");
+                              const _Error = Error;
+                              self = this;
+                              const self2 = this;
+                              error = new Error("Location services are disabled on device. Please enable location services in device settings.");
+                              closure_1_1(error);
+                            }
+                          }
+                        });
+                        closure_17 = num6 + 5000;
+                        let _setTimeout = setTimeout;
+                        const tmp45 = closure_17;
+                        timeout = setTimeout(closure_2_2.default(function*(arg0, value) {
+                          if (c5 === 2) {
+                            c5 = 3;
+                            throw new TypeError("Generator functions may not be called on executing generators");
+                          } else if (tmp3 === 3) {
+                            if (arg0 === 1) {
+                              throw value;
+                            } else if (arg0 === 2) {
+                              const obj2 = { value, done: true };
+                              return obj2;
+                            } else {
+                              return { value: "return", done: null };
+                            }
+                          } else {
+                            let c3;
+                            try {
+                              c5 = 2;
+                              if (0 === c4) {
+                                if (arg0 === 1) {
+                                  c5 = 3;
+                                  throw value;
+                                } else if (arg0 === 2) {
+                                  c5 = 3;
+                                  const obj3 = { value, done: true };
+                                  return obj3;
+                                } else {
+                                  const currentLocation = tmp;
+                                  closure_0 = undefined;
+                                  const tmp52 = closure_12;
+                                  if (tmp52) {
+                                    const _clearTimeout = clearTimeout;
+                                    clearTimeout(closure_12);
+                                  }
+                                  const tmp17 = c14;
+                                  if (!tmp17) {
+                                    const tmp18 = c13;
+                                    if (!tmp18) {
+                                      const service = closure_2_0(closure_2_1[5]).loggerService.location.service;
+                                      const _HermesInternal = HermesInternal;
+                                      service.warn("getCurrentLocation: Overall attempt " + closure_0 + " timed out. Neither LA nor HA succeeded.");
+                                      message = closure_2_15 && closure_2_15.message;
+                                      if (message) {
+                                        const message2 = closure_2_15.message;
+                                        message = message2.includes("No location provider available");
+                                      }
+                                      if (!message) {
+                                        let message3 = closure_2_16 && closure_2_16.message;
+                                        if (message3) {
+                                          const message4 = closure_2_16.message;
+                                          message3 = message4.includes("No location provider available");
+                                        }
+                                        message = message3;
+                                      }
+                                      if (message) {
+                                        const service3 = tmp19(tmp20[5]).loggerService.location.service;
+                                        service3.warn("Location services are disabled on device. Not retrying.");
+                                        const _Error2 = Error;
+                                        const self3 = this;
+                                        const self4 = this;
+                                        const error = new Error("Location services are disabled on device. Please enable location services in device settings.");
+                                        closure_2_1(error);
+                                        c5 = 3;
+                                        return { value: "return", done: null };
+                                      } else if (closure_0 < closure_2) {
+                                        const service2 = tmp19(tmp20[5]).loggerService.location.service;
+                                        const _HermesInternal5 = HermesInternal;
+                                        service2.debug("Retrying getCurrentLocation due to overall timeout. Attempt " + closure_0 + 1);
+                                        c3 = 1;
+                                        c4 = 2;
+                                        c5 = 1;
+                                        const obj4 = { value: currentLocation.getCurrentLocation(closure_0 + 1), done: false };
+                                        return obj4;
+                                      } else {
+                                        const lastKnownLocation = currentLocation.lastKnownLocation;
+                                        const service4 = tmp19(tmp20[5]).loggerService.location.service;
+                                        if (lastKnownLocation) {
+                                          const _HermesInternal4 = HermesInternal;
+                                          service4.warn("Using last known location as fallback after " + closure_2 + " failed attempts.");
+                                          closure_2_0(currentLocation.lastKnownLocation);
+                                        } else {
+                                          const _HermesInternal2 = HermesInternal;
+                                          service4.error("Location could not be determined after " + closure_2 + " attempts.");
+                                          const _Error = Error;
+                                          const _HermesInternal3 = HermesInternal;
+                                          self = this;
+                                          const self2 = this;
+                                          const error1 = new Error("Location could not be determined after " + closure_2 + " attempts. Please try again or enter your address manually.");
+                                          closure_2_1(error1);
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              } else if (1 === c4) {
+                                c3 = 0;
+                                closure_129_1(closure_2);
+                              } else if (arg0 === 1) {
+                                c5 = 3;
+                                throw value;
+                              } else if (arg0 === 2) {
+                                c3 = 0;
+                                c5 = 3;
+                                const obj = { value, done: true };
+                                return obj;
+                              } else {
+                                closure_0 = value;
+                                closure_129_0(closure_0);
+                                c3 = 0;
+                              }
+                              c5 = 3;
+                              return { value: "return", done: null };
+                            } catch (tmp45) {
+                              closure_2 = tmp45;
+                              if (0 === c3) {
+                                c5 = 3;
+                                throw tmp45;
+                              } else {
+                                c4 = 1;
+                              }
+                            }
+                          }
+                        }), closure_17);
+                        closure_19 = [];
+                        const tmp46 = promise;
+                        if (tmp46) {
+                          closure_19.push(promise);
+                        }
+                        let tmp52 = promise2;
+                        if (tmp52) {
+                          closure_19.push(promise2);
+                        }
+                        if (closure_19.length > 0) {
+                          const racePromise = Promise.race(closure_19);
+                          racePromise.finally(() => {
+                            clearTimeout(closure_1_18);
+                          });
+                        } else {
+                          let _clearTimeout = clearTimeout;
+                          const clearTimeoutResult = clearTimeout(timeout);
+                          const tmp95 = c14;
+                          if (!tmp95) {
+                            const tmp59 = c13;
+                            if (!tmp59) {
+                              if (closure_0 < closure_2) {
+                                const service5 = closure_0(closure_2_1[5]).loggerService.location.service;
+                                const str8 = "No location promises initiated, retrying...";
+                                service5.debug("No location promises initiated, retrying...");
+                                let currentLocation = closure_1.getCurrentLocation(closure_0 + 1);
+                                const nextPromise2 = currentLocation.then(resolve);
+                                nextPromise2.catch(reject);
+                              } else {
+                                let _Error = Error;
+                                self = this;
+                                const str7 = "Location fetching failed to initiate promises.";
+                                let self2 = this;
+                                let error = new Error("Location fetching failed to initiate promises.");
+                                reject(error);
+                              }
+                            }
+                          }
+                        }
+                        const _setTimeout2 = setTimeout;
+                        timeout2 = setTimeout(function() {
+                          const service = closure_0(closure_3_1[5]).loggerService.location.service;
+                          service.error("getCurrentLocation: Safety timeout triggered after " + closure_1_17 + 10000 + "ms. Force rejecting.");
+                          clearTimeout(closure_1_18);
+                          const tmp = closure_0;
+                          const tmp2 = closure_3_1;
+                          const tmp5 = closure_12;
+                          if (tmp5) {
+                            const _clearTimeout = clearTimeout;
+                            clearTimeout(closure_12);
+                          }
+                          if (closure_1.lastKnownLocation) {
+                            const service2 = tmp(tmp2[5]).loggerService.location.service;
+                            service2.warn("Using last known location as final fallback due to safety timeout.");
+                            closure_1_0(closure_1.lastKnownLocation);
+                          } else {
+                            const _Error = Error;
+                            self = this;
+                            const self2 = this;
+                            const error = new Error("Location fetch safety timeout - operation took too long. Please try again or enter your address manually.");
+                            closure_1_1(error);
+                          }
+                        }, closure_17 + 10000);
+                        closure_21 = resolve;
+                        closure_22 = reject;
+                        resolve = function resolve(arg0) {
+                          clearTimeout(closure_20);
+                          closure_21(arg0);
+                        };
+                        reject = function reject(arg0) {
+                          clearTimeout(closure_20);
+                          closure_22(arg0);
+                        };
+                        c5 = 3;
+                        return { value: "return", done: null };
+                      } else {
+                        message = { type: "PERMISSION_DENIED", message: "Location permission denied." };
+                        let service = closure_0(closure_2_1[5]).loggerService.location.service;
+                        const str = " (Notifying UI to handle this message)";
+                        const warnResult = service.warn(message.message + " (Notifying UI to handle this message)");
+                        let tmp10 = reject;
+                        c5 = 3;
+                        let obj = { value: reject(message), done: true };
+                        return obj;
+                      }
+                    }
+                  } catch (tmp85) {
+                    c5 = 3;
+                    throw tmp85;
+                  }
+                }
+              });
+              return function(arg0, arg1) {
+                return closure_0(...arguments);
+              };
+            })());
+            c6 = 3;
+            let tmp5 = promise;
+            let obj = { value: promise, done: true };
+            return obj;
+          }
+        } catch (tmp8) {
+          let num10 = 3;
+          c6 = 3;
+          throw tmp8;
+        }
+      }
+    }
+  })();
+  iter.next();
+  return iter;
+});
+let items = [entry, , , , , , , , , , , , ];
+const entry1 = {
+  key: "getLocationWithFallbacks",
+  value: function getLocationWithFallbacks() {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function() {
+  let self = this;
+  let c6 = 0;
+  let c7 = 0;
+  let c4 = 0;
+  return (async function(arg0, value) {
+    let service2;
+    if (c7 === 2) {
+      c7 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let closure_4;
+        let num9;
+        let closure_7;
+        let closure_8;
+        c7 = 2;
+        if (0 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c7 = 3;
+            return { value, done: true };
+          } else {
+            coordinates = undefined;
+            closure_2 = undefined;
+            coordinates2 = undefined;
+            closure_4 = undefined;
+            num9 = undefined;
+            coordinates3 = undefined;
+            closure_7 = undefined;
+            closure_8 = undefined;
+            const service9 = self(service2[5]).loggerService.location.service;
+            service9.debug("getLocationWithFallbacks: Starting progressive location fetch");
+            const _Date5 = Date;
+            closure_0 = Date.now();
+            c4 = 1;
+            const service10 = self(service2[5]).loggerService.location.service;
+            service10.debug("getLocationWithFallbacks: Attempting high-accuracy location");
+            c6 = 3;
+            c7 = 1;
+            const obj4 = { value: self.getCurrentLocation(1), done: false };
+            return obj4;
+          }
+        } else if (1 === c6) {
+          const service4 = self(service2[5]).loggerService.location.service;
+          service4.warn("getLocationWithFallbacks: High-accuracy location failed, trying low-accuracy");
+          service2 = coordinates2;
+          c4 = 2;
+          const service5 = self(service2[5]).loggerService.location.service;
+          service5.debug("getLocationWithFallbacks: Attempting low-accuracy location");
+          c6 = 4;
+          c7 = 1;
+          const obj5 = { value: coordinates2.getLocationPromise({ enableHighAccuracy: false, timeout: 20000, maximumAge: 120000 }), done: false };
+          return obj5;
+        } else if (2 === c6) {
+          c4 = 0;
+          const service3 = self(service2[5]).loggerService.location.service;
+          service3.warn("getLocationWithFallbacks: Low-accuracy location failed, trying cached location");
+          if (coordinates2.lastKnownLocation) {
+            service2 = Date;
+            num9 = Date.now() - coordinates2.lastKnownLocation.timestamp || 0;
+            if (num9 < 300000) {
+              service2 = self(service2[5]).loggerService.location.service;
+              service2.debug("getLocationWithFallbacks: Using cached location");
+              c7 = 3;
+              return { value: { coordinates: coordinates2.lastKnownLocation, accuracy: "cached", source: "cached_location" }, done: true };
+            }
+          }
+          c4 = 3;
+          service2 = self(service2[5]).loggerService.location.service;
+          service2.debug("getLocationWithFallbacks: Attempting network-based location");
+          c6 = 6;
+          c7 = 1;
+          const obj8 = { value: coordinates2.getNetworkBasedLocation(), done: false };
+          return obj8;
+        } else if (3 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c7 = 3;
+            return { value, done: true };
+          } else {
+            coordinates = value;
+            const _Date4 = Date;
+            closure_2 = Date.now() - closure_0;
+            const service8 = self(service2[5]).loggerService.location.service;
+            const _HermesInternal4 = HermesInternal;
+            service8.debug("getLocationWithFallbacks: High-accuracy location obtained in " + closure_2 + "ms");
+            c4 = 0;
+            c7 = 3;
+            return { value: { coordinates, accuracy: "high", source: "gps_high_accuracy" }, done: true };
+          }
+        } else if (4 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c7 = 3;
+            return { value, done: true };
+          } else {
+            coordinates2 = value;
+            const _Date3 = Date;
+            closure_4 = Date.now() - closure_0;
+            const service7 = self(service2[5]).loggerService.location.service;
+            const _HermesInternal3 = HermesInternal;
+            service7.debug("getLocationWithFallbacks: Low-accuracy location obtained in " + closure_4 + "ms");
+            c4 = 0;
+            c7 = 3;
+            return { value: { coordinates: coordinates2, accuracy: "low", source: "gps_low_accuracy" }, done: true };
+          }
+        } else if (5 === c6) {
+          c4 = 0;
+          const service = self(service2[5]).loggerService.location.service;
+          service.warn("getLocationWithFallbacks: Network-based location failed");
+          if (coordinates2.lastKnownLocation) {
+            service2 = self(service2[5]).loggerService.location.service;
+            service2.warn("getLocationWithFallbacks: Using old cached location as final fallback");
+            c7 = 3;
+            return { value: { coordinates: coordinates2.lastKnownLocation, accuracy: "cached", source: "old_cached_location" }, done: true };
+          } else {
+            const _Date = Date;
+            closure_8 = Date.now() - closure_0;
+            service2 = self(service2[5]).loggerService.location.service;
+            const _HermesInternal = HermesInternal;
+            service2.error("getLocationWithFallbacks: All location strategies failed after " + closure_8 + "ms");
+            const _Error = Error;
+            self = this;
+            const self2 = this;
+            const error = new Error("Unable to determine your location. Please check your location settings or enter your address manually.");
+            throw error;
+          }
+        } else if (arg0 === 1) {
+          c7 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 0;
+          c7 = 3;
+          return { value, done: true };
+        } else {
+          coordinates3 = value;
+          const _Date2 = Date;
+          closure_7 = Date.now() - closure_0;
+          const service6 = self(service2[5]).loggerService.location.service;
+          const _HermesInternal2 = HermesInternal;
+          service6.debug("getLocationWithFallbacks: Network-based location obtained in " + closure_7 + "ms");
+          c4 = 0;
+          c7 = 3;
+          return { value: { coordinates: coordinates3, accuracy: "low", source: "network_location" }, done: true };
+        }
+      } catch (tmp53) {
+        closure_5 = tmp53;
+        if (0 === c4) {
+          c7 = 3;
+          throw tmp53;
+        } else if (1 === c4) {
+          c6 = 1;
+        } else if (2 === c4) {
+          c6 = 2;
+        } else {
+          c6 = 5;
+        }
+      }
+    }
+  })();
+});
+items[1] = entry1;
+const entry2 = {
+  key: "getFastLocationWithUpgrade",
+  value: function getFastLocationWithUpgrade(arg0) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0) {
+  let self = this;
+  let closure_1 = arg0;
+  let c7 = 0;
+  let c8 = 0;
+  let c5 = 0;
+  return (async function(arg0, value) {
+    if (c8 === 2) {
+      c8 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let obj10;
+        let obj6;
+        let closure_7;
+        let obj13;
+        c8 = 2;
+        if (0 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            closure_4 = self;
+            closure_0 = closure_1;
+            closure_1 = undefined;
+            coordinates = undefined;
+            closure_3 = undefined;
+            obj10 = undefined;
+            obj6 = undefined;
+            coordinates2 = undefined;
+            closure_7 = undefined;
+            obj13 = undefined;
+            const service8 = self(closure_1[5]).loggerService.location.service;
+            service8.debug("getFastLocationWithUpgrade: Starting fast location strategy");
+            const _Date4 = Date;
+            closure_1 = Date.now();
+            if (self.lastKnownLocation) {
+              const _Date = Date;
+              self = Date.now();
+              const num10 = self - obj14.lastKnownLocation.timestamp || 0;
+              if (num10 < 300000) {
+                const service5 = self(closure_1[5]).loggerService.location.service;
+                service5.debug("getFastLocationWithUpgrade: Using recent cached location for fast response");
+                self = { coordinates: self.lastKnownLocation, accuracy: "fast", source: "cached_recent" };
+                if (closure_1 != null) {
+                  closure_1(self);
+                }
+                const preciseLocationInBackground = obj14.getPreciseLocationInBackground(self.coordinates, tmp81);
+                c8 = 3;
+                return { value: self, done: true };
+              }
+            }
+            c5 = 1;
+            const service4 = self(closure_1[5]).loggerService.location.service;
+            service4.debug("getFastLocationWithUpgrade: Attempting fast low-accuracy location");
+            self = obj14.getLocationPromise({ enableHighAccuracy: false, timeout: 10000, maximumAge: 120000 });
+            c7 = 2;
+            c8 = 1;
+            return { value: self, done: false };
+          }
+        } else if (1 === c7) {
+          c5 = 0;
+          self = self(closure_1[5]).loggerService.location.service;
+          self.warn("getFastLocationWithUpgrade: Fast location failed, trying fallbacks");
+          if (closure_4.lastKnownLocation) {
+            const service3 = self(closure_1[5]).loggerService.location.service;
+            service3.debug("getFastLocationWithUpgrade: Using any cached location as fallback");
+            obj6 = { coordinates: closure_4.lastKnownLocation, accuracy: "fast", source: "cached_any" };
+            self = closure_0;
+            if (closure_0 != null) {
+              self(obj6);
+            }
+            const preciseLocationInBackground1 = closure_4.getPreciseLocationInBackground(closure_4.lastKnownLocation, closure_0);
+            self = obj6;
+            c8 = 3;
+            return { value: self, done: true };
+          } else {
+            c5 = 2;
+            const service2 = self(closure_1[5]).loggerService.location.service;
+            service2.debug("getFastLocationWithUpgrade: No cached location, trying high accuracy");
+            self = closure_4.getCurrentLocation(1);
+            c7 = 4;
+            c8 = 1;
+            return { value: self, done: false };
+          }
+        } else if (2 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 0;
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            coordinates = value;
+            const _Date3 = Date;
+            closure_3 = Date.now() - closure_1;
+            const service7 = self(closure_1[5]).loggerService.location.service;
+            const _HermesInternal2 = HermesInternal;
+            service7.debug("getFastLocationWithUpgrade: Fast location obtained in " + closure_3 + "ms");
+            obj10 = { coordinates, accuracy: "fast", source: "gps_low_accuracy_fast" };
+            self = closure_0;
+            if (closure_0 != null) {
+              self(obj10);
+            }
+            const preciseLocationInBackground2 = closure_4.getPreciseLocationInBackground(coordinates, closure_0);
+            self = obj10;
+            c5 = 0;
+            c8 = 3;
+            return { value: self, done: true };
+          }
+        } else if (3 === c7) {
+          c5 = 0;
+          const service = self(closure_1[5]).loggerService.location.service;
+          service.error("getFastLocationWithUpgrade: All strategies failed");
+          const _Error = Error;
+          self = this;
+          const self2 = this;
+          const error = new Error("Unable to determine your location. Please check your location settings or enter your address manually.");
+          throw error;
+        } else if (arg0 === 1) {
+          c8 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          c8 = 3;
+          return { value, done: true };
+        } else {
+          coordinates2 = value;
+          const _Date2 = Date;
+          closure_7 = Date.now() - closure_1;
+          const service6 = self(closure_1[5]).loggerService.location.service;
+          const _HermesInternal = HermesInternal;
+          service6.debug("getFastLocationWithUpgrade: Precise location obtained in " + closure_7 + "ms");
+          obj13 = { coordinates: coordinates2, accuracy: "precise", source: "gps_high_accuracy" };
+          self = closure_0;
+          if (closure_0 != null) {
+            self(obj13);
+          }
+          self = obj13;
+          c5 = 0;
+          c8 = 3;
+          return { value: self, done: true };
+        }
+      } catch (tmp56) {
+        coordinates2 = tmp56;
+        if (0 === c5) {
+          c8 = 3;
+          throw tmp56;
+        } else if (1 === tmp58) {
+          c7 = 1;
+        } else {
+          c7 = 3;
+        }
+      }
+    }
+  })();
+});
+items[2] = entry2;
+const entry3 = {
+  key: "getDeviceCurrentLocation",
+  value: function getDeviceCurrentLocation() {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function() {
+  let locationPromise;
+  const self = this;
+  let c6 = 0;
+  let c7 = 0;
+  let c4 = 0;
+  return (async (arg0, value) => {
+    if (c7 === 2) {
+      c7 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c7 = 2;
+        if (0 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c7 = 3;
+            return { value, done: true };
+          } else {
+            closure_2 = tmp;
+            closure_0 = undefined;
+            value = undefined;
+            const service4 = self(value[5]).loggerService.location.service;
+            service4.debug("getDeviceCurrentLocation: Getting actual device GPS coordinates (silent)");
+            const permissionManager = self(value[6]).permissionManager;
+            c6 = 1;
+            c7 = 1;
+            const obj4 = { value: permissionManager.checkIfLocationSetupCompleted(), done: false };
+            return obj4;
+          }
+        } else if (1 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c7 = 3;
+            return { value, done: true };
+          } else {
+            closure_0 = value;
+            const tmp26 = closure_0;
+            if (tmp26) {
+              c4 = 1;
+              c6 = 3;
+              c7 = 1;
+              const obj6 = { value: locationPromise.getLocationPromise({ enableHighAccuracy: false, timeout: 5000, maximumAge: 600000 }), done: false };
+              return obj6;
+            } else {
+              c7 = 3;
+              return { value: null, done: true };
+            }
+          }
+        } else if (2 === c6) {
+          c4 = 0;
+          closure_2 = closure_5;
+          const service2 = self(value[5]).loggerService.location.service;
+          service2.debug("getDeviceCurrentLocation: Silent location failed, using fallback", closure_2);
+          if (locationPromise.lastKnownLocation) {
+            const service3 = self(value[5]).loggerService.location.service;
+            service3.debug("getDeviceCurrentLocation: Using last known location as fallback");
+            c7 = 3;
+            return { value: locationPromise.lastKnownLocation, done: true };
+          } else {
+            c7 = 3;
+            return { value: null, done: true };
+          }
+        } else if (arg0 === 1) {
+          c7 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 0;
+          c7 = 3;
+          return { value, done: true };
+        } else {
+          const service = self(value[5]).loggerService.location.service;
+          service.debug("getDeviceCurrentLocation: Device location obtained silently", value);
+          c4 = 0;
+          c7 = 3;
+          return { value, done: true };
+        }
+      } catch (tmp28) {
+        closure_5 = tmp28;
+        if (0 === c4) {
+          c7 = 3;
+          throw tmp28;
+        } else {
+          c6 = 2;
+        }
+      }
+    }
+  })();
+});
+items[3] = entry3;
+items[4] = {
+  key: "getCachedDeviceLocationSync",
+  value: function getCachedDeviceLocationSync() {
+    return this.lastKnownLocation;
+  }
+};
+const entry4 = {
+  key: "getLastKnownLocation",
+  value: function getLastKnownLocation() {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function() {
+  let self = this;
+  let c1 = 0;
+  return (async function(arg0, value) {
+    const f41652 = () => {
+      closure_0 = closure_1_2.default(function*(arg0, value) {
+        closure_0 = arg0;
+        if (c4 === 2) {
+          c4 = 3;
+          throw new TypeError("Generator functions may not be called on executing generators");
+        } else if (tmp3 === 3) {
+          if (arg0 === 1) {
+            throw value;
+          } else if (arg0 === 2) {
+            const obj2 = { value, done: true };
+            return obj2;
+          } else {
+            return { value: "return", done: null };
+          }
+        } else {
+          try {
+            let closure_1;
+            c4 = 2;
+            if (0 === c3) {
+              if (arg0 === 1) {
+                c4 = 3;
+                throw value;
+              } else if (arg0 === 2) {
+                c4 = 3;
+                const obj3 = { value, done: true };
+                return obj3;
+              } else {
+                let closure_2 = tmp4;
+                closure_1 = undefined;
+                const permissionManager = closure_0(closure_2_1[6]).permissionManager;
+                c3 = 1;
+                c4 = 1;
+                const obj4 = { value: permissionManager.requestLocationPermission(), done: false };
+                return obj4;
+              }
+            } else if (arg0 === 1) {
+              c4 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c4 = 3;
+              const obj = { value, done: true };
+              return obj;
+            } else {
+              closure_1 = value;
+              if (closure_1) {
+                if (closure_0.lastKnownLocation) {
+                  closure_0(closure_0.lastKnownLocation);
+                } else {
+                  const _default = closure_2_4.default;
+                  const currentPosition = _default.getCurrentPosition((coords) => {
+                    closure_0.lastKnownLocation = coords.coords;
+                    closure_1_0(coords.coords);
+                  }, () => closure_1_0(null), { enableHighAccuracy: true, timeout: 5000, maximumAge: 300000 });
+                }
+                c4 = 3;
+                return { value: "return", done: null };
+              } else {
+                const service = closure_0(closure_2_1[5]).loggerService.location.service;
+                service.warn("Permission denied for getLastKnownLocation. Returning null.");
+                closure_0(null);
+                c4 = 3;
+                return { value: "return", done: null };
+              }
+            }
+          } catch (tmp22) {
+            c4 = 3;
+            throw tmp22;
+          }
+        }
+      });
+      return function(arg0) {
+        return closure_0(...arguments);
+      };
+    };
+    if (c1 === 2) {
+      c1 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c1 = 2;
+        if (arg0 === 1) {
+          c1 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c1 = 3;
+          let obj3 = { value, done: true };
+          return obj3;
+        } else {
+          const tmp3 = self;
+          const tmp4 = self;
+          closure_0 = self;
+          self = this;
+          const self2 = this;
+          c1 = 3;
+          let obj = { value: new Promise(f41652()), done: true };
+          const promise = new Promise(f41652());
+          return obj;
+        }
+      } catch (tmp8) {
+        c1 = 3;
+        throw tmp8;
+      }
+    }
+  })();
+});
+items[5] = entry4;
+items[6] = {
+  key: "watchLocation",
+  value: function watchLocation(arg0) {
+    const self = this;
+    let closure_0 = arg0;
+    const _default = module_1662.default;
+    this.watchId = _default.watchPosition((coords) => {
+      const _location = { latitude: coords.coords.latitude, longitude: coords.coords.longitude };
+      self.lastKnownLocation = _location;
+      closure_0(_location);
+    }, (arg0) => {
+      const service = closure_0(self[5]).loggerService.location.service;
+      return service.error("Error watching location", arg0);
+    }, { enableHighAccuracy: true, distanceFilter: 10 });
+    return this.watchId;
+  }
+};
+items[7] = {
+  key: "stopWatchingLocation",
+  value: function stopWatchingLocation() {
+    const self = this;
+    if (this.watchId !== null) {
+      const _default = module_1662.default;
+      _default.clearWatch(self.watchId);
+      self.watchId = null;
+    }
+  }
+};
+items[8] = {
+  key: "getLocationPromise",
+  value: function getLocationPromise(arg0) {
+    let closure_0 = arg0;
+    const promise = new Promise((arg0, arg1) => {
+      closure_0 = arg0;
+      let closure_1 = arg1;
+      let closure_2 = Date.now();
+      let service = closure_0(dependencyMap[5]).loggerService.location.service;
+      service.debug("getLocationPromise: Starting with options:", closure_0);
+      const _default = module_1662.default;
+      const currentPosition = _default.getCurrentPosition((coords) => {
+        const diff = Date.now() - closure_2;
+        const service = cachedImageLogger.loggerService.location.service;
+        service.debug("getLocationPromise (highAccuracy: " + closure_0.enableHighAccuracy + ") SUCCESS after " + diff + "ms");
+        closure_0(coords.coords);
+      }, (code) => {
+        const diff = Date.now() - closure_2;
+        const service = cachedImageLogger.loggerService.location.service;
+        service.warn("getLocationPromise (highAccuracy: " + closure_0.enableHighAccuracy + ") ERROR after " + diff + "ms: code " + code.code + ", msg: " + code.message);
+        closure_1(code);
+      }, closure_0);
+    });
+    return promise;
+  }
+};
+const entry5 = {
+  key: "getNetworkBasedLocation",
+  value: function getNetworkBasedLocation() {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0, value) {
+  if (c0 === 2) {
+    c0 = 3;
+    throw new TypeError("Generator functions may not be called on executing generators");
+  } else if (tmp2 === 3) {
+    if (arg0 === 1) {
+      throw value;
+    } else if (arg0 === 2) {
+      const obj2 = { value, done: true };
+      return obj2;
+    } else {
+      return { value: "return", done: null };
+    }
+  } else {
+    try {
+      c0 = 2;
+      if (arg0 === 1) {
+        c0 = 3;
+        throw value;
+      } else if (arg0 === 2) {
+        c0 = 3;
+        const obj3 = { value, done: true };
+        return obj3;
+      } else {
+        const self = this;
+        const self2 = this;
+        const promise = new Promise((arg0, arg1) => {
+          closure_0 = arg0;
+          let closure_1 = arg1;
+          const timeout = setTimeout(() => {
+            const error = new Error("Network location timeout");
+            closure_1(error);
+          }, 20000);
+          const _default = closure_1_4.default;
+          const currentPosition = _default.getCurrentPosition((coords) => {
+            clearTimeout(closure_2);
+            closure_0(coords.coords);
+          }, (arg0) => {
+            clearTimeout(closure_2);
+            closure_1(arg0);
+          }, { enableHighAccuracy: false, timeout: 20000, maximumAge: 300000 });
+        });
+        c0 = 3;
+        const obj = { value: promise, done: true };
+        return obj;
+      }
+    } catch (tmp6) {
+      c0 = 3;
+      throw tmp6;
+    }
+  }
+});
+items[9] = entry5;
+const entry6 = {
+  key: "getPreciseLocationInBackground",
+  value: function getPreciseLocationInBackground(coordinates, arg1) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0, coordinates) {
+  const self = this;
+  let closure_1 = arg0;
+  let c8 = 0;
+  let c9 = 0;
+  let c6 = 0;
+  return (async (arg0, value) => {
+    if (c9 === 2) {
+      c9 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let obj;
+        c9 = 2;
+        if (0 === c8) {
+          if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            closure_5 = self;
+            closure_4 = tmp;
+            _self = closure_1;
+            closure_1 = coordinates;
+            coordinates = undefined;
+            closure_3 = undefined;
+            obj = undefined;
+            c6 = 1;
+            const service4 = self(closure_1[5]).loggerService.location.service;
+            service4.debug("getPreciseLocationInBackground: Starting background precise location fetch");
+            c8 = 2;
+            c9 = 1;
+            const obj4 = { value: self.getLocationPromise({ enableHighAccuracy: true, timeout: 25000, maximumAge: 30000 }), done: false };
+            return obj4;
+          }
+        } else {
+          if (1 === tmp4) {
+            c6 = 0;
+            closure_5 = closure_7;
+            const service3 = self(closure_1[5]).loggerService.location.service;
+            service3.debug("getPreciseLocationInBackground: Failed to get precise location in background", closure_5);
+          } else if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 0;
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            coordinates = value;
+            closure_3 = closure_5.calculateDistance(_self.latitude, _self.longitude, coordinates.latitude, coordinates.longitude);
+            if (closure_3 > 50) {
+              const service2 = self(closure_1[5]).loggerService.location.service;
+              const _HermesInternal = HermesInternal;
+              service2.debug("getPreciseLocationInBackground: Precise location differs by " + closure_3 + "m, updating");
+              obj = { coordinates, accuracy: "precise", source: "gps_high_accuracy_background" };
+              if (closure_1 != null) {
+                tmp16(obj);
+              }
+            } else {
+              const service = self(closure_1[5]).loggerService.location.service;
+              service.debug("getPreciseLocationInBackground: Precise location similar to current, no update needed");
+            }
+            c6 = 0;
+          }
+          c9 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp28) {
+        closure_7 = tmp28;
+        if (0 === c6) {
+          c9 = 3;
+          throw tmp28;
+        } else {
+          c8 = 1;
+        }
+      }
+    }
+  })();
+});
+items[10] = entry6;
+const entry7 = {
+  key: "getLocationWithProgress",
+  value: function getLocationWithProgress(arg0) {
+    return closure_0(...arguments);
+  }
+};
+let closure_0 = _asyncToGenerator.default(async function(arg0) {
+  let self = this;
+  let closure_1 = arg0;
+  let c7 = 0;
+  let c8 = 0;
+  let c5 = 0;
+  return (async function(arg0, value) {
+    if (c8 === 2) {
+      c8 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let updateProgress;
+        c8 = 2;
+        if (0 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            closure_0 = closure_1;
+            closure_3 = undefined;
+            locationWithFallbacks = undefined;
+            const items = [{ stage: "checking_permissions", message: "Checking location permissions...", percentage: 10 }, { stage: "gps_high_accuracy", message: "Getting precise location...", percentage: 30 }, { stage: "gps_low_accuracy", message: "Getting approximate location...", percentage: 60 }, { stage: "network_location", message: "Getting location from network...", percentage: 80 }, { stage: "cached_location", message: "Using saved location...", percentage: 90 }, { stage: "complete", message: "Location found!", percentage: 100 }];
+            updateProgress = function updateProgress(arg0) {
+              if (closure_1_0) {
+                if (closure_1_1[arg0]) {
+                  tmp(closure_1_1[arg0]);
+                }
+              }
+            };
+            c5 = 1;
+            updateProgress(0);
+            const permissionManager = self(closure_1[6]).permissionManager;
+            c7 = 2;
+            c8 = 1;
+            const obj4 = { value: permissionManager.requestLocationPermission(), done: false };
+            return obj4;
+          }
+        } else if (1 === c7) {
+          c5 = 0;
+          let closure_5 = closure_6;
+          const service = self(closure_1[5]).loggerService.location.service;
+          errorResult = service.error("getLocationWithProgress failed:", closure_5);
+          throw closure_5;
+        } else if (2 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 0;
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            closure_3 = value;
+            errorResult = closure_3;
+            if (errorResult) {
+              updateProgress(1);
+              c5 = 2;
+              errorResult = locationWithFallbacks.getLocationWithFallbacks();
+              c7 = 4;
+              c8 = 1;
+              return { value: errorResult, done: false };
+            } else {
+              const _Error = Error;
+              self = this;
+              const self2 = this;
+              const error = new Error("Location permission denied");
+              errorResult = error;
+              throw error;
+            }
+          }
+        } else if (3 === c7) {
+          c5 = 1;
+          throw closure_6;
+        } else if (arg0 === 1) {
+          c8 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          c8 = 3;
+          return { value, done: true };
+        } else {
+          locationWithFallbacks = value;
+          updateProgress(5);
+          c5 = 0;
+          c8 = 3;
+          return { value: locationWithFallbacks.coordinates, done: true };
+        }
+      } catch (tmp25) {
+        closure_6 = tmp25;
+        if (0 === c5) {
+          c8 = 3;
+          throw tmp25;
+        } else if (1 === tmp27) {
+          c7 = 1;
+        } else {
+          c7 = 3;
+        }
+      }
+    }
+  })();
+});
+items[11] = entry7;
+items[12] = {
+  key: "calculateDistance",
+  value: function calculateDistance(arg0, arg1, arg2, arg3) {
+    const result = (arg2 - arg0) * Math.PI / 180 / 2;
+    const result1 = arg0 * Math.PI / 180;
+    const result2 = arg2 * Math.PI / 180;
+    const result3 = (arg3 - arg1) * Math.PI / 180;
+    const sinResult = Math.sin(result);
+    const result4 = sinResult * Math.sin(result);
+    const result5 = result3 / 2;
+    const cosResult = Math.cos(result1);
+    const result6 = cosResult * Math.cos(result2);
+    const result7 = result6 * Math.sin(result5);
+    const sum = result4 + result7 * Math.sin(result5);
+    const sqrtResult = Math.sqrt(sum);
+    return 6371000 * (2 * atan2(sqrtResult, Math.sqrt(1 - sum)));
+  }
+};
+const _defaultResult = _default(LocationFetcher, items);
+new _defaultResult();
+const LocationFetcher_export = _defaultResult;
+
+export { LocationFetcher_export as LocationFetcher };
+export const locationFetcher = new _defaultResult();

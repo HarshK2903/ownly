@@ -1,0 +1,15 @@
+// Module 1133
+const require = globalThis.__r;
+
+
+export const createMMKV = require("module_1134").createMMKV;
+export const deleteMMKV = require("module_1140").deleteMMKV;
+export const existsMMKV = require("existsMMKV").existsMMKV;
+export const useMMKV = require("module_1142").useMMKV;
+export const useMMKVBoolean = require("react").useMMKVBoolean;
+export const useMMKVBuffer = require("react").useMMKVBuffer;
+export const useMMKVKeys = require("module_1147").useMMKVKeys;
+export const useMMKVListener = require("react").useMMKVListener;
+export const useMMKVNumber = require("react").useMMKVNumber;
+export const useMMKVObject = require("module_1150").useMMKVObject;
+export const useMMKVString = require("react").useMMKVString;

@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1648
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 8,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1648\n\nexport function getAuthErrorMessage(ok, arg1) {\n  if (ok.ok) {\n    return \"\";\n  } else {\n    const response = ok.response;\n    let data;\n    if (response != null) {\n      data = response.data;\n    }\n    let message;\n    if (data) {\n      if (typeof data.message === \"string\") {\n        message = data.message;\n      }\n    }\n    if (message == null) {\n      message = ok.error.message;\n    }\n    if (message == null) {\n      message = arg1;\n    }\n    return message;\n  }\n}\nexport function isNewUserFromCustomerDetails(data) {\n  let trimmed;\n  if (data != null) {\n    if (data.name != null) {\n      trimmed = str.trim();\n    }\n  }\n  return !trimmed;\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "xref_search",
+  "arguments": {
+    "query": "/api/v1/restaurant"
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 11,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Found 1 cross-references for '/api/v1/restaurant':\n  Function 1760 () at offset 004e: LoadConstString\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

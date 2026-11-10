@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 16923
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 23,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#16923 \"isOrderInFinalState\" params=2 frame=12 regs=0(num=0,nonptr=0) size=25 offset=0xe9f287 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

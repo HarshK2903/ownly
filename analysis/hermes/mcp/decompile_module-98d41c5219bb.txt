@@ -1,0 +1,384 @@
+// Module 1154 (resolveRuntimeConfig)
+import DeviceInfo from "DeviceInfo" /* 733 */;
+import react_native from "react-native" /* 1155 */;
+import module_1 from "module_1" /* 1 */;
+
+const react_native2 = module_1(react_native);
+function normalizeEnvironment(arg0) {
+
+}
+function readEnv(arg0) {
+
+}
+function readOptionalEnv(arg0) {
+
+}
+function readBundleIdentifier() {
+  try {
+    const tmp3 = DeviceInfo;
+    let getBundleId;
+    if (tmp3 != null) {
+      if (tmp3.default != null) {
+        getBundleId = _default.getBundleId;
+      }
+    }
+    if (getBundleId == null) {
+      let getBundleId1;
+      if (tmp3 != null) {
+        getBundleId1 = tmp4.getBundleId;
+      }
+      getBundleId = getBundleId1;
+    }
+    if (typeof getBundleId !== "function") {
+      return null;
+    } else {
+      const bundleId = getBundleId();
+      let tmp10 = null;
+      if (typeof bundleId === "string") {
+        tmp10 = null;
+        if (arr.length > 0) {
+          tmp10 = bundleId;
+        }
+      }
+      return tmp10;
+    }
+  } catch (err) {
+    return null;
+  }
+}
+function resolveEnvironment() {
+
+}
+function getAppEnvironment() {
+  if (typeof resolveEnvironment === "function") {
+    const _globalThis = globalThis;
+    if (typeof normalizeEnvironment === "function") {
+      let str2 = null;
+      if (globalThis.__OWNLY_APP_ENV) {
+        const str3 = globalThis.__OWNLY_APP_ENV.trim();
+        const formatted = str3.toLowerCase();
+        str2 = null;
+        if (formatted) {
+          str2 = "dev";
+          if (formatted !== "dev") {
+            str2 = "dev";
+            if (formatted !== "development") {
+              str2 = "staging";
+              if (formatted !== "staging") {
+                str2 = "staging";
+                if (formatted !== "stage") {
+                  str2 = "staging";
+                  if (formatted !== "preprod") {
+                    str2 = "staging";
+                    if (formatted !== "sandbox") {
+                      if (formatted === "prod") {
+                        str2 = "prod";
+                      } else {
+                        str2 = null;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      if (!str2) {
+        if (typeof readOptionalEnv === "function") {
+          if (typeof react_native.default.OWNLY_APP_ENV === "string") {
+            const trimmed = str12.trim();
+          }
+          if (typeof tmp === "function") {
+            let tmp8 = null;
+            if (str13) {
+              const str14 = str13.trim();
+              const formatted1 = str14.toLowerCase();
+              tmp8 = null;
+              if (formatted1) {
+                tmp8 = "dev";
+                if (formatted1 !== "dev") {
+                  tmp8 = "dev";
+                  if (formatted1 !== "development") {
+                    tmp8 = "staging";
+                    if (formatted1 !== "staging") {
+                      tmp8 = "staging";
+                      if (formatted1 !== "stage") {
+                        tmp8 = "staging";
+                        if (formatted1 !== "preprod") {
+                          tmp8 = "staging";
+                          if (formatted1 !== "sandbox") {
+                            if (formatted1 === "prod") {
+                              tmp8 = "prod";
+                            } else {
+                              tmp8 = null;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            str2 = tmp8;
+            if (!str2) {
+              const str23 = readBundleIdentifier();
+              let formatted2;
+              if (str23 != null) {
+                formatted2 = str23.toLowerCase();
+              }
+              let endsWithResult;
+              if (formatted2 != null) {
+                endsWithResult = formatted2.endsWith(".dev");
+              }
+              str2 = "dev";
+              if (!endsWithResult) {
+                let endsWithResult1;
+                if (formatted2 != null) {
+                  endsWithResult1 = formatted2.endsWith(".staging");
+                }
+                str2 = "staging";
+                if (!endsWithResult1) {
+                  str2 = "prod";
+                  if (formatted2 !== "com.ownly.customer") {
+                    str2 = "prod";
+                    if (formatted2 !== "com.ownly") {
+                      const _Error = Error;
+                      const self = this;
+                      const self2 = this;
+                      const error = new Error("[AppEnvironment] Unable to resolve environment. Set OWNLY_APP_ENV or use a recognized app id suffix.");
+                      throw error;
+                    }
+                  }
+                }
+              }
+            }
+          } else {
+            throw new TypeError("Trying to call a non-function");
+          }
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      }
+      return str2;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function resolveApiConfig(appEnvironment) {
+  let tmp = appEnvironment;
+  if (appEnvironment === undefined) {
+    tmp = getAppEnvironment();
+  }
+  const obj = { APP_ENV: tmp, BASE_URL: null, API_KEY: null, SERVICEABILITY_API_KEY: null, UNIVERSAL_HEADERS: null };
+  if (typeof readEnv === "function") {
+    if (typeof react_native.default.OWNLY_API_BASE_URL === "string") {
+      if (react_native.default.OWNLY_API_BASE_URL.trim().length !== 0) {
+        obj.BASE_URL = react_native.default.OWNLY_API_BASE_URL.trim();
+        if (typeof readEnv === "function") {
+          if (typeof react_native.default.OWNLY_API_KEY === "string") {
+            if (react_native.default.OWNLY_API_KEY.trim().length !== 0) {
+              obj.API_KEY = react_native.default.OWNLY_API_KEY.trim();
+              if (typeof readEnv === "function") {
+                if (typeof react_native.default.OWNLY_SERVICEABILITY_API_KEY === "string") {
+                  if (react_native.default.OWNLY_SERVICEABILITY_API_KEY.trim().length !== 0) {
+                    obj.SERVICEABILITY_API_KEY = react_native.default.OWNLY_SERVICEABILITY_API_KEY.trim();
+                    if (typeof readEnv === "function") {
+                      if (typeof react_native.default.OWNLY_APP_ID === "string") {
+                        if (react_native.default.OWNLY_APP_ID.trim().length !== 0) {
+                          const obj2 = { APP_ID: react_native.default.OWNLY_APP_ID.trim(), APP_VERSION: null, X_Version_ID: null };
+                          if (typeof readEnv === "function") {
+                            if (typeof react_native.default.OWNLY_APP_VERSION === "string") {
+                              if (react_native.default.OWNLY_APP_VERSION.trim().length !== 0) {
+                                obj2.APP_VERSION = react_native.default.OWNLY_APP_VERSION.trim();
+                                if (typeof readEnv === "function") {
+                                  if (typeof react_native.default.OWNLY_X_VERSION_ID === "string") {
+                                    if (react_native.default.OWNLY_X_VERSION_ID.trim().length !== 0) {
+                                      obj2.X_Version_ID = react_native.default.OWNLY_X_VERSION_ID.trim();
+                                      obj.UNIVERSAL_HEADERS = obj2;
+                                      return obj;
+                                    }
+                                  }
+                                  const _Error = Error;
+                                  const _String = String;
+                                  const _HermesInternal = HermesInternal;
+                                  const self = this;
+                                  const self2 = this;
+                                  const error = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_X_VERSION_ID"));
+                                  throw error;
+                                } else {
+                                  throw new TypeError("Trying to call a non-function");
+                                }
+                              }
+                            }
+                            const _Error2 = Error;
+                            const _String2 = String;
+                            const _HermesInternal2 = HermesInternal;
+                            const self3 = this;
+                            const self4 = this;
+                            const error1 = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_APP_VERSION"));
+                            throw error1;
+                          } else {
+                            throw new TypeError("Trying to call a non-function");
+                          }
+                        }
+                      }
+                      const _Error3 = Error;
+                      const _String3 = String;
+                      const _HermesInternal3 = HermesInternal;
+                      const self5 = this;
+                      const self6 = this;
+                      const error2 = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_APP_ID"));
+                      throw error2;
+                    } else {
+                      throw new TypeError("Trying to call a non-function");
+                    }
+                  }
+                }
+                const _Error4 = Error;
+                const _String4 = String;
+                const _HermesInternal4 = HermesInternal;
+                const self7 = this;
+                const self8 = this;
+                const error3 = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_SERVICEABILITY_API_KEY"));
+                throw error3;
+              } else {
+                throw new TypeError("Trying to call a non-function");
+              }
+            }
+          }
+          const _Error5 = Error;
+          const _String5 = String;
+          const _HermesInternal5 = HermesInternal;
+          const self9 = this;
+          const self10 = this;
+          const error4 = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_API_KEY"));
+          throw error4;
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      }
+    }
+    const _Error6 = Error;
+    const _String6 = String;
+    const _HermesInternal6 = HermesInternal;
+    const self11 = this;
+    const self12 = this;
+    const error5 = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_API_BASE_URL"));
+    throw error5;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function resolveAppsFlyerConfig() {
+  if (typeof readEnv === "function") {
+    if (typeof react_native.default.OWNLY_APPSFLYER_DEV_KEY === "string") {
+      if (react_native.default.OWNLY_APPSFLYER_DEV_KEY.trim().length !== 0) {
+        const obj = { DEV_KEY: react_native.default.OWNLY_APPSFLYER_DEV_KEY.trim(), IOS_APP_ID: null, ONE_LINK_ID: null };
+        if (typeof tmp === "function") {
+          if (typeof react_native.default.OWNLY_APPSFLYER_IOS_APP_ID === "string") {
+            if (react_native.default.OWNLY_APPSFLYER_IOS_APP_ID.trim().length !== 0) {
+              obj.IOS_APP_ID = react_native.default.OWNLY_APPSFLYER_IOS_APP_ID.trim();
+              if (typeof readOptionalEnv === "function") {
+                let str4;
+                if (typeof react_native.default.OWNLY_APPSFLYER_ONE_LINK_ID === "string") {
+                  const trimmed = str3.trim();
+                  let tmp4;
+                  if (trimmed.length > 0) {
+                    tmp4 = trimmed;
+                  }
+                  str4 = tmp4;
+                }
+                if (str4 == null) {
+                  str4 = "tMlo";
+                }
+                obj.ONE_LINK_ID = str4;
+                return obj;
+              } else {
+                throw new TypeError("Trying to call a non-function");
+              }
+            }
+          }
+          const _Error = Error;
+          const _String = String;
+          const _HermesInternal = HermesInternal;
+          const self = this;
+          const self2 = this;
+          const error = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_APPSFLYER_IOS_APP_ID"));
+          throw error;
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      }
+    }
+    const _Error2 = Error;
+    const _String2 = String;
+    const _HermesInternal2 = HermesInternal;
+    const self3 = this;
+    const self4 = this;
+    const error1 = new Error("[AppEnvironment] Missing required environment variable: " + String("OWNLY_APPSFLYER_DEV_KEY"));
+    throw error1;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+
+export { getAppEnvironment };
+export function setAppEnvironmentOverride(str) {
+  if (typeof normalizeEnvironment === "function") {
+    let tmp2 = null;
+    if (str) {
+      str = str.trim();
+      const formatted = str.toLowerCase();
+      tmp2 = null;
+      if (formatted) {
+        tmp2 = "dev";
+        if (formatted !== "dev") {
+          tmp2 = "dev";
+          if (formatted !== "development") {
+            tmp2 = "staging";
+            if (formatted !== "staging") {
+              tmp2 = "staging";
+              if (formatted !== "stage") {
+                tmp2 = "staging";
+                if (formatted !== "preprod") {
+                  tmp2 = "staging";
+                  if (formatted !== "sandbox") {
+                    if (formatted === "prod") {
+                      tmp2 = "prod";
+                    } else {
+                      tmp2 = null;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    const _globalThis = globalThis;
+    if (tmp2) {
+      _globalThis.__OWNLY_APP_ENV = tmp2;
+    } else {
+      delete _globalThis["__OWNLY_APP_ENV"];
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+export { resolveApiConfig };
+export { resolveAppsFlyerConfig };
+export function resolveRuntimeConfig(appEnvironment) {
+  let tmp = appEnvironment;
+  if (appEnvironment === undefined) {
+    tmp = getAppEnvironment();
+  }
+  const obj = { APPS_FLYER: resolveAppsFlyerConfig() };
+  const merged = Object.assign(resolveApiConfig(tmp));
+  return obj;
+}

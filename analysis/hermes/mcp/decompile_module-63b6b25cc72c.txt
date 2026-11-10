@@ -1,0 +1,451 @@
+// Module 2063 (ServiceabilityReasons)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass from "_createClass" /* 6 */;
+import module_1 from "module_1" /* 1 */;
+
+let _self, c4, closure_4, closure_5, closure_7, closure_9, isServiceable, lat;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+let c3 = "/api/v1/serviceability/check";
+class ServiceabilityService {
+  constructor() {
+    _classCallCheck.default(this, ServiceabilityService);
+    this.contextRequestGeneration = 0;
+  }
+}
+const entry = {
+  key: "checkServiceability",
+  value: function checkServiceability(arg0) {
+    return closure_0(...arguments);
+  }
+};
+const _default = module_1(_createClass).default;
+_asyncToGenerator.default(async function(arg0) {
+  const self = this;
+  let closure_1 = arg0;
+  let c2 = 0;
+  return (async (arg0, value) => {
+    if (c2 === 2) {
+      c2 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c2 = 2;
+        if (arg0 === 1) {
+          c2 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c2 = 3;
+          return { value, done: true };
+        } else {
+          c2 = 3;
+          const obj = { value: self.checkServiceabilityByLatLng(closure_1.latitude, closure_1.longitude), done: true };
+          return obj;
+        }
+      } catch (tmp6) {
+        c2 = 3;
+        throw tmp6;
+      }
+    }
+  })();
+});
+const items = [entry, , , , ];
+const entry1 = {
+  key: "checkServiceabilityByLatLng",
+  value: function checkServiceabilityByLatLng(latitude, longitude) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(lng, arg1, endpoint) {
+  let closure_6;
+  let self = this;
+  let closure_2 = arg1;
+  let c10 = 0;
+  let c11 = 0;
+  let c8 = 0;
+  const iter = (async function(arg0, value) {
+    let obj7;
+    let self;
+    if (c11 === 2) {
+      c11 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let obj4;
+        let contextRequestGeneration;
+        let obj6;
+        let tmp;
+        let data;
+        c11 = 2;
+        if (0 === c10) {
+          if (arg0 === 1) {
+            c11 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c11 = 3;
+            return { value, done: true };
+          } else {
+            closure_7 = self;
+            closure_5 = self;
+            lat = lng;
+            lng = closure_2;
+            obj4 = endpoint;
+            if (endpoint === undefined) {
+              obj4 = {};
+            }
+            endpoint = undefined;
+            contextRequestGeneration = undefined;
+            obj6 = undefined;
+            tmp = undefined;
+            data = undefined;
+            c10 = 1;
+            c11 = 1;
+            return { value: "slice", done: true };
+          }
+        } else if (1 === c10) {
+          if (arg0 === 1) {
+            c11 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c11 = 3;
+            return { value, done: true };
+          } else {
+            let tmp35;
+            const updateContext = obj4.updateContext;
+            c4 = updateContext;
+            if (updateContext == null) {
+              c4 = true;
+            }
+            endpoint = c4;
+            contextRequestGeneration = closure_7.contextRequestGeneration;
+            if (endpoint) {
+              const sum = contextRequestGeneration + 1;
+              tmp34.contextRequestGeneration = sum;
+              tmp35 = sum;
+            } else {
+              tmp35 = contextRequestGeneration;
+            }
+            contextRequestGeneration = tmp35;
+            obj6 = { lat, lng };
+            const _console4 = console;
+            const _HermesInternal3 = HermesInternal;
+            console.log("\u{1F50D} Checking serviceability for coordinates: " + lat + ", " + lng);
+            const _console5 = console;
+            const _HermesInternal4 = HermesInternal;
+            console.log("\u{1F4CD} API Endpoint: " + endpoint);
+            c8 = 1;
+            const baseApiService = self(lng[4]).baseApiService;
+            const request1 = { endpoint, method: "POST", customHeaders: obj7, body: obj6 };
+            const request = baseApiService.request;
+            c10 = 3;
+            c11 = 1;
+            obj7 = { key: self(lng[5]).API_CONFIGS.SERVICEABILITY_API_KEY };
+            const obj8 = { value: request(request1), done: false };
+            return obj8;
+          }
+        } else if (2 === c10) {
+          c8 = 0;
+          let closure_8 = closure_9;
+          const _console3 = console;
+          console.error("\u274C Error checking serviceability:", closure_8);
+          throw closure_8;
+        } else if (arg0 === 1) {
+          c11 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c8 = 0;
+          c11 = 3;
+          return { value, done: true };
+        } else {
+          tmp = value;
+          if (tmp.success) {
+            data = tmp.data;
+            const _console2 = console;
+            const obj = { isServiceable: data.isServiceable, cityName: data.cityName, opsLayerName: data.opsLayerName, reason: data.reason };
+            console.log("\u2705 Serviceability check completed:", obj);
+            const tmp18 = endpoint;
+            if (tmp18) {
+              if (contextRequestGeneration !== closure_7.contextRequestGeneration) {
+                const _Error2 = Error;
+                const self3 = this;
+                const self4 = this;
+                const error = new Error("Stale serviceability response ignored");
+                throw error;
+              } else {
+                const obj10 = { cityId: data.cityId, cityName: data.cityName, opsLayerName: data.opsLayerName };
+                const result = self(lng[6]).setLatestServiceabilityContext(obj10);
+              }
+            }
+            c8 = 0;
+            c11 = 3;
+            return { value: data, done: true };
+          } else {
+            const _console = console;
+            const _HermesInternal = HermesInternal;
+            console.error("\u274C Serviceability check failed: " + tmp.status + " - " + tmp.error);
+            const _Error = Error;
+            const _HermesInternal2 = HermesInternal;
+            self = this;
+            const self2 = this;
+            const error1 = new Error("HTTP error! status: " + tmp.status + ", body: " + tmp.error);
+            throw error1;
+          }
+        }
+      } catch (tmp58) {
+        closure_9 = tmp58;
+        if (0 === c8) {
+          c11 = 3;
+          throw tmp58;
+        } else {
+          c10 = 2;
+        }
+      }
+    }
+  })();
+  iter.next();
+  return iter;
+});
+items[1] = entry1;
+const entry2 = {
+  key: "isServiceAvailable",
+  value: function isServiceAvailable(arg0) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0) {
+  const self = this;
+  let closure_1 = arg0;
+  c3 = 0;
+  let c6 = 0;
+  let c5 = 0;
+  return (async (arg0, value) => {
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c6 = 2;
+        if (0 === c3) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            closure_2 = self;
+            isServiceable = undefined;
+            c5 = 1;
+            c3 = 2;
+            c6 = 1;
+            const obj4 = { value: self.checkServiceability(closure_1), done: false };
+            return obj4;
+          }
+        } else if (1 === tmp3) {
+          c5 = 0;
+          closure_1 = closure_4;
+          const _console = console;
+          console.error("\u274C Error checking service availability:", closure_1);
+          c6 = 3;
+          return { value: false, done: true };
+        } else if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          c6 = 3;
+          return { value, done: true };
+        } else {
+          isServiceable = value;
+          c5 = 0;
+          c6 = 3;
+          return { value: isServiceable.isServiceable, done: true };
+        }
+      } catch (tmp14) {
+        closure_4 = tmp14;
+        if (0 === c5) {
+          c6 = 3;
+          throw tmp14;
+        } else {
+          c3 = 1;
+        }
+      }
+    }
+  })();
+});
+items[2] = entry2;
+const entry3 = {
+  key: "getServiceDetails",
+  value: function getServiceDetails(arg0) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0) {
+  const self = this;
+  let closure_1 = arg0;
+  c3 = 0;
+  let c6 = 0;
+  let c5 = 0;
+  return (async (arg0, value) => {
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c6 = 2;
+        if (0 === c3) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            closure_2 = self;
+            _self = undefined;
+            c5 = 1;
+            c3 = 2;
+            c6 = 1;
+            const obj4 = { value: self.checkServiceability(closure_1), done: false };
+            return obj4;
+          }
+        } else if (1 === tmp3) {
+          c5 = 0;
+          closure_1 = closure_4;
+          const _console = console;
+          console.error("\u274C Error getting service details:", closure_1);
+          c6 = 3;
+          return { value: { isServiceable: false, reason: "SERVICE_CHECK_FAILED", message: "Unable to check service availability at this time" }, done: true };
+        } else if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          c6 = 3;
+          return { value, done: true };
+        } else {
+          _self = value;
+          c5 = 0;
+          c6 = 3;
+          return { value: { isServiceable: _self.isServiceable, cityId: _self.cityId, cityName: _self.cityName, opsLayerName: _self.opsLayerName, reason: _self.reason, message: _self.message }, done: true };
+        }
+      } catch (tmp12) {
+        closure_4 = tmp12;
+        if (0 === c5) {
+          c6 = 3;
+          throw tmp12;
+        } else {
+          c3 = 1;
+        }
+      }
+    }
+  })();
+});
+items[3] = entry3;
+const entry4 = {
+  key: "checkMultipleServiceability",
+  value: function checkMultipleServiceability(arg0) {
+    return closure_0(...arguments);
+  }
+};
+let closure_0 = _asyncToGenerator.default(async function(arg0) {
+  const self = this;
+  let closure_1 = arg0;
+  let c2 = 0;
+  return (async (arg0, value) => {
+    if (c2 === 2) {
+      c2 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c2 = 2;
+        if (arg0 === 1) {
+          c2 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c2 = 3;
+          return { value, done: true };
+        } else {
+          closure_0 = self;
+          const _console = console;
+          const _HermesInternal = HermesInternal;
+          console.log("\u{1F50D} Checking serviceability for " + closure_1.length + " locations");
+          c2 = 3;
+          const obj = {
+            value: Promise.all(closure_1.map((latitude) => {
+                    const result = closure_0.checkServiceabilityByLatLng(latitude.latitude, latitude.longitude, { updateContext: false });
+                    return result.catch((error) => ({ isServiceable: false, cityId: "", cityName: "", opsLayerName: "", reason: "SERVICE_CHECK_FAILED", message: error.message }));
+                  })),
+            done: true
+          };
+          return obj;
+        }
+      } catch (tmp3) {
+        c2 = 3;
+        throw tmp3;
+      }
+    }
+  })();
+});
+items[4] = entry4;
+const entry5 = {
+  key: "getInstance",
+  value: function getInstance() {
+    if (!ServiceabilityService.instance) {
+      const obj = Object.create(ServiceabilityService.prototype);
+      _classCallCheck.default(obj, ServiceabilityService);
+      obj.contextRequestGeneration = 0;
+      ServiceabilityService.instance = obj;
+    }
+    return ServiceabilityService.instance;
+  }
+};
+const items1 = [entry5];
+const _defaultResult = _default(ServiceabilityService, items, items1);
+const ServiceabilityService_export = _defaultResult;
+
+export const ServiceabilityReasons = { ReasonOutsideServiceArea: "OUTSIDE_SERVICE_AREA", ReasonNoOpsLayerCoverage: "NO_OPS_LAYER_COVERAGE", ReasonOutsideOperationalHours: "OUTSIDE_OPERATIONAL_HOURS", ReasonNoServiceToday: "NO_SERVICE_TODAY", ReasonServiceable: "SERVICEABLE" };
+export { ServiceabilityService_export as ServiceabilityService };
+export default _defaultResult.getInstance();

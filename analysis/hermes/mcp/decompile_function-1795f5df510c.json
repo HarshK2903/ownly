@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 25524,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function trackLogin() {\n  // @0000\n  let obj = arg0;\n  // @0003\n  // @0005\n  if (arg0 === undefined) {\n    // @0009\n    obj = {};\n  }\n  // @000b\n  // @000d\n  // @0010\n  // @0014\n  // @0018\n  // @001c\n  // @0021\n  const incogniaService = closure_1_0(closure_1_1[26]).incogniaService;\n  // @0027\n  // @002d\n  // @0031\n  incogniaService.trackLogin(\"AUTHORIZED\", obj);\n  // @0037\n  // @003d\n  // @0041\n  this.trackEvent(\"login\", obj);\n  // @0047\n  // @004b\n  // @0050\n  // @0056\n  // @005b\n  // @0061\n  // @0067\n  const _default = closure_1_10.default;\n  _default.trackEvent(closure_1_10.default.EVENTS.LOGIN, obj);\n  // @006d\n  // @0071\n  // @0076\n  // @007c\n  // @0081\n  // @0087\n  // @008d\n  const _default2 = closure_1_9.default;\n  _default2.trackEvent(closure_1_9.default.EVENTS.LOGIN, obj);\n  // @0093\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

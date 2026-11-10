@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3960
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 10,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3960 (cleverTapSink)\nimport _mod1671 from \"module_1671\" /* 1671 */;\nimport _mod3940 from \"module_3940\" /* 3940 */;\nimport module_1 from \"module_1\" /* 1 */;\n\nfunction initialize() {\n\n}\nfunction isAvailable() {\n  let recordEvent;\n  if (module_1671.default != null) {\n    recordEvent = _default.recordEvent;\n  }\n  return typeof recordEvent === \"function\";\n}\nfunction track(event_name) {\n  event_name = event_name.event_name;\n  if (typeof event_name === \"string\") {\n    if (event_name.length !== 0) {\n      if (typeof toCleverTapProperties === \"function\") {\n        const obj = {};\n        const merged = Object.assign(event_name);\n        delete obj[\"event_name\"];\n        tmp2(event_name, obj);\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    }\n  }\n}\nfunction identify(name) {\n  let actorType;\n  if (typeof toCleverTapProfile === \"function\") {\n    const obj = { Identity: null, Type: actorType };\n    ({ actorId: obj.Identity, actorType } = name);\n    if (actorType == null) {\n      actorType = \"user\";\n    }\n    if (name.name !== undefined) {\n      obj.Name = name.name;\n    }\n    if (name.email !== undefined) {\n      obj.Email = name.email;\n    }\n    if (name.phone !== undefined) {\n      obj.Phone = name.phone;\n    }\n    tmp(obj);\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nfunction updateProfile(arg0) {\n  if (typeof toCleverTapPatch === \"function\") {\n    const _Object = Object;\n    const _Object2 = Object;\n    const entries = Object.entries(arg0);\n    const fromEntriesResult = fromEntries(entries.filter((item) => item[1] !== undefined));\n    const _Object3 = Object;\n    if (Object.keys(fromEntriesResult).length !== 0) {\n      const _default = module_1671.default;\n      _default.profileSet(fromEntriesResult);\n    }\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nfunction setLocation(arg0, arg1) {\n  if (Number.isFinite(arg0)) {\n    const _Number = Number;\n    if (Number.isFinite(arg1)) {\n      if (arg0 >= -90) {\n        if (arg0 <= 90) {\n          if (arg1 >= -180) {\n            if (arg1 <= 180) {\n              const _default = module_1671.default;\n              _default.setLocation(arg0, arg1);\n            }\n          }\n        }\n      }\n    }\n  }\n}\nconst module_1671 = module_1(_mod1671);\nfunction toCleverTapProfile(arg0) {\n\n}\nfunction toCleverTapProperties(arg0) {\n\n}\nfunction toCleverTapPatch(arg0) {\n\n}\nlet obj = { sink: _mod3940.Sink.CLEVERTAP, initialize, isAvailable, track, identify, updateProfile, setLocation };\n\nexport function createCleverTapSink() {\n  let obj = { sink: _mod3940.Sink.CLEVERTAP, initialize, isAvailable, track, identify, updateProfile, setLocation };\n  return obj;\n}\nexport const cleverTapSink = obj;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

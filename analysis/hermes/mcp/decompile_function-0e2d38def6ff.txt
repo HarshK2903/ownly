@@ -1,0 +1,290 @@
+function f2075(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+  // @0000
+  // @0003
+  // @0006
+  closure_0 = require;
+  // @000a
+  // @000d
+  // @0010
+  closure_1 = dependencyMap;
+  // @0014
+  // @0019
+  closure_30 = function _interopRequireWildcard() { /* body not rendered: F13622 */ };
+  // @001d
+  // @0021
+  // @0023
+  const _module = require(dependencyMap[0]);
+  // @0028
+  // @002a
+  // @0030
+  // @0035
+  // @0039
+  // @0043
+  // @004a
+  exports.default = undefined;
+  // @0050
+  // @0054
+  // @0058
+  // @005d
+  const tmp3 = closure_30(require(dependencyMap[1]));
+  // @0062
+  closure_2 = tmp3;
+  // @0066
+  // @006a
+  const _module1 = require(dependencyMap[2]);
+  // @006f
+  // @0073
+  // @0078
+  // @007d
+  closure_3 = _module(require(dependencyMap[3]));
+  // @0081
+  // @0085
+  // @008a
+  // @008f
+  closure_4 = _module(require(dependencyMap[4]));
+  // @0093
+  // @0097
+  // @009c
+  // @00a1
+  closure_5 = _module(require(dependencyMap[5]));
+  // @00a5
+  // @00a9
+  // @00ae
+  // @00b3
+  closure_6 = _module(require(dependencyMap[6]));
+  // @00b7
+  // @00bb
+  // @00c0
+  // @00c5
+  closure_7 = _module(require(dependencyMap[7]));
+  // @00c9
+  // @00cd
+  // @00d2
+  // @00d7
+  closure_8 = _module(require(dependencyMap[8]));
+  // @00db
+  // @00df
+  // @00e4
+  // @00e9
+  closure_9 = _module(require(dependencyMap[9]));
+  // @00ed
+  // @00f1
+  // @00f6
+  // @00fb
+  closure_10 = _module(require(dependencyMap[10]));
+  // @00ff
+  // @0103
+  // @0108
+  // @010d
+  closure_11 = _module(require(dependencyMap[11]));
+  // @0111
+  // @0115
+  // @011a
+  // @011f
+  closure_12 = _module(require(dependencyMap[12]));
+  // @0123
+  // @0127
+  // @012c
+  // @0131
+  closure_13 = _module(require(dependencyMap[13]));
+  // @0135
+  // @0139
+  // @013e
+  // @0143
+  closure_14 = _module(require(dependencyMap[14]));
+  // @0147
+  // @014b
+  // @0150
+  // @0155
+  closure_15 = _module(require(dependencyMap[15]));
+  // @0159
+  // @015d
+  // @0162
+  // @0167
+  closure_16 = _module(require(dependencyMap[16]));
+  // @016b
+  // @016f
+  // @0174
+  // @0179
+  closure_17 = _module(require(dependencyMap[17]));
+  // @017d
+  // @0181
+  // @0186
+  // @018b
+  closure_18 = _module(require(dependencyMap[18]));
+  // @018f
+  // @0193
+  // @0198
+  // @019d
+  closure_19 = _module(require(dependencyMap[19]));
+  // @01a1
+  // @01a5
+  // @01aa
+  // @01af
+  closure_20 = _module(require(dependencyMap[20]));
+  // @01b3
+  // @01b7
+  // @01bc
+  // @01c1
+  closure_21 = _module(require(dependencyMap[21]));
+  // @01c5
+  // @01c9
+  // @01ce
+  // @01d3
+  closure_22 = _module(require(dependencyMap[22]));
+  // @01d7
+  // @01db
+  // @01e0
+  // @01e5
+  closure_23 = _module(require(dependencyMap[23]));
+  // @01e9
+  // @01ed
+  // @01f2
+  // @01f7
+  closure_24 = _module(require(dependencyMap[24]));
+  // @01fb
+  // @01ff
+  // @0204
+  // @0209
+  closure_25 = _module(require(dependencyMap[25]));
+  // @020d
+  // @0211
+  // @0216
+  // @021b
+  closure_26 = _module(require(dependencyMap[26]));
+  // @021f
+  // @0223
+  // @0228
+  // @022d
+  closure_27 = _module(require(dependencyMap[27]));
+  // @0231
+  // @0235
+  // @023a
+  // @023f
+  closure_28 = _module(require(dependencyMap[28]));
+  // @0243
+  // @0247
+  // @024c
+  closure_29 = require(dependencyMap[29]);
+  // @0250
+  // @0255
+  // @025b
+  // @0260
+  // @0265
+  const _default = tmp3.default;
+  closure_31 = _default.lazy(function() { /* body not rendered: F13623 */ });
+  // @0269
+  // @026e
+  // @0274
+  // @0279
+  // @027e
+  const _default2 = tmp3.default;
+  closure_32 = _default2.lazy(function() { /* body not rendered: F13624 */ });
+  // @0282
+  // @0287
+  // @028d
+  // @0292
+  // @0297
+  const _default3 = tmp3.default;
+  closure_33 = _default3.lazy(function() { /* body not rendered: F13625 */ });
+  // @029b
+  // @02a0
+  // @02a6
+  // @02ab
+  // @02b0
+  const _default4 = tmp3.default;
+  closure_34 = _default4.lazy(function() { /* body not rendered: F13626 */ });
+  // @02b4
+  // @02b9
+  // @02bf
+  // @02c4
+  // @02c9
+  const _default5 = tmp3.default;
+  closure_35 = _default5.lazy(function() { /* body not rendered: F13627 */ });
+  // @02cd
+  // @02d2
+  // @02d8
+  // @02dd
+  // @02e2
+  const _default6 = tmp3.default;
+  closure_36 = _default6.lazy(function() { /* body not rendered: F13628 */ });
+  // @02e6
+  // @02eb
+  // @02f1
+  // @02f6
+  // @02fb
+  const _default7 = tmp3.default;
+  closure_37 = _default7.lazy(function() { /* body not rendered: F13629 */ });
+  // @02ff
+  // @0304
+  // @030a
+  // @030f
+  // @0314
+  const _default8 = tmp3.default;
+  closure_38 = _default8.lazy(function() { /* body not rendered: F13630 */ });
+  // @0318
+  // @031d
+  // @0323
+  // @0328
+  // @032d
+  const _default9 = tmp3.default;
+  closure_39 = _default9.lazy(function() { /* body not rendered: F13631 */ });
+  // @0331
+  // @0336
+  // @033c
+  // @0341
+  // @0346
+  const _default10 = tmp3.default;
+  closure_40 = _default10.lazy(function() { /* body not rendered: F13632 */ });
+  // @034a
+  // @034f
+  // @0355
+  // @035a
+  // @035f
+  const _default11 = tmp3.default;
+  closure_41 = _default11.lazy(function() { /* body not rendered: F13633 */ });
+  // @0363
+  // @0368
+  // @036e
+  // @0373
+  // @0378
+  const _default12 = tmp3.default;
+  closure_42 = _default12.lazy(function() { /* body not rendered: F13634 */ });
+  // @037c
+  // @0381
+  // @0387
+  // @038c
+  // @0391
+  const _default13 = tmp3.default;
+  closure_43 = _default13.lazy(function() { /* body not rendered: F13635 */ });
+  // @0395
+  // @039a
+  // @03a0
+  // @03a5
+  // @03aa
+  const _default14 = tmp3.default;
+  closure_44 = _default14.lazy(function() { /* body not rendered: F13636 */ });
+  // @03ae
+  // @03b3
+  // @03b9
+  // @03be
+  // @03c3
+  const _default15 = tmp3.default;
+  closure_45 = _default15.lazy(function() { /* body not rendered: F13637 */ });
+  // @03c7
+  // @03cb
+  // @03d0
+  // @03d6
+  // @03da
+  closure_46 = require(dependencyMap[46]).createNativeStackNavigator();
+  // @03de
+  // @03e3
+  closure_47 = function handleNavigationStateChange() { /* body not rendered: F13638 */ };
+  // @03e7
+  // @03ec
+  closure_48 = function handleNavigationReady() { /* body not rendered: F13639 */ };
+  // @03f0
+  // @03f5
+  exports.default = function Navigation() { /* body not rendered: F13640 */ };
+  // @03fb
+}

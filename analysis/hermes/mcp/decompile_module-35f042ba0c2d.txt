@@ -1,0 +1,1183 @@
+// Module 1660 (GeocodingService)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass from "_createClass" /* 6 */;
+import _slicedToArray2 from "_slicedToArray" /* 29 */;
+import module_1 from "module_1" /* 1 */;
+
+let closure_4, closure_5, closure_6, types;
+
+const _slicedToArray = module_1(_slicedToArray2);
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+class GeocodingService {
+  constructor() {
+    _classCallCheck.default(this, GeocodingService);
+    this.geocodingCache = new Map();
+    new Map();
+    this.placesSearchCache = new Map();
+    new Map();
+    this.pendingRequests = new Map();
+    this.CACHE_EXPIRY = 3600000;
+    this.PLACES_CACHE_EXPIRY = 300000;
+    this.REQUEST_TIMEOUT = 3000;
+    new Map();
+  }
+}
+const entry = {
+  key: "fetchAddressWithCache",
+  value: function fetchAddressWithCache(arg0) {
+    return closure_0(...arguments);
+  }
+};
+const _default = module_1(_createClass).default;
+_asyncToGenerator.default(async function(arg0) {
+  let closure_3;
+  let self = this;
+  let closure_1 = arg0;
+  let c7 = 0;
+  let c8 = 0;
+  let c5 = 0;
+  return (async function(arg0, value) {
+    let items;
+    let obj7;
+    let self;
+    if (c8 === 2) {
+      c8 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let tmp;
+        let data;
+        let formatted_address;
+        let combined;
+        let timestamp;
+        c8 = 2;
+        if (0 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            geocodingCache = self;
+            _self = closure_1;
+            tmp = undefined;
+            data = undefined;
+            formatted_address = undefined;
+            c5 = 1;
+            const latitude5 = closure_1.latitude;
+            const longitude5 = closure_1.longitude;
+            const _HermesInternal5 = HermesInternal;
+            const toFixedResult = latitude5.toFixed(5);
+            combined = "" + toFixedResult + "," + longitude5.toFixed(5);
+            const geocodingCache2 = self.geocodingCache;
+            value = geocodingCache2.get(combined);
+            const _Date = Date;
+            timestamp = Date.now();
+            const tmp91 = self;
+            const tmp93 = closure_1;
+            if (value) {
+              service3 = timestamp - value.timestamp;
+              if (service3 < tmp91.CACHE_EXPIRY) {
+                const service5 = self(closure_1[5]).loggerService.location.service;
+                service5.debug("Using cached geocoding result from service");
+                c5 = 0;
+                c8 = 3;
+                return { value: value.address, done: true };
+              }
+            }
+            const service4 = self(closure_1[5]).loggerService.location.service;
+            service4.info("Fetching from Nutana Geocoding API via service");
+            const obj5 = { locations: items };
+            const obj6 = { lat: null, lng: null };
+            ({ latitude: obj9.lat, longitude: obj9.lng } = tmp93);
+            items = [obj6];
+            service3 = self(closure_1[6]).baseApiService;
+            const request1 = { endpoint: "/api/v2/geocoding", method: "POST", customHeaders: obj7, body: obj5 };
+            const request = service3.request;
+            c7 = 2;
+            c8 = 1;
+            obj7 = { key: self(closure_1[7]).API_CONFIGS.SERVICEABILITY_API_KEY };
+            const obj8 = { value: request(request1), done: false };
+            return obj8;
+          }
+        } else if (1 === tmp4) {
+          c5 = 0;
+          service3 = self(closure_1[5]).loggerService.location.service;
+          service3.error("Error fetching address in service", closure_6);
+          const latitude4 = _self.latitude;
+          const longitude4 = _self.longitude;
+          const _HermesInternal4 = HermesInternal;
+          c8 = 3;
+          const toFixedResult1 = latitude4.toFixed(6);
+          const obj10 = { value: "Location (" + toFixedResult1 + ", " + longitude4.toFixed(6) + ")", done: true };
+          return obj10;
+        } else if (arg0 === 1) {
+          c8 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          c8 = 3;
+          return { value, done: true };
+        } else {
+          tmp = value;
+          if (tmp.success) {
+            if (tmp.data) {
+              data = tmp.data;
+              data = data.data;
+              let status;
+              if (data != null) {
+                const first = data[0];
+                if (first != null) {
+                  status = first.status;
+                }
+              }
+              if (status === "OK") {
+                const first1 = data.data[0];
+                let length;
+                if (first1 != null) {
+                  const results = first1.results;
+                  if (results != null) {
+                    length = results.length;
+                  }
+                }
+                if (length > 0) {
+                  formatted_address = data.data[0].results[0].formatted_address;
+                  geocodingCache = geocodingCache.geocodingCache;
+                  const obj12 = { address: formatted_address, timestamp };
+                  const result = geocodingCache.set(combined, obj12);
+                  c5 = 0;
+                  c8 = 3;
+                  return { value: formatted_address, done: true };
+                }
+              }
+              const data2 = data.data;
+              let status1;
+              if (data2 != null) {
+                const first2 = data2[0];
+                if (first2 != null) {
+                  status1 = first2.status;
+                }
+              }
+              if (status1 === "OVER_QUERY_LIMIT") {
+                const service2 = self(closure_1[5]).loggerService.location.service;
+                service2.warn("Nutana Geocoding API quota exceeded");
+                const latitude3 = _self.latitude;
+                const longitude3 = _self.longitude;
+                const _HermesInternal3 = HermesInternal;
+                c5 = 0;
+                c8 = 3;
+                const toFixedResult2 = latitude3.toFixed(6);
+                const obj14 = { value: "Location (" + toFixedResult2 + ", " + longitude3.toFixed(6) + ")", done: true };
+                return obj14;
+              } else {
+                const data3 = data.data;
+                let status2;
+                if (data3 != null) {
+                  const first3 = data3[0];
+                  if (first3 != null) {
+                    status2 = first3.status;
+                  }
+                }
+                if (status2 === "REQUEST_DENIED") {
+                  const service = self(closure_1[5]).loggerService.location.service;
+                  service.warn("Nutana Geocoding API request denied");
+                  const latitude2 = _self.latitude;
+                  const longitude2 = _self.longitude;
+                  const _HermesInternal2 = HermesInternal;
+                  c5 = 0;
+                  c8 = 3;
+                  const toFixedResult3 = latitude2.toFixed(6);
+                  const obj15 = { value: "Location (" + toFixedResult3 + ", " + longitude2.toFixed(6) + ")", done: true };
+                  return obj15;
+                } else {
+                  const latitude = _self.latitude;
+                  const longitude = _self.longitude;
+                  const _HermesInternal = HermesInternal;
+                  c5 = 0;
+                  c8 = 3;
+                  const toFixedResult4 = latitude.toFixed(6);
+                  const obj = { value: "Location (" + toFixedResult4 + ", " + longitude.toFixed(6) + ")", done: true };
+                  return obj;
+                }
+              }
+            }
+          }
+          let str = tmp.error;
+          const _Error = Error;
+          if (!str) {
+            str = "Geocoding API failed";
+          }
+          self = this;
+          const self2 = this;
+          const _Error1 = new _Error(str);
+          throw _Error1;
+        }
+      } catch (tmp79) {
+        closure_6 = tmp79;
+        if (0 === c5) {
+          c8 = 3;
+          throw tmp79;
+        } else {
+          c7 = 1;
+        }
+      }
+    }
+  })();
+});
+let items = [entry, , , , , , , ];
+const entry1 = {
+  key: "fetchAddressForCoordinates",
+  value: function fetchAddressForCoordinates(arg0) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0) {
+  const self = this;
+  let closure_1 = arg0;
+  let c2 = 0;
+  return (async (arg0, value) => {
+    if (c2 === 2) {
+      c2 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c2 = 2;
+        if (arg0 === 1) {
+          c2 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c2 = 3;
+          let obj3 = { value, done: true };
+          return obj3;
+        } else {
+          let obj6 = self;
+          closure_0 = closure_1;
+          closure_1 = self;
+          const latitude = closure_1.latitude;
+          const longitude = closure_1.longitude;
+          let _HermesInternal = HermesInternal;
+          const toFixedResult = latitude.toFixed(5);
+          const combined = "geocoding_" + toFixedResult + "," + longitude.toFixed(5);
+          let geocodingCache = self.geocodingCache;
+          value = geocodingCache.get(combined);
+          const _Date = Date;
+          let timestamp = Date.now();
+          if (value) {
+            if (timestamp - value.timestamp < obj6.CACHE_EXPIRY) {
+              const tmp4 = self;
+              let service = self(closure_1[5]).loggerService.location.service;
+              let str = "Using cached geocoding result";
+              service.debug("Using cached geocoding result");
+              let str2 = value.address;
+              const parts = str2.split("|");
+              let address = parts[0] || value.address;
+              let obj4 = { formattedAddress: address, placeName: str4, placeId: str5, street: str6, city: str7 };
+              c2 = 3;
+              let obj5 = { value: obj4, done: true };
+              return obj5;
+            }
+          }
+          const tmp3 = closure_1_3;
+          c2 = 3;
+          let obj = {
+            value: obj6.deduplicateRequest(combined, closure_1_3.default(function*(arg0, value) {
+                    let closure_2;
+                    let error_message;
+                    let items;
+                    let length1;
+                    let obj6;
+                    let str;
+                    let str2;
+                    if (c5 === 2) {
+                      c5 = 3;
+                      throw new TypeError("Generator functions may not be called on executing generators");
+                    } else if (tmp3 === 3) {
+                      if (arg0 === 1) {
+                        throw value;
+                      } else if (arg0 === 2) {
+                        const obj2 = { value, done: true };
+                        return obj2;
+                      } else {
+                        return { value: "return", done: null };
+                      }
+                    } else {
+                      let tmp110;
+                      let c3;
+                      try {
+                        let data;
+                        let formatted_address;
+                        let address_components;
+                        let place_id;
+                        let long_name;
+                        let long_name2;
+                        let long_name3;
+                        let closure_10;
+                        let placeName;
+                        let obj12;
+                        let address;
+                        let error_message2;
+                        c5 = 2;
+                        if (0 === c4) {
+                          if (arg0 === 1) {
+                            c5 = 3;
+                            throw value;
+                          } else if (arg0 === 2) {
+                            c5 = 3;
+                            const obj3 = { value, done: true };
+                            return obj3;
+                          } else {
+                            closure_1 = tmp;
+                            closure_0 = undefined;
+                            data = undefined;
+                            tmp110 = undefined;
+                            timestamp = undefined;
+                            formatted_address = undefined;
+                            address_components = undefined;
+                            place_id = undefined;
+                            long_name = undefined;
+                            long_name2 = undefined;
+                            long_name3 = undefined;
+                            closure_10 = undefined;
+                            placeName = undefined;
+                            obj12 = undefined;
+                            address = undefined;
+                            error_message2 = undefined;
+                            c3 = 1;
+                            const service7 = closure_0(closure_1[5]).loggerService.location.service;
+                            service7.debug("fetchAddressForCoordinates - Coordinates:", closure_0);
+                            const obj4 = { locations: items };
+                            const obj5 = { lat: null, lng: null };
+                            ({ latitude: obj17.lat, longitude: obj17.lng } = closure_0);
+                            items = [obj5];
+                            const service8 = closure_0(closure_1[5]).loggerService.location.service;
+                            const _JSON = JSON;
+                            service8.debug("fetchAddressForCoordinates - Request body:", JSON.stringify(obj4, null, 2));
+                            const baseApiService = closure_0(closure_1[6]).baseApiService;
+                            const request1 = { endpoint: "/api/v2/geocoding", method: "POST", customHeaders: obj6, body: obj4 };
+                            obj6 = { key: closure_0(closure_1[7]).API_CONFIGS.SERVICEABILITY_API_KEY };
+                            const request = baseApiService.request;
+                            c4 = 2;
+                            c5 = 1;
+                            const obj7 = { value: request(request1), done: false };
+                            return obj7;
+                          }
+                        } else if (1 === c4) {
+                          c3 = 0;
+                          let closure_15 = tmp110;
+                          const service6 = closure_0(closure_1[5]).loggerService.location.service;
+                          service6.error("fetchAddressForCoordinates - Exception:", closure_15);
+                          c5 = 3;
+                          const obj8 = { value: { formattedAddress: "", placeName: "Outside Service Area", placeId: "", street: "", city: "" }, done: true };
+                          return obj8;
+                        } else if (arg0 === 1) {
+                          c5 = 3;
+                          throw value;
+                        } else if (arg0 === 2) {
+                          c3 = 0;
+                          c5 = 3;
+                          const obj9 = { value, done: true };
+                          return obj9;
+                        } else {
+                          closure_0 = value;
+                          if (closure_0.success) {
+                            if (closure_0.data) {
+                              data = closure_0.data;
+                              if (data.data) {
+                                const _Array = Array;
+                                if (Array.isArray(data.data)) {
+                                  if (data.data.length !== 0) {
+                                    tmp110 = data.data[0];
+                                    let status;
+                                    if (tmp110 != null) {
+                                      status = tmp110.status;
+                                    }
+                                    if (status === "OK") {
+                                      let length;
+                                      if (tmp110 != null) {
+                                        const results = tmp110.results;
+                                        if (results != null) {
+                                          length = results.length;
+                                        }
+                                      }
+                                      if (length > 0) {
+                                        timestamp = tmp110.results[0];
+                                        formatted_address = timestamp.formatted_address;
+                                        address_components = timestamp.address_components || [];
+                                        place_id = timestamp.place_id;
+                                        const service3 = closure_0(closure_1[5]).loggerService.location.service;
+                                        service3.debug("fetchAddressForCoordinates - Formatted address:", formatted_address);
+                                        long_name = address_components.find((types) => {
+                                          types = types.types;
+                                          let hasItem = types.includes("sublocality");
+                                          if (!hasItem) {
+                                            const types2 = types.types;
+                                            hasItem = types2.includes("locality");
+                                          }
+                                          if (!hasItem) {
+                                            const types3 = types.types;
+                                            hasItem = types3.includes("sublocality_level_1");
+                                          }
+                                          return hasItem;
+                                        });
+                                        long_name2 = address_components.find((types) => {
+                                          types = types.types;
+                                          return types.includes("locality");
+                                        });
+                                        long_name3 = address_components.find((types) => {
+                                          types = types.types;
+                                          let hasItem = types.includes("route");
+                                          if (!hasItem) {
+                                            const types2 = types.types;
+                                            hasItem = types2.includes("sublocality_level_2");
+                                          }
+                                          return hasItem;
+                                        });
+                                        closure_10 = address_components.find((types) => {
+                                          types = types.types;
+                                          return types.includes("country");
+                                        });
+                                        const tmp65 = closure_10;
+                                        if (tmp65) {
+                                          if (closure_10.short_name !== "IN") {
+                                            const service4 = closure_0(closure_1[5]).loggerService.location.service;
+                                            service4.debug("fetchAddressForCoordinates - Location outside India:", closure_10.short_name);
+                                            const obj10 = { formattedAddress: "Service not available in this area", placeName: "Outside Service Area", addressComponents: address_components, placeId: place_id, street: "", city: "" };
+                                            c3 = 0;
+                                            c5 = 3;
+                                            const obj11 = { value: obj10, done: true };
+                                            return obj11;
+                                          }
+                                        }
+                                        placeName = "";
+                                        const tmp69 = long_name;
+                                        if (tmp69) {
+                                          placeName = long_name.long_name;
+                                        } else {
+                                          placeName = formatted_address.split(",")[0];
+                                        }
+                                        obj12 = { formattedAddress: formatted_address, placeName, addressComponents: address_components, placeId: place_id, street: str, city: str2 };
+                                        str = undefined;
+                                        if (long_name3 != null) {
+                                          str = long_name3.long_name;
+                                        }
+                                        if (!str) {
+                                          str = "";
+                                        }
+                                        str2 = undefined;
+                                        if (long_name2 != null) {
+                                          str2 = long_name2.long_name;
+                                        }
+                                        if (!str2) {
+                                          str2 = "";
+                                        }
+                                        const _HermesInternal = HermesInternal;
+                                        address = "" + formatted_address + "|" + placeName + "|" + place_id + "|" + obj12.street + "|" + obj12.city;
+                                        const geocodingCache = closure_129_1.geocodingCache;
+                                        const obj13 = { address, timestamp: closure_129_3 };
+                                        const result = geocodingCache.set(closure_129_2, obj13);
+                                        c3 = 0;
+                                        c5 = 3;
+                                        const obj14 = { value: obj12, done: true };
+                                        return obj14;
+                                      }
+                                    }
+                                    const service2 = closure_0(closure_1[5]).loggerService.location.service;
+                                    let status1;
+                                    const warn = service2.warn;
+                                    if (tmp110 != null) {
+                                      status1 = tmp110.status;
+                                    }
+                                    const obj15 = { status: status1, resultsLength: length1, errorMessage: error_message };
+                                    length1 = undefined;
+                                    if (tmp110 != null) {
+                                      const results1 = tmp110.results;
+                                      if (results1 != null) {
+                                        length1 = results1.length;
+                                      }
+                                    }
+                                    error_message = undefined;
+                                    if (tmp110 != null) {
+                                      error_message = tmp110.error_message;
+                                    }
+                                    warn("fetchAddressForCoordinates - API status not OK or no results:", obj15);
+                                    error_message2 = "Address not found";
+                                    let status2;
+                                    if (tmp110 != null) {
+                                      status2 = tmp110.status;
+                                    }
+                                    if (status2 === "ZERO_RESULTS") {
+                                      error_message2 = "No address found for these coordinates";
+                                    } else {
+                                      let status3;
+                                      if (tmp110 != null) {
+                                        status3 = tmp110.status;
+                                      }
+                                      if (status3 === "OVER_QUERY_LIMIT") {
+                                        error_message2 = "API quota exceeded";
+                                      } else {
+                                        let status4;
+                                        if (tmp110 != null) {
+                                          status4 = tmp110.status;
+                                        }
+                                        if (status4 === "REQUEST_DENIED") {
+                                          error_message2 = "API request denied";
+                                        } else {
+                                          let status5;
+                                          if (tmp110 != null) {
+                                            status5 = tmp110.status;
+                                          }
+                                          if (status5 === "INVALID_REQUEST") {
+                                            error_message2 = "Invalid coordinates";
+                                          } else {
+                                            let error_message1;
+                                            if (tmp110 != null) {
+                                              error_message1 = tmp110.error_message;
+                                            }
+                                            if (error_message1) {
+                                              error_message2 = tmp110.error_message;
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                    const obj16 = { formattedAddress: error_message2, placeName: "Outside Service Area", placeId: "", street: "", city: "" };
+                                    c3 = 0;
+                                    c5 = 3;
+                                    const obj18 = { value: obj16, done: true };
+                                    return obj18;
+                                  }
+                                }
+                              }
+                              const service5 = closure_0(closure_1[5]).loggerService.location.service;
+                              service5.warn("fetchAddressForCoordinates - No data array in response");
+                              c3 = 0;
+                              c5 = 3;
+                              const obj19 = { value: { formattedAddress: "", placeName: "Outside Service Area", placeId: "", street: "", city: "" }, done: true };
+                              return obj19;
+                            }
+                          }
+                          const service = closure_0(closure_1[5]).loggerService.location.service;
+                          service.error("fetchAddressForCoordinates - API error:", closure_0.error);
+                          c3 = 0;
+                          c5 = 3;
+                          const obj = { value: { formattedAddress: "", placeName: "Outside Service Area", placeId: "", street: "", city: "" }, done: true };
+                          return obj;
+                        }
+                      } catch (tmp110) {
+                        if (0 === c3) {
+                          c5 = 3;
+                          throw tmp110;
+                        } else {
+                          c4 = 1;
+                        }
+                      }
+                    }
+                  })),
+            done: true
+          };
+          return obj;
+        }
+      } catch (tmp8) {
+        c2 = 3;
+        throw tmp8;
+      }
+    }
+  })();
+});
+items[1] = entry1;
+const entry2 = {
+  key: "searchPlaces",
+  value: function searchPlaces(arg0, arg1) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0, arg1) {
+  let self = this;
+  let closure_1 = arg0;
+  let closure_2 = arg1;
+  let c3 = 0;
+  return (async (arg0, value) => {
+    let latitude;
+    let longitude;
+    if (c3 === 2) {
+      c3 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c3 = 2;
+        if (arg0 === 1) {
+          c3 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c3 = 3;
+          let obj3 = { value, done: true };
+          return obj3;
+        } else {
+          let obj6 = self;
+          closure_0 = closure_1;
+          const str8 = closure_1;
+          closure_1 = closure_2;
+          closure_2 = self;
+          if (closure_1.trim()) {
+            let str = "default";
+            if (closure_2) {
+              ({ latitude, longitude } = closure_2);
+              const tmp4 = globalThis;
+              let _HermesInternal = HermesInternal;
+              let str2 = ",";
+              const toFixedResult = latitude.toFixed(3);
+              str = "" + toFixedResult + "," + longitude.toFixed(3);
+            }
+            const _HermesInternal2 = HermesInternal;
+            const combined = "places_" + str8.toLowerCase() + "_" + str;
+            let placesSearchCache = obj6.placesSearchCache;
+            value = placesSearchCache.get(combined);
+            const _Date = Date;
+            const timestamp = Date.now();
+            if (value) {
+              if (timestamp - value.timestamp < obj6.PLACES_CACHE_EXPIRY) {
+                let service = self(closure_1[5]).loggerService.location.service;
+                service.debug("Using cached places search result");
+                c3 = 3;
+                let obj4 = { value: value.predictions, done: true };
+                return obj4;
+              }
+            }
+            c3 = 3;
+            let obj5 = {
+              value: obj6.deduplicateRequest(combined, c3.default(function*(arg0, value) {
+                        let obj5;
+                        let obj6;
+                        if (c5 === 2) {
+                          c5 = 3;
+                          throw new TypeError("Generator functions may not be called on executing generators");
+                        } else if (tmp3 === 3) {
+                          if (arg0 === 1) {
+                            throw value;
+                          } else if (arg0 === 2) {
+                            const obj2 = { value, done: true };
+                            return obj2;
+                          } else {
+                            return { value: "return", done: null };
+                          }
+                        } else {
+                          try {
+                            let query;
+                            let data;
+                            let mapped;
+                            c5 = 2;
+                            if (0 === c4) {
+                              if (arg0 === 1) {
+                                c5 = 3;
+                                throw value;
+                              } else if (arg0 === 2) {
+                                c5 = 3;
+                                const obj3 = { value, done: true };
+                                return obj3;
+                              } else {
+                                closure_1 = tmp;
+                                query = undefined;
+                                data = undefined;
+                                mapped = undefined;
+                                c3 = 1;
+                                const _location = closure_1 || { latitude: 12.9116, longitude: 77.6467 };
+                                const obj4 = { query, location: obj5, filters: ["description", "place_id", "distance_meters", "structured_formatting", "types"] };
+                                obj5 = { lat: null, lng: null };
+                                ({ latitude: obj7.lat, longitude: obj7.lng } = _location);
+                                const baseApiService = query(closure_1[6]).baseApiService;
+                                const request1 = { endpoint: "/api/v2/places/autocomplete", method: "POST", customHeaders: obj6, body: obj4 };
+                                obj6 = { key: query(closure_1[7]).API_CONFIGS.SERVICEABILITY_API_KEY };
+                                const request = baseApiService.request;
+                                c4 = 2;
+                                c5 = 1;
+                                const obj8 = { value: request(request1), done: false };
+                                return obj8;
+                              }
+                            } else if (1 === c4) {
+                              c3 = 0;
+                              const message = closure_2;
+                              const service2 = query(closure_1[5]).loggerService.location.service;
+                              service2.error("Error searching places", message);
+                              let str2 = message.message;
+                              const _Error3 = Error;
+                              if (!str2) {
+                                str2 = "Failed to search places";
+                              }
+                              const self5 = this;
+                              const self6 = this;
+                              const _Error31 = new _Error3(str2);
+                              throw _Error31;
+                            } else if (arg0 === 1) {
+                              c5 = 3;
+                              throw value;
+                            } else if (arg0 === 2) {
+                              c3 = 0;
+                              c5 = 3;
+                              const obj9 = { value, done: true };
+                              return obj9;
+                            } else {
+                              query = value;
+                              if (query.success) {
+                                if (query.data) {
+                                  data = query.data;
+                                  if (data.status !== "OK") {
+                                    const service = query(closure_1[5]).loggerService.location.service;
+                                    const obj10 = { status: data.status };
+                                    service.error("Nutana Places API Error", obj10);
+                                    const _Error2 = Error;
+                                    const _HermesInternal = HermesInternal;
+                                    const self3 = this;
+                                    const self4 = this;
+                                    const error = new Error("API Error: " + data.status);
+                                    throw error;
+                                  } else {
+                                    const predictions = data.predictions;
+                                    mapped = undefined;
+                                    if (predictions != null) {
+                                      mapped = predictions.map((description) => ({ description: description.description, place_id: description.place_id, structured_formatting: { main_text: description.structured_formatting.main_text, secondary_text: description.structured_formatting.secondary_text }, distance_meters: description.distance_meters, types: description.types }));
+                                    }
+                                    if (!mapped) {
+                                      mapped = [];
+                                    }
+                                    const placesSearchCache = closure_129_2.placesSearchCache;
+                                    const obj = { predictions: mapped, timestamp: closure_129_4 };
+                                    const result = placesSearchCache.set(closure_129_3, obj);
+                                    c3 = 0;
+                                    c5 = 3;
+                                    const obj11 = { value: mapped, done: true };
+                                    return obj11;
+                                  }
+                                }
+                              }
+                              let str = query.error;
+                              const _Error = Error;
+                              if (!str) {
+                                str = "Places API failed";
+                              }
+                              self = this;
+                              const self2 = this;
+                              const _Error1 = new _Error(str);
+                              throw _Error1;
+                            }
+                          } catch (tmp48) {
+                            closure_2 = tmp48;
+                            if (0 === c3) {
+                              c5 = 3;
+                              throw tmp48;
+                            } else {
+                              c4 = 1;
+                            }
+                          }
+                        }
+                      })),
+              done: true
+            };
+            return obj5;
+          } else {
+            c3 = 3;
+            let obj = { value: [], done: true };
+            return obj;
+          }
+        }
+      } catch (tmp13) {
+        c3 = 3;
+        throw tmp13;
+      }
+    }
+  })();
+});
+items[2] = entry2;
+const entry3 = {
+  key: "fetchPlaceDetails",
+  value: function fetchPlaceDetails(arg0) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0, value) {
+  let closure_3;
+  let items;
+  let obj5;
+  closure_0 = arg0;
+  if (c6 === 2) {
+    c6 = 3;
+    throw new TypeError("Generator functions may not be called on executing generators");
+  } else if (tmp3 === 3) {
+    if (arg0 === 1) {
+      throw value;
+    } else if (arg0 === 2) {
+      const obj2 = { value, done: true };
+      return obj2;
+    } else {
+      return { value: "return", done: null };
+    }
+  } else {
+    let tmp74;
+    let c4;
+    try {
+      let _self;
+      let data;
+      let location;
+      let lat;
+      let lng;
+      let _location1;
+      let long_name;
+      let self;
+      let obj8;
+      c6 = 2;
+      if (0 === c5) {
+        if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c6 = 3;
+          const obj3 = { value, done: true };
+          return obj3;
+        } else {
+          let closure_2 = tmp;
+          _self = undefined;
+          data = undefined;
+          tmp74 = undefined;
+          location = undefined;
+          lat = undefined;
+          lng = undefined;
+          _location1 = undefined;
+          long_name = undefined;
+          self = undefined;
+          obj8 = undefined;
+          c4 = 1;
+          const obj4 = { placeId: items };
+          items = [closure_0.place_id];
+          const baseApiService = closure_0(self[6]).baseApiService;
+          const request1 = { endpoint: "/api/v2/geocoding", method: "POST", customHeaders: obj5, body: obj4 };
+          obj5 = { key: closure_0(self[7]).API_CONFIGS.SERVICEABILITY_API_KEY };
+          const request = baseApiService.request;
+          c5 = 2;
+          c6 = 1;
+          const obj6 = { value: request(request1), done: false };
+          return obj6;
+        }
+      } else if (1 === tmp4) {
+        c4 = 0;
+        const message = tmp74;
+        const service2 = closure_0(self[5]).loggerService.location.service;
+        self = service2.error("Error in fetchPlaceDetails", message);
+        let str3 = message.message;
+        const _Error3 = Error;
+        if (!str3) {
+          str3 = "An error occurred while selecting the location.";
+        }
+        self = this;
+        const self4 = this;
+        const _Error31 = new _Error3(str3);
+        throw _Error31;
+      } else if (arg0 === 1) {
+        c6 = 3;
+        throw value;
+      } else if (arg0 === 2) {
+        c4 = 0;
+        c6 = 3;
+        const obj7 = { value, done: true };
+        return obj7;
+      } else {
+        _self = value;
+        if (_self.success) {
+          if (_self.data) {
+            data = _self.data;
+            self = data.data;
+            let status;
+            if (self != null) {
+              self = self[0];
+              if (self != null) {
+                status = self.status;
+              }
+            }
+            if (status === "OK") {
+              self = data.data[0];
+              let _location;
+              if (self != null) {
+                self = self.results;
+                if (self != null) {
+                  self = self[0];
+                  if (self != null) {
+                    self = self.geometry;
+                    if (self != null) {
+                      _location = self.location;
+                    }
+                  }
+                }
+              }
+              if (_location) {
+                tmp74 = data.data[0].results[0];
+                location = tmp74.geometry.location;
+                lat = location.lat;
+                lng = location.lng;
+                _location1 = { latitude: lat, longitude: lng };
+                self = tmp74.formatted_address || closure_0.description;
+                long_name = "";
+                long_name = "";
+                long_name = "";
+                self = tmp74.address_components || [];
+                self = self.find((types) => {
+                  types = types.types;
+                  let hasItem = types.includes("sublocality");
+                  if (!hasItem) {
+                    const types2 = types.types;
+                    hasItem = types2.includes("sublocality_level_1");
+                  }
+                  if (!hasItem) {
+                    const types3 = types.types;
+                    hasItem = types3.includes("locality");
+                  }
+                  return hasItem;
+                });
+                const tmp43 = self;
+                if (tmp43) {
+                  long_name = self.long_name;
+                }
+                self = self.find((types) => {
+                  types = types.types;
+                  return types.includes("locality");
+                });
+                const tmp47 = self;
+                if (tmp47) {
+                  long_name = self.long_name;
+                }
+                self = self.find((types) => {
+                  types = types.types;
+                  let hasItem = types.includes("route");
+                  if (!hasItem) {
+                    const types2 = types.types;
+                    hasItem = types2.includes("sublocality_level_2");
+                  }
+                  return hasItem;
+                });
+                const tmp51 = self;
+                if (tmp51) {
+                  long_name = self.long_name;
+                }
+                obj8 = { id: closure_0.place_id, addressRefName: closure_0.structured_formatting.main_text, areaName: long_name, detailedAddress: self, houseNo: "", apartmentNo: "", landmark: "", coordinates: _location1, contactPerson: { name: "", email: "" }, street: long_name, city: long_name, placeId: closure_0.place_id, consolidatedAddress: self };
+                self = obj8;
+                c4 = 0;
+                c6 = 3;
+                const obj9 = { value: self, done: true };
+                return obj9;
+              }
+            }
+            const service = closure_0(self[5]).loggerService.location.service;
+            self = service.error;
+            data = data.data;
+            let status1;
+            if (data != null) {
+              const first = data[0];
+              if (first != null) {
+                status1 = first.status;
+              }
+            }
+            const obj = { status: status1 };
+            self("Error fetching place details", obj);
+            const _Error2 = Error;
+            self = this;
+            const self3 = this;
+            const str2 = "Could not fetch details for the selected location.";
+            const error = new Error("Could not fetch details for the selected location.");
+            throw error;
+          }
+        }
+        let str = _self.error;
+        const _Error = Error;
+        if (!str) {
+          str = "Place details API failed";
+        }
+        self = this;
+        const self2 = this;
+        const _Error1 = new _Error(str);
+        throw _Error1;
+      }
+    } catch (tmp74) {
+      if (0 === c4) {
+        c6 = 3;
+        throw tmp74;
+      } else {
+        c5 = 1;
+      }
+    }
+  }
+});
+items[3] = entry3;
+const entry4 = {
+  key: "deduplicateRequest",
+  value: function deduplicateRequest(combined, c3) {
+    return closure_0(...arguments);
+  }
+};
+let closure_0 = _asyncToGenerator.default(async function(value, arg1) {
+  const self = this;
+  let closure_2 = arg1;
+  let c7 = 0;
+  let c8 = 0;
+  let c6 = 0;
+  return (async (arg0, value) => {
+    if (c8 === 2) {
+      c8 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c8 = 2;
+        if (0 === c7) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            closure_4 = self;
+            closure_0 = value;
+            value = undefined;
+            const pendingRequests5 = self.pendingRequests;
+            pendingRequests = pendingRequests5.has(value);
+            const tmp33 = closure_2;
+            if (pendingRequests) {
+              const service = self(value[5]).loggerService.location.service;
+              const _HermesInternal = HermesInternal;
+              service.debug("Request deduplication: reusing pending request for key: " + value);
+              const pendingRequests4 = tmp30.pendingRequests;
+              c8 = 3;
+              const obj4 = { value: pendingRequests4.get(value), done: true };
+              return obj4;
+            } else {
+              pendingRequests = tmp33();
+              const pendingRequests3 = tmp30.pendingRequests;
+              const result = pendingRequests3.set(tmp32, pendingRequests);
+              c6 = 1;
+              c7 = 2;
+              c8 = 1;
+              return { value: pendingRequests, done: false };
+            }
+          }
+        } else if (1 === tmp3) {
+          c6 = 0;
+          pendingRequests = closure_4.pendingRequests;
+          pendingRequests.delete(closure_0);
+          throw closure_5;
+        } else if (arg0 === 1) {
+          c8 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c6 = 0;
+          const pendingRequests2 = closure_4.pendingRequests;
+          pendingRequests2.delete(closure_0);
+          c8 = 3;
+          return { value, done: true };
+        } else {
+          c6 = 0;
+          pendingRequests = closure_4.pendingRequests;
+          pendingRequests.delete(closure_0);
+          c8 = 3;
+          return { value, done: true };
+        }
+      } catch (tmp23) {
+        closure_5 = tmp23;
+        if (0 === c6) {
+          c8 = 3;
+          throw tmp23;
+        } else {
+          c7 = 1;
+        }
+      }
+    }
+  })();
+});
+items[4] = entry4;
+items[5] = {
+  key: "clearExpiredCache",
+  value: function clearExpiredCache() {
+    const self = this;
+    const timestamp = Date.now();
+    const geocodingCache = this.geocodingCache;
+    const entries = geocodingCache.entries();
+    const tmp3 = entries[Symbol.iterator]();
+    while (tmp3 !== undefined) {
+      let defaultResult = _slicedToArray.default(tmp4, 2);
+      let first = defaultResult[0];
+      if (timestamp - defaultResult[1].timestamp > self.CACHE_EXPIRY) {
+        let geocodingCache2 = self.geocodingCache;
+        let deleteResult = geocodingCache2.delete(first);
+      }
+      continue;
+    }
+    const placesSearchCache = self.placesSearchCache;
+    const entries1 = placesSearchCache.entries();
+    for (const item10036 of entries1) {
+      let defaultResult1 = _slicedToArray.default(item10036, 2);
+      let first1 = defaultResult1[0];
+      if (timestamp - defaultResult1[1].timestamp > self.PLACES_CACHE_EXPIRY) {
+        let placesSearchCache2 = self.placesSearchCache;
+        let deleteResult1 = placesSearchCache2.delete(first1);
+      }
+      continue;
+    }
+    console.log("Cache cleanup completed");
+  }
+};
+items[6] = {
+  key: "clearAllCache",
+  value: function clearAllCache() {
+    const geocodingCache = this.geocodingCache;
+    geocodingCache.clear();
+    const placesSearchCache = this.placesSearchCache;
+    placesSearchCache.clear();
+    const pendingRequests = this.pendingRequests;
+    pendingRequests.clear();
+    console.log("All cache cleared");
+  }
+};
+items[7] = {
+  key: "getCacheStats",
+  value: function getCacheStats() {
+    return { geocoding: this.geocodingCache.size, places: this.placesSearchCache.size, pending: this.pendingRequests.size };
+  }
+};
+const _defaultResult = _default(GeocodingService, items);
+new _defaultResult();
+const GeocodingService_export = _defaultResult;
+
+export { GeocodingService_export as GeocodingService };
+export const geocodingService = new _defaultResult();

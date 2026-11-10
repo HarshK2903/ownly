@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 25529,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function trackAddToCart(arg0) {\n  // @0000\n  // @0003\n  // @0006\n  const obj = { event_name: \"food_item_added_to_cart\", food_item_name: arg0.food_item_name, food_item_id: arg0.food_item_id, cart_id: arg0.cart_id, restaurant_id: arg0.restaurant_id, price: arg0.price, quantity: arg0.quantity };\n  // @0010\n  // @0016\n  // @001a\n  // @0020\n  // @0024\n  // @002a\n  // @002e\n  // @0034\n  // @0038\n  // @003d\n  // @0041\n  // @0046\n  // @004a\n  // @004e\n  // @0053\n  // @0059\n  // @005e\n  // @0064\n  // @006a\n  const _default = closure_1_10.default;\n  _default.trackEvent(closure_1_10.default.EVENTS.ADD_TO_CART, obj);\n  // @0070\n  // @0074\n  // @0079\n  // @007f\n  // @0084\n  // @008a\n  // @0090\n  const _default2 = closure_1_9.default;\n  _default2.trackEvent(closure_1_9.default.EVENTS.ADD_TO_CART, obj);\n  // @0096\n  // @0098\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

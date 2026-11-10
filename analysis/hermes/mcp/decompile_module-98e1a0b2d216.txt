@@ -1,0 +1,1381 @@
+// Module 1127
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass2 from "_createClass" /* 6 */;
+import react_native from "react-native" /* 1128 */;
+import react_native2 from "react-native" /* 1130 */;
+import _mod1131 from "module_1131" /* 1131 */;
+import _mod1133 from "module_1133" /* 1133 */;
+import BaseHeadersService from "BaseHeadersService" /* 1206 */;
+import _mod1850 from "module_1850" /* 1850 */;
+import _mod2018 from "module_2018" /* 2018 */;
+import _mod2019 from "module_2019" /* 2019 */;
+import module_1 from "module_1" /* 1 */;
+import "react-native";
+
+let Alert, _self, c0, c1, emailAddress, v3;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+const _createClass = module_1(_createClass2);
+module_1(react_native);
+const react_native3 = module_1(react_native2);
+const module_1131 = module_1(_mod1131);
+class AuthService {
+  constructor() {
+    _classCallCheck.default(this, AuthService);
+    this.otpListener = null;
+    this.onOtpReceived = null;
+    this.authStateCallbacks = [];
+    this.storage = _mod1133.createMMKV();
+    this.deviceId = this.generateDeviceId();
+  }
+}
+const entry = {
+  key: "addAuthStateCallback",
+  value: function addAuthStateCallback(arg0) {
+    const authStateCallbacks = this.authStateCallbacks;
+    authStateCallbacks.push(arg0);
+  }
+};
+let items = [
+  entry,
+  {
+    key: "removeAuthStateCallback",
+    value: function removeAuthStateCallback(arg0) {
+      let closure_0 = arg0;
+      const authStateCallbacks = this.authStateCallbacks;
+      this.authStateCallbacks = authStateCallbacks.filter((item) => item !== closure_0);
+    }
+  },
+  {
+    key: "notifyAuthStateChange",
+    value: function notifyAuthStateChange() {
+      const authStateCallbacks = this.authStateCallbacks;
+      const item = authStateCallbacks.forEach((fn) => {
+        try {
+          fn();
+        } catch (tmp3) {
+          const _console = console;
+          console.error("Error in auth state callback:", tmp3);
+        }
+      });
+    }
+  },
+  {
+    key: "generateDeviceId",
+    value: function generateDeviceId() {
+      const baseHeadersService = BaseHeadersService.baseHeadersService;
+      return baseHeadersService.getDeviceId();
+    }
+  },
+  {
+    key: "setOtpCallback",
+    value: function setOtpCallback(onOtpReceived) {
+      this.onOtpReceived = onOtpReceived;
+    }
+  },
+  {
+    key: "getDeviceId",
+    value: function getDeviceId() {
+      return this.deviceId;
+    }
+  },
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+
+];
+const entry1 = {
+  key: "getAppHashInfo",
+  value: function getAppHashInfo() {
+    return closure_0(...arguments);
+  }
+};
+let _default = _createClass.default;
+_asyncToGenerator.default(async (arg0, value) => {
+  let _default;
+  if (c4 === 2) {
+    c4 = 3;
+    throw new TypeError("Generator functions may not be called on executing generators");
+  } else if (tmp2 === 3) {
+    if (arg0 === 1) {
+      throw value;
+    } else if (arg0 === 2) {
+      const obj2 = { value, done: true };
+      return obj2;
+    } else {
+      return { value: "return", done: null };
+    }
+  } else {
+    let c3;
+    try {
+      let allHashes;
+      c4 = 2;
+      if (0 === c1) {
+        if (arg0 === 1) {
+          c4 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 3;
+          const obj3 = { value, done: true };
+          return obj3;
+        } else {
+          allHashes = undefined;
+          c3 = 1;
+          c1 = 2;
+          c4 = 1;
+          const obj4 = { value: _default.getHash(), done: false };
+          _default = closure_1_5.default;
+          return obj4;
+        }
+      } else if (1 === c1) {
+        c3 = 0;
+        let closure_1 = closure_2;
+        const _console = console;
+        console.error("AUTHSERVICE: Error getting hash info:", closure_1);
+        const obj5 = { hash: "", environment: "unknown", allHashes: [] };
+        c4 = 3;
+        const obj6 = { value: obj5, done: true };
+        return obj6;
+      } else if (arg0 === 1) {
+        c4 = 3;
+        throw value;
+      } else if (arg0 === 2) {
+        c3 = 0;
+        c4 = 3;
+        const obj7 = { value, done: true };
+        return obj7;
+      } else {
+        allHashes = value;
+        const str = allHashes[0] || "";
+        const obj = { hash: str, environment: "production", allHashes };
+        c3 = 0;
+        c4 = 3;
+        const obj8 = { value: obj, done: true };
+        return obj8;
+      }
+    } catch (tmp14) {
+      closure_2 = tmp14;
+      if (0 === c3) {
+        c4 = 3;
+        throw tmp14;
+      } else {
+        c1 = 1;
+      }
+    }
+  }
+});
+items[6] = entry1;
+const entry2 = {
+  key: "requestOTP",
+  value: function requestOTP(arg0, arg1) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(channel, arg1) {
+  const self = this;
+  let closure_2 = arg1;
+  let c8 = 0;
+  let c9 = 0;
+  let c6 = 0;
+  return (async (arg0, value) => {
+    if (c9 === 2) {
+      c9 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c9 = 2;
+        if (0 === c8) {
+          if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            closure_5 = self;
+            closure_4 = tmp;
+            phoneNumber = channel;
+            channel = closure_2;
+            closure_2 = undefined;
+            closure_3 = undefined;
+            c6 = 2;
+            c8 = 3;
+            c9 = 1;
+            const obj4 = { value: _default.getHash(), done: false };
+            return obj4;
+          }
+        } else if (1 === c8) {
+          c6 = 0;
+          closure_5 = closure_7;
+          const _console3 = console;
+          console.error("AUTHSERVICE: Error requesting OTP:", closure_5);
+          c9 = 3;
+          return { value: false, done: true };
+        } else {
+          let obj8;
+          if (2 === c8) {
+            c6 = 1;
+            closure_4 = closure_7;
+            const _console2 = console;
+            console.warn("AUTHSERVICE: Failed to get app hash:", closure_4);
+          } else if (3 === c8) {
+            if (arg0 === 1) {
+              c9 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c6 = 0;
+              c9 = 3;
+              return { value, done: true };
+            } else {
+              closure_2 = value;
+              const first = closure_2[0];
+              c6 = 1;
+            }
+          } else if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 0;
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            closure_3 = value;
+            if (closure_3.success) {
+              const data = closure_3.data;
+              let status;
+              if (data != null) {
+                status = data.status;
+              }
+              if (status === "success") {
+                const tmp15 = channel;
+                if (!tmp15) {
+                  closure_5.startSMSRetriever();
+                }
+                c6 = 0;
+                c9 = 3;
+                return { value: true, done: true };
+              }
+            }
+            const data2 = closure_3.data;
+            let message;
+            const _console = console;
+            if (data2 != null) {
+              message = data2.message;
+            }
+            if (!message) {
+              message = closure_3.error;
+            }
+            error("AUTHSERVICE: OTP request failed:", message);
+            c6 = 0;
+            c9 = 3;
+            return { value: false, done: true };
+          }
+          const baseApiService = self(channel[10]).baseApiService;
+          const request = baseApiService.request;
+          const obj6 = { phoneNumber, smsType: "otp" };
+          if (channel) {
+            obj8 = { channel };
+            const obj7 = { channel };
+          } else {
+            obj8 = {};
+          }
+          const request1 = { endpoint: "/api/v1/otp", method: "POST", body: obj6 };
+          const merged = Object.assign(obj8);
+          c8 = 4;
+          c9 = 1;
+          const obj9 = { value: request(request1), done: false };
+          return obj9;
+        }
+      } catch (tmp47) {
+        closure_7 = tmp47;
+        if (0 === c6) {
+          c9 = 3;
+          throw tmp47;
+        } else if (1 === tmp49) {
+          c8 = 1;
+        } else {
+          c8 = 2;
+        }
+      }
+    }
+  })();
+});
+items[7] = entry2;
+items[8] = {
+  key: "startSMSRetriever",
+  value: function startSMSRetriever() {
+    const self = this;
+    try {
+      self.removeSMSRetriever();
+      const _default = react_native.default;
+      _default.startOtpListener((arg0) => {
+        const result = self.extractOTPFromMessage(arg0);
+        if (result) {
+          if (self.onOtpReceived) {
+            self.onOtpReceived(result);
+          }
+        }
+      });
+    } catch (tmp4) {
+      const _console = console;
+      console.error("AUTHSERVICE: Error starting SMS Retriever API:", tmp4);
+    }
+  }
+};
+items[9] = {
+  key: "extractOTPFromMessage",
+  value: function extractOTPFromMessage(str) {
+    if (str) {
+      if (typeof str === "string") {
+        const items = [/\b\d{4}\b/, /(?:OTP|otp|code|Code)[:\s]*(\d{4})/i, /(\d{4})\s*(?:is|Is)\s*(?:your|Your)/i, /verification[:\s]*(\d{4})/i, /(?:verify|Verify)[:\s]*(\d{4})/i];
+        const obj = items[Symbol.iterator]();
+        while (obj !== undefined) {
+          let match = str.match(tmp2);
+          let tmp5 = match;
+          if (tmp5) {
+            let first = tmp5[1];
+            if (!first) {
+              first = tmp5[0];
+            }
+            if (first) {
+              if (arr.length === 4) {
+                obj.return();
+                return first;
+              }
+            }
+          }
+          continue;
+        }
+        return null;
+      }
+    }
+    return null;
+  }
+};
+items[10] = {
+  key: "removeSMSRetriever",
+  value: function removeSMSRetriever() {
+    try {
+      const _default = react_native.default;
+      _default.removeListener();
+    } catch (tmp3) {
+      const _console = console;
+      console.error("AUTHSERVICE: Error stopping SMS Retriever API:", tmp3);
+    }
+    this.onOtpReceived = null;
+  }
+};
+const entry3 = {
+  key: "verifyOTP",
+  value: function verifyOTP(arg0, arg1) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(phoneNumber, arg1) {
+  let closure_7;
+  const self = this;
+  let closure_2 = arg1;
+  let c8 = 0;
+  let c9 = 0;
+  let c6 = 0;
+  return (async (arg0, value) => {
+    let obj4;
+    if (c9 === 2) {
+      c9 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let data2;
+        let isNewUser;
+        let name;
+        c9 = 2;
+        if (0 === c8) {
+          if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            closure_5 = self;
+            closure_4 = tmp;
+            _self = undefined;
+            data2 = undefined;
+            isNewUser = undefined;
+            closure_3 = undefined;
+            name = undefined;
+            c6 = 1;
+            const baseApiService = self(phoneNumber[10]).baseApiService;
+            const request = { endpoint: "/api/v1/otp/verify", method: "POST", body: obj4 };
+            c8 = 2;
+            c9 = 1;
+            obj4 = { phoneNumber, otp };
+            const obj5 = { value: baseApiService.request(request), done: false };
+            return obj5;
+          }
+        } else if (1 === c8) {
+          c6 = 0;
+          let closure_6 = tmp60;
+          const _console3 = console;
+          console.error("AUTHSERVICE: Error verifying OTP:", closure_6);
+          c9 = 3;
+          return { value: { success: false }, done: true };
+        } else if (2 === c8) {
+          if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 0;
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            _self = value;
+            if (_self.success) {
+              const data = _self.data;
+              let status;
+              if (data != null) {
+                status = data.status;
+              }
+              if (status === "success") {
+                data2 = _self.data;
+                if (data2.token) {
+                  if (closure_5.storage) {
+                    const storage2 = closure_5.storage;
+                    const result = storage2.set("authToken", data2.token);
+                    const storage3 = closure_5.storage;
+                    const _JSON2 = JSON;
+                    const result1 = storage3.set("user", JSON.stringify(data2.user));
+                  }
+                }
+                closure_5.removeSMSRetriever();
+                isNewUser = true;
+                c6 = 2;
+                c8 = 4;
+                c9 = 1;
+                const obj8 = { value: _default.getCustomerDetails(data2.token), done: false };
+                return obj8;
+              }
+            }
+            data2 = _self.data;
+            let message;
+            const _console2 = console;
+            if (data2 != null) {
+              message = data2.message;
+            }
+            if (!message) {
+              message = _self.error;
+            }
+            error("AUTHSERVICE: OTP verification failed:", message);
+            c6 = 0;
+            c9 = 3;
+            return { value: { success: false }, done: true };
+          }
+        } else {
+          if (3 === c8) {
+            c6 = 1;
+            closure_5 = tmp60;
+            const _console = console;
+            console.error("AUTHSERVICE: Error getting customer details:", closure_5);
+            isNewUser = true;
+          } else if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 0;
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            closure_3 = value;
+            if (closure_3.success) {
+              if (closure_3.data) {
+                const storage = closure_5.storage;
+                const _JSON = JSON;
+                const result2 = storage.set("customerDetails", JSON.stringify(closure_3.data));
+                name = closure_3.data.name;
+                isNewUser = !name || name.trim() === "";
+                const tmp14 = !name || name.trim() === "";
+              }
+              c6 = 1;
+            }
+            isNewUser = true;
+          }
+          const result3 = closure_5.notifyAuthStateChange();
+          c6 = 0;
+          c9 = 3;
+          return { value: { success: true, token: data2.token, user: data2.user, isNewUser }, done: true };
+        }
+      } catch (tmp60) {
+        if (0 === c6) {
+          c9 = 3;
+          throw tmp60;
+        } else if (1 === tmp62) {
+          c8 = 1;
+        } else {
+          c8 = 3;
+        }
+      }
+    }
+  })();
+});
+items[11] = entry3;
+const entry4 = {
+  key: "createUser",
+  value: function createUser(arg0) {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function(arg0) {
+  const self = this;
+  let closure_1 = arg0;
+  let c7 = 0;
+  let c8 = 0;
+  let c5 = 0;
+  return (async (arg0, value) => {
+    if (c8 === 2) {
+      c8 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let string;
+        c8 = 2;
+        if (0 === v3) {
+          if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            closure_4 = self;
+            closure_3 = tmp;
+            string = undefined;
+            closure_1 = undefined;
+            emailAddress = undefined;
+            c5 = 1;
+            if (self.storage) {
+              const storage = self.storage;
+              string = storage.getString("authToken");
+              if (string) {
+                emailAddress = str == null;
+                let str2;
+                if (!emailAddress) {
+                  str2 = str.trim();
+                }
+                if (!str2) {
+                  str2 = "";
+                }
+                const obj5 = { name: null };
+                ({ name: obj4.name, emailAddress } = closure_1);
+                if (emailAddress) {
+                  obj5.emailAddress = closure_1.emailAddress;
+                }
+                emailAddress = tmp61.gender;
+                if (emailAddress) {
+                  obj5.gender = closure_1.gender;
+                }
+                if (str2) {
+                  obj5.referralCode = str2;
+                }
+                emailAddress = self(closure_1[10]).baseApiService;
+                const request = { endpoint: "/api/v1/customer", method: "POST", body: obj5 };
+                v3 = 2;
+                c8 = 1;
+                const obj6 = { value: emailAddress.request(request), done: false };
+                return obj6;
+              } else {
+                emailAddress = console;
+                console.error("AUTHSERVICE: No auth token found");
+                c5 = 0;
+                c8 = 3;
+                return { value: false, done: true };
+              }
+            } else {
+              const _console = console;
+              console.error("AUTHSERVICE: Storage not initialized");
+              c5 = 0;
+              c8 = 3;
+              return { value: false, done: true };
+            }
+          }
+        } else if (1 === v3) {
+          c5 = 0;
+          closure_4 = closure_6;
+          emailAddress = console;
+          console.error("AUTHSERVICE: Error creating user:", closure_4);
+          c8 = 3;
+          return { value: false, done: true };
+        } else {
+          if (2 === v3) {
+            if (arg0 === 1) {
+              c8 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c5 = 0;
+              c8 = 3;
+              return { value, done: true };
+            } else {
+              closure_1 = value;
+              if (closure_1.status === 401) {
+                emailAddress = console;
+                console.error("AUTHSERVICE: Authentication failed - 401 error");
+                closure_4.logoutWithMessage("Something went wrong. Please login again!");
+                c5 = 0;
+                c8 = 3;
+                return { value: false, done: true };
+              } else if (closure_1.success) {
+                if (closure_4.storage) {
+                  emailAddress = closure_4.storage;
+                  const data = closure_1.data;
+                  let user;
+                  const _JSON2 = JSON;
+                  const set = emailAddress.set;
+                  if (data != null) {
+                    user = data.user;
+                  }
+                  if (!user) {
+                    user = closure_1.data;
+                  }
+                  const result = set("user", stringify(user));
+                  c5 = 2;
+                  emailAddress = v3.default;
+                  v3 = 4;
+                  c8 = 1;
+                  const obj8 = { value: emailAddress.getCustomerDetails(string), done: false };
+                  return obj8;
+                }
+              } else {
+                emailAddress = console;
+                console.error("AUTHSERVICE: User creation failed:", closure_1.error);
+                c5 = 0;
+                c8 = 3;
+                return { value: false, done: true };
+              }
+            }
+          } else if (3 === v3) {
+            c5 = 1;
+            closure_3 = closure_6;
+            emailAddress = console;
+            console.error("AUTHSERVICE: Error fetching customer details after user creation:", closure_3);
+          } else if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 0;
+            c8 = 3;
+            return { value, done: true };
+          } else {
+            emailAddress = value;
+            if (emailAddress.success) {
+              if (emailAddress.data) {
+                emailAddress = closure_4.storage;
+                const _JSON = JSON;
+                const result1 = emailAddress.set("customerDetails", JSON.stringify(emailAddress.data));
+              }
+            }
+            c5 = 1;
+          }
+          const result2 = closure_4.notifyAuthStateChange();
+          c5 = 0;
+          c8 = 3;
+          return { value: true, done: true };
+        }
+      } catch (tmp48) {
+        closure_6 = tmp48;
+        if (0 === c5) {
+          c8 = 3;
+          throw tmp48;
+        } else if (1 === tmp50) {
+          v3 = 1;
+        } else {
+          v3 = 3;
+        }
+      }
+    }
+  })();
+});
+items[12] = entry4;
+items[13] = {
+  key: "getStoredToken",
+  value: function getStoredToken() {
+    try {
+      if (this.storage) {
+        const storage = this.storage;
+        const string = storage.getString("authToken") ?? null;
+        return string;
+      } else {
+        return null;
+      }
+    } catch (tmp4) {
+      const _console = console;
+      console.error("AUTHSERVICE: Error getting stored token:", tmp4);
+      return null;
+    }
+  }
+};
+items[14] = {
+  key: "getStoredUser",
+  value: function getStoredUser() {
+    try {
+      if (this.storage) {
+        const storage = this.storage;
+        const string = storage.getString("user");
+        let parsed = null;
+        if (string) {
+          const _JSON = JSON;
+          parsed = JSON.parse(string);
+        }
+        return parsed;
+      } else {
+        return null;
+      }
+    } catch (tmp6) {
+      const _console = console;
+      console.error("AUTHSERVICE: Error getting stored user:", tmp6);
+      return null;
+    }
+  }
+};
+items[15] = {
+  key: "getStoredCustomerDetails",
+  value: function getStoredCustomerDetails() {
+    try {
+      if (this.storage) {
+        const storage = this.storage;
+        const string = storage.getString("customerDetails");
+        let parsed = null;
+        if (string) {
+          const _JSON = JSON;
+          parsed = JSON.parse(string);
+        }
+        return parsed;
+      } else {
+        return null;
+      }
+    } catch (tmp6) {
+      const _console = console;
+      console.error("AUTHSERVICE: Error getting stored customer details:", tmp6);
+      return null;
+    }
+  }
+};
+items[16] = {
+  key: "updateStoredCustomerDetails",
+  value: function updateStoredCustomerDetails(data) {
+    try {
+      const self = this;
+      if (this.storage) {
+        const storage = self.storage;
+        const _JSON = JSON;
+        const result = storage.set("customerDetails", JSON.stringify(data));
+        const result1 = self.notifyAuthStateChange();
+        return true;
+      } else {
+        return false;
+      }
+    } catch (tmp5) {
+      const _console = console;
+      console.error("AUTHSERVICE: Error updating stored customer details:", tmp5);
+      return false;
+    }
+  }
+};
+items[17] = {
+  key: "isLoggedIn",
+  value: function isLoggedIn() {
+    const tmp = this.getStoredToken() && this.getStoredUser();
+    return tmp;
+  }
+};
+const entry5 = {
+  key: "checkIfOnboardingNeeded",
+  value: function checkIfOnboardingNeeded() {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function() {
+  const self = this;
+  let c2 = 0;
+  let c5 = 0;
+  let c4 = 0;
+  return (async (arg0, value) => {
+    if (c5 === 2) {
+      c5 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let name;
+        c5 = 2;
+        if (0 === c2) {
+          if (arg0 === 1) {
+            c5 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 3;
+            return { value, done: true };
+          } else {
+            closure_1 = self;
+            _self = undefined;
+            name = undefined;
+            value = undefined;
+            c4 = 1;
+            const storedToken = self.getStoredToken();
+            if (storedToken) {
+              const getCustomerDetails = closure_1_7.default.getCustomerDetails;
+              c2 = 2;
+              c5 = 1;
+              const obj4 = { value: getCustomerDetails(storedToken), done: false };
+              return obj4;
+            } else {
+              c4 = 0;
+              c5 = 3;
+              return { value: false, done: true };
+            }
+          }
+        } else if (1 === tmp3) {
+          c4 = 0;
+          const _console = console;
+          console.error("AUTHSERVICE: Error in onboarding check:", closure_3);
+          c5 = 3;
+          return { value: false, done: true };
+        } else if (arg0 === 1) {
+          c5 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 0;
+          c5 = 3;
+          return { value, done: true };
+        } else {
+          _self = value;
+          if (_self.success) {
+            if (_self.data) {
+              name = _self.data.name;
+              value = !name || name.trim() === "";
+              c4 = 0;
+              c5 = 3;
+              const tmp9 = !name || name.trim() === "";
+              return { value, done: true };
+            }
+          }
+          c4 = 0;
+          c5 = 3;
+          return { value: false, done: true };
+        }
+      } catch (tmp20) {
+        closure_3 = tmp20;
+        if (0 === c4) {
+          c5 = 3;
+          throw tmp20;
+        } else {
+          c2 = 1;
+        }
+      }
+    }
+  })();
+});
+items[18] = entry5;
+const entry6 = {
+  key: "hasCompletedProfile",
+  value: function hasCompletedProfile() {
+    return closure_0(...arguments);
+  }
+};
+_asyncToGenerator.default(async function() {
+  let closure_1;
+  const self = this;
+  let c2 = 0;
+  let c3 = 0;
+  return (async () => {
+    closure_0 = await self.checkIfOnboardingNeeded();
+    return !closure_0;
+  })();
+});
+items[19] = entry6;
+const entry7 = {
+  key: "clearLocationData",
+  value: function clearLocationData() {
+    return closure_0(...arguments);
+  }
+};
+const _window = _asyncToGenerator.default(async function() {
+  let closure_2;
+  let closure_3;
+  const self = this;
+  let c5 = 0;
+  let c6 = 0;
+  let c4 = 0;
+  return (async (arg0, value) => {
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let tmp45;
+      try {
+        let tmp;
+        c6 = 2;
+        if (0 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            let obj3 = { value, done: true };
+            return obj3;
+          } else {
+            closure_0 = undefined;
+            closure_1 = undefined;
+            tmp = undefined;
+            tmp45 = undefined;
+            let closure_4;
+            c4 = 1;
+            if (self.storage) {
+              const storage = tmp52.storage;
+              storage.remove(self(closure_1[11]).LOCATION_STORAGE_KEYS.SELECTED_ADDRESS_ID);
+              const storage2 = tmp52.storage;
+              storage2.remove(self(closure_1[11]).LOCATION_STORAGE_KEYS.HAS_COMPLETED_LOCATION_SETUP);
+            }
+            if (self(closure_1[12]).database) {
+              const database6 = self(closure_1[12]).database;
+              value = database6.get("addresses");
+              const query = value.query();
+              c5 = 2;
+              c6 = 1;
+              let obj4 = { value: query.fetch(), done: false };
+              return obj4;
+            } else {
+              c4 = 0;
+            }
+          }
+        } else if (1 === c5) {
+          c4 = 0;
+          let closure_5 = tmp45;
+          const _console = console;
+          console.error("AUTHSERVICE: Error clearing location data and search history:", closure_5);
+        } else if (2 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            closure_0 = value;
+            const database5 = self(closure_1[12]).database;
+            c5 = 3;
+            c6 = 1;
+            const obj6 = {
+              value: database5.write(tmp.default(async (arg0, value) => {
+                        if (c0 === 2) {
+                          c0 = 3;
+                          throw new TypeError("Generator functions may not be called on executing generators");
+                        } else if (tmp2 === 3) {
+                          if (arg0 === 1) {
+                            throw value;
+                          } else if (arg0 === 2) {
+                            const obj2 = { value, done: true };
+                            return obj2;
+                          } else {
+                            return { value: "return", done: null };
+                          }
+                        } else {
+                          try {
+                            c0 = 2;
+                            if (0 === c1) {
+                              if (arg0 === 1) {
+                                c0 = 3;
+                                throw value;
+                              } else if (arg0 === 2) {
+                                c0 = 3;
+                                const obj3 = { value, done: true };
+                                return obj3;
+                              } else {
+                                c1 = 1;
+                                c0 = 1;
+                                const obj4 = { value: Promise.all(self.map((destroyPermanently) => destroyPermanently.destroyPermanently())), done: false };
+                                return obj4;
+                              }
+                            } else if (arg0 === 1) {
+                              c0 = 3;
+                              throw value;
+                            } else if (arg0 === 2) {
+                              c0 = 3;
+                              const obj = { value, done: true };
+                              return obj;
+                            } else {
+                              c0 = 3;
+                              return { value: "return", done: null };
+                            }
+                          } catch (tmp6) {
+                            c0 = 3;
+                            throw tmp6;
+                          }
+                        }
+                      })),
+              done: false
+            };
+            return obj6;
+          }
+        } else if (3 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            const database4 = self(closure_1[12]).database;
+            closure_1 = database4.get("recent_searches");
+            const query1 = closure_1.query();
+            c5 = 4;
+            c6 = 1;
+            const obj8 = { value: query1.fetch(), done: false };
+            return obj8;
+          }
+        } else if (4 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            tmp = value;
+            const database3 = self(closure_1[12]).database;
+            c5 = 5;
+            c6 = 1;
+            const obj10 = {
+              value: database3.write(tmp.default(async (arg0, value) => {
+                        if (c0 === 2) {
+                          c0 = 3;
+                          throw new TypeError("Generator functions may not be called on executing generators");
+                        } else if (tmp2 === 3) {
+                          if (arg0 === 1) {
+                            throw value;
+                          } else if (arg0 === 2) {
+                            const obj2 = { value, done: true };
+                            return obj2;
+                          } else {
+                            return { value: "return", done: null };
+                          }
+                        } else {
+                          try {
+                            c0 = 2;
+                            if (0 === c1) {
+                              if (arg0 === 1) {
+                                c0 = 3;
+                                throw value;
+                              } else if (arg0 === 2) {
+                                c0 = 3;
+                                const obj3 = { value, done: true };
+                                return obj3;
+                              } else {
+                                c1 = 1;
+                                c0 = 1;
+                                const obj4 = { value: Promise.all(tmp.map((destroyPermanently) => destroyPermanently.destroyPermanently())), done: false };
+                                return obj4;
+                              }
+                            } else if (arg0 === 1) {
+                              c0 = 3;
+                              throw value;
+                            } else if (arg0 === 2) {
+                              c0 = 3;
+                              const obj = { value, done: true };
+                              return obj;
+                            } else {
+                              c0 = 3;
+                              return { value: "return", done: null };
+                            }
+                          } catch (tmp6) {
+                            c0 = 3;
+                            throw tmp6;
+                          }
+                        }
+                      })),
+              done: false
+            };
+            return obj10;
+          }
+        } else if (5 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            const database2 = self(closure_1[12]).database;
+            tmp45 = database2.get("food_search_history");
+            const query2 = tmp45.query();
+            c5 = 6;
+            c6 = 1;
+            const obj12 = { value: query2.fetch(), done: false };
+            return obj12;
+          }
+        } else if (6 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c6 = 3;
+            return { value, done: true };
+          } else {
+            const tmp6 = tmp;
+            closure_4 = value;
+            const database = self(closure_1[12]).database;
+            c5 = 7;
+            c6 = 1;
+            const obj14 = {
+              value: database.write(tmp.default(async (arg0, value) => {
+                        if (c0 === 2) {
+                          c0 = 3;
+                          throw new TypeError("Generator functions may not be called on executing generators");
+                        } else if (tmp2 === 3) {
+                          if (arg0 === 1) {
+                            throw value;
+                          } else if (arg0 === 2) {
+                            const obj2 = { value, done: true };
+                            return obj2;
+                          } else {
+                            return { value: "return", done: null };
+                          }
+                        } else {
+                          try {
+                            c0 = 2;
+                            if (0 === c1) {
+                              if (arg0 === 1) {
+                                c0 = 3;
+                                throw value;
+                              } else if (arg0 === 2) {
+                                c0 = 3;
+                                const obj3 = { value, done: true };
+                                return obj3;
+                              } else {
+                                c1 = 1;
+                                c0 = 1;
+                                const obj4 = { value: Promise.all(closure_2_4.map((destroyPermanently) => destroyPermanently.destroyPermanently())), done: false };
+                                return obj4;
+                              }
+                            } else if (arg0 === 1) {
+                              c0 = 3;
+                              throw value;
+                            } else if (arg0 === 2) {
+                              c0 = 3;
+                              const obj = { value, done: true };
+                              return obj;
+                            } else {
+                              c0 = 3;
+                              return { value: "return", done: null };
+                            }
+                          } catch (tmp6) {
+                            c0 = 3;
+                            throw tmp6;
+                          }
+                        }
+                      })),
+              done: false
+            };
+            return obj14;
+          }
+        } else if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 0;
+          c6 = 3;
+          let obj = { value, done: true };
+          return obj;
+        }
+        c6 = 3;
+        return { value: "return", done: null };
+      } catch (tmp45) {
+        if (0 === c4) {
+          c6 = 3;
+          throw tmp45;
+        } else {
+          c5 = 1;
+        }
+      }
+    }
+  })();
+});
+items[20] = entry7;
+items[21] = {
+  key: "logoutWithMessage",
+  value: function logoutWithMessage() {
+    const self = this;
+    let str = arg0;
+    if (arg0 === undefined) {
+      str = "Session expired. Please login again!";
+    }
+    const clearLocationDataResult = self.clearLocationData();
+    clearLocationDataResult.then(() => {
+      if (self.storage) {
+        const storage = obj.storage;
+        str = "authToken";
+        storage.remove("authToken");
+        const storage2 = obj.storage;
+        storage2.remove("user");
+        const storage3 = obj.storage;
+        storage3.remove("customerDetails");
+        const storage4 = obj.storage;
+        storage4.remove("cartId");
+        const storage5 = obj.storage;
+        storage5.remove("cartRestaurantId");
+        const storage6 = obj.storage;
+        storage6.remove("cart");
+      }
+      try {
+        const obj2 = _mod2018;
+        const result = obj2.clearUserReferralCode();
+        const obj3 = _mod2019;
+        obj3.clearCachedShareLink();
+      } catch (err) {
+      }
+      const result1 = obj.notifyAuthStateChange();
+      const result2 = obj.navigateToLoginScreen();
+      const timerId = setTimeout(() => {
+        Alert = Alert.Alert;
+        Alert.alert("Logged Out", str);
+      }, 500);
+    });
+  }
+};
+items[22] = {
+  key: "logout",
+  value: function logout() {
+    const self = this;
+    let flag = arg0;
+    if (arg0 === undefined) {
+      flag = false;
+    }
+    try {
+      const clearLocationDataResult = self.clearLocationData();
+      clearLocationDataResult.then(() => {
+        if (self.storage) {
+          const storage = obj.storage;
+          storage.remove("authToken");
+          const storage2 = obj.storage;
+          storage2.remove("user");
+          const storage3 = obj.storage;
+          storage3.remove("customerDetails");
+        }
+        try {
+          const obj2 = _mod2018;
+          const result = obj2.clearUserReferralCode();
+          const obj3 = _mod2019;
+          obj3.clearCachedShareLink();
+        } catch (err) {
+        }
+        self.removeSMSRetriever();
+        const result1 = obj.notifyAuthStateChange();
+        const tmp10 = flag;
+        if (tmp10) {
+          const _default = react_native.default;
+          _default.Restart();
+        } else {
+          const result2 = obj.navigateToLoginScreen();
+        }
+      });
+    } catch (tmp2) {
+      const _console = console;
+      console.error("AUTHSERVICE: Error during logout:", tmp2);
+    }
+  }
+};
+items[23] = {
+  key: "navigateToLoginScreen",
+  value: function navigateToLoginScreen() {
+    let items;
+    const navigationRef = _mod1850.navigationRef;
+    if (navigationRef.isReady()) {
+      const navigationRef2 = tmp(1850).navigationRef;
+      const dispatch = navigationRef2.dispatch;
+      const CommonActions = tmp(1851).CommonActions;
+      const obj = { index: 0, routes: items };
+      items = [{ name: "LoginScreen", params: { fromLogout: true } }];
+      const obj2 = { name: "LoginScreen", params: { fromLogout: true } };
+      dispatch(CommonActions.reset(obj));
+    }
+  }
+};
+const entry8 = {
+  key: "getInstance",
+  value: function getInstance() {
+    if (!AuthService.instance) {
+      const obj = Object.create(AuthService.prototype);
+      _classCallCheck.default(obj, AuthService);
+      obj.otpListener = null;
+      obj.onOtpReceived = null;
+      obj.authStateCallbacks = [];
+      obj.storage = _mod1133.createMMKV();
+      obj.deviceId = obj.generateDeviceId();
+      AuthService.instance = obj;
+    }
+    return AuthService.instance;
+  }
+};
+const items1 = [entry8];
+const _defaultResult = _default(AuthService, items, items1);
+
+export default _defaultResult.getInstance();

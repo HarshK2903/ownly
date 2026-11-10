@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 17071
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 14,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#17071 \"createFetchOrderTrackingOrderRequest\" params=2 frame=20 regs=1(num=0,nonptr=1) size=199 offset=0xea50a5 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

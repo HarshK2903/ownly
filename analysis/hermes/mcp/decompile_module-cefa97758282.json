@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 2637
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 2637\nimport _asyncToGenerator from \"_asyncToGenerator\" /* 2 */;\nimport module_1 from \"module_1\" /* 1 */;\n\nlet closure_4, serviceability, url;\n\nlet c2 = \"/api/v1/home-page-feed\";\nlet closure_0 = module_1(_asyncToGenerator).default((arg0, arg1) => {\n  closure_0 = arg0;\n  let isServiceabilityCall = arg1;\n  let c5 = 0;\n  return (function*(arg0, value) {\n    let obj5;\n    if (c5 === 2) {\n      c5 = 3;\n      throw new TypeError(\"Generator functions may not be called on executing generators\");\n    } else if (tmp2 === 3) {\n      if (arg0 === 1) {\n        throw value;\n      } else if (arg0 === 2) {\n        return { value, done: true };\n      } else {\n        return { value: \"return\", done: null };\n      }\n    } else {\n      try {\n        c5 = 2;\n        if (arg0 === 1) {\n          c5 = 3;\n          throw value;\n        } else if (arg0 === 2) {\n          c5 = 3;\n          return { value, done: true };\n        } else {\n          isServiceabilityCall = isServiceabilityCall.isServiceabilityCall;\n          serviceability = isServiceabilityCall;\n          const tmp19 = closure_0;\n          if (isServiceabilityCall == null) {\n            serviceability = tmp20.serviceability;\n          }\n          const obj = { lat: null, lng: null, isInitialCall: null, serviceability: Boolean(serviceability) };\n          ({ lat: obj.lat, lng: obj.lng, isInitialCall: obj.isInitialCall } = isServiceabilityCall);\n          const _Boolean = Boolean;\n          if (!isServiceabilityCall.isInitialCall) {\n            if (typeof isServiceabilityCall.offset === \"number\") {\n              obj.offset = isServiceabilityCall.offset;\n            }\n            if (typeof isServiceabilityCall.pageSize === \"number\") {\n              obj.pageSize = isServiceabilityCall.pageSize;\n            }\n            const result = closure_0(isServiceabilityCall[2]).sanitizeHomePageFeedFilters(tmp20.filters);\n            if (result) {\n              obj.filters = result;\n            }\n          }\n          const path = tmp20.path;\n          url = path;\n          if (path == null) {\n            url = serviceability;\n          }\n          const request = { method: \"POST\", url, headers: obj5, body: obj, timeoutMs: null, credentials: null };\n          const _String = String;\n          const _String2 = String;\n          const headers = tmp20.headers;\n          closure_4 = headers;\n          obj5 = { \"X-Selected-Lat\": String(isServiceabilityCall.lat), \"X-Selected-Lng\": String(isServiceabilityCall.lng) };\n          if (headers == null) {\n            closure_4 = {};\n          }\n          const merged = Object.assign(closure_4);\n          ({ timeoutMs: obj2.timeoutMs, credentials: obj2.credentials } = isServiceabilityCall);\n          c5 = 3;\n          const obj6 = { operation: \"home/home-page-feed\", includeResponseOnError: true, policy: { safeMethodsOnly: false } };\n          const obj7 = { value: closure_0(isServiceabilityCall[3]).requestWithRetry(tmp19, request, obj6), done: true };\n          return obj7;\n        }\n      } catch (tmp15) {\n        c5 = 3;\n        throw tmp15;\n      }\n    }\n  })();\n});\n\nexport function fetchHomePageFeed(rnRequestContext, arg1) {\n  return closure_0(...arguments);\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

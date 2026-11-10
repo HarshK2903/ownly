@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 11133
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 20,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#11133 \"cartReducer\" params=3 frame=32 regs=4(num=1,nonptr=3) size=2056 offset=0xdee02e flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

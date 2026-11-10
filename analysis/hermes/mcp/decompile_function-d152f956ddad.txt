@@ -1,0 +1,222 @@
+function f1698(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+  // @0000
+  // @0003
+  // @0006
+  closure_0 = require;
+  // @000a
+  // @000d
+  closure_1 = exports;
+  // @0011
+  // @0014
+  closure_2 = dependencyMap;
+  // @0018
+  // @001c
+  // @001e
+  const _module = require(dependencyMap[0]);
+  // @0023
+  // @0025
+  // @002b
+  // @0030
+  // @0034
+  // @003e
+  // @0045
+  // @004f
+  closure_3 = { HotUpdater: true, createDefaultResolver: true, extractSignatureFailure: true, isSignatureVerificationError: true };
+  // @0053
+  exports.HotUpdater = undefined;
+  // @0059
+  // @005f
+  // @0064
+  // @006e
+  // @0073
+  // @0077
+  // @007b
+  const obj = { enumerable: true, get() { /* body not rendered: F11637 */ } };
+  Object.defineProperty(exports, "createDefaultResolver", obj);
+  // @0082
+  // @0088
+  // @008d
+  // @0097
+  // @009c
+  // @00a0
+  // @00a4
+  const obj1 = { enumerable: true, get() { /* body not rendered: F11638 */ } };
+  Object.defineProperty(exports, "extractSignatureFailure", obj1);
+  // @00ab
+  // @00b1
+  // @00b6
+  // @00c0
+  // @00c5
+  // @00c9
+  // @00cd
+  const obj6 = { enumerable: true, get() { /* body not rendered: F11639 */ } };
+  Object.defineProperty(exports, "isSignatureVerificationError", obj6);
+  // @00d4
+  // @00d8
+  // @00dd
+  // @00e2
+  // @00e6
+  // @00eb
+  // @00f0
+  const tmpResult = _module(require(dependencyMap[3]));
+  closure_4 = _module(require(dependencyMap[4]));
+  // @00f4
+  // @00fa
+  // @00ff
+  // @0103
+  // @0108
+  const keys = Object.keys(require(dependencyMap[5]));
+  // @010d
+  // @0112
+  // @0117
+  const item = keys.forEach(function() { /* body not rendered: F11640 */ });
+  // @011c
+  // @0126
+  closure_5 = ["baseURL"];
+  // @012a
+  // @0134
+  closure_6 = ["baseURL"];
+  // @0138
+  // @0142
+  closure_7 = ["updateMode"];
+  // @0146
+  // @0150
+  closure_8 = ["baseURL"];
+  // @0154
+  // @0158
+  // @015d
+  // @0163
+  // @0168
+  if (typeof globalThis !== "undefined") {
+    // @0170
+    const _globalThis2 = globalThis;
+    // @0176
+    // @017c
+    if (!globalThis.HotUpdaterGetBaseURL) {
+      // @017f
+      const _globalThis = globalThis;
+      // @0185
+      globalThis.HotUpdaterGetBaseURL = tmp7;
+    }
+  }
+  // @018b
+  // @0190
+  closure_9 = function isManualWrapOptions() { /* body not rendered: F11641 */ };
+  // @0194
+  // @019b
+  // @019d
+  closure_129_0 = null;
+  // @01a1
+  // @01a3
+  closure_129_1 = false;
+  // @01a7
+  // @01b1
+  closure_129_2 = { resolver: null };
+  // @01b5
+  // @01ba
+  closure_129_3 = function createMissingNetworkConfigError() { /* body not rendered: F25719 */ };
+  // @01be
+  // @01c3
+  closure_129_4 = function normalizeOptions() { /* body not rendered: F25720 */ };
+  // @01c7
+  // @01cc
+  closure_129_5 = function normalizeInitOptions() { /* body not rendered: F25721 */ };
+  // @01d0
+  // @01d5
+  closure_129_6 = function configureGlobal() { /* body not rendered: F25722 */ };
+  // @01d9
+  // @01de
+  closure_129_7 = function reportMixedConfiguration() { /* body not rendered: F25723 */ };
+  // @01e2
+  // @01e7
+  closure_129_8 = function ensureGlobalResolver() { /* body not rendered: F25724 */ };
+  // @01eb
+  const obj7 = { wrap() { /* body not rendered: F25725 */ }, init() { /* body not rendered: F25726 */ }, reload: require(dependencyMap[6]).reload, setReloadBehavior: require(dependencyMap[6]).setReloadBehavior, isUpdateDownloaded() { /* body not rendered: F25727 */ }, getAppVersion: require(dependencyMap[6]).getAppVersion, getBundleId: require(dependencyMap[6]).getBundleId, getMinBundleId: require(dependencyMap[6]).getMinBundleId, getManifest: require(dependencyMap[6]).getManifest, getChannel: require(dependencyMap[6]).getChannel, getDefaultChannel: require(dependencyMap[6]).getDefaultChannel, isChannelSwitched: require(dependencyMap[6]).isChannelSwitched, setCohort: require(dependencyMap[6]).setCohort, getCohort: require(dependencyMap[6]).getCohort, addListener: require(dependencyMap[6]).addListener, checkForUpdate() { /* body not rendered: F25728 */ }, updateBundle() { /* body not rendered: F25729 */ }, resetChannel: null, getFingerprintHash: null, getCrashHistory: null, clearCrashHistory: null };
+  // @01f5
+  // @01fa
+  // @01fe
+  // @0203
+  // @0207
+  // @020b
+  // @0210
+  // @0216
+  // @021a
+  // @021e
+  // @0223
+  // @0229
+  // @022d
+  // @0232
+  // @0236
+  // @023a
+  // @023f
+  // @0245
+  // @0249
+  // @024d
+  // @0252
+  // @0258
+  // @025c
+  // @0260
+  // @0265
+  // @026b
+  // @026f
+  // @0273
+  // @0278
+  // @027e
+  // @0282
+  // @0286
+  // @028b
+  // @0291
+  // @0295
+  // @0299
+  // @029e
+  // @02a4
+  // @02a8
+  // @02ac
+  // @02b1
+  // @02b7
+  // @02bb
+  // @02bf
+  // @02c4
+  // @02ca
+  // @02ce
+  // @02d2
+  // @02d7
+  // @02dd
+  // @02e1
+  // @02e5
+  // @02ea
+  // @02ef
+  // @02f3
+  // @02f8
+  // @02fc
+  // @0301
+  // @0305
+  // @030c
+  closure_130_0 = undefined;
+  // @0310
+  // @0315
+  // @031a
+  // @031f
+  closure_130_0 = tmpResult.default(function() { /* body not rendered: F36444 */ });
+  // @0323
+  // @0328
+  obj7.resetChannel = function resetChannel() { /* body not rendered: F36445 */ };
+  // @032c
+  // @0330
+  // @0335
+  // @033b
+  obj7.getFingerprintHash = require(dependencyMap[6]).getFingerprintHash;
+  // @033f
+  // @0343
+  // @0348
+  // @034e
+  obj7.getCrashHistory = require(dependencyMap[6]).getCrashHistory;
+  // @0352
+  // @0356
+  // @035b
+  // @0361
+  obj7.clearCrashHistory = require(dependencyMap[6]).clearCrashHistory;
+  // @0365
+  exports.HotUpdater = obj7;
+  // @036b
+}

@@ -1,0 +1,97 @@
+// Module 1639
+const re0 = /^\d{10}$/;
+const re1 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function normalizedOtp(arg0) {
+
+}
+function selectOtpValue(otp) {
+  otp = otp.otp;
+  if (typeof normalizedOtp === "function") {
+    const str2 = otp.join("");
+    const replaced = str2.replace(/\D/g, "");
+    return replaced.slice(0, 4);
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function selectIsPhoneValid(phone) {
+  const str = phone.phone;
+  return re0.test(str.trim());
+}
+function selectIsOtpComplete(otp) {
+  if (typeof selectOtpValue === "function") {
+    otp = otp.otp;
+    if (typeof normalizedOtp === "function") {
+      const str2 = otp.join("");
+      const replaced = str2.replace(/\D/g, "");
+      return replaced.slice(0, 4).length === 4;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function selectIsEmailValid(email) {
+  if (email.trim()) {
+    return re1.test(email.trim());
+  } else {
+    return true;
+  }
+}
+
+export { selectOtpValue };
+export { selectIsPhoneValid };
+export { selectIsOtpComplete };
+export { selectIsEmailValid };
+export function selectCanRequestOtp(phone) {
+  if (typeof selectIsPhoneValid === "function") {
+    const str = phone.phone;
+    const tmp3 = re0.test(str.trim()) && !phone.requestOtpLoading;
+    return tmp3;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+export function selectCanVerifyOtp(otp) {
+  if (typeof selectIsOtpComplete === "function") {
+    if (typeof selectOtpValue === "function") {
+      otp = otp.otp;
+      if (typeof normalizedOtp === "function") {
+        const str2 = otp.join("");
+        const replaced = str2.replace(/\D/g, "");
+        const tmp4 = replaced.slice(0, 4).length === 4 && !otp.verifyOtpLoading;
+        return tmp4;
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+export function selectCanSubmitProfile(profile) {
+  const str = profile.profile.name;
+  let tmp = str.trim().length > 0;
+  if (typeof selectIsEmailValid === "function") {
+    let flag = true;
+    if (profile.profile.email.trim()) {
+      flag = re1.test(str2.trim());
+    }
+    const dataSharingAgreed = profile.profile.dataSharingAgreed;
+    if (tmp) {
+      tmp = flag;
+    }
+    if (tmp) {
+      tmp = dataSharingAgreed;
+    }
+    if (tmp) {
+      tmp = !profile.submitProfileLoading;
+    }
+    return tmp;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}

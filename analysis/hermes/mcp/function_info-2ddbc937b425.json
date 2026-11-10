@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 13529
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 22,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#13529 \"callProcess\" params=3 frame=19 regs=3(num=0,nonptr=3) size=382 offset=0xe2cb8d"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

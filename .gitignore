@@ -1,0 +1,11 @@
+
+# Generated APKs and analysis artifacts
+*.apk
+*.hbc.hdcache
+
+# Large generated files
+*.apk
+*.hbc.hdcache
+node_modules/
+dist/
+build/

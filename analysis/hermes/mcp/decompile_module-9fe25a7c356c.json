@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1617
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 6,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1617\nconst require = globalThis.__r;\n\n\nexport const createDefaultRetryPolicy = require(\"module_1618\").createDefaultRetryPolicy;\nexport const isRetryableResult = require(\"module_1618\").isRetryableResult;\nexport const requestWithRetry = require(\"requestWithRetry\").requestWithRetry;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3952
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 9,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3952 (materializeAnalyticsEvent)\nfunction isSupportedPropValue(arg0) {\n\n}\nfunction copySupportedFields(arg0, arg1) {\n\n}\n\nexport function materializeAnalyticsEvent(config) {\n  const f31903 = (item) => {\n    let tmp;\n    let tmp2;\n    [tmp, tmp2] = item;\n    if (typeof obj === \"function\") {\n      let flag = true;\n      if (tmp2 !== null) {\n        flag = true;\n        if (typeof tmp2 !== \"string\") {\n          flag = true;\n          if (typeof tmp2 !== \"boolean\") {\n            let isFiniteResult = typeof tmp2 === \"number\";\n            if (typeof tmp2 === \"number\") {\n              const _Number = Number;\n              isFiniteResult = Number.isFinite(tmp2);\n            }\n            flag = isFiniteResult;\n          }\n        }\n      }\n      if (flag) {\n        obj[tmp] = tmp2;\n      }\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  };\n  const tmp = copySupportedFields;\n  if (typeof copySupportedFields === \"function\") {\n    const obj = {};\n    const _Object = Object;\n    const entries = Object.entries(tmp2);\n    const item = entries.forEach(f31903);\n    if (typeof tmp === \"function\") {\n      const _Object2 = Object;\n      const entries1 = Object.entries(tmp5);\n      const item1 = entries1.forEach(f31903);\n      if (typeof tmp === \"function\") {\n        const _Object3 = Object;\n        const entries2 = Object.entries(tmp7);\n        const item2 = entries2.forEach(f31903);\n        if (config.config.type === \"interaction\") {\n          obj.ui_screen = config.config.screen;\n          obj.ui_component = config.config.entity;\n          if (config.config.element) {\n            obj.ui_element = config.config.element;\n          }\n          obj.action = config.config.action;\n        } else {\n          let flag = false;\n          if (config.config.includeEntityInPayload !== false) {\n            let entity = config.config.payloadEntity;\n            if (entity == null) {\n              entity = config.config.entity;\n            }\n            obj.entity = entity;\n            if (config.config.payloadAction) {\n              obj.action = config.config.payloadAction;\n            }\n          }\n        }\n        obj.event_name = config.eventName;\n        obj.event_type = config.config.type;\n        ({ schemaVersion: obj.schema_version, capturedAtMs: obj.ts_ms, eventId: obj.event_id } = config);\n        return obj;\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

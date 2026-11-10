@@ -1,0 +1,26 @@
+function enqueueAnalyticsJob(arg0) {
+  // @0000
+  // @0003
+  // @0006
+  closure_0 = arg0;
+  // @000a
+  let str = arg0.priority;
+  // @0010
+  // @0012
+  if (str == null) {
+    // @0016
+    str = "high";
+  }
+  // @001a
+  closure_1 = str;
+  // @001e
+  // @0020
+  // @0026
+  // @002a
+  // @002f
+  // @0032
+  // @0036
+  // @003a
+  const promise = new Promise(function() { /* body not rendered: F25802 */ });
+  return promise;
+}

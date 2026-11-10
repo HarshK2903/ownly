@@ -1,0 +1,19 @@
+{
+  "tool": "xref_search",
+  "arguments": {
+    "query": "baseURL"
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 11,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Found 41 cross-references for 'baseURL':\n  Function 1698 () at offset 015d: GetById\n  Function 1698 () at offset 0176: GetById\n  Function 1698 () at offset 0185: PutByIdStrict\n  Function 1708 () at offset 0085: PutByIdStrict\n  Function 1708 () at offset 04a3: PutByIdStrict\n  Function 4371 () at offset 0053: LoadConstString\n  Function 9840 (initializeApp) at offset 022a: GetById\n  Function 9840 (initializeApp) at offset 0250: LoadConstString\n  Function 11682 (getBaseURL) at offset 0007: GetById\n  Function 11682 (getBaseURL) at offset 0020: GetById\n  Function 11682 (getBaseURL) at offset 0041: GetById\n  Function 11713 (wrap) at offset 007c: LoadConstString\n  Function 14718 (convertToImgproxyUrl) at offset 01fa: GetById\n  Function 14719 (updateImgproxyConfig) at offset 0006: GetById\n  Function 14719 (updateImgproxyConfig) at offset 0013: GetById\n  Function 14719 (updateImgproxyConfig) at offset 0036: PutByIdLoose\n  Function 15193 (createRnEnv) at offset 013a: GetById\n  Function 23668 () at offset 004f: LoadConstString\n  Function 25725 (wrap) at offset 0036: LoadConstString\n  Function 25725 (wrap) at offset 0041: GetById\n  Function 25725 (wrap) at offset 0064: LoadConstString\n  Function 25725 (wrap) at offset 006f: GetById\n  Function 25725 (wrap) at offset 0098: LoadConstString\n  Function 25725 (wrap) at offset 00c4: GetById\n  Function 25725 (wrap) at offset 0134: GetById\n  Function 25726 (init) at offset 0021: LoadConstString\n  Function 25726 (init) at offset 002c: GetById\n  Function 25726 (init) at offset 0058: LoadConstString\n  Function 25726 (init) at offset 0069: GetById\n  Function 25728 (checkForUpdate) at offset 0056: LoadConstString\n  Function 25729 (updateBundle) at offset 0056: LoadConstString\n  Function 25762 (getCachedBaseURL) at offset 0009: LoadConstString\n  Function 25763 (cacheBaseURL) at offset 0009: LoadConstString\n  Function 36448 (?anon_0_) at offset 00b1: LoadConstString\n  Function 39646 () at offset 0023: GetById\n  Function 39646 () at offset 0041: GetById\n  Function 39646 () at offset 0050: GetById\n  Function 40327 (?anon_0_) at offset 04ad: GetById\n  Function 40328 (?anon_0_) at offset 023c: GetById\n  Function 40868 (?anon_0_) at offset 05ac: GetById\n  Function 40868 (?anon_0_) at offset 0884: GetById\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

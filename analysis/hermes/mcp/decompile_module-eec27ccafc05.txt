@@ -1,0 +1,276 @@
+// Module 3856 (pollingService)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass from "_createClass" /* 6 */;
+import module_1 from "module_1" /* 1 */;
+
+let c3, c4, c5, c6, retryCount;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+class PollingService {
+  constructor() {
+    _classCallCheck.default(this, PollingService);
+    this.instances = new Map();
+    new Map();
+  }
+}
+const entry = {
+  key: "startPolling",
+  value: function startPolling(combined, arg1, callbacks) {
+    let closure_1 = combined;
+    let closure_2 = callbacks;
+    const self = this;
+    this.stopPolling(combined);
+    const timestamp = Date.now();
+    let obj = { maxDuration: 7200000, retryOnError: true, maxRetries: 3, backoffMultiplier: 1.5 };
+    const merged = Object.assign(arg1);
+    retryCount = 0;
+    let interval = obj.interval;
+    let closure_0 = _asyncToGenerator.default(async (arg0, value) => {
+      let backoffMultiplier;
+      let closure_2;
+      let interval;
+      if (c5 === 2) {
+        c5 = 3;
+        throw new TypeError("Generator functions may not be called on executing generators");
+      } else if (tmp3 === 3) {
+        if (arg0 === 1) {
+          throw value;
+        } else if (arg0 === 2) {
+          const obj2 = { value, done: true };
+          return obj2;
+        } else {
+          return { value: "return", done: null };
+        }
+      } else {
+        let tmp57;
+        try {
+          let closure_1;
+          c5 = 2;
+          const tmp4 = c4;
+          if (0 === c4) {
+            if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c5 = 3;
+              const obj3 = { value, done: true };
+              return obj3;
+            } else {
+              closure_0 = undefined;
+              closure_1 = undefined;
+              tmp57 = undefined;
+              if (c5.maxDuration) {
+                const _Date = Date;
+                const diff = Date.now() - c4;
+                if (diff >= c5.maxDuration) {
+                  const _console3 = console;
+                  const _HermesInternal3 = HermesInternal;
+                  console.log("[PollingService] Polling " + closure_1 + " timed out after " + diff + "ms");
+                  c3.stopPolling(closure_1);
+                  const onTimeout = tmp57.onTimeout;
+                  if (onTimeout != null) {
+                    onTimeout();
+                  }
+                  c5 = 3;
+                  return { value: "return", done: null };
+                }
+              }
+              c3 = 1;
+              c4 = 2;
+              c5 = 1;
+              const obj4 = { value: tmp57.onPoll(), done: false };
+              return obj4;
+            }
+          } else {
+            if (1 === tmp4) {
+              c3 = 0;
+              let instances = tmp57;
+              const _console = console;
+              const _HermesInternal = HermesInternal;
+              console.error("[PollingService] Polling " + closure_1 + " error:", instances);
+              if (c5.retryOnError) {
+                let num4 = c5.maxRetries;
+                const tmp21 = c6;
+                if (!num4) {
+                  num4 = 3;
+                }
+                if (tmp21 < num4) {
+                  c6 = c6 + 1;
+                  ({ backoffMultiplier, interval } = c5);
+                  const _Math = Math;
+                  if (!backoffMultiplier) {
+                    backoffMultiplier = 1.5;
+                  }
+                  closure_1 = interval * pow(backoffMultiplier, c6);
+                  const _console2 = console;
+                  const _HermesInternal2 = HermesInternal;
+                  console.log("[PollingService] Retrying " + closure_1 + " in " + closure_1 + "ms (attempt " + c6 + ")");
+                  instances = c3.instances;
+                  tmp57 = instances.get(closure_1);
+                  let intervalId;
+                  if (tmp57 != null) {
+                    intervalId = tmp57.intervalId;
+                  }
+                  if (intervalId) {
+                    const _clearInterval = clearInterval;
+                    clearInterval(tmp57.intervalId);
+                    tmp57.intervalId = null;
+                  }
+                  const _setTimeout = setTimeout;
+                  const timerId = setTimeout(() => {
+                    instances = instances.instances;
+                    const value = instances.get(closure_1_1);
+                    if (value) {
+                      const _setInterval = setInterval;
+                      value.intervalId = setInterval(closure_1_0, interval);
+                    }
+                  }, closure_1);
+                }
+              }
+              const onError = tmp57.onError;
+              if (onError != null) {
+                onError(instances);
+              }
+            } else if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c3 = 0;
+              c5 = 3;
+              const obj = { value, done: true };
+              return obj;
+            } else {
+              closure_0 = value;
+              c6 = 0;
+              interval = c5.interval;
+              const onSuccess = tmp57.onSuccess;
+              if (onSuccess != null) {
+                onSuccess(closure_0);
+              }
+              c3 = 0;
+            }
+            c5 = 3;
+            return { value: "return", done: null };
+          }
+        } catch (tmp57) {
+          if (0 === c3) {
+            c5 = 3;
+            throw tmp57;
+          } else {
+            c4 = 1;
+          }
+        }
+      }
+    });
+    function poll() {
+      return closure_0(...arguments);
+    }
+    poll();
+    let instances = this.instances;
+    let obj2 = { intervalId: setInterval(poll, interval), startTime: timestamp, config: obj, callbacks, retryCount, isActive: true };
+    const result = instances.set(combined, obj2);
+    let obj3 = {
+      id: combined,
+      stop() {
+        return self.stopPolling(closure_1);
+      },
+      restart() {
+        self.stopPolling(closure_1);
+        self.startPolling(closure_1, obj, closure_2);
+      },
+      updateInterval(interval) {
+        const instances = self.instances;
+        const value = instances.get(closure_1);
+        if (value) {
+          if (value.intervalId) {
+            const _clearInterval = clearInterval;
+            clearInterval(value.intervalId);
+          }
+          value.config.interval = interval;
+          const _setInterval = setInterval;
+          value.intervalId = setInterval(poll, interval);
+        }
+      },
+      isActive() {
+        const instances = self.instances;
+        const value = instances.get(closure_1);
+        let flag;
+        if (value != null) {
+          flag = value.isActive;
+        }
+        if (flag == null) {
+          flag = false;
+        }
+        return flag;
+      }
+    };
+    return obj3;
+  }
+};
+const items = [
+  entry,
+  {
+    key: "stopPolling",
+    value: function stopPolling(index) {
+      const instances = this.instances;
+      const value = instances.get(index);
+      if (value) {
+        if (value.intervalId) {
+          const _clearInterval = clearInterval;
+          clearInterval(value.intervalId);
+        }
+        value.isActive = false;
+        const instances2 = this.instances;
+        instances2.delete(index);
+        const _console = console;
+        const _HermesInternal = HermesInternal;
+        console.log("[PollingService] Stopped polling " + index);
+      }
+    }
+  },
+  {
+    key: "stopAll",
+    value: function stopAll() {
+      const self = this;
+      const instances = this.instances;
+      const item = instances.forEach((item, index) => {
+        self.stopPolling(index);
+      });
+    }
+  },
+  {
+    key: "isPollingActive",
+    value: function isPollingActive(arg0) {
+      const instances = this.instances;
+      const value = instances.get(arg0);
+      let flag;
+      if (value != null) {
+        flag = value.isActive;
+      }
+      if (flag == null) {
+        flag = false;
+      }
+      return flag;
+    }
+  },
+  {
+    key: "getStatus",
+    value: function getStatus(arg0) {
+      const instances = this.instances;
+      const value = instances.get(arg0);
+      if (value) {
+        const _Date = Date;
+        const obj = { isActive: value.isActive, elapsed: Date.now() - value.startTime, retryCount: value.retryCount };
+        return obj;
+      } else {
+        return null;
+      }
+    }
+  }
+];
+const tmp3 = new module_1(_createClass).default(PollingService, items)();
+
+export const pollingService = tmp3;
+export default tmp3;

@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 3953
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 9,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 3953 (generateEventName) exports (1 total):\n  export \"generateEventName\" -> function 18921 (generateEventName)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

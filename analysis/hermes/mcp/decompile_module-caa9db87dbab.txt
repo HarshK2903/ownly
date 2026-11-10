@@ -1,0 +1,20 @@
+// Module 2055 (resolveGatewayType)
+import PaymentGatewayType2 from "PaymentGatewayType" /* 2041 */;
+
+const set = new Set(["CASHFREE", "CASHFREE_PG"]);
+const set1 = new Set(["JUSPAY", "HYPERCHECKOUT", "HYPER_CHECKOUT", "JUSPAY_SANDBOX", "HYPERCHECKOUT_SANDBOX"]);
+
+export function resolveGatewayType(gateway) {
+  let str = "";
+  if (gateway) {
+    const str2 = gateway.trim();
+    str = str2.toUpperCase();
+  }
+  if (set.has(str)) {
+    return PaymentGatewayType2.PaymentGatewayType.CASHFREE;
+  } else {
+    const hasItem = set1.has(str);
+    const PaymentGatewayType = PaymentGatewayType2.PaymentGatewayType;
+    return hasItem ? PaymentGatewayType.JUSPAY : PaymentGatewayType.CASHFREE;
+  }
+}

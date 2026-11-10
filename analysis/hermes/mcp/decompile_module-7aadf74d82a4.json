@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3943
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 14,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3943 (ScreenId)\n\nexport const ScreenId = { HOME_PAGE: \"homePage\", RESTAURANT_PAGE: \"restaurantPage\", RESTAURANT_SEARCH_PAGE: \"restaurantSearchPage\" };\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

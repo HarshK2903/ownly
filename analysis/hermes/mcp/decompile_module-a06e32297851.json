@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1662
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 17,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1662\nimport _mod1663 from \"module_1663\" /* 1663 */;\n\nconst module_1663 = _interopRequireWildcard(_mod1663);\n\nexport default {\n  getCurrentPosition(arg0, arg1, arg2) {\n    const currentPosition = module_1663.getCurrentPosition(arg0, arg1, arg2);\n  },\n  watchPosition(arg0, arg1, arg2) {\n    return module_1663.watchPosition(arg0, arg1, arg2);\n  },\n  clearWatch(arg0) {\n    module_1663.clearWatch(arg0);\n  },\n  stopObserving() {\n    console.warn(\"`ReactNativeGeolocation.stopObserving` is deprecated and should not be used. Use `ReactNativeGeolocation.clearWatch` instead.\");\n    module_1663.stopObserving();\n  },\n  requestAuthorization(arg0, arg1) {\n    const authorization = module_1663.requestAuthorization(arg0, arg1);\n  },\n  setRNConfiguration(arg0) {\n    module_1663.setRNConfiguration(arg0);\n  }\n};\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

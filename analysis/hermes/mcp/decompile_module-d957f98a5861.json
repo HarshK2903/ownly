@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1133
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 16,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1133\nconst require = globalThis.__r;\n\n\nexport const createMMKV = require(\"module_1134\").createMMKV;\nexport const deleteMMKV = require(\"module_1140\").deleteMMKV;\nexport const existsMMKV = require(\"existsMMKV\").existsMMKV;\nexport const useMMKV = require(\"module_1142\").useMMKV;\nexport const useMMKVBoolean = require(\"react\").useMMKVBoolean;\nexport const useMMKVBuffer = require(\"react\").useMMKVBuffer;\nexport const useMMKVKeys = require(\"module_1147\").useMMKVKeys;\nexport const useMMKVListener = require(\"react\").useMMKVListener;\nexport const useMMKVNumber = require(\"react\").useMMKVNumber;\nexport const useMMKVObject = require(\"module_1150\").useMMKVObject;\nexport const useMMKVString = require(\"react\").useMMKVString;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

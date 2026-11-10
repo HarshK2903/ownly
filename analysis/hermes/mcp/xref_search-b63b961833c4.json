@@ -1,0 +1,19 @@
+{
+  "tool": "xref_search",
+  "arguments": {
+    "query": "recordEvent"
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 9,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Found 7 cross-references for 'recordEvent':\n  Function 11385 (recordEvent) at offset 0027: GetById\n  Function 31971 (isAvailable) at offset 0017: GetById\n  Function 31972 (track) at offset 0028: GetById\n  Function 33291 () at offset 011a: GetById\n  Function 40516 (?anon_0_) at offset 03cb: GetById\n  Function 41656 (?anon_0_) at offset 01bc: GetById\n  Function 42299 (?anon_0_) at offset 00c2: GetById\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

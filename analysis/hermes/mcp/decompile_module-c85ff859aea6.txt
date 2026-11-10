@@ -1,0 +1,84 @@
+// Module 3952 (materializeAnalyticsEvent)
+function isSupportedPropValue(arg0) {
+
+}
+function copySupportedFields(arg0, arg1) {
+
+}
+
+export function materializeAnalyticsEvent(config) {
+  const f31903 = (item) => {
+    let tmp;
+    let tmp2;
+    [tmp, tmp2] = item;
+    if (typeof obj === "function") {
+      let flag = true;
+      if (tmp2 !== null) {
+        flag = true;
+        if (typeof tmp2 !== "string") {
+          flag = true;
+          if (typeof tmp2 !== "boolean") {
+            let isFiniteResult = typeof tmp2 === "number";
+            if (typeof tmp2 === "number") {
+              const _Number = Number;
+              isFiniteResult = Number.isFinite(tmp2);
+            }
+            flag = isFiniteResult;
+          }
+        }
+      }
+      if (flag) {
+        obj[tmp] = tmp2;
+      }
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  };
+  const tmp = copySupportedFields;
+  if (typeof copySupportedFields === "function") {
+    const obj = {};
+    const _Object = Object;
+    const entries = Object.entries(tmp2);
+    const item = entries.forEach(f31903);
+    if (typeof tmp === "function") {
+      const _Object2 = Object;
+      const entries1 = Object.entries(tmp5);
+      const item1 = entries1.forEach(f31903);
+      if (typeof tmp === "function") {
+        const _Object3 = Object;
+        const entries2 = Object.entries(tmp7);
+        const item2 = entries2.forEach(f31903);
+        if (config.config.type === "interaction") {
+          obj.ui_screen = config.config.screen;
+          obj.ui_component = config.config.entity;
+          if (config.config.element) {
+            obj.ui_element = config.config.element;
+          }
+          obj.action = config.config.action;
+        } else {
+          let flag = false;
+          if (config.config.includeEntityInPayload !== false) {
+            let entity = config.config.payloadEntity;
+            if (entity == null) {
+              entity = config.config.entity;
+            }
+            obj.entity = entity;
+            if (config.config.payloadAction) {
+              obj.action = config.config.payloadAction;
+            }
+          }
+        }
+        obj.event_name = config.eventName;
+        obj.event_type = config.config.type;
+        ({ schemaVersion: obj.schema_version, capturedAtMs: obj.ts_ms, eventId: obj.event_id } = config);
+        return obj;
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 11288
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 10,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#11288 \"createVerifyOtpRequest\" params=2 frame=5 regs=1(num=0,nonptr=1) size=91 offset=0xdf2478 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

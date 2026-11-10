@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 11163
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 12,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#11163 \"createCheckoutOrderStatusRequest\" params=2 frame=15 regs=1(num=0,nonptr=1) size=110 offset=0xdef234 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

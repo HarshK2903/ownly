@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 11284,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 7,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  LoadParam r2, 1\n0003  GetByIdShort r3, r2, 0, \"path\"\n0008  LoadConstNull r0\n000a  JNotEqual L21, r3, r0\n000e  GetParentEnvironment r1, 0\n0011  LoadFromEnvironment r3, r1, 2\nL21:\n0015  NewObjectWithBufferLong r1, 3232, 209995\n001f  PutOwnBySlotIdx r1, r3, 1\n0023  NewObjectWithBufferLong r3, 3236, 111672\n002d  GetById r4, r2, 1, \"phoneNumber\"\n0033  PutOwnBySlotIdx r3, r4, 0\n0037  GetById r4, r2, 2, \"smsType\"\n003d  JNotEqual L69, r4, r0\n0041  LoadConstString r4, \"otp\"\nL69:\n0045  PutOwnBySlotIdx r3, r4, 1\n0049  GetById r4, r2, 3, \"channel\"\n004f  JmpTrue L86, r4\n0052  NewObject r4\n0054  Jmp L109\nL86:\n0056  NewObjectWithBufferLong r5, 3237, 110776\n0060  GetById r6, r2, 3, \"channel\"\n0066  PutOwnBySlotIdx r5, r6, 0\n006a  Mov r4, r5\nL109:\n006d  Mov r8, r3\n0070  Mov r7, r4\n0073  CallBuiltin r4, 46, 3\n0077  PutOwnBySlotIdx r1, r3, 2\n007b  GetById r3, r2, 4, \"timeoutMs\"\n0081  PutOwnBySlotIdx r1, r3, 3\n0085  GetById r2, r2, 5, \"credentials\"\n008b  PutOwnBySlotIdx r1, r2, 4\n008f  Ret r1\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

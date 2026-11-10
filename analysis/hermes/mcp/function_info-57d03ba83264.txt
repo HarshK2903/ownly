@@ -1,0 +1,1 @@
+fn#16923 "isOrderInFinalState" params=2 frame=12 regs=0(num=0,nonptr=0) size=25 offset=0xe9f287 flags=[strict]

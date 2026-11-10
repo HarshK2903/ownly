@@ -1,0 +1,302 @@
+// Module 3893 (trackRecentSearchTap)
+import AnalyticsComponent from "AnalyticsComponent" /* 1670 */;
+import emitStandardBusiness2 from "emitStandardBusiness" /* 1976 */;
+
+let tmp;
+const deliveryPromiseItemCharmImpressionFields = tmp(1848);
+const f31679 = () => {
+
+};
+
+export function trackRecentSearchTap(query) {
+  let obj3;
+  const obj = { ui_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_PAGE, ui_component: AnalyticsComponent.AnalyticsComponent.RECENT_SEARCHES, ui_element: AnalyticsComponent.AnalyticsElement.RESULT_CARD, action: "tap", prop_search_query: query.query };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  if (query.searchQueryId) {
+    obj3 = { prop_search_query_id: query.searchQueryId };
+    const obj2 = { prop_search_query_id: query.searchQueryId };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchCategoryGridTap(arg0) {
+  const obj = { ui_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_PAGE, ui_component: AnalyticsComponent.AnalyticsComponent.SEARCH_CATEGORY_GRID, ui_element: AnalyticsComponent.AnalyticsElement.CATEGORY_CARD, action: "tap", prop_entity_type: null, prop_entity_name: null, prop_item_id: null, prop_rank: null, prop_city_id: null, prop_section_name: "categories" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  ({ entityType: obj.prop_entity_type, entityName: obj.prop_entity_name, entityId: obj.prop_item_id, resultRank: obj.prop_rank, cityId: obj.prop_city_id } = arg0);
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchFeedbackScreenContextLoaded(prop_search_query) {
+  let obj3;
+  let obj5;
+  const obj = { prop_search_query: prop_search_query.searchQuery };
+  const SEARCH_FEEDBACK_PAGE = AnalyticsComponent.AnalyticsScreen.SEARCH_FEEDBACK_PAGE;
+  if (prop_search_query.searchId) {
+    obj3 = { prop_search_id: prop_search_query.searchId };
+    const obj2 = { prop_search_id: prop_search_query.searchId };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  if (prop_search_query.searchQueryId) {
+    obj5 = { prop_search_query_id: prop_search_query.searchQueryId };
+    const obj4 = { prop_search_query_id: prop_search_query.searchQueryId };
+  } else {
+    obj5 = {};
+  }
+  const merged1 = Object.assign(obj5);
+  const obj6 = { ctx_screen: SEARCH_FEEDBACK_PAGE };
+  const emitStandardScreenView = emitStandardBusiness2.emitStandardScreenView;
+  const merged2 = Object.assign(obj);
+  const result = emitStandardScreenView(obj6);
+  result.catch(f31679);
+}
+export function trackSearchFeedbackSubmitted(searchId) {
+  let obj3;
+  const obj = { entity: AnalyticsComponent.AnalyticsEntity.SEARCH, action: "feedback_submitted", ctx_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_RESULT_PAGE };
+  if (searchId.searchId) {
+    obj3 = { prop_search_id: searchId.searchId };
+    const obj2 = { prop_search_id: searchId.searchId };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  ({ queryType: obj.prop_query_type, queryComment: obj.prop_query_comment } = searchId);
+  const emitStandardBusinessResult = emitStandardBusiness2.emitStandardBusiness(obj);
+  emitStandardBusinessResult.catch(() => {
+
+  });
+}
+export function trackSearchNoResults(searchQueryId) {
+  let obj3;
+  const obj = { entity: AnalyticsComponent.AnalyticsEntity.SEARCH, action: "no_results", ctx_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_RESULT_PAGE, prop_search_query: null, prop_entity_type: null, prop_entity_id: null, prop_city_id: null };
+  const emitStandardBusiness = emitStandardBusiness2.emitStandardBusiness;
+  ({ searchQuery: obj.prop_search_query, entityType: obj.prop_entity_type, entityId: obj.prop_entity_id, cityId: obj.prop_city_id } = searchQueryId);
+  if (searchQueryId.searchQueryId) {
+    obj3 = { prop_search_query_id: searchQueryId.searchQueryId };
+    const obj2 = { prop_search_query_id: searchQueryId.searchQueryId };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  const emitStandardBusinessResult = emitStandardBusiness(obj);
+  emitStandardBusinessResult.catch(() => {
+
+  });
+}
+export function trackSearchPopularInAreaTap(arg0) {
+  const obj = { ui_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_PAGE, ui_component: AnalyticsComponent.AnalyticsComponent.SEARCH_POPULAR_IN_AREA, ui_element: AnalyticsComponent.AnalyticsElement.RESULT_CARD, action: "tap", prop_entity_type: null, prop_entity_name: null, prop_item_id: null, prop_rank: null, prop_city_id: null, prop_section_name: "popular_in_your_area" };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  ({ entityType: obj.prop_entity_type, entityName: obj.prop_entity_name, entityId: obj.prop_item_id, resultRank: obj.prop_rank, cityId: obj.prop_city_id } = arg0);
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchQuerySubmitted(resultsByType) {
+  let obj3;
+  resultsByType = resultsByType.resultsByType;
+  const _Object = Object;
+  if (resultsByType == null) {
+    resultsByType = {};
+  }
+  const entries1 = entries(resultsByType);
+  const reduced = entries1.reduce((acc, item) => {
+    let str;
+    let tmp;
+    [str, tmp] = item;
+    const str2 = str.trim();
+    acc["prop_" + str2.toLowerCase().replace(/[^a-z0-9]+/g, "_") + "_count"] = tmp;
+    str2.toLowerCase();
+    return acc;
+  }, {});
+  const obj = { ui_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_PAGE, ui_component: AnalyticsComponent.AnalyticsComponent.SEARCH_BAR, ui_element: AnalyticsComponent.AnalyticsElement.SEARCH_INPUT, action: "submit", prop_search_query: resultsByType.query };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  if (resultsByType.searchQueryId) {
+    obj3 = { prop_search_query_id: resultsByType.searchQueryId };
+    const obj2 = { prop_search_query_id: resultsByType.searchQueryId };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  const merged1 = Object.assign(reduced);
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchResultsFeedbackPromptTap(searchQuery) {
+  let obj3;
+  let obj5;
+  const obj = { ui_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_RESULT_PAGE, ui_component: AnalyticsComponent.AnalyticsComponent.SEARCH_RESULTS_FEEDBACK, ui_element: AnalyticsComponent.AnalyticsElement.FEEDBACK_BUTTON, action: "tap", prop_search_query: searchQuery.searchQuery };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  if (searchQuery.searchId) {
+    obj3 = { prop_search_id: searchQuery.searchId };
+    const obj2 = { prop_search_id: searchQuery.searchId };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  if (searchQuery.searchQueryId) {
+    obj5 = { prop_search_query_id: searchQuery.searchQueryId };
+    const obj4 = { prop_search_query_id: searchQuery.searchQueryId };
+  } else {
+    obj5 = {};
+  }
+  const merged1 = Object.assign(obj5);
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchResultsImpressions(prop_search_query) {
+  let obj2;
+  let obj4;
+  let obj6;
+  let obj8;
+  const obj = { uiScreen: AnalyticsComponent.AnalyticsScreen.SEARCH_RESULT_PAGE, uiComponent: AnalyticsComponent.AnalyticsComponent.SEARCH_RESULTS_LIST, uiElement: AnalyticsComponent.AnalyticsElement.SEARCH_RESULTS_RESTAURANT_CARD, items: prop_search_query.items, additionalProps: obj2 };
+  const emitStandardImpressionBatch = emitStandardBusiness2.emitStandardImpressionBatch;
+  obj2 = { prop_search_query: prop_search_query.searchQuery, prop_entity_type: prop_search_query.entityType, prop_entity_id: prop_search_query.entityId };
+  if (prop_search_query.searchSection) {
+    obj4 = { prop_search_section: prop_search_query.searchSection };
+    const obj3 = { prop_search_section: prop_search_query.searchSection };
+  } else {
+    obj4 = {};
+  }
+  const merged = Object.assign(obj4);
+  if (prop_search_query.searchId) {
+    obj6 = { prop_search_id: prop_search_query.searchId };
+    const obj5 = { prop_search_id: prop_search_query.searchId };
+  } else {
+    obj6 = {};
+  }
+  const merged1 = Object.assign(obj6);
+  if (prop_search_query.searchQueryId) {
+    obj8 = { prop_search_query_id: prop_search_query.searchQueryId };
+    const obj7 = { prop_search_query_id: prop_search_query.searchQueryId };
+  } else {
+    obj8 = {};
+  }
+  const merged2 = Object.assign(obj8);
+  const result = emitStandardImpressionBatch(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchResultsRestaurantTap(searchSection) {
+  let obj3;
+  let obj5;
+  let obj7;
+  const obj = { ui_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_RESULT_PAGE, ui_component: AnalyticsComponent.AnalyticsComponent.SEARCH_RESULTS_LIST, ui_element: AnalyticsComponent.AnalyticsElement.SEARCH_RESULTS_RESTAURANT_CARD, action: "tap", prop_item_id: null, prop_item_type: "restaurant", prop_restaurant_name: null, prop_search_query: null, prop_entity_type: null, prop_rank: null };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  ({ restaurantId: obj.prop_item_id, restaurantName: obj.prop_restaurant_name, searchQuery: obj.prop_search_query, entityType: obj.prop_entity_type, resultRank: obj.prop_rank } = searchSection);
+  if (searchSection.searchSection) {
+    obj3 = { prop_search_section: searchSection.searchSection };
+    const obj2 = { prop_search_section: searchSection.searchSection };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  if (searchSection.searchId) {
+    obj5 = { prop_search_id: searchSection.searchId };
+    const obj4 = { prop_search_id: searchSection.searchId };
+  } else {
+    obj5 = {};
+  }
+  const merged1 = Object.assign(obj5);
+  if (searchSection.searchQueryId) {
+    obj7 = { prop_search_query_id: searchSection.searchQueryId };
+    const obj6 = { prop_search_query_id: searchSection.searchQueryId };
+  } else {
+    obj7 = {};
+  }
+  const merged2 = Object.assign(obj7);
+  const merged3 = Object.assign(deliveryPromiseItemCharmImpressionFields.itemCharmTapProps(searchSection.trustMarkers));
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchScreenContextLoaded(ctx_screen) {
+  let extraProps = ctx_screen.extraProps;
+  const obj = { ctx_screen: ctx_screen.screen };
+  const emitStandardScreenView = emitStandardBusiness2.emitStandardScreenView;
+  if (extraProps == null) {
+    extraProps = {};
+  }
+  const merged = Object.assign(extraProps);
+  const result = emitStandardScreenView(obj);
+  result.catch(f31679);
+}
+export function trackSearchSuggestionTap(entityType) {
+  let RESULT_CARD;
+  let obj3;
+  let obj5;
+  let obj7;
+  const obj = { ui_screen: AnalyticsComponent.AnalyticsScreen.SEARCH_PAGE, ui_component: AnalyticsComponent.AnalyticsComponent.SEARCH_SUGGESTIONS, ui_element: RESULT_CARD, action: "tap", prop_entity_type: null, prop_entity_name: null, prop_item_id: null, prop_search_query: null, prop_rank: null };
+  const emitStandardInteraction = emitStandardBusiness2.emitStandardInteraction;
+  if (entityType.entityType === "RESTAURANT") {
+    RESULT_CARD = tmp(1670).AnalyticsElement.SEARCH_RESULTS_RESTAURANT_CARD;
+  } else {
+    RESULT_CARD = tmp(1670).AnalyticsElement.RESULT_CARD;
+  }
+  ({ entityType: obj.prop_entity_type, entityName: obj.prop_entity_name, entityId: obj.prop_item_id, searchQuery: obj.prop_search_query, resultRank: obj.prop_rank } = entityType);
+  if (entityType.searchId) {
+    obj3 = { prop_search_id: entityType.searchId };
+    const obj2 = { prop_search_id: entityType.searchId };
+  } else {
+    obj3 = {};
+  }
+  const merged = Object.assign(obj3);
+  if (entityType.searchQueryId) {
+    obj5 = { prop_search_query_id: entityType.searchQueryId };
+    const obj4 = { prop_search_query_id: entityType.searchQueryId };
+  } else {
+    obj5 = {};
+  }
+  const merged1 = Object.assign(obj5);
+  if (entityType.cityId) {
+    obj7 = { prop_city_id: entityType.cityId };
+    const obj6 = { prop_city_id: entityType.cityId };
+  } else {
+    obj7 = {};
+  }
+  const merged2 = Object.assign(obj7);
+  const result = emitStandardInteraction(obj);
+  result.catch(() => {
+
+  });
+}
+export function trackSearchSuggestionsImpressions(prop_search_query) {
+  let obj2;
+  let obj4;
+  let obj6;
+  const obj = { uiScreen: AnalyticsComponent.AnalyticsScreen.SEARCH_PAGE, uiComponent: AnalyticsComponent.AnalyticsComponent.SEARCH_SUGGESTIONS, uiElement: AnalyticsComponent.AnalyticsElement.SEARCH_RESULTS_RESTAURANT_CARD, items: prop_search_query.items, additionalProps: obj2 };
+  const emitStandardImpressionBatch = emitStandardBusiness2.emitStandardImpressionBatch;
+  obj2 = { prop_search_query: prop_search_query.searchQuery, prop_city_id: prop_search_query.cityId };
+  if (prop_search_query.searchId) {
+    obj4 = { prop_search_id: prop_search_query.searchId };
+    const obj3 = { prop_search_id: prop_search_query.searchId };
+  } else {
+    obj4 = {};
+  }
+  const merged = Object.assign(obj4);
+  if (prop_search_query.searchQueryId) {
+    obj6 = { prop_search_query_id: prop_search_query.searchQueryId };
+    const obj5 = { prop_search_query_id: prop_search_query.searchQueryId };
+  } else {
+    obj6 = {};
+  }
+  const merged1 = Object.assign(obj6);
+  const result = emitStandardImpressionBatch(obj);
+  result.catch(() => {
+
+  });
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 3580
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 12,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 3580 (runSearchRecommendations) exports (1 total):\n  export \"runSearchRecommendations\" -> function 30881 (runSearchRecommendations)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

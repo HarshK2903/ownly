@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 1652
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 7,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 1652 (runVerifyOtpFlow) exports (1 total):\n  export \"runVerifyOtpFlow\" -> function 25454 (runVerifyOtpFlow)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

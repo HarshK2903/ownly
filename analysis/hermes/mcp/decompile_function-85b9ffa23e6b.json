@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 13388,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 7,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function trackLocationSelected() {\n  let obj6;\n  // @0000\n  let obj = arg0;\n  // @0003\n  // @0005\n  if (arg0 === undefined) {\n    // @0009\n    obj = {};\n  }\n  // @000b\n  // @000e\n  // @0011\n  const tmp = closure_1_0;\n  // @0015\n  const tmp2 = closure_1_1;\n  // @0019\n  // @001d\n  // @0022\n  // @0028\n  const obj1 = { entity: null, action: \"selected\" };\n  // @0032\n  // @0036\n  const emitStandardBusiness = closure_1_0(closure_1_1[2]).emitStandardBusiness;\n  // @003b\n  // @0041\n  // @0047\n  obj1.entity = closure_1_0(closure_1_1[3]).AnalyticsEntity.LOCATION;\n  // @004b\n  // @004e\n  // @0051\n  const merged = Object.assign(obj);\n  // @0055\n  if (arg1) {\n    // @005c\n    const obj5 = { prop_cart_id: null };\n    // @0066\n    obj5.prop_cart_id = arg1;\n    // @006a\n    obj6 = obj5;\n  } else {\n    // @0058\n    obj6 = {};\n    // @005a\n  }\n  // @006d\n  // @0070\n  // @0073\n  const merged1 = Object.assign(obj6);\n  // @0077\n  // @007b\n  // @0080\n  // @0085\n  // @008b\n  // @008f\n  const LOCATION_SELECTION_PAGE = tmp(tmp2[3]).AnalyticsScreen.LOCATION_SELECTION_PAGE;\n  // @0094\n  // @009a\n  // @009e\n  // @00a3\n  // @00a9\n  // @00ad\n  let analyticsScreenForRoute = tmp(tmp2[0]).getAnalyticsScreenForRoute(tmp(tmp2[1]).getCurrentRouteName());\n  // @00b2\n  // @00b4\n  if (analyticsScreenForRoute == null) {\n    // @00b8\n    analyticsScreenForRoute = LOCATION_SELECTION_PAGE;\n  }\n  // @00bb\n  obj1.ctx_screen = analyticsScreenForRoute;\n  // @00c1\n  // @00c6\n  // @00cb\n  // @00d0\n  const emitStandardBusinessResult = emitStandardBusiness(obj1);\n  emitStandardBusinessResult.catch(function() { /* body not rendered: F26973 */ });\n  // @00d5\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

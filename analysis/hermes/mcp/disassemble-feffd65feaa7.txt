@@ -1,0 +1,49 @@
+0000  GetParentEnvironment r2, 0
+0003  LoadParam r3, 1
+0006  LoadFromEnvironment r4, r2, 4
+000a  GetById r5, r3, 0, "checkoutPayload"
+0010  JmpTypeOfIs L32, r4, 128
+0018  LoadConstString r7, "Trying to call a non-function"
+001c  CallBuiltin r4, 44, 2
+L32:
+0020  LoadFromEnvironment r4, r2, 3
+0024  JmpTypeOfIs L52, r4, 128
+002c  LoadConstString r7, "Trying to call a non-function"
+0030  CallBuiltin r4, 44, 2
+L52:
+0034  TypeOfIs r0, r5, 258
+0039  JmpTypeOfIs L71, r5, 253
+0041  LoadConstNull r1
+0043  StrictNeq r0, r5, r1
+L71:
+0047  JmpFalse L82, r0
+004a  LoadConstString r4, "cart"
+004e  IsIn r0, r4, r5
+L82:
+0052  JmpTrue L114, r0
+0055  GetGlobalObject r4
+0057  TryGetById r6, r4, 1, "Error"
+005d  CreateThisForNew r5, r6, 2
+0061  LoadConstString r7, "Invalid checkout payload: missing cart data"
+0065  Mov r8, r5
+0068  Construct r4, r6, 2
+006c  SelectObject r4, r5, r4
+0070  Throw r4
+L114:
+0072  GetById r4, r3, 3, "endpoint"
+0078  LoadConstNull r0
+007a  JNotEqual L130, r4, r0
+007e  LoadFromEnvironment r4, r2, 2
+L130:
+0082  NewObjectWithBufferLong r2, 3203, 209995
+008c  PutOwnBySlotIdx r2, r4, 1
+0090  GetById r4, r3, 0, "checkoutPayload"
+0096  PutOwnBySlotIdx r2, r4, 2
+009a  GetById r4, r3, 4, "headers"
+00a0  PutOwnBySlotIdx r2, r4, 3
+00a4  GetById r3, r3, 5, "credentials"
+00aa  JNotEqual L178, r3, r0
+00ae  LoadConstString r3, "include"
+L178:
+00b2  PutOwnBySlotIdx r2, r3, 4
+00b6  Ret r2

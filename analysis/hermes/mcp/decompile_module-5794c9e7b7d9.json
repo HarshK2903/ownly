@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3953
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 16,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3953 (generateEventName)\n\nexport function generateEventName(type) {\n  let entity;\n  let screen;\n  if (type.type === \"interaction\") {\n    ({ type, screen, entity } = type);\n    let str4 = \"\";\n    if (type.element) {\n      const _HermesInternal2 = HermesInternal;\n      str4 = \"_\" + type.element;\n    }\n    const _HermesInternal3 = HermesInternal;\n    return \"\" + type + \"_\" + screen + \"_\" + entity + str4 + \"_\" + type.action;\n  } else {\n    const _HermesInternal = HermesInternal;\n    return \"\" + type.type + \"_\" + type.entity;\n  }\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

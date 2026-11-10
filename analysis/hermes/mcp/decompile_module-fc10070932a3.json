@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 2641
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 5,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 2641\n\nexport * from \"module_2642\";\nexport * from \"module_2643\";\nexport * from \"module_2644\";\nexport * from \"module_2645\";\nexport * from \"module_2646\";\nexport * from \"module_2647\";\nexport * from \"module_2648\";\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

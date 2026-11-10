@@ -1,0 +1,2 @@
+Module 3960 (cleverTapSink) exports (1 total):
+  export "createCleverTapSink" -> function 18929 (createCleverTapSink)

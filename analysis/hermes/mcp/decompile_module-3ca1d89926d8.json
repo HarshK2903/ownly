@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3937
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 26,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3937\nimport _mod3938 from \"module_3938\" /* 3938 */;\nimport _mod3961 from \"module_3961\" /* 3961 */;\nimport _mod3994 from \"module_3994\" /* 3994 */;\nimport react from \"react\" /* 74 */;\n\n\nexport function useRestaurantNewPageViewModel(restaurantSearchAnalytics, restaurantSearchPage, menuData1) {\n  let restaurantPageAnalytics = restaurantSearchAnalytics;\n  if (restaurantSearchAnalytics === undefined) {\n    restaurantPageAnalytics = _mod3938.restaurantPageAnalytics;\n  }\n  let str = restaurantSearchPage;\n  if (restaurantSearchPage === undefined) {\n    str = \"restaurantPage\";\n  }\n  const restaurantNewViewModel = _mod3961.useRestaurantNewViewModel(menuData1);\n  let obj = { screenKey: str };\n  const useRestaurantNewInteractionViewModel = _mod3994.useRestaurantNewInteractionViewModel;\n  let merged = Object.assign(restaurantNewViewModel.trackingContext);\n  const restaurantNewInteractionViewModel = useRestaurantNewInteractionViewModel(obj, restaurantPageAnalytics);\n  const items = [, , ];\n  ({ interactions: arr[0], novaHandlers: arr[1] } = restaurantNewInteractionViewModel);\n  items[2] = restaurantNewViewModel;\n  return react.useMemo(() => {\n    const obj = {};\n    const merged = Object.assign(restaurantNewViewModel);\n    ({ interactions: obj.interactions, novaHandlers: obj.novaHandlers } = restaurantNewInteractionViewModel);\n    return obj;\n  }, items);\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

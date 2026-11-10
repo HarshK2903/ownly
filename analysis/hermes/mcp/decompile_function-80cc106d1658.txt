@@ -1,0 +1,416 @@
+function f1708(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+  // @0000
+  // @0003
+  // @0006
+  closure_0 = require;
+  // @000a
+  // @000d
+  // @0010
+  closure_1 = dependencyMap;
+  // @0014
+  // @0019
+  closure_16 = function _updateBundle() { /* body not rendered: F11656 */ };
+  // @001d
+  // @0021
+  // @0023
+  const _module = require(dependencyMap[0]);
+  // @0028
+  // @002a
+  // @0030
+  // @0035
+  // @0039
+  // @0043
+  // @004a
+  // @0050
+  // @0055
+  // @005f
+  // @0064
+  // @0068
+  // @006c
+  const obj = { enumerable: true, get() { /* body not rendered: F11658 */ } };
+  Object.defineProperty(exports, "HotUpdaterErrorCode", obj);
+  // @0073
+  exports.addListener = undefined;
+  // @0079
+  exports.clearCrashHistory = undefined;
+  // @007f
+  exports.getAppVersion = undefined;
+  // @0085
+  exports.getBaseURL = undefined;
+  // @008b
+  exports.getBundleId = undefined;
+  // @0091
+  exports.getChannel = undefined;
+  // @0097
+  exports.getCohort = undefined;
+  // @009d
+  exports.getCrashHistory = undefined;
+  // @00a3
+  exports.getDefaultChannel = undefined;
+  // @00a9
+  exports.getFingerprintHash = undefined;
+  // @00af
+  exports.getManifest = undefined;
+  // @00b5
+  exports.getMinBundleId = undefined;
+  // @00bb
+  exports.isChannelSwitched = undefined;
+  // @00c1
+  // @00c7
+  // @00cc
+  // @00d6
+  // @00db
+  // @00df
+  // @00e3
+  const obj1 = { enumerable: true, get() { /* body not rendered: F11659 */ } };
+  Object.defineProperty(exports, "isHotUpdaterError", obj1);
+  // @00ea
+  exports.notifyAppReady = undefined;
+  // @00f0
+  exports.reload = undefined;
+  // @00f6
+  exports.resetChannel = undefined;
+  // @00fc
+  exports.setCohort = undefined;
+  // @0102
+  // @0107
+  exports.setReloadBehavior = function setReloadBehavior() { /* body not rendered: F11657 */ };
+  // @010d
+  // @0112
+  exports.updateBundle = function updateBundle() { /* body not rendered: F11655 */ };
+  // @0118
+  // @011c
+  // @0121
+  const tmpResult = _module(require(dependencyMap[2]));
+  // @0126
+  closure_2 = tmpResult;
+  // @012a
+  // @012e
+  // @0133
+  // @0138
+  closure_3 = _module(require(dependencyMap[3]));
+  // @013c
+  // @0140
+  // @0145
+  // @014a
+  // @014e
+  // @0153
+  // @0157
+  const tmpResult1 = _module(require(dependencyMap[4]));
+  const _module1 = require(dependencyMap[5]);
+  // @015c
+  const tmpResult2 = _module(require(dependencyMap[6]));
+  // @0161
+  closure_4 = tmpResult2;
+  // @0165
+  // @0169
+  closure_5 = "00000000-0000-0000-0000-000000000000";
+  // @016d
+  // @0172
+  closure_6 = function normalizeAndValidateCohort() { /* body not rendered: F11660 */ };
+  // @0176
+  // @017d
+  class HotUpdaterSessionState {
+    constructor() {
+      // @0000
+      self = this;
+      // @0003
+      // @0006
+      // @000a
+      // @000f
+      // @0012
+      // @0016
+      // @0018
+      defaultResult = closure_2_3.default(this, closure_1_0);
+      // @001e
+      // @0020
+      // @0026
+      // @002a
+      // @002d
+      map = new Map();
+      // @0031
+      // @0035
+      this.inflightUpdates = map;
+      // @003b
+      // @003d
+      this.lastInstalledBundleId = null;
+      // @0043
+      // @0049
+      // @004d
+      // @0050
+      map1 = new Map();
+      // @0054
+      // @0058
+      this.activeBundleSnapshotCache = map1;
+      // @005e
+      // @0062
+      _default = closure_2_4.default;
+      // @0067
+      // @006d
+      constants = _default.getConstants();
+      // @0071
+      CHANNEL = constants.DEFAULT_CHANNEL;
+      // @0077
+      if (CHANNEL == null) {
+        // @007b
+        CHANNEL = constants.CHANNEL;
+      }
+      // @0081
+      self.defaultChannel = CHANNEL;
+      // @0087
+      // @008d
+      self.currentChannel = constants.CHANNEL;
+      // @0093
+      return;
+    }
+  }
+  // @0182
+  closure_129_0 = HotUpdaterSessionState;
+  // @0186
+  // @018b
+  const entry = { key: "getChannel", value: function getChannel() { /* body not rendered: F25749 */ } };
+  // @0195
+  // @019a
+  // @019e
+  const items = [, , , , , , , , , , , , , , , , , , , ];
+  // @01a2
+  items[0] = entry;
+  // @01a6
+  const entry1 = { key: "getDefaultChannel", value: function getDefaultChannel() { /* body not rendered: F25750 */ } };
+  // @01ac
+  // @01b1
+  // @01b5
+  items[1] = entry1;
+  // @01b9
+  const entry2 = { key: "isChannelSwitched", value: function isChannelSwitched() { /* body not rendered: F25751 */ } };
+  // @01c3
+  // @01c8
+  // @01cc
+  items[2] = entry2;
+  // @01d0
+  const entry3 = { key: "hasInstalledBundle", value: function hasInstalledBundle() { /* body not rendered: F25752 */ } };
+  // @01da
+  // @01df
+  // @01e3
+  items[3] = entry3;
+  // @01e7
+  const entry4 = { key: "getInflightUpdate", value: function getInflightUpdate() { /* body not rendered: F25753 */ } };
+  // @01f1
+  // @01f6
+  // @01fa
+  items[4] = entry4;
+  // @01fe
+  const entry5 = { key: "trackInflightUpdate", value: function trackInflightUpdate() { /* body not rendered: F25754 */ } };
+  // @0208
+  // @020d
+  // @0211
+  items[5] = entry5;
+  // @0215
+  const entry6 = { key: "clearInflightUpdate", value: function clearInflightUpdate() { /* body not rendered: F25755 */ } };
+  // @021f
+  // @0224
+  // @0228
+  items[6] = entry6;
+  // @022c
+  const entry7 = { key: "markBundleInstalled", value: function markBundleInstalled() { /* body not rendered: F25756 */ } };
+  // @0236
+  // @023b
+  // @023f
+  items[7] = entry7;
+  // @0243
+  const entry8 = { key: "resetChannelState", value: function resetChannelState() { /* body not rendered: F25757 */ } };
+  // @024d
+  // @0252
+  // @0256
+  items[8] = entry8;
+  // @025a
+  const entry9 = { key: "getCachedBundleId", value: function getCachedBundleId() { /* body not rendered: F25758 */ } };
+  // @0264
+  // @0269
+  // @026d
+  items[9] = entry9;
+  // @0271
+  const entry10 = { key: "cacheBundleId", value: function cacheBundleId() { /* body not rendered: F25759 */ } };
+  // @027b
+  // @0280
+  // @0284
+  items[10] = entry10;
+  // @0288
+  const entry11 = { key: "getCachedManifest", value: function getCachedManifest() { /* body not rendered: F25760 */ } };
+  // @0292
+  // @0297
+  // @029b
+  items[11] = entry11;
+  // @029f
+  const entry12 = { key: "cacheManifest", value: function cacheManifest() { /* body not rendered: F25761 */ } };
+  // @02a9
+  // @02ae
+  // @02b2
+  items[12] = entry12;
+  // @02b6
+  const entry13 = { key: "getCachedBaseURL", value: function getCachedBaseURL() { /* body not rendered: F25762 */ } };
+  // @02c0
+  // @02c5
+  // @02c9
+  items[13] = entry13;
+  // @02cd
+  const entry14 = { key: "cacheBaseURL", value: function cacheBaseURL() { /* body not rendered: F25763 */ } };
+  // @02d7
+  // @02dc
+  // @02e0
+  items[14] = entry14;
+  // @02e4
+  const entry15 = { key: "getCachedCohort", value: function getCachedCohort() { /* body not rendered: F25764 */ } };
+  // @02ea
+  // @02ef
+  // @02f3
+  items[15] = entry15;
+  // @02f7
+  const entry16 = { key: "cacheCohort", value: function cacheCohort() { /* body not rendered: F25765 */ } };
+  // @0301
+  // @0306
+  // @030a
+  items[16] = entry16;
+  // @030e
+  const entry17 = { key: "clearActiveBundleSnapshotCache", value: function clearActiveBundleSnapshotCache() { /* body not rendered: F25766 */ } };
+  // @0318
+  // @031d
+  // @0321
+  items[17] = entry17;
+  // @0325
+  const entry18 = { key: "getActiveBundleSnapshotValue", value: function getActiveBundleSnapshotValue() { /* body not rendered: F25767 */ } };
+  // @032f
+  // @0334
+  // @0338
+  items[18] = entry18;
+  // @033c
+  const entry19 = { key: "setActiveBundleSnapshotValue", value: function setActiveBundleSnapshotValue() { /* body not rendered: F25768 */ } };
+  // @0346
+  // @034b
+  // @034f
+  items[19] = entry19;
+  // @0353
+  // @0359
+  // @035d
+  // @0360
+  // @0364
+  // @0368
+  closure_7 = new tmpResult1.default(HotUpdaterSessionState, items)();
+  // @036c
+  // @0370
+  closure_8 = "processRestart";
+  // @0374
+  // @0376
+  closure_9 = null;
+  // @037a
+  // @037f
+  closure_10 = function cloneManifest() { /* body not rendered: F11661 */ };
+  // @0383
+  // @0388
+  closure_11 = function getNativeBundleId() { /* body not rendered: F11662 */ };
+  // @038c
+  // @0391
+  closure_12 = function resolveBundleId() { /* body not rendered: F11663 */ };
+  // @0395
+  // @039a
+  closure_13 = function getFreshBundleId() { /* body not rendered: F11664 */ };
+  // @039e
+  // @03a3
+  closure_14 = function getReloadProcess() { /* body not rendered: F11665 */ };
+  // @03a7
+  // @03ad
+  // @03b2
+  // @03b6
+  // @03b9
+  const tmp7 = new tmpResult1.default(HotUpdaterSessionState, items)();
+  const nativeEventEmitter = new _module1.NativeEventEmitter(tmpResult2.default);
+  // @03bd
+  // @03c1
+  closure_15 = nativeEventEmitter;
+  // @03c5
+  // @03ca
+  exports.addListener = function addListener() { /* body not rendered: F11666 */ };
+  // @03d0
+  // @03d5
+  exports.getAppVersion = function getAppVersion() { /* body not rendered: F11667 */ };
+  // @03db
+  // @03e2
+  closure_130_0 = undefined;
+  // @03e6
+  // @03eb
+  // @03f0
+  // @03f5
+  closure_130_0 = tmpResult.default(function() { /* body not rendered: F25771 */ });
+  // @03f9
+  // @03fe
+  exports.reload = function reload() { /* body not rendered: F25772 */ };
+  // @0404
+  function getMinBundleId() { /* body not rendered: F11668 */ }
+  // @0409
+  closure_17 = getMinBundleId;
+  // @040d
+  exports.getMinBundleId = getMinBundleId;
+  // @0413
+  function getBundleId() { /* body not rendered: F11669 */ }
+  // @0418
+  closure_18 = getBundleId;
+  // @041c
+  exports.getBundleId = getBundleId;
+  // @0422
+  // @0427
+  exports.getManifest = function getManifest() { /* body not rendered: F11670 */ };
+  // @042d
+  // @0432
+  exports.getChannel = function getChannel() { /* body not rendered: F11671 */ };
+  // @0438
+  // @043d
+  exports.getDefaultChannel = function getDefaultChannel() { /* body not rendered: F11672 */ };
+  // @0443
+  // @0448
+  exports.isChannelSwitched = function isChannelSwitched() { /* body not rendered: F11673 */ };
+  // @044e
+  // @0453
+  exports.getFingerprintHash = function getFingerprintHash() { /* body not rendered: F11674 */ };
+  // @0459
+  // @045e
+  exports.notifyAppReady = function notifyAppReady() { /* body not rendered: F11675 */ };
+  // @0464
+  // @0469
+  closure_19 = function normalizeNotifyAppReadyResult() { /* body not rendered: F11676 */ };
+  // @046d
+  // @0472
+  closure_20 = function createEmptyManifest() { /* body not rendered: F11677 */ };
+  // @0476
+  // @047b
+  closure_21 = function normalizeManifest() { /* body not rendered: F11678 */ };
+  // @047f
+  // @0484
+  closure_22 = function normalizeManifestAssets() { /* body not rendered: F11679 */ };
+  // @0488
+  // @048d
+  exports.getCrashHistory = function getCrashHistory() { /* body not rendered: F11680 */ };
+  // @0493
+  // @0498
+  exports.clearCrashHistory = function clearCrashHistory() { /* body not rendered: F11681 */ };
+  // @049e
+  // @04a3
+  exports.getBaseURL = function getBaseURL() { /* body not rendered: F11682 */ };
+  // @04a9
+  // @04b0
+  closure_131_0 = undefined;
+  // @04b4
+  // @04b9
+  // @04be
+  // @04c3
+  closure_131_0 = tmpResult.default(function() { /* body not rendered: F25774 */ });
+  // @04c7
+  // @04cc
+  exports.resetChannel = function resetChannel() { /* body not rendered: F25775 */ };
+  // @04d2
+  // @04d7
+  exports.setCohort = function setCohort() { /* body not rendered: F11683 */ };
+  // @04dd
+  // @04e2
+  exports.getCohort = function getCohort() { /* body not rendered: F11684 */ };
+  // @04e8
+}

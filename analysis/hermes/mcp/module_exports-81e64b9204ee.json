@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 3960
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 10,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 3960 (cleverTapSink) exports (1 total):\n  export \"createCleverTapSink\" -> function 18929 (createCleverTapSink)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

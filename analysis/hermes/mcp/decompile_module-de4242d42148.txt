@@ -1,0 +1,1938 @@
+// Module 2050 (JUSPAY_PROCESS_CANCELLED_CODE)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import API_CONFIGS from "API_CONFIGS" /* 1153 */;
+import react_native from "react-native" /* 1155 */;
+import _mod1207 from "module_1207" /* 1207 */;
+import CleverTapService2 from "CleverTapService" /* 1669 */;
+import FIREBASE_EVENTS2 from "FIREBASE_EVENTS" /* 1681 */;
+import _mod2039 from "module_2039" /* 2039 */;
+import HyperSdkReact2 from "HyperSdkReact" /* 2051 */;
+import module_1 from "module_1" /* 1 */;
+import react_native2 from "react-native" /* 15 */;
+
+let c1, c20, c6, c7, closure_22, closure_31, closure_5, dependencyMap, initialised, success_str;
+
+function createJuspayProcessBusyError() {
+  const error = new Error("Another payment session is already open.");
+  const obj = { code: JUSPAY_PROCESS_BUSY };
+  return assign(error, obj);
+}
+function cancelScheduledJuspayTerminate() {
+  const tmp = c32;
+  if (tmp) {
+    const _clearTimeout = clearTimeout;
+    clearTimeout(c32);
+    c32 = null;
+  }
+}
+function settleCurrentBootstrap() {
+  c29 = null;
+  c28 = null;
+  c27 = false;
+  if (c29 != null) {
+    tmp();
+  }
+}
+function createJuspayProcessCancelledError(arg0) {
+  const error = new Error(arg0);
+  error.code = JUSPAY_PROCESS_CANCELLED;
+  return error;
+}
+function cancelJuspayProcess(arg0) {
+  let str = arg0;
+  if (arg0 === undefined) {
+    str = "Juspay process cancelled";
+  }
+  closure_30 = closure_30 + 1;
+  const tmp = c21;
+  if (tmp) {
+    const promise = c22;
+    if (c22 != null) {
+      promise.catch(() => {
+
+      });
+    }
+    c21 = null;
+    try {
+      const _Date = Date;
+      closure_26 = Date.now();
+      const obj = { level: "warn", meta: str };
+      const result = _mod2039.enqueueJuspayDebugSnackbar("cancelJuspayProcess invoked", obj);
+      tmp4(str);
+    } catch (tmp10) {
+      let message;
+      const _console = console;
+      console.warn("PAYMENTSERVICE - cancelJuspayProcess error:", tmp10);
+      const _Error = Error;
+      const enqueueJuspayDebugSnackbar = _mod2039.enqueueJuspayDebugSnackbar;
+      if (tmp10 instanceof Error) {
+        message = tmp10.message;
+      } else {
+        const _String = String;
+        message = String(tmp10);
+      }
+      const obj2 = { level: "error", meta: message };
+      const result1 = enqueueJuspayDebugSnackbar("cancelJuspayProcess failed", obj2);
+    }
+  }
+}
+function asString(str) {
+  str = "";
+  if (typeof str === "string") {
+    str = str.trim();
+  }
+  return str;
+}
+function isInitiateResultSuccess(tmp10Result, tmp10Result3, tmp10Result4) {
+  const formatted = tmp10Result.toLowerCase();
+  const formatted1 = tmp10Result3.toLowerCase();
+  if (tmp10Result4.trim().length > 0) {
+    return false;
+  } else {
+    if (formatted !== "success") {
+      if (formatted !== "ok") {
+        if (formatted !== "initiated") {
+          if (!formatted1.includes("success")) {
+            if (!formatted1.includes("ok")) {
+              return false;
+            }
+          }
+          return true;
+        }
+      }
+    }
+    return true;
+  }
+}
+function getHyperModule() {
+  let tmp = react_native.NativeModules[HyperSdkReact];
+  if (tmp == null) {
+    tmp = null;
+  }
+  return tmp;
+}
+function callCreateHyperServices(hyperModule) {
+  let createHyperServices1;
+  const tmp = HyperSdkReact;
+  if (HyperSdkReact.default != null) {
+    createHyperServices1 = _default.createHyperServices;
+  }
+  if (typeof createHyperServices1 === "function") {
+    const _default2 = tmp.default;
+    const hyperServices = _default2.createHyperServices();
+  } else if (hyperModule != null) {
+    const createHyperServices = hyperModule.createHyperServices;
+    if (createHyperServices != null) {
+      const hyperServices1 = createHyperServices();
+    }
+  }
+}
+function callPreFetch(hyperModule, arg1) {
+  let preFetch1;
+  const tmp = HyperSdkReact;
+  if (HyperSdkReact.default != null) {
+    preFetch1 = _default.preFetch;
+  }
+  if (typeof preFetch1 === "function") {
+    const _default2 = tmp.default;
+    _default2.preFetch(arg1);
+  } else if (hyperModule != null) {
+    const preFetch = hyperModule.preFetch;
+    if (preFetch != null) {
+      preFetch(arg1);
+    }
+  }
+}
+function callInitiate(hyperModule, arg1) {
+  let initiate1;
+  const tmp = HyperSdkReact;
+  if (HyperSdkReact.default != null) {
+    initiate1 = _default.initiate;
+  }
+  if (typeof initiate1 === "function") {
+    const _default2 = tmp.default;
+    _default2.initiate(arg1);
+  } else if (hyperModule != null) {
+    const initiate = hyperModule.initiate;
+    if (initiate != null) {
+      initiate(arg1);
+    }
+  }
+}
+function callProcess(processWithActivity, arg1) {
+  processWithActivity = undefined;
+  if (HyperSdkReact.default != null) {
+    processWithActivity = _default.processWithActivity;
+  }
+  if (typeof processWithActivity === "function") {
+    const _console3 = console;
+    console.log("PAYMENTSERVICE - Juspay process using processWithActivity (js bridge)");
+    const result = _mod2039.enqueueJuspayDebugSnackbar("processWithActivity via js bridge");
+    const _default3 = HyperSdkReact.default;
+    _default3.processWithActivity(arg1);
+  } else {
+    let processWithActivity1;
+    if (processWithActivity != null) {
+      processWithActivity1 = processWithActivity.processWithActivity;
+    }
+    if (typeof processWithActivity1 === "function") {
+      const _console2 = console;
+      console.log("PAYMENTSERVICE - Juspay process using processWithActivity (native module)");
+      const result1 = _mod2039.enqueueJuspayDebugSnackbar("processWithActivity via native module");
+      processWithActivity.processWithActivity(arg1);
+    } else {
+      let _process1;
+      if (HyperSdkReact.default != null) {
+        _process1 = _default4.process;
+      }
+      if (typeof _process1 === "function") {
+        const _console = console;
+        console.log("PAYMENTSERVICE - Juspay process using process (js bridge)");
+        const result2 = _mod2039.enqueueJuspayDebugSnackbar("process via js bridge");
+        const _default2 = HyperSdkReact.default;
+        _default2.process(arg1);
+      } else {
+        const _console4 = console;
+        console.log("PAYMENTSERVICE - Juspay process using process (native module)");
+        const result3 = _mod2039.enqueueJuspayDebugSnackbar("process via native module");
+        if (processWithActivity != null) {
+          const _process = processWithActivity.process;
+          if (_process != null) {
+            _process(arg1);
+          }
+        }
+      }
+    }
+  }
+}
+function callTerminate(hyperModule) {
+  let terminate1;
+  const tmp = HyperSdkReact;
+  if (HyperSdkReact.default != null) {
+    terminate1 = _default.terminate;
+  }
+  if (typeof terminate1 === "function") {
+    const _default2 = tmp.default;
+    _default2.terminate();
+  } else if (hyperModule != null) {
+    const terminate = hyperModule.terminate;
+    if (terminate != null) {
+      terminate();
+    }
+  }
+}
+function checkIsNull(isNull) {
+  let isNull1;
+  const tmp = HyperSdkReact;
+  if (HyperSdkReact.default != null) {
+    isNull1 = _default.isNull;
+  }
+  if (typeof isNull1 === "function") {
+    const _Boolean = Boolean;
+    const _default2 = tmp.default;
+    return Boolean(_default2.isNull());
+  } else {
+    let isNullResult;
+    const _Boolean2 = Boolean;
+    if (isNull != null) {
+      isNull = isNull.isNull;
+      if (isNull != null) {
+        isNullResult = isNull();
+      }
+    }
+    return _Boolean2(isNullResult);
+  }
+}
+function checkIsInitialised(arg0) {
+  return _checkIsInitialised(...arguments);
+}
+function _checkIsInitialised() {
+  const defaultResult = _asyncToGenerator.default(async (arg0, value) => {
+    let _default;
+    let closure_0;
+    initialised = arg0;
+    if (c7 === 2) {
+      c7 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c4;
+      try {
+        c7 = 2;
+        if (0 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c7 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            let closure_3 = tmp3;
+            c4 = 1;
+            let isInitialised;
+            const tmp21 = HyperSdkReact;
+            if (HyperSdkReact.default != null) {
+              isInitialised = _default2.isInitialised;
+            }
+            if (typeof isInitialised === "function") {
+              const _Boolean2 = Boolean;
+              c6 = 2;
+              c7 = 1;
+              const obj4 = { value: _default.isInitialised(), done: false };
+              _default = tmp21.default;
+              return obj4;
+            } else {
+              let isInitialised1;
+              if (initialised != null) {
+                isInitialised1 = obj9.isInitialised;
+              }
+              if (typeof isInitialised1 === "function") {
+                const _Boolean = Boolean;
+                c6 = 3;
+                c7 = 1;
+                const obj5 = { value: initialised.isInitialised(), done: false };
+                return obj5;
+              } else {
+                c4 = 0;
+                c7 = 3;
+                return { value: null, done: true };
+              }
+            }
+          }
+        } else if (1 === c6) {
+          c4 = 0;
+          initialised = closure_5;
+          const _console = console;
+          console.warn("PAYMENTSERVICE - Juspay isInitialised check failed", initialised);
+          c7 = 3;
+          return { value: false, done: true };
+        } else if (2 === c6) {
+          if (arg0 === 1) {
+            c7 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c7 = 3;
+            const obj6 = { value, done: true };
+            return obj6;
+          } else {
+            c4 = 0;
+            c7 = 3;
+            const obj7 = { value: Boolean(value), done: true };
+            return obj7;
+          }
+        } else if (arg0 === 1) {
+          c7 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 0;
+          c7 = 3;
+          const obj8 = { value, done: true };
+          return obj8;
+        } else {
+          c4 = 0;
+          c7 = 3;
+          const obj = { value: Boolean(value), done: true };
+          return obj;
+        }
+      } catch (tmp13) {
+        closure_5 = tmp13;
+        if (0 === c4) {
+          c7 = 3;
+          throw tmp13;
+        } else {
+          c6 = 1;
+        }
+      }
+    }
+  });
+  _checkIsInitialised = defaultResult;
+  return defaultResult(...arguments);
+}
+function terminateJuspaySdk(onlyIfIdle) {
+  onlyIfIdle = undefined;
+  if (onlyIfIdle != null) {
+    onlyIfIdle = onlyIfIdle.onlyIfIdle;
+  }
+  cancelScheduledJuspayTerminate();
+  const tmp4 = c27;
+  if (!tmp4) {
+    const tmp5 = c23;
+    if (!tmp5) {
+      let terminate;
+      const tmp7 = getHyperModule();
+      let terminate1;
+      if (HyperSdkReact.default != null) {
+        terminate1 = _default.terminate;
+      }
+      if (tmp7 != null) {
+        terminate = tmp7.terminate;
+      }
+      if (typeof terminate1 !== "function") {
+        if (!terminate) {
+          const _console = console;
+          console.log("PAYMENTSERVICE - Juspay SDK terminate skipped (terminate API unavailable)");
+        }
+      }
+      try {
+        const _console2 = console;
+        console.log("PAYMENTSERVICE - Juspay SDK terminate requested");
+        callTerminate(tmp7);
+        const _console3 = console;
+        console.log("PAYMENTSERVICE - Juspay SDK terminated");
+        closure_20 = false;
+      } catch (tmp17) {
+        closure_20 = false;
+        throw tmp17;
+      }
+    }
+  }
+  console.log("PAYMENTSERVICE - Juspay SDK terminate skipped (bootstrap/process in progress)");
+}
+function buildBaseSessionPayload(initiate) {
+  let _default;
+  let obj2;
+  let str8;
+  let str2 = "";
+  let str3 = "";
+  if (typeof react_native.default.OWNLY_JUSPAY_MERCHANT_ID === "string") {
+    str3 = str.trim();
+  }
+  let trimmed = str2;
+  if (typeof react_native.default.OWNLY_JUSPAY_CLIENT_ID === "string") {
+    trimmed = str4.trim();
+  }
+  let trimmed1 = str2;
+  if (typeof react_native.default.OWNLY_JUSPAY_X_ROUTING_ID === "string") {
+    trimmed1 = str5.trim();
+  }
+  if (str3) {
+    if (trimmed) {
+      const _String = String;
+      const obj = { requestId: String(_default.v4()), service: "in.juspay.hyperpay", payload: obj2 };
+      _default = module_1207.default;
+      obj2 = { action: initiate, merchantId: str3, clientId: trimmed, XRoutingId: trimmed1, environment: str8 };
+      if (typeof react_native.default.OWNLY_JUSPAY_ENVIRONMENT === "string") {
+        str2 = str6.trim();
+      }
+      let str7 = "sandbox";
+      str8 = "sandbox";
+      if (str2.toLowerCase() !== "sandbox") {
+        str8 = "production";
+        if (str2.toLowerCase() !== "production") {
+          if (API_CONFIGS.API_CONFIGS.APP_ENV === "prod") {
+            str7 = "production";
+          }
+          str8 = str7;
+        }
+      }
+      return obj;
+    }
+  }
+  return null;
+}
+function buildInitiatePayload() {
+  return buildBaseSessionPayload("initiate");
+}
+function buildPreFetchPayload() {
+  return buildBaseSessionPayload("prefetch");
+}
+function trackJuspayBootstrapTelemetry(skipped, arg1, prop_cart_id) {
+  let obj = arg1;
+  if (arg1 === undefined) {
+    obj = {};
+  }
+  const obj2 = { prop_init_component: "juspay_sdk", prop_init_stage: "bootstrap", prop_status: skipped };
+  const entries = Object.entries(obj);
+  const item = entries.forEach((item) => {
+    let tmp;
+    let tmp2;
+    [tmp, tmp2] = item;
+    if (tmp2 !== undefined) {
+      const _HermesInternal = HermesInternal;
+      obj["prop_" + tmp] = tmp2;
+    }
+  });
+  if (prop_cart_id) {
+    obj2.prop_cart_id = prop_cart_id;
+  }
+  const trackSystem = CleverTapService.default.trackSystem;
+  const obj3 = { action: "juspay_sdk_bootstrap" };
+  const merged = Object.assign(obj2);
+  trackSystem(obj3);
+  const _default2 = FIREBASE_EVENTS.default;
+  _default2.trackEvent(juspay_sdk_bootstrap, obj2);
+}
+function reInitiateJuspaySdk(arg0) {
+  return _reInitiateJuspaySdk(...arguments);
+}
+function _reInitiateJuspaySdk() {
+  const defaultResult = _asyncToGenerator.default(async function(arg0, value) {
+    let tmp14;
+    let tmp2;
+    let closure_0 = arg0;
+    if (c1 === 2) {
+      c1 = 3;
+      let str4 = "Generator functions may not be called on executing generators";
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp2 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c1 = 2;
+        if (arg0 === 1) {
+          c1 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c1 = 3;
+          let obj3 = { value, done: true };
+          return obj3;
+        } else {
+          const tmp18 = closure_0;
+          let tmp19 = buildInitiatePayload;
+          let tmp20 = buildInitiatePayload();
+          let closure_1 = tmp20;
+          if (closure_1) {
+            const tmp11 = globalThis;
+            const self3 = this;
+            const self4 = this;
+            const promise = new Promise(function(arg0, fn) {
+              closure_0 = arg0;
+              closure_1 = fn;
+              try {
+                let tmp = closure_1_4;
+                let self = this;
+                let self2 = this;
+                const nativeEventEmitter = new closure_1_4.NativeEventEmitter(closure_1_4.NativeModules[closure_1_9]);
+                const tmp3 = nativeEventEmitter;
+                let tmp4 = globalThis;
+                const _setTimeout = setTimeout;
+                let tmp5 = closure_1_15;
+                const timeout = setTimeout(() => {
+                  closure_3.remove();
+                  closure_3_2.default(function*(arg0, value) {
+                    if (c3 === 2) {
+                      c3 = 3;
+                      throw new TypeError("Generator functions may not be called on executing generators");
+                    } else if (tmp3 === 3) {
+                      if (arg0 === 1) {
+                        throw value;
+                      } else if (arg0 === 2) {
+                        const obj2 = { value, done: true };
+                        return obj2;
+                      } else {
+                        return { value: "return", done: null };
+                      }
+                    } else {
+                      try {
+                        c3 = 2;
+                        if (0 === c2) {
+                          if (arg0 === 1) {
+                            c3 = 3;
+                            throw value;
+                          } else if (arg0 === 2) {
+                            c3 = 3;
+                            const obj3 = { value, done: true };
+                            return obj3;
+                          } else {
+                            closure_1 = tmp4;
+                            closure_0 = undefined;
+                            c2 = 1;
+                            c3 = 1;
+                            const obj4 = { value: closure_2_47(closure_0), done: false };
+                            return obj4;
+                          }
+                        } else if (arg0 === 1) {
+                          c3 = 3;
+                          throw value;
+                        } else if (arg0 === 2) {
+                          c3 = 3;
+                          const obj = { value, done: true };
+                          return obj;
+                        } else {
+                          closure_0 = value;
+                          if (closure_0 === true) {
+                            c20 = true;
+                            failed = "success";
+                            initiate_timeout = "initiate_timeout_but_ready";
+                            const result = closure_2_0(fn[8]).enqueueJuspayDebugSnackbar("re-init timeout but sdk ready via isInitialised", { level: "warn" });
+                            closure_129_0();
+                            c3 = 3;
+                            return { value: "return", done: null };
+                          } else {
+                            c20 = false;
+                            failed = "failed";
+                            initiate_timeout = "initiate_timeout";
+                            closure_2_53("failed", { reason: "initiate_timeout", is_reinit: true });
+                            const result1 = closure_2_0(fn[8]).enqueueJuspayDebugSnackbar("re-init timeout", { level: "error" });
+                            const _Error = Error;
+                            const self = this;
+                            const self2 = this;
+                            const error = new Error("Juspay SDK re-initiate timed out");
+                            closure_129_1(error);
+                            c3 = 3;
+                            return { value: "return", done: null };
+                          }
+                        }
+                      } catch (tmp13) {
+                        c3 = 3;
+                        throw tmp13;
+                      }
+                    }
+                  })();
+                }, closure_1_15);
+                let closure_3 = nativeEventEmitter.addListener(closure_1_10, (arg0) => {
+                  let obj3;
+                  let tmp26;
+                  try {
+                    let tmp = arg0;
+                    const _JSON = JSON;
+                    const parsed = JSON.parse(arg0);
+                    const tmp4 = parsed;
+                    let tmp5 = null;
+                    let event;
+                    if (parsed != null) {
+                      event = parsed.event;
+                    }
+                    if (event === closure_2_12) {
+                      const _clearTimeout = clearTimeout;
+                      clearTimeout(closure_2);
+                      closure_3.remove();
+                      let payload;
+                      if (tmp4 != null) {
+                        payload = tmp4.payload;
+                      }
+                      let status;
+                      if (payload != null) {
+                        status = payload.status;
+                      }
+                      const tmp10Result = closure_2_38(status);
+                      closure_0 = tmp10Result;
+                      let code;
+                      if (payload != null) {
+                        code = tmp9.code;
+                      }
+                      const tmp10Result3 = closure_2_38(code);
+                      str = tmp10Result3;
+                      closure_1 = tmp10Result3;
+                      let errorMessage;
+                      if (payload != null) {
+                        errorMessage = payload.errorMessage;
+                      }
+                      const tmp10Result4 = closure_2_38(errorMessage);
+                      closure_2 = tmp10Result4;
+                      const tmp23 = closure_2_39(tmp13, str, tmp10Result4);
+                      const tmp24 = closure_2_53;
+                      let obj = { is_reinit: true, result_status: tmp13, result_code: tmp26, has_error: Boolean(tmp10Result4) };
+                      const _Boolean = Boolean;
+                      tmp24("result", obj);
+                      let str3 = "error";
+                      const enqueueJuspayDebugSnackbar = closure_0(closure_1[8]).enqueueJuspayDebugSnackbar;
+                      tmp26 = str;
+                      const tmp29 = closure_0;
+                      const tmp30 = closure_1;
+                      if (tmp23) {
+                        str3 = "info";
+                      }
+                      let obj2 = { level: str3, meta: obj3 };
+                      obj3 = { status: tmp10Result, code: str, error: tmp10Result4, initiateSuccess: tmp23 };
+                      let str4 = "re-init result";
+                      let result = enqueueJuspayDebugSnackbar("re-init result", obj2);
+                      if (tmp23) {
+                        c20 = true;
+                        success_str = "success";
+                        if (!str) {
+                          str = "success";
+                        }
+                        const result1 = tmp29(tmp30[8]).enqueueJuspayDebugSnackbar("re-init success");
+                        closure_0();
+                      } else {
+                        closure_2_2.default(function*(arg0, value) {
+                          let obj6;
+                          if (c3 === 2) {
+                            c3 = 3;
+                            throw new TypeError("Generator functions may not be called on executing generators");
+                          } else if (tmp3 === 3) {
+                            if (arg0 === 1) {
+                              throw value;
+                            } else if (arg0 === 2) {
+                              const obj2 = { value, done: true };
+                              return obj2;
+                            } else {
+                              return { value: "return", done: null };
+                            }
+                          } else {
+                            try {
+                              let tmp;
+                              c3 = 2;
+                              if (0 === c2) {
+                                if (arg0 === 1) {
+                                  c3 = 3;
+                                  throw value;
+                                } else if (arg0 === 2) {
+                                  c3 = 3;
+                                  const obj3 = { value, done: true };
+                                  return obj3;
+                                } else {
+                                  closure_1 = tmp4;
+                                  tmp = undefined;
+                                  c2 = 1;
+                                  c3 = 1;
+                                  const obj4 = { value: closure_3_47(tmp), done: false };
+                                  return obj4;
+                                }
+                              } else if (arg0 === 1) {
+                                c3 = 3;
+                                throw value;
+                              } else if (arg0 === 2) {
+                                c3 = 3;
+                                const obj5 = { value, done: true };
+                                return obj5;
+                              } else {
+                                tmp = value;
+                                if (tmp === true) {
+                                  c20 = true;
+                                  failed = "success";
+                                  const str4 = closure_129_1 || closure_129_0 || "initiate_ready_via_check";
+                                  const obj = { level: "warn", meta: obj6 };
+                                  obj6 = { status: closure_129_0, code: closure_129_1 };
+                                  const result = tmp(closure_1[8]).enqueueJuspayDebugSnackbar("re-init accepted via isInitialised fallback", obj);
+                                  tmp();
+                                  c3 = 3;
+                                  return { value: "return", done: null };
+                                } else {
+                                  c20 = false;
+                                  failed = "failed";
+                                  str = closure_129_1 || closure_129_0 || "initiate_failed";
+                                  let combined = closure_129_2;
+                                  const _Error = Error;
+                                  const tmp5 = closure_1;
+                                  if (!closure_129_2) {
+                                    const _HermesInternal = HermesInternal;
+                                    combined = "Juspay SDK re-initiate failed with status: " + closure_129_0;
+                                  }
+                                  const self = this;
+                                  const self2 = this;
+                                  const _Error1 = new _Error(combined);
+                                  tmp5(_Error1);
+                                  c3 = 3;
+                                  return { value: "return", done: null };
+                                }
+                              }
+                            } catch (tmp24) {
+                              c3 = 3;
+                              throw tmp24;
+                            }
+                          }
+                        })();
+                      }
+                    }
+                  } catch (err) {
+                  }
+                });
+                const tmp9 = closure_1_41(closure_0);
+                str = "in_progress";
+                success_str = "in_progress";
+                const str2 = "";
+                str = "";
+                let _JSON = JSON;
+                closure_1_43(closure_0, JSON.stringify(closure_1));
+                const tmp13 = closure_1_53;
+                let str3 = "initiated";
+                const tmp14 = closure_1_53("initiated", { is_reinit: true });
+                let str4 = "re-initiate called";
+                let result = closure_0(closure_1[8]).enqueueJuspayDebugSnackbar("re-initiate called");
+              } catch (tmp18) {
+                let message;
+                const tmp20 = globalThis;
+                let _Error = Error;
+                let str5 = "unknown_error";
+                let tmp19 = closure_1_53;
+                if (tmp18 instanceof Error) {
+                  const message1 = tmp18.message;
+                  str5 = message1.slice(0, 120);
+                }
+                let obj = { reason: str5, is_reinit: true };
+                const str6 = "failed";
+                tmp19("failed", obj);
+                let tmp23 = closure_1;
+                const _Error2 = Error;
+                let enqueueJuspayDebugSnackbar = closure_0(closure_1[8]).enqueueJuspayDebugSnackbar;
+                if (tmp18 instanceof Error) {
+                  message = tmp18.message;
+                } else {
+                  const _String = String;
+                  message = String(tmp18);
+                }
+                let obj2 = { level: "error", meta: message };
+                let result1 = enqueueJuspayDebugSnackbar("re-initiate failed", obj2);
+                let tmp25 = fn(tmp18);
+              }
+            });
+            c1 = 3;
+            let tmp13 = promise;
+            let obj = { value: promise, done: true };
+            return obj;
+          } else {
+            let tmp3 = trackJuspayBootstrapTelemetry;
+            let str = "failed";
+            let tmp4 = trackJuspayBootstrapTelemetry("failed", { reason: "missing_config", is_reinit: true });
+            let tmp5 = require;
+            let str2 = "re-init skipped: missing config";
+            let result = _mod2039.enqueueJuspayDebugSnackbar("re-init skipped: missing config", { level: "error" });
+            const tmp8 = globalThis;
+            let _Error = Error;
+            let self = this;
+            let str3 = "Juspay SDK not initialized. Configure OWNLY_JUSPAY_MERCHANT_ID and OWNLY_JUSPAY_CLIENT_ID, then call initiate once at app start.";
+            let self2 = this;
+            let error = new Error("Juspay SDK not initialized. Configure OWNLY_JUSPAY_MERCHANT_ID and OWNLY_JUSPAY_CLIENT_ID, then call initiate once at app start.");
+            let tmp10 = error;
+            throw error;
+          }
+        }
+      } catch (tmp14) {
+        c1 = 3;
+        throw tmp14;
+      }
+    }
+  });
+  _reInitiateJuspaySdk = defaultResult;
+  return defaultResult(...arguments);
+}
+function bootstrapJuspaySdk() {
+  let closure_1;
+  let resolveBootstrap;
+  const tmp = c20;
+  if (!tmp) {
+    const tmp2 = c27;
+    if (!tmp2) {
+      const tmp4 = getHyperModule();
+      const _default = HyperSdkReact.default;
+      let createHyperServices;
+      const tmp5 = HyperSdkReact;
+      if (_default != null) {
+        createHyperServices = _default.createHyperServices;
+      }
+      let tmp8 = typeof createHyperServices === "function";
+      if (typeof createHyperServices === "function") {
+        let _default2 = tmp5.default;
+        let initiate;
+        if (_default2 != null) {
+          initiate = _default2.initiate;
+        }
+        tmp8 = typeof initiate === "function";
+      }
+      let createHyperServices1;
+      if (tmp4 != null) {
+        createHyperServices1 = tmp4.createHyperServices;
+      }
+      let tmp11 = createHyperServices1;
+      if (tmp11) {
+        let initiate1;
+        if (tmp4 != null) {
+          initiate1 = tmp4.initiate;
+        }
+        tmp11 = initiate1;
+      }
+      if (!tmp8) {
+        if (!tmp11) {
+          let _console = console;
+          console.warn("PAYMENTSERVICE - Juspay SDK bootstrap skipped (native module not available)");
+          let str2 = "skipped";
+          trackJuspayBootstrapTelemetry("skipped", { reason: "module_unavailable", is_reinit: false });
+          let result = resolveBootstrap(2039).enqueueJuspayDebugSnackbar("bootstrap skipped: module unavailable", { level: "warn" });
+        }
+      }
+      const tmp21 = buildInitiatePayload();
+      let tmp22 = globalThis;
+      if (tmp21) {
+        resolveBootstrap = function resolveBootstrap() {
+
+        };
+        const self = this;
+        const self2 = this;
+        let closure_29 = resolveBootstrap;
+        c20 = false;
+        c27 = true;
+        const promise = new Promise((arg0) => {
+          resolveBootstrap = arg0;
+        });
+        try {
+          callCreateHyperServices(tmp4);
+          const self3 = this;
+          const self4 = this;
+          const nativeEventEmitter = new react_native.NativeEventEmitter(react_native.NativeModules[HyperSdkReact]);
+          const _setTimeout = setTimeout;
+          dependencyMap = setTimeout(() => {
+            closure_2.remove();
+            closure_20 = false;
+            failed = "failed";
+            initiate_timeout = "initiate_timeout";
+            const obj = { prop_init_component: "juspay_sdk", prop_init_stage: "bootstrap", prop_status: "failed" };
+            const entries = Object.entries({ reason: "initiate_timeout", is_reinit: false });
+            const item = entries.forEach((item) => {
+              let tmp;
+              let tmp2;
+              [tmp, tmp2] = item;
+              if (tmp2 !== undefined) {
+                const _HermesInternal = HermesInternal;
+                obj["prop_" + tmp] = tmp2;
+              }
+            });
+            const trackSystem = CleverTapService.default.trackSystem;
+            const obj2 = { action: "juspay_sdk_bootstrap" };
+            const merged = Object.assign(obj);
+            trackSystem(obj2);
+            const _default2 = FIREBASE_EVENTS.default;
+            _default2.trackEvent(juspay_sdk_bootstrap, obj);
+            const result = _mod2039.enqueueJuspayDebugSnackbar("bootstrap initiate timeout", { level: "error" });
+            c29 = null;
+            c28 = null;
+            c27 = false;
+            if (c29 != null) {
+              c29();
+            }
+          }, c15);
+          let closure_2 = nativeEventEmitter.addListener(HyperEvent, (arg0) => {
+            let obj3;
+            try {
+              const _JSON = JSON;
+              const parsed = JSON.parse(arg0);
+              let event;
+              if (parsed != null) {
+                event = parsed.event;
+              }
+              if (event === initiate_result) {
+                let payload;
+                if (parsed != null) {
+                  payload = tmp4.payload;
+                }
+                let status;
+                if (payload != null) {
+                  status = payload.status;
+                }
+                const tmp10Result = asString(status);
+                let code;
+                if (payload != null) {
+                  code = tmp9.code;
+                }
+                const tmp10Result3 = asString(code);
+                let errorMessage;
+                if (payload != null) {
+                  errorMessage = payload.errorMessage;
+                }
+                const tmp10Result4 = asString(errorMessage);
+                const tmp22 = isInitiateResultSuccess(tmp10Result, tmp10Result3, tmp10Result4);
+                const _Boolean = Boolean;
+                const obj = { is_reinit: false, result_status: tmp10Result, result_code: tmp10Result3, has_error: Boolean(tmp10Result4) };
+                trackJuspayBootstrapTelemetry("result", obj);
+                let str2 = "error";
+                const enqueueJuspayDebugSnackbar = _mod2039.enqueueJuspayDebugSnackbar;
+                if (tmp22) {
+                  str2 = "info";
+                }
+                const obj2 = { level: str2, meta: obj3 };
+                obj3 = { status: tmp10Result, code: tmp10Result3, error: tmp10Result4, initiateSuccess: tmp22 };
+                const result = enqueueJuspayDebugSnackbar("bootstrap initiate_result", obj2);
+                const _console = console;
+                console.log("PAYMENTSERVICE - Juspay initiate_result", parsed);
+                const _clearTimeout = clearTimeout;
+                clearTimeout(closure_1);
+                closure_2.remove();
+                closure_20 = tmp22;
+                let str5 = "failed";
+                if (tmp22) {
+                  str5 = "success";
+                }
+                failed = str5;
+                let tmp40 = tmp10Result3 || tmp10Result;
+                if (!tmp40) {
+                  let str6 = "initiate_failed";
+                  if (tmp22) {
+                    str6 = "success";
+                  }
+                  tmp40 = str6;
+                }
+                initiate_timeout = tmp40;
+                if (!tmp22) {
+                  const _console2 = console;
+                  const obj4 = { status: tmp10Result, code: tmp10Result3, errorMessage: tmp10Result4 };
+                  console.warn("PAYMENTSERVICE - Juspay bootstrap initiate_result not successful", obj4);
+                }
+                settleCurrentBootstrap();
+              }
+            } catch (err) {
+            }
+          });
+          const in_progress = "in_progress";
+          let c25 = "";
+          let _JSON = JSON;
+          let tmp40 = callInitiate(tmp4, JSON.stringify(tmp21));
+          trackJuspayBootstrapTelemetry("initiated", { is_reinit: false });
+          const _console3 = console;
+          console.log("PAYMENTSERVICE - Juspay SDK bootstrap initiated");
+          const result1 = resolveBootstrap(2039).enqueueJuspayDebugSnackbar("bootstrap initiate called");
+        } catch (tmp47) {
+          let message;
+          c20 = false;
+          settleCurrentBootstrap();
+          const _Error = Error;
+          let str12 = "unknown_error";
+          const tmp50 = trackJuspayBootstrapTelemetry;
+          if (tmp47 instanceof Error) {
+            const message1 = tmp47.message;
+            str12 = message1.slice(0, 120);
+          }
+          let obj = { reason: str12, is_reinit: false };
+          tmp50("failed", obj);
+          const _console4 = console;
+          console.error("PAYMENTSERVICE - Juspay SDK bootstrap failed", tmp47);
+          const _Error2 = Error;
+          let enqueueJuspayDebugSnackbar = resolveBootstrap(2039).enqueueJuspayDebugSnackbar;
+          if (tmp47 instanceof Error) {
+            message = tmp47.message;
+          } else {
+            const _String = String;
+            message = String(tmp47);
+          }
+          let obj2 = { level: "error", meta: message };
+          const result2 = enqueueJuspayDebugSnackbar("bootstrap failed", obj2);
+        }
+      } else {
+        let _console2 = console;
+        console.warn("PAYMENTSERVICE - Juspay SDK bootstrap skipped (merchant/client config missing)");
+        let str5 = "skipped";
+        trackJuspayBootstrapTelemetry("skipped", { reason: "missing_config", is_reinit: false });
+        let str6 = "bootstrap skipped: missing config";
+        const result3 = resolveBootstrap(2039).enqueueJuspayDebugSnackbar("bootstrap skipped: missing config", { level: "error" });
+      }
+    }
+  }
+}
+function _initiateJuspayCheckoutSession() {
+  const defaultResult = _asyncToGenerator.default(async function(arg0, value) {
+    let obj8;
+    if (c5 === 2) {
+      c5 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c3;
+      let closure_2;
+      try {
+        let isNullBeforeInitiate;
+        let isInitialisedBeforeInitiate;
+        c5 = 2;
+        if (0 === c4) {
+          if (arg0 === 1) {
+            c5 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            isNullBeforeInitiate = undefined;
+            isInitialisedBeforeInitiate = undefined;
+            closure_2 = undefined;
+            cancelScheduledJuspayTerminate();
+            const tmp52 = closure_2_20;
+            if (!tmp52) {
+              const tmp36 = closure_2_27;
+              if (!tmp36) {
+                const tmp38 = getHyperModule();
+                c3 = 1;
+                isNullBeforeInitiate = checkIsNull(tmp38);
+                c4 = 2;
+                c5 = 1;
+                const obj4 = { value: checkIsInitialised(tmp38), done: false };
+                return obj4;
+              }
+            }
+            c5 = 3;
+            return { value: "return", done: null };
+          }
+        } else {
+          let _Promise;
+          if (1 === c4) {
+            c3 = 0;
+            const message = closure_2;
+            const _console = console;
+            console.warn("PAYMENTSERVICE - Juspay checkout session stale-state check failed", message);
+            const _Error = Error;
+            _Promise = message instanceof Error;
+            const enqueueJuspayDebugSnackbar = closure_129_0(closure_129_1[8]).enqueueJuspayDebugSnackbar;
+            if (_Promise) {
+              _Promise = message.message;
+            } else {
+              const _String = String;
+              _Promise = String(message);
+            }
+            const obj5 = { level: "error", meta: _Promise };
+            const result = enqueueJuspayDebugSnackbar("checkout init stale-state check failed", obj5);
+          } else {
+            if (2 === c4) {
+              if (arg0 === 1) {
+                c5 = 3;
+                throw value;
+              } else if (arg0 === 2) {
+                c3 = 0;
+                c5 = 3;
+                const obj6 = { value, done: true };
+                return obj6;
+              } else {
+                _Promise = isInitialisedBeforeInitiate;
+                isInitialisedBeforeInitiate = value;
+                let tmp5 = !closure_129_20;
+                if (tmp5) {
+                  _Promise = closure_129_27;
+                  tmp5 = !closure_129_27;
+                }
+                if (tmp5) {
+                  _Promise = isNullBeforeInitiate;
+                  let tmp6 = !isNullBeforeInitiate;
+                  if (!tmp6) {
+                    _Promise = isInitialisedBeforeInitiate;
+                    tmp6 = isInitialisedBeforeInitiate === true;
+                  }
+                  tmp5 = tmp6;
+                }
+                closure_2 = tmp5;
+                const tmp9 = closure_2;
+                if (tmp9) {
+                  const obj7 = { level: "warn", meta: obj8 };
+                  obj8 = { isNullBeforeInitiate, isInitialisedBeforeInitiate };
+                  const result1 = closure_129_0(closure_129_1[8]).enqueueJuspayDebugSnackbar("checkout init found stale sdk state; terminating first", obj7);
+                  closure_129_49();
+                  _Promise = Promise;
+                  const self = this;
+                  const self2 = this;
+                  const promise = new Promise((arg0) => setTimeout(arg0, closure_1_14));
+                  c4 = 3;
+                  c5 = 1;
+                  const obj9 = { value: promise, done: false };
+                  return obj9;
+                }
+              }
+            } else if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c3 = 0;
+              c5 = 3;
+              const obj = { value, done: true };
+              return obj;
+            }
+            c3 = 0;
+          }
+          closure_129_56();
+          c5 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp41) {
+        closure_2 = tmp41;
+        if (0 === c3) {
+          c5 = 3;
+          throw tmp41;
+        } else {
+          c4 = 1;
+        }
+      }
+    }
+  });
+  _initiateJuspayCheckoutSession = defaultResult;
+  return defaultResult(...arguments);
+}
+function _processWithJuspaySdk() {
+  const defaultResult = _asyncToGenerator.default(async (arg0, value) => {
+    let closure_0 = arg0;
+    let closure_1 = value;
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c5;
+      try {
+        c6 = 2;
+        if (0 === c3) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            let closure_2 = tmp;
+            let rejectIfBusy;
+            const tmp13 = closure_0;
+            if (closure_1 != null) {
+              rejectIfBusy = tmp14.rejectIfBusy;
+            }
+            if (rejectIfBusy) {
+              if (closure_31 > 0) {
+                throw createJuspayProcessBusyError();
+              }
+            }
+            closure_31 = closure_31 + 1;
+            c5 = 1;
+            c3 = 2;
+            c6 = 1;
+            const obj4 = { value: processWithJuspaySdkInternal(tmp13, closure_1), done: false };
+            return obj4;
+          }
+        } else if (1 === tmp4) {
+          c5 = 0;
+          closure_31 = closure_31 - 1;
+          throw closure_4;
+        } else if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c5 = 0;
+          closure_31 = closure_31 - 1;
+          c6 = 3;
+          const obj5 = { value, done: true };
+          return obj5;
+        } else {
+          c5 = 0;
+          closure_31 = closure_31 - 1;
+          c6 = 3;
+          const obj = { value, done: true };
+          return obj;
+        }
+      } catch (tmp20) {
+        closure_4 = tmp20;
+        if (0 === c5) {
+          c6 = 3;
+          throw tmp20;
+        } else {
+          c3 = 1;
+        }
+      }
+    }
+  });
+  _processWithJuspaySdk = defaultResult;
+  return defaultResult(...arguments);
+}
+function processWithJuspaySdkInternal(arg0, arg1) {
+  return _processWithJuspaySdkInternal(...arguments);
+}
+function _processWithJuspaySdkInternal() {
+  const defaultResult = _asyncToGenerator.default(async function(arg0, value) {
+    let cancelHandle;
+    let closure_0;
+    let code;
+    let obj9;
+    let closure_1 = value;
+    let tmp3 = c5;
+    if (c5 === 2) {
+      c5 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        let closure_3;
+        let closure_2;
+        let throwIfProcessCancelled;
+        let closure_4;
+        let isNullBeforeProcess;
+        let isInitialisedBeforeProcess;
+        let closure_7;
+        let closure_8;
+        let meta;
+        let promise;
+        c5 = 2;
+        const tmp4 = c4;
+        if (0 === c4) {
+          if (arg0 === 1) {
+            c5 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 3;
+            let obj3 = { value, done: true };
+            return obj3;
+          } else {
+            closure_3 = tmp3;
+            closure_2 = undefined;
+            throwIfProcessCancelled = undefined;
+            closure_4 = undefined;
+            isNullBeforeProcess = undefined;
+            isInitialisedBeforeProcess = undefined;
+            closure_7 = undefined;
+            closure_8 = undefined;
+            meta = undefined;
+            promise = undefined;
+            let rejectIfBusy;
+            if (closure_1 != null) {
+              rejectIfBusy = closure_1.rejectIfBusy;
+            }
+            if (rejectIfBusy) {
+              const tmp84 = closure_2_22;
+              if (tmp84) {
+                throw createJuspayProcessBusyError();
+              }
+            }
+            cancelScheduledJuspayTerminate();
+            closure_2 = closure_2_30;
+            throwIfProcessCancelled = function throwIfProcessCancelled() {
+              if (closure_2 !== closure_2_30) {
+                const _Error = Error;
+                const self = this;
+                const self2 = this;
+                const error = new Error("Juspay process cancelled");
+                error.code = code;
+                throw error;
+              }
+            };
+            const tmp89 = getHyperModule();
+            closure_4 = tmp89;
+            const _default = HyperSdkReact.default;
+            let _process;
+            const tmp90 = HyperSdkReact;
+            if (_default != null) {
+              _process = _default.process;
+            }
+            let tmp92 = typeof _process === "function";
+            if (!tmp92) {
+              let _default2 = tmp90.default;
+              let processWithActivity;
+              if (_default2 != null) {
+                processWithActivity = _default2.processWithActivity;
+              }
+              tmp92 = typeof processWithActivity === "function";
+            }
+            let _process1;
+            if (tmp89 != null) {
+              _process1 = tmp89.process;
+            }
+            let tmp95 = _process1;
+            if (!tmp95) {
+              let processWithActivity1;
+              if (tmp89 != null) {
+                processWithActivity1 = tmp89.processWithActivity;
+              }
+              tmp95 = processWithActivity1;
+            }
+            if (!tmp92) {
+              if (!tmp95) {
+                let result = _mod2039.enqueueJuspayDebugSnackbar("process failed: API unavailable", { level: "error" });
+                let _Error = Error;
+                const self5 = this;
+                const self6 = this;
+                let error = new Error("Juspay SDK process API unavailable");
+                throw error;
+              }
+            }
+            let tmp104 = null;
+            if (closure_2_27) {
+              tmp104 = closure_2_28;
+            }
+            if (tmp104) {
+              let result1 = _mod2039.enqueueJuspayDebugSnackbar("process waiting for in-flight bootstrap", { level: "warn" });
+              c4 = 1;
+              c5 = 1;
+              const obj4 = { value: tmp104, done: false };
+              return obj4;
+            }
+          }
+        } else if (1 === tmp4) {
+          if (arg0 === 1) {
+            c5 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 3;
+            const obj5 = { value, done: true };
+            return obj5;
+          } else {
+            throwIfProcessCancelled();
+          }
+        } else {
+          if (2 === tmp4) {
+            if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c5 = 3;
+              const obj6 = { value, done: true };
+              return obj6;
+            } else {
+              isInitialisedBeforeProcess = value;
+              throwIfProcessCancelled();
+              let tmp13 = isNullBeforeProcess;
+              if (!tmp13) {
+                let tmp11 = closure_2;
+                let tmp12 = isInitialisedBeforeProcess;
+                const flag = false;
+                tmp13 = isInitialisedBeforeProcess === false;
+              }
+              if (!tmp13) {
+                let tmp14 = closure_3;
+                let tmp15 = didBootstrap;
+                let tmp16 = !didBootstrap;
+                if (tmp16) {
+                  const flag2 = true;
+                  tmp16 = isInitialisedBeforeProcess !== true;
+                }
+                tmp13 = tmp16;
+              }
+              closure_7 = tmp13;
+              const tmp20 = closure_7;
+              if (tmp20) {
+                const _console = console;
+                const obj7 = { lastInitiateStatus, lastInitiateCode, didBootstrap, isNullBeforeProcess, isInitialisedBeforeProcess };
+                const str4 = "PAYMENTSERVICE - Juspay process requires re-init";
+                console.warn("PAYMENTSERVICE - Juspay process requires re-init", obj7);
+                const obj8 = { level: "warn", meta: obj9 };
+                obj9 = { didBootstrap, isNullBeforeProcess, isInitialisedBeforeProcess, lastInitiateStatus, lastInitiateCode };
+                const result2 = closure_131_0(closure_131_1[8]).enqueueJuspayDebugSnackbar("process requires re-init", obj8);
+                c4 = 3;
+                c5 = 1;
+                const obj10 = { value: closure_131_54(closure_4), done: false };
+                return obj10;
+              }
+            }
+          } else {
+            if (3 === tmp4) {
+              if (arg0 === 1) {
+                c5 = 3;
+                throw value;
+              } else if (arg0 === 2) {
+                c5 = 3;
+                const obj11 = { value, done: true };
+                return obj11;
+              } else {
+                const tmp10 = throwIfProcessCancelled();
+              }
+            } else if (arg0 === 1) {
+              c5 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c5 = 3;
+              let obj = { value, done: true };
+              return obj;
+            } else {
+              let tmp5 = closure_2;
+              let tmp6 = throwIfProcessCancelled;
+              let tmp7 = throwIfProcessCancelled();
+            }
+            if (closure_4 != null) {
+              const updateBaseViewController = closure_4.updateBaseViewController;
+            }
+            let rejectIfBusy1;
+            if (closure_1 != null) {
+              rejectIfBusy1 = closure_1.rejectIfBusy;
+            }
+            if (rejectIfBusy1) {
+              const tmp46 = closure_22;
+              if (tmp46) {
+                throw closure_131_19();
+              }
+            }
+            let self = this;
+            let self2 = this;
+            promise = new Promise(function(data, arg1) {
+              let tmp15;
+              let tmp3;
+              closure_1 = arg1;
+              let tmp = closure_1_4;
+              const nativeEventEmitter = new closure_1_4.NativeEventEmitter(closure_1_4.NativeModules[meta]);
+              let c2 = false;
+              let c3 = null;
+              c4 = null;
+              let timeout = null;
+              const NumberResult = Number(closure_1_38(closure_1_3.default.OWNLY_JUSPAY_PROCESS_TIMEOUT_MS));
+              if (!Number.isFinite(NumberResult)) {
+                tmp3 = closure_1_13;
+              } else {
+                tmp3 = NumberResult;
+              }
+              meta = tmp3;
+              function internalCleanup() {
+
+              }
+              function settleResolve(parsed) {
+                const tmp = c2;
+                if (!tmp) {
+                  c2 = true;
+                  if (typeof internalCleanup === "function") {
+                    const obj = c4;
+                    if (c4 != null) {
+                      obj.remove();
+                    }
+                    c4 = null;
+                    const tmp5 = c5;
+                    if (tmp5) {
+                      const _clearTimeout = clearTimeout;
+                      clearTimeout(c5);
+                      c5 = null;
+                    }
+                    const obj2 = c3;
+                    if (c3 != null) {
+                      obj2.remove();
+                    }
+                    c3 = null;
+                    const tmp11 = cancelHandle;
+                    if (c23 === cancelHandle) {
+                      c23 = null;
+                      c22 = null;
+                    }
+                    if (c21 === tmp11) {
+                      c21 = null;
+                    }
+                    data(parsed);
+                  } else {
+                    throw new TypeError("Trying to call a non-function");
+                  }
+                }
+              }
+              function settleReject(error) {
+                const tmp = c2;
+                if (!tmp) {
+                  c2 = true;
+                  if (typeof internalCleanup === "function") {
+                    const obj = c4;
+                    if (c4 != null) {
+                      obj.remove();
+                    }
+                    c4 = null;
+                    const tmp5 = c5;
+                    if (tmp5) {
+                      const _clearTimeout = clearTimeout;
+                      clearTimeout(c5);
+                      c5 = null;
+                    }
+                    const obj2 = c3;
+                    if (c3 != null) {
+                      obj2.remove();
+                    }
+                    c3 = null;
+                    const tmp11 = cancelHandle;
+                    if (c23 === cancelHandle) {
+                      c23 = null;
+                      c22 = null;
+                    }
+                    if (c21 === tmp11) {
+                      c21 = null;
+                    }
+                    closure_1(error);
+                  } else {
+                    throw new TypeError("Trying to call a non-function");
+                  }
+                }
+              }
+              cancelHandle = function cancelHandle() {
+                let str = arg0;
+                if (arg0 === undefined) {
+                  str = "Juspay process cancelled";
+                }
+                const error = new Error(str);
+                error.code = code;
+                if (typeof settleReject === "function") {
+                  const tmp2 = c2;
+                  if (!tmp2) {
+                    c2 = true;
+                    if (typeof internalCleanup === "function") {
+                      const obj = c4;
+                      if (c4 != null) {
+                        obj.remove();
+                      }
+                      c4 = null;
+                      const tmp6 = c5;
+                      if (tmp6) {
+                        const _clearTimeout = clearTimeout;
+                        clearTimeout(c5);
+                        c5 = null;
+                      }
+                      const obj2 = c3;
+                      if (c3 != null) {
+                        obj2.remove();
+                      }
+                      c3 = null;
+                      const tmp11 = cancelHandle;
+                      if (c23 === cancelHandle) {
+                        c23 = null;
+                        c22 = null;
+                      }
+                      if (c21 === tmp11) {
+                        c21 = null;
+                      }
+                      closure_1(error);
+                    } else {
+                      throw new TypeError("Trying to call a non-function");
+                    }
+                  }
+                } else {
+                  throw new TypeError("Trying to call a non-function");
+                }
+              };
+              c4 = nativeEventEmitter.addListener(closure_1_10, (arg0) => {
+                let obj2;
+                const tmp = c2;
+                if (!tmp) {
+                  try {
+                    const _JSON = JSON;
+                    const parsed = JSON.parse(arg0);
+                    let event;
+                    if (parsed != null) {
+                      event = parsed.event;
+                    }
+                    if (event === closure_3_11) {
+                      if (parsed.payload) {
+                        let payload;
+                        let str2;
+                        if (typeof parsed.payload === "object") {
+                          payload = tmp5.payload;
+                        }
+                        const tmp12 = closure_3_38(payload.status);
+                        const tmp14 = closure_3_38(payload.code);
+                        const tmp15 = closure_3_38(payload.errorMessage);
+                        const enqueueJuspayDebugSnackbar = data(closure_1[8]).enqueueJuspayDebugSnackbar;
+                        if (tmp12 === "charged") {
+                          str2 = "info";
+                        } else {
+                          str2 = "warn";
+                        }
+                        const obj = { level: str2, meta: obj2 };
+                        obj2 = { status: tmp12, code: tmp14, errorMessage: tmp15 };
+                        const result = enqueueJuspayDebugSnackbar("process_result", obj);
+                        settleResolve(parsed);
+                      }
+                      payload = {};
+                    }
+                  } catch (err) {
+                  }
+                }
+              });
+              timeout = setTimeout(() => {
+                const obj = { level: "error", meta };
+                const result = data(closure_1[8]).enqueueJuspayDebugSnackbar("process timeout", obj);
+                const error = new Error("Juspay process timed out");
+                if (typeof settleReject === "function") {
+                  const tmp3 = c2;
+                  if (!tmp3) {
+                    c2 = true;
+                    if (typeof internalCleanup === "function") {
+                      const obj2 = c4;
+                      if (c4 != null) {
+                        obj2.remove();
+                      }
+                      c4 = null;
+                      const tmp7 = c5;
+                      if (tmp7) {
+                        const _clearTimeout = clearTimeout;
+                        clearTimeout(c5);
+                        c5 = null;
+                      }
+                      const obj3 = c3;
+                      if (c3 != null) {
+                        obj3.remove();
+                      }
+                      c3 = null;
+                      const tmp12 = cancelHandle;
+                      if (c23 === cancelHandle) {
+                        c23 = null;
+                        c22 = null;
+                      }
+                      if (c21 === tmp12) {
+                        c21 = null;
+                      }
+                      closure_1(error);
+                    } else {
+                      throw new TypeError("Trying to call a non-function");
+                    }
+                  }
+                } else {
+                  throw new TypeError("Trying to call a non-function");
+                }
+              }, tmp3);
+              try {
+                let tmp5 = closure_1_30;
+                if (c2 !== closure_1_30) {
+                  settleReject(closure_1_36("Juspay process cancelled"));
+                } else {
+                  let str = "hardwareBackPress";
+                  const BackHandler = tmp.BackHandler;
+                  c3 = BackHandler.addEventListener("hardwareBackPress", () => {
+                    if (closure_2_46(c4)) {
+                      return false;
+                    } else {
+                      try {
+                        let onBackPressed1;
+                        const tmp2 = isNullBeforeProcess;
+                        if (isNullBeforeProcess.default != null) {
+                          onBackPressed1 = _default.onBackPressed;
+                        }
+                        if (typeof onBackPressed1 === "function") {
+                          const _Boolean = Boolean;
+                          const _default2 = tmp2.default;
+                          return Boolean(_default2.onBackPressed());
+                        } else {
+                          let onBackPressedResult;
+                          const _Boolean2 = Boolean;
+                          if (c4 != null) {
+                            const onBackPressed = tmp.onBackPressed;
+                            if (onBackPressed != null) {
+                              onBackPressedResult = onBackPressed();
+                            }
+                          }
+                          return _Boolean2(onBackPressedResult);
+                        }
+                      } catch (err) {
+                        return false;
+                      }
+                    }
+                  });
+                  let tmp6 = closure_1_44;
+                  let tmp7 = c4;
+                  let _JSON = JSON;
+                  closure_1_44(c4, JSON.stringify(data));
+                  let tmp11 = closure_1_1;
+                  let str2 = "process invoked";
+                  let result = closure_1_0(closure_1_1[8]).enqueueJuspayDebugSnackbar("process invoked");
+                }
+              } catch (tmp15) {
+                let message;
+                const _Error = Error;
+                let enqueueJuspayDebugSnackbar = closure_1_0(closure_1_1[8]).enqueueJuspayDebugSnackbar;
+                if (tmp15 instanceof Error) {
+                  message = tmp15.message;
+                } else {
+                  const _String = String;
+                  message = String(tmp15);
+                }
+                let obj = { level: "error", meta: message };
+                const result1 = enqueueJuspayDebugSnackbar("process invocation failed", obj);
+                const _Error2 = Error;
+                let error = tmp15;
+                if (!(tmp15 instanceof Error)) {
+                  const _Error3 = Error;
+                  const _String2 = String;
+                  const self = this;
+                  const self2 = this;
+                  error = new Error(String(tmp15));
+                }
+                settleReject(error);
+              }
+            });
+            closure_22 = promise;
+            c5 = 3;
+            const obj12 = { value: promise, done: true };
+            return obj12;
+          }
+          const tmp22 = cancelHandle;
+          if (tmp22) {
+            let rejectIfBusy2;
+            if (closure_1 != null) {
+              rejectIfBusy2 = closure_1.rejectIfBusy;
+            }
+            if (rejectIfBusy2) {
+              throw closure_131_19();
+            } else {
+              let str = "superseding previous payment flow";
+              const result3 = closure_131_0(closure_131_1[8]).enqueueJuspayDebugSnackbar("superseding previous payment flow", { level: "warn" });
+              let str2 = "Juspay process superseded by a new payment";
+              closure_131_37("Juspay process superseded by a new payment");
+            }
+          }
+          const _Date = Date;
+          closure_8 = Date.now() - closure_131_26;
+          if (closure_131_26 > 0) {
+            if (closure_8 < closure_131_14) {
+              meta = tmp40 - closure_8;
+              const obj13 = { level: "warn", meta };
+              const str3 = "waiting after stale cancel before new process";
+              const result4 = closure_131_0(closure_131_1[8]).enqueueJuspayDebugSnackbar("waiting after stale cancel before new process", obj13);
+              const self3 = this;
+              const self4 = this;
+              const promise2 = new Promise((arg0) => setTimeout(arg0, meta));
+              c4 = 4;
+              c5 = 1;
+              const obj14 = { value: promise2, done: false };
+              return obj14;
+            }
+          }
+        }
+        isNullBeforeProcess = closure_131_46(closure_4);
+        c4 = 2;
+        c5 = 1;
+        const obj15 = { value: closure_131_47(closure_4), done: false };
+        return obj15;
+      } catch (tmp115) {
+        c5 = 3;
+        throw tmp115;
+      }
+    }
+  });
+  _processWithJuspaySdkInternal = defaultResult;
+  return defaultResult(...arguments);
+}
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+module_1(react_native);
+module_1(HyperSdkReact2);
+const module_1207 = module_1(_mod1207);
+const CleverTapService = module_1(CleverTapService2);
+const FIREBASE_EVENTS = module_1(FIREBASE_EVENTS2);
+const HyperSdkReact = "HyperSdkReact";
+const HyperEvent = "HyperEvent";
+const process_result = "process_result";
+const initiate_result = "initiate_result";
+let c13 = 300000;
+let c14 = 350;
+let c15 = 15000;
+const juspay_sdk_bootstrap = "juspay_sdk_bootstrap";
+const JUSPAY_PROCESS_CANCELLED = "JUSPAY_PROCESS_CANCELLED";
+const JUSPAY_PROCESS_BUSY = "JUSPAY_PROCESS_BUSY";
+let closure_20 = false;
+let c21 = null;
+let c22 = null;
+let c23 = null;
+let failed = "idle";
+let initiate_timeout = "";
+let closure_26 = 0;
+let c27 = false;
+let c28 = null;
+let c29 = null;
+let closure_30 = 0;
+let c31 = 0;
+let c32 = null;
+let c33 = false;
+
+export { bootstrapJuspaySdk };
+export { cancelJuspayProcess };
+export { cancelScheduledJuspayTerminate };
+export function consumeJuspaySuccessHandoffTerminateOwnership() {
+  c33 = false;
+  return c33;
+}
+export function initiateJuspayCheckoutSession() {
+  return _initiateJuspayCheckoutSession(...arguments);
+}
+export function isJuspayProcessBusyError(code) {
+  code = undefined;
+  if (code != null) {
+    code = code.code;
+  }
+  return code === JUSPAY_PROCESS_BUSY;
+}
+export function isJuspayProcessCancelledError(code) {
+  code = undefined;
+  if (code != null) {
+    code = code.code;
+  }
+  return code === JUSPAY_PROCESS_CANCELLED;
+}
+export function markJuspaySuccessHandoffOwnsTerminate() {
+  c33 = true;
+}
+export function prefetchJuspaySdk() {
+  let preFetch;
+  const tmp = getHyperModule();
+  let preFetch1;
+  if (HyperSdkReact.default != null) {
+    preFetch1 = _default.preFetch;
+  }
+  if (tmp != null) {
+    preFetch = tmp.preFetch;
+  }
+  if (typeof preFetch1 !== "function") {
+    if (!preFetch) {
+      const _console = console;
+      console.warn("PAYMENTSERVICE - Juspay SDK preFetch skipped (API unavailable)");
+      const result = _mod2039.enqueueJuspayDebugSnackbar("prefetch skipped: API unavailable", { level: "warn" });
+    }
+  }
+  const tmp8 = buildPreFetchPayload();
+  if (tmp8) {
+    try {
+      const _JSON = JSON;
+      callPreFetch(tmp, JSON.stringify(tmp8));
+      const result1 = _mod2039.enqueueJuspayDebugSnackbar("prefetch invoked");
+    } catch (tmp20) {
+      let message;
+      const _console3 = console;
+      console.warn("PAYMENTSERVICE - Juspay SDK preFetch failed", tmp20);
+      const _Error = Error;
+      const enqueueJuspayDebugSnackbar = _mod2039.enqueueJuspayDebugSnackbar;
+      if (tmp20 instanceof Error) {
+        message = tmp20.message;
+      } else {
+        const _String = String;
+        message = String(tmp20);
+      }
+      const obj = { level: "error", meta: message };
+      const result2 = enqueueJuspayDebugSnackbar("prefetch failed", obj);
+    }
+  } else {
+    const _console2 = console;
+    console.warn("PAYMENTSERVICE - Juspay SDK preFetch skipped (merchant/client config missing)");
+    const result3 = _mod2039.enqueueJuspayDebugSnackbar("prefetch skipped: missing config", { level: "warn" });
+  }
+}
+export function prepareJuspayForCheckoutAttempt() {
+  const tmp = c32;
+  if (tmp) {
+    const _clearTimeout = clearTimeout;
+    clearTimeout(c32);
+    c32 = null;
+  }
+  c33 = false;
+  const result = _mod2039.enqueueJuspayDebugSnackbar("checkout preflight reset", { level: "warn" });
+  cancelJuspayProcess("Checkout preflight reset");
+}
+export function processWithJuspaySdk(onError, arg1) {
+  return _processWithJuspaySdk(...arguments);
+}
+export function scheduleTerminateJuspaySdk() {
+  let timeout;
+  if (!timeout) {
+    const _setTimeout = setTimeout;
+    timeout = setTimeout(() => {
+      c32 = null;
+      terminateJuspaySdk();
+    }, 0);
+  }
+}
+export { terminateJuspaySdk };
+export const JUSPAY_PROCESS_CANCELLED_CODE = "JUSPAY_PROCESS_CANCELLED";

@@ -1,0 +1,1744 @@
+{
+  "input": {
+    "path": "analysis/hermes/ownly.hbc",
+    "sha256": "b6f904c723cf894e03bf2e6bb0400015c288b78ad855f1eb825965d1654511a3"
+  },
+  "tools": [
+    {
+      "path": "tools/hermes/hermes-mcp",
+      "sha256": "92605d50f903a107eea5706cfa9f970cf3ff2c3a3ce8dfffa1c4d4ea5ea388cb"
+    },
+    {
+      "path": "tools/hermes/hermes-decomp",
+      "sha256": "337f922ac497265b2aab6aeb6fcfdb1a474970458e5a50de425ffe189717c780"
+    },
+    {
+      "path": "analysis/hermes/query_mcp.py",
+      "sha256": "f4d014d4aef3201b2515af47a5ef2287a61666033ad596057df5af55e1796704"
+    }
+  ],
+  "redactions": [
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a7932396fe43.json",
+      "before_sha256": "98b131f887e91de90bd1ef7bad5b60dd0b14b6fd4fa00ae24a918fdb4907d6b3",
+      "reason": "Embedded credential literal redacted from derived decompiler output; no credential values reported."
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d634d6480e46.txt",
+      "before_sha256": "4a0344b7f699686b69cd517d629b673173122873e6ae368cab34b853119360a3",
+      "reason": "Embedded credential literal redacted from derived decompiler output; no credential values reported."
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d634d6480e46.json",
+      "before_sha256": "f17b462d78431460b5dff13f512c8abaf37dd02b8c09648ef0eaf435093837b5",
+      "reason": "Embedded credential literal redacted from derived decompiler output; no credential values reported."
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a7932396fe43.txt",
+      "before_sha256": "8f20e4764cda645cdaeaf85b0531f70d7d80d865e86701f3344b1665fabf8bec",
+      "reason": "Embedded credential literal redacted from derived decompiler output; no credential values reported."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "analysis/hermes/mcp/decompile_function-0e2d38def6ff.json",
+      "bytes": 6811,
+      "sha256": "0c43c1559ff85da64502dab18316bb5ab21891f5bf7eb5b297ac5834bc8d4beb"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-0e2d38def6ff.txt",
+      "bytes": 6218,
+      "sha256": "db0b901be57e360de87318456d3f54bdeda3c9fc5ef72b3813acc8df3d951229"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-0f38777ddd07.json",
+      "bytes": 2376,
+      "sha256": "60f2b6400968c98764f32d7e98dbfecd440ff030e013a2e413a4c1e32c0be724"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-0f38777ddd07.txt",
+      "bytes": 1987,
+      "sha256": "ea80b94a5ac874e46dc06b4e4a6ea599ce376b042621867c56c5a41e8f504979"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-1795f5df510c.json",
+      "bytes": 1158,
+      "sha256": "c0ca86d905233ffa85f17c0cc4f41ebf552a9631d84b5bd04bacdcbdab1a625b"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-1795f5df510c.txt",
+      "bytes": 806,
+      "sha256": "37e792fe134b86bedfcef8f3b46840e6bc0c163e38bd5ef0985756871a78fb4f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-40a71ab77c33.json",
+      "bytes": 10593,
+      "sha256": "c4a2c021429356428acd3c28579ba0dfd49d7f540a136900c74efde43ad71235"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-40a71ab77c33.txt",
+      "bytes": 9800,
+      "sha256": "e7aaef2f2f4a12334190767df433266b97bdca8470eb56313fa2944bdb6211b7"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-715968c0758d.json",
+      "bytes": 1136,
+      "sha256": "ad43b68c39726a91fa33546ae334ddcd50bf98330138860dca44c9d40e74b219"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-715968c0758d.txt",
+      "bytes": 784,
+      "sha256": "b828c906068257c77b6a6ae2ccafc27f275de62564bb0de24c729f1df2d730e5"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-7a4b68a495a5.json",
+      "bytes": 2191,
+      "sha256": "9ad729c426631cf2f98ba618e5464f93303c05a0d996d44f090d4492419e129d"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-7a4b68a495a5.txt",
+      "bytes": 1802,
+      "sha256": "1375e4da5a4da569ce2a5197a3323a4ecfe9a93956b7fdad9c780f80eb7a70a1"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-7ba5ea2b7d7c.json",
+      "bytes": 2191,
+      "sha256": "3e1801b5585114e2a1092cff5f6c1f2763d2a8248fc7475db6a128791e8fb8db"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-7ba5ea2b7d7c.txt",
+      "bytes": 1816,
+      "sha256": "57947913d785adb227262c4f53ad9f5acbe8b5b1143081c5c0b2f4dbbeb710ad"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-7feef2e395a5.json",
+      "bytes": 754,
+      "sha256": "50b63c0d118f750c4add1263b895804ecaf4db9cbe8f87570916e4dba7f80c97"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-7feef2e395a5.txt",
+      "bytes": 423,
+      "sha256": "cb9b4f7929fa87708b8106f6a171b6dd556e83a0c40a351c5f0ed30d5116aecf"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-80cc106d1658.json",
+      "bytes": 12155,
+      "sha256": "7b855b1fb1a7679ac9fa4b20b47cc3bb7daf9d21ad5b6461a3819eac9365966e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-80cc106d1658.txt",
+      "bytes": 11389,
+      "sha256": "2f3165ff6d4be1f8170e43b4afc38dc18ab6212464f37853ec8763b989855b41"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-85b9ffa23e6b.json",
+      "bytes": 2019,
+      "sha256": "fa31387d2dbabba118c9ea0939a0f893a3e1c360b85915936263e53b86c2e0bc"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-85b9ffa23e6b.txt",
+      "bytes": 1635,
+      "sha256": "7159de183850ab15ca8016c9886dedce264b7e90734ddb7ec1462e53a2417e4e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-b06153446bae.json",
+      "bytes": 1066,
+      "sha256": "17554ba1cb114168cfd61b26a237b5920df334a0c8a41786da4af4834a6d8b47"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-b06153446bae.txt",
+      "bytes": 720,
+      "sha256": "7f2d1177f6d6cbaa9eaf67a5d1a12382174166a36c40898e88d892984c3d50a5"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-c4f7705f584c.json",
+      "bytes": 3468,
+      "sha256": "3ed59f316a25f5b8ae887a43c2fcc95516e5ccb3ab1538c2280ac14cd969d9ac"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-c4f7705f584c.txt",
+      "bytes": 3029,
+      "sha256": "0bbf0fa5ecb8c42a44466dc5e526ee93cddd8b32f26caa4e1a1772629969c012"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-d152f956ddad.json",
+      "bytes": 5987,
+      "sha256": "27fe53c28bdc447361971d01e984670e783d5dffc93ad5fc00e867c08686e3ed"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-d152f956ddad.txt",
+      "bytes": 5447,
+      "sha256": "7f7166692280565a55124abaf6dcab3d84c3ad3b635faaba416e63e7175eb080"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-f413adc9fb11.json",
+      "bytes": 1167,
+      "sha256": "0554ce36157f6e79861bf0935134f8c6e703c69279d2496ea5682623455df97f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-f413adc9fb11.txt",
+      "bytes": 824,
+      "sha256": "af273c1c114358da7d85f2ac9519ee347be76c24a41b2491f79c9a296127c650"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-f5168afd4b86.json",
+      "bytes": 12342,
+      "sha256": "2d470a06a3f8728135052a0245bb1a03100ad8b8829ef1c89f446ad65a7028c3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-f5168afd4b86.txt",
+      "bytes": 11749,
+      "sha256": "286ee18f0918b414983092afb7e7f2532328c9bb13ac1539772f8f33ab270b60"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-fd7e83abede1.json",
+      "bytes": 519,
+      "sha256": "f318465be7adc1526b6e2d99290bbeb9bf66c62f35a92117da8c50e68bf0db14"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_function-fd7e83abede1.txt",
+      "bytes": 204,
+      "sha256": "6e4859609b08b49e8178bd4d25cc9b16991ccbbba10ee6feaa1d9dee153ac9ba"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-05f406ee3c2a.json",
+      "bytes": 44957,
+      "sha256": "9c96d5e65d13451bb3ab54de3d6f43bf51a7f5334321481d60177906d64713e0"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-05f406ee3c2a.txt",
+      "bytes": 42934,
+      "sha256": "f215bc8c6f4e87e6409c8c63a4b48f390887a92ecee8fb2679ab93bdf6e613cc"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-0bf214602666.json",
+      "bytes": 15725,
+      "sha256": "626c6c2e0d99fbee82833dc026f701ff783a4394eea276ccd2c8b40a4e5aebb2"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-0bf214602666.txt",
+      "bytes": 14942,
+      "sha256": "1fcba5237e6f178fd0d250b0449c17e7c934d2acb55a29814d13e24bde184bab"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-12be9d3e81bf.json",
+      "bytes": 1615,
+      "sha256": "ff2ccbe431b3cee1c07740b706f9775aa61c0366750f760ad13cb944e3703134"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-12be9d3e81bf.txt",
+      "bytes": 1290,
+      "sha256": "fa429cbe24e71933eb39bc68bddcb512a9ee6a38c5ca49754e0db644392c7c90"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-15dadc5250a6.json",
+      "bytes": 5691,
+      "sha256": "ce7e5ca6f8d8b3e498e0f557565d91d5ceb4383c68a12c4ea6c90ab05105d8c4"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-15dadc5250a6.txt",
+      "bytes": 5235,
+      "sha256": "ee53320ecf2953c637d2bda7ac17e3e877818768a43174c70ac17ccc67c72a58"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-17fb9209860a.json",
+      "bytes": 5210,
+      "sha256": "c11af59abd2e163fa9169a6439d3cf9f2825d76cd8b701d8124925c17743aaf2"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-17fb9209860a.txt",
+      "bytes": 4745,
+      "sha256": "4bda43870d9d284524e46d34b5c9a9b69866ee9cc0c5167dfeb49b387ac8a144"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-1c4f8b65d99a.json",
+      "bytes": 5813,
+      "sha256": "ce29c6e9abb9016c496145e6744ca1ebc76e3f52180461ca8b78d7128c99d32b"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-1c4f8b65d99a.txt",
+      "bytes": 5308,
+      "sha256": "1cc6baec24ad3b427d340085dbf02cb4b72fca9d16c41366466e0ae7ea0d67c3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-1e7900f9ce6a.json",
+      "bytes": 982,
+      "sha256": "0ff2247a39bffe1161c9f2cd15c4c985d99be898334faed76a3d9c36f5cf5dcc"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-1e7900f9ce6a.txt",
+      "bytes": 681,
+      "sha256": "856f27d4f911c67ecfc66e3a177bebfe6b3ae58aaaa8cf6526c7f51bf1f2b646"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-2235243a6d54.json",
+      "bytes": 3443,
+      "sha256": "d980a8b71fae23b951c5c77e3a0cb2d5ccdd7a68d07464e9ed196fe14741a392"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-2235243a6d54.txt",
+      "bytes": 3060,
+      "sha256": "1a37fef73a85dcbb7cb892796464e0721282002682d439669e3b77433c9a3484"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-2e965c8a984f.json",
+      "bytes": 27130,
+      "sha256": "0171ba684c94f62ed53058ed93fdbed9c20a3ea3066259890f1562af17fdae6a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-2e965c8a984f.txt",
+      "bytes": 25955,
+      "sha256": "e75e298985c1db68066f4430a45507389d8ad68dff6999585175e9b24bff6603"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-2ef794eb7974.json",
+      "bytes": 11751,
+      "sha256": "bdceb90688dbebd256913ba59116ccf0913e9ecf84170a415e6e72c1f5e3b6db"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-2ef794eb7974.txt",
+      "bytes": 11034,
+      "sha256": "4fd023ac317f2e02c6227ddad86443183964212dd5494d378f1a616648f06c57"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-30ecb090f536.json",
+      "bytes": 2154,
+      "sha256": "9032eae2c8d39d21eb5bc2debbf74b2aad23ccc49b12ca15e7abb3a2926c20f5"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-30ecb090f536.txt",
+      "bytes": 1812,
+      "sha256": "3092c84ed33c6df86bf34aaca3d871c73a898a34f94e3f70196287dd0dda8534"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-35e178e88f53.json",
+      "bytes": 14088,
+      "sha256": "6a60ce2669bd7195b183b015110ee71d5dfdb2e00667c48b977f40bb23c505cc"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-35e178e88f53.txt",
+      "bytes": 13477,
+      "sha256": "c8097305aa1d06183a80d628e1d4ae45035b20721b026dd3d93b9a2d1e739494"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-35f042ba0c2d.json",
+      "bytes": 51966,
+      "sha256": "8fef293f1fdd359cee31401966103fe2e93b1f5341b82a78d30ec34936366a51"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-35f042ba0c2d.txt",
+      "bytes": 50184,
+      "sha256": "66e69aa688561e4a9ad705cafcb13bf2c9575297275bb6442b46a5946fdec27f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-3ca1d89926d8.json",
+      "bytes": 1689,
+      "sha256": "deff2f55a9f2be8bf1051432e5b36aa894759198f102f9d4297518d5afcc93cc"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-3ca1d89926d8.txt",
+      "bytes": 1375,
+      "sha256": "e439c1878239eace923fec41bc47d1e1e8622d9b66190f7cd69313d2881e15bd"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-476f89522c19.json",
+      "bytes": 25089,
+      "sha256": "a9ef571cd599c354a691a20b4fa730d505cf0e52c29da84f72abdad43b73b310"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-476f89522c19.txt",
+      "bytes": 23882,
+      "sha256": "e4acdbf37f6389b336e26fc8fee2f93a90a5c296e23cbd74f3fe7e5e167de42a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-4adda9065af7.json",
+      "bytes": 4345,
+      "sha256": "0564573b218dcb77cc7b8bcc6b0672e00c70853159d42291f0beb58981d54b0e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-4adda9065af7.txt",
+      "bytes": 3897,
+      "sha256": "152b64af4632d902b0a4ace191b0445c8f0771d21cd8db6dd06c85d5fe6ed7c7"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-4bc7a2a5b768.json",
+      "bytes": 3401,
+      "sha256": "7a43844a631deaa400ae503b3ba655c870b886f0e1493768b327d004dc04ddd7"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-4bc7a2a5b768.txt",
+      "bytes": 2981,
+      "sha256": "44c591fc42cb06917bc8ed8a789a6882cac8e808d70dc2930b5d499c6924d869"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-534024f91bc6.json",
+      "bytes": 10351,
+      "sha256": "7ff1f062f0ef6d7d114f7bd183e13b4cf919d39e9560f6a4998c165e5a948b9f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-534024f91bc6.txt",
+      "bytes": 9771,
+      "sha256": "c8b344b67310ddef81582d60c734456093ecf70e21a22a804e27a0dd460af728"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-54941cfbd210.json",
+      "bytes": 64853,
+      "sha256": "e27ed9e3726e97cb1699652395403548e742c9fc4eb9bfa8a673e41b1ae3cf49"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-54941cfbd210.txt",
+      "bytes": 62651,
+      "sha256": "1b0d04dc0f6572e7148e6506c4c801dfad1d3f094a058940a6d91e2e095b192e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-55134a5380d1.json",
+      "bytes": 1079,
+      "sha256": "4dcfd66589827b453c39d3eb8abf173aeee3ffe9a3212453664d98fa60ce8aa2"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-55134a5380d1.txt",
+      "bytes": 766,
+      "sha256": "abd68ad5ef391385d64120abc244d0668898c02e00ba06cc67def473fe1b1bd1"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-553b15b01ab0.json",
+      "bytes": 1833,
+      "sha256": "6953815ef9b5c8479c1e001b4e056f6e82bc9f3bb8f117a47b2d6deece6dc4d3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-553b15b01ab0.txt",
+      "bytes": 1433,
+      "sha256": "2695bbc5f25001ac37dfb747b7a2864b088ac1733c9292df83dded48bcc8ba56"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-55664534f7b4.json",
+      "bytes": 13626,
+      "sha256": "7868d1df806c0a675e21ed7634458d58a871f7aaaa0e5766ef90ee8ad4e959a0"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-55664534f7b4.txt",
+      "bytes": 12929,
+      "sha256": "04404ba333d119588c670c1c26af8a55dab8eae2dff43ca51217732806e0895f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-5794c9e7b7d9.json",
+      "bytes": 853,
+      "sha256": "9810c41348f77bbffbe0ff283fec1ce344848b56f63ea29d6e760688251dfab8"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-5794c9e7b7d9.txt",
+      "bytes": 543,
+      "sha256": "f4b44555373499bc608320ebaef08818a048584488085f6f681c25c4f2e29860"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-58ec3c60df34.json",
+      "bytes": 4819,
+      "sha256": "941d167a93f0d0e51e1a2fc3f85983c44c0c783cc202cdaa9883951b670945dd"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-58ec3c60df34.txt",
+      "bytes": 4355,
+      "sha256": "691c3fbbb162565c4999c1abe859509493ef3eaad9658230bc7ec52c17de3ad3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-5f3a77d7bb3d.json",
+      "bytes": 47432,
+      "sha256": "03b2313349addfa5432a26fd155161f6e387d8df56badee3785ca65eee9f45ca"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-5f3a77d7bb3d.txt",
+      "bytes": 45702,
+      "sha256": "73584e194037a981a234236d4aa4dd3916e72e63ad483968a2c5c9101de5dbfa"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-5f844a1e2429.json",
+      "bytes": 2459,
+      "sha256": "95b4c1aedd92888f8d24a43bddf4acaa577756ece17041501487e4f61432aedf"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-5f844a1e2429.txt",
+      "bytes": 2081,
+      "sha256": "fed235fb6030b13286aa9fca5bdfeb9804c6c13039452856483c5c018f5bb93a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-618bd3767ef2.json",
+      "bytes": 1453,
+      "sha256": "29029db72b762d60fb8da82508fdcdc667f4f483b2cf1c4a9920a92714b22131"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-618bd3767ef2.txt",
+      "bytes": 1132,
+      "sha256": "733f01d1b945f0ac9a97e44e4e42f7cbe6a1333edc280a2481178bc2fc81761d"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-63b6b25cc72c.json",
+      "bytes": 14871,
+      "sha256": "5a65d7c3bb3b08f9c46099dd5999fe7fba5183be04314975b6b918cf4afc9637"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-63b6b25cc72c.txt",
+      "bytes": 14043,
+      "sha256": "f8d1eb17cf9a644a580a15aa4be6c5c3a770f43986628b41f6a6971e84e1ef0a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-647a89aa8499.json",
+      "bytes": 13226,
+      "sha256": "a8edfc3fca27df94a7f2ae7378d2c9967b3d6c1cf44bd6f3eba4474bc6371607"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-647a89aa8499.txt",
+      "bytes": 12498,
+      "sha256": "97be77fbdb356876ee967ca2fc218f375ee92ebacc65f6707e64b50c2043cdcd"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-64acf77c36c4.json",
+      "bytes": 9319,
+      "sha256": "b4d0507ea1dae300faacde63e991be505836802fcbb2e269588db9f78687e34f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-64acf77c36c4.txt",
+      "bytes": 8739,
+      "sha256": "4895f51add86a1ea072b6e7433b06c4d8cf6e397c206f4df2dbb00999a897629"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-672b56722771.json",
+      "bytes": 13913,
+      "sha256": "10ddb39f6268be369d6848eaf4241874f46ffb09e94a62775c0aeee43edcea6e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-672b56722771.txt",
+      "bytes": 13105,
+      "sha256": "ae5811c8f096d164e6932380b497fd826335161927dbcd73822678f0b33610c4"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-694d678b2ff4.json",
+      "bytes": 1011,
+      "sha256": "643396813e6c0b1ddfc901e023b98bcaa7ad032f092b67de25e22d8af01dd2ac"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-694d678b2ff4.txt",
+      "bytes": 720,
+      "sha256": "1b4c0923b200fa40736e91353f32ae69abb63923c51c9a80537ded7111404f4c"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-6c05bd4689f3.json",
+      "bytes": 2723,
+      "sha256": "7dd5110f5f32296fb0c3f0198bdc7c1029710a636dda6f454ef76f6118aa213b"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-6c05bd4689f3.txt",
+      "bytes": 2349,
+      "sha256": "47f4b8dd9f7ae98b0cc56c5f54eaf0c37c1b03ae2caf59e87d06014135a03828"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-6dd1cc3f689b.json",
+      "bytes": 2792,
+      "sha256": "13c94cbb633e88b3f8278f572bf67e75b0f265f6b49cb0e039e15289b9a4be81"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-6dd1cc3f689b.txt",
+      "bytes": 2418,
+      "sha256": "8dc2bba8cb52ae305af6385a5e48b2dc4a979447ed20fff606f6e7f26d523286"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-6f97b96158ff.json",
+      "bytes": 2287,
+      "sha256": "6d0ea6a7a145ee5f1f2b22404350908eee45e76443c384d61fc105c4a77d4629"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-6f97b96158ff.txt",
+      "bytes": 1934,
+      "sha256": "ff03046be2215df3eb07a472fe4e56720b5bfcb9e4a23bd3b9da77da06b811fb"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-773deed94914.json",
+      "bytes": 1334,
+      "sha256": "246a51c16fb13520c22e930f707116b90d2a0fc1afc71aa1720c40ccb248cfb3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-773deed94914.txt",
+      "bytes": 1013,
+      "sha256": "2e1b0831e5450b18cdc642ae39354a4f29f8dc0f66f73ccaa59d3a02b015bb58"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-7aadf74d82a4.json",
+      "bytes": 443,
+      "sha256": "098ec1de19f9366a6e417ad271d888f643268eb88ccefb70c859446dec8a5497"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-7aadf74d82a4.txt",
+      "bytes": 161,
+      "sha256": "db99df38383910506e7fe42cd49f53af1165edd42c5469090942f0e25c6046aa"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-81e64b9204ee.json",
+      "bytes": 3161,
+      "sha256": "fa48dba157615b83e5be5379ffe12252269555da85daa624688af3fb220f3171"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-81e64b9204ee.txt",
+      "bytes": 2761,
+      "sha256": "f3c5b06cea481c5218d699861608cb5f887a2456eab7658241c5bf731d480b0a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-828908722be1.json",
+      "bytes": 1940,
+      "sha256": "e5428d19588522db4b6e3ddccfb468cf778a21f4e2e9a3f236e312446977d5c2"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-828908722be1.txt",
+      "bytes": 1561,
+      "sha256": "3d038bf37343d39842d3d9aebd4f4093f3c7cd85cb7bfebb038ba8dd7ada1209"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-8caeab2c63f1.json",
+      "bytes": 3337,
+      "sha256": "cb9e508e26229daa184885ce8b6f300d7d8eecf7f2f9aff5e4b69d446088b45b"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-8caeab2c63f1.txt",
+      "bytes": 2901,
+      "sha256": "9d25c0c57548386bb38534865b12d5ba5a4d132da25a07af25b3f79d91f9b1f3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-8e2bd617255f.json",
+      "bytes": 6960,
+      "sha256": "9f4b6281c947400eef3225fb01c4072d68cdbe0a55a8b89bd2cda2338bb87886"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-8e2bd617255f.txt",
+      "bytes": 6435,
+      "sha256": "49dce34e697d41e9c0ddc23e7db590c493335dfb094afc2359fb52ccf7bacf29"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-8f1db563bc3e.json",
+      "bytes": 14534,
+      "sha256": "d1677097839eed34bcd86cab18d26618305ef627a03e0202836fc3086e7e6837"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-8f1db563bc3e.txt",
+      "bytes": 13797,
+      "sha256": "e756ad878ffdb3f792ab96a58d3bd340e6e343427a097e3feca08e2196d81c77"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-90809e417d01.json",
+      "bytes": 16966,
+      "sha256": "222280077b9eaf5603f6f85ae4d630ae77f38bb247df4c4f4aa7390db504b7a7"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-90809e417d01.txt",
+      "bytes": 16094,
+      "sha256": "318f8e800a90728b627196c336807fbeae8559e77ab19e67c2d9f8d4c21e24e0"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-960e612ac376.json",
+      "bytes": 2276,
+      "sha256": "19ac4ee456d3b2b96ca6250474ea5a807de33dba9d529098aec7d210d651e9ff"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-960e612ac376.txt",
+      "bytes": 1923,
+      "sha256": "262129f515250b6f42c31c479161fa2db3023c30b24c4ec737a975c43fe91b0f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-98d41c5219bb.json",
+      "bytes": 15510,
+      "sha256": "78a67e7d4b6dddb674219c6d36e422e90bc491c92af7d945ce8c93874b66c7db"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-98d41c5219bb.txt",
+      "bytes": 14630,
+      "sha256": "adef077e6384356c5b16be6700f67e4b47b6604ded034fe8ad1df7511dd81cf5"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-98e1a0b2d216.json",
+      "bytes": 44341,
+      "sha256": "8ae3d144529ddf3049003855d0acf344b2016156f803abb4f4bc9cf3240d8a03"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-98e1a0b2d216.txt",
+      "bytes": 42415,
+      "sha256": "a92c3a66b64688cc46140fd6925b2653defb2d46f16dbc8a1f082cfc22a4986f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-9912400322d8.json",
+      "bytes": 2005,
+      "sha256": "72c5067f2073ecbcec294cddd214f2ea05f9e030de41cdab17668ab16b228c3a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-9912400322d8.txt",
+      "bytes": 1664,
+      "sha256": "6d45e3e4710276b519d1a5efc9afa454275b642ddf80c90ea95cbf07ec97b520"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-9bd7edea0b59.json",
+      "bytes": 2258,
+      "sha256": "b1c1f669131bcca41bc03fd6d343cfa90f45f3f453cb6b1c91dde418888ac602"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-9bd7edea0b59.txt",
+      "bytes": 1906,
+      "sha256": "c38150334a88e8da529fa4569bc22bd9350d8efe39c0d355e59222ecc003fdf9"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-9fe25a7c356c.json",
+      "bytes": 576,
+      "sha256": "a840498783db9bf070b5a5965a88b509bedc735c639fd4ec423d7371ebbf6bf5"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-9fe25a7c356c.txt",
+      "bytes": 291,
+      "sha256": "c1e2167e5612146fdcdee101135df1bc461f74bb0b9ca2b836dcfbd72afbec0a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a06e32297851.json",
+      "bytes": 1117,
+      "sha256": "b638703f542f8c736ce1b3760e437780214d03803ca40456a7eff2cd31b4e0ed"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a06e32297851.txt",
+      "bytes": 814,
+      "sha256": "59d06112e2c7f753d0c7b9262ac8fe695b9b576fa4f291c54a44706ef010c10d"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a7932396fe43.json",
+      "bytes": 2586,
+      "sha256": "705e6d341fee4392d9b5d4de7fdf6c4fc3a0b93ee9f575e98412471892f00a2e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a7932396fe43.txt",
+      "bytes": 2209,
+      "sha256": "5a8b1b8ee8704813968d3286fe2852d7ef39f307befabc1caf2c52cbb1ff9c55"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a852b3e738fc.json",
+      "bytes": 8165,
+      "sha256": "d460ff2f6c75de316e89373aca116ee361d8c3b59cddbee9b14cd283eb49e391"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a852b3e738fc.txt",
+      "bytes": 7584,
+      "sha256": "5eac43f1f734f032db51dcc5868882166df80f7c78e36f25f97cc23cc02d8bcb"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a91a9ea30145.json",
+      "bytes": 8420,
+      "sha256": "6032c438aecf50ad05112afe325621960edc5cafc4ad8a57a487733f2d616809"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-a91a9ea30145.txt",
+      "bytes": 7841,
+      "sha256": "d267beeed561bc66e8df2b85460bd3bec499b6d1e948afcfed27205d54b7d02c"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-aa9842d5e4b9.json",
+      "bytes": 2549,
+      "sha256": "c6a05d53cd0482523bcd51362d5074cd966a9ebe9e985e7f7049b836a0e162ad"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-aa9842d5e4b9.txt",
+      "bytes": 2188,
+      "sha256": "ebca61b1294ad6cd3a2d1be7392727e226a56f6110e88ffbdf9bc637248e706c"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-aca9dea644b4.json",
+      "bytes": 2941,
+      "sha256": "b520553d87b19af35fa06070f99aed55e105f2f6af20cf916010defbec4be5af"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-aca9dea644b4.txt",
+      "bytes": 2570,
+      "sha256": "f842dda7f336be1d4b34ca7d695c0f78b9396f620d1a2f4e717a78c89a0ff77f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b00e23ca1b93.json",
+      "bytes": 866,
+      "sha256": "a7d82ce10a03e916ab13ece3c55ffc737e67847b7e175a6cc23b1e4b857fd5fc"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b00e23ca1b93.txt",
+      "bytes": 568,
+      "sha256": "13769d984db4767afd4ce0ec7ccf047d87d15f6176a6f9cbbc8661ed221564c3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b0485fd073cb.json",
+      "bytes": 3481,
+      "sha256": "0db3cf487f9b4a80bf757ebfe904d9cea080812b2af7da4ecce9ae02d7b380c2"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b0485fd073cb.txt",
+      "bytes": 3073,
+      "sha256": "17f3f870175499b9cb992c642773f0c285d88a4b0cde8ee8f4394622a255531e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b4ea2779c5bf.json",
+      "bytes": 31312,
+      "sha256": "b1c90863dda794807566fadd00e30018d10a887fa8e3909042c25124cb4ecbf3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b4ea2779c5bf.txt",
+      "bytes": 30068,
+      "sha256": "c1d9e38244ac92c64231d6b861e245dbb1e1fc96f8918cd4da72d81ba3d72020"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b7e72c8a2e68.json",
+      "bytes": 619,
+      "sha256": "107ac68a2e5305075d4d823175db96395eaa671f9cfd987d7c2e3fed3244ef2c"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-b7e72c8a2e68.txt",
+      "bytes": 327,
+      "sha256": "7bfd5dea1800dac86b8e4056b2a9786a299e68b7038535e7cc94a17bdcb24472"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-bb1077130615.json",
+      "bytes": 5711,
+      "sha256": "0fe13c02d4c21ba3d0458f785e598642bd5d7ed4fde4a1e033b920bb499fa206"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-bb1077130615.txt",
+      "bytes": 5256,
+      "sha256": "f7cd8275a43e914709c41fce5a01e61077446893352538ed87f01fd70f8970a9"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-bd22671ae957.json",
+      "bytes": 17841,
+      "sha256": "6033c706e50e6c0e6af7e98cb47e98185b45bb38652cdaf28482222814b591d4"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-bd22671ae957.txt",
+      "bytes": 16921,
+      "sha256": "032160da1eab5f186144d7a301dd9842ab05eb705825aef9b339067c630a2860"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-c7c54a0044cb.json",
+      "bytes": 3756,
+      "sha256": "15e204dcafccf5ab91fecfaf4b3d88e6b7b962afbb1bccaa002ff3df8c7f9a1a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-c7c54a0044cb.txt",
+      "bytes": 3338,
+      "sha256": "553ea5f29364f0d8a1344588702f2db7f8af5c942eccffd2aa7552372fe0f8d3"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-c8333e36095d.json",
+      "bytes": 2900,
+      "sha256": "c43c225e684d447f4679f35bbcba87ac6c7cec572cb96c154089507c712f0a88"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-c8333e36095d.txt",
+      "bytes": 2556,
+      "sha256": "d18f11456658186e1a40b6729c6f3d3a327b35d557c3c503c0d48e70bd4438df"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-c85ff859aea6.json",
+      "bytes": 2992,
+      "sha256": "ce50a94643e22eb6067b481de24514a744bbf32e04588c83212b365ab5e9f352"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-c85ff859aea6.txt",
+      "bytes": 2610,
+      "sha256": "a789d976f9598dbdd612ff41fbf4bd2185a3bf82c579ba19221aa94e225a8e07"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-caa9db87dbab.json",
+      "bytes": 1005,
+      "sha256": "e09956f07196bfd7f75367c2228bd76d62b3ecea03df336e2465e1fd0b205b8d"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-caa9db87dbab.txt",
+      "bytes": 694,
+      "sha256": "33d5b04d08184e01445a2d2b242daa283565ba8b00a2988b53fd63868e20c156"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-cbb2822dc75a.json",
+      "bytes": 6382,
+      "sha256": "d5fa96ad3e7c18a859a5f1426fedf98fe46cf158659c0129990f8ce0aa2d977c"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-cbb2822dc75a.txt",
+      "bytes": 5866,
+      "sha256": "11624ddadc4b05ab63896e202a248a531527a3446dd49aab0eaa8af78e1918a8"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ce0b2a9b1644.json",
+      "bytes": 74758,
+      "sha256": "8256354cb8ec578e328a7fbbfa0dc6b710da406eaffaa38499a3af17fceaedcf"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ce0b2a9b1644.txt",
+      "bytes": 72183,
+      "sha256": "d23ea95059c52820daaf5f14ddeaadb016a3d46988aa6a9c973fd35008295c50"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-cefa97758282.json",
+      "bytes": 3572,
+      "sha256": "9b4cf6ea5a42cd6119c6a588cc40305fd3b15aaa05e242d1cb4744efd330710c"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-cefa97758282.txt",
+      "bytes": 3191,
+      "sha256": "79a3d4d1693120b99fbf7f0578795d285455ecb3a4326983ccd5f7c4579d0586"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d128930ef2a2.json",
+      "bytes": 6541,
+      "sha256": "d1c845a3db0e71a9a54a0556ced7dafd9c123ae750196a59a9927dd029b003b2"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d128930ef2a2.txt",
+      "bytes": 6061,
+      "sha256": "a3bdacd52f5e0dfd20b841816ada11ed2694c10bce511259cc86ec17a2ce2ff4"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d145acad85a3.json",
+      "bytes": 28170,
+      "sha256": "323ca581864f965cc6ee6cf8235043063aa6ffd8eb35ca0bfec4e1ad1e72be31"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d145acad85a3.txt",
+      "bytes": 26903,
+      "sha256": "1b973f3f838bcd977ada8b441d0482f1861312fb11a635a18618fc0e6b19f96a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d2ad90e40f73.json",
+      "bytes": 43881,
+      "sha256": "0b7d118f4dd703b81c10a263da3b7f8b7dbd46b37a08363129cbf4fbfa0ba21e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d2ad90e40f73.txt",
+      "bytes": 41986,
+      "sha256": "d0396740e71192af434588efb6f2c22511bdd54cae296d6b9a9a097c1bb42705"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d324fb120845.json",
+      "bytes": 2655,
+      "sha256": "0d20cff13bb3de5956ff9082be902f8a7173387f06cd6d419c927de46ae77313"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d324fb120845.txt",
+      "bytes": 2298,
+      "sha256": "244184fa14d44d392196c51b7d93a3dde0fafc5cff4b90408001d88f4d684869"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d4a261dc6fe4.json",
+      "bytes": 3334,
+      "sha256": "ae342ce560a9da6e8d444b437e72d4475c62f5ae0bb12a98538054e5b64418c8"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d4a261dc6fe4.txt",
+      "bytes": 2958,
+      "sha256": "2f4576eafec6c777869414d7d034b7b81f0a41fff0d9be8ded86d77431ebdf1d"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d589c9bf4e45.json",
+      "bytes": 12071,
+      "sha256": "7ea93ada68baab26d9cf1c1fddeba3102417c6e7f8d19b8fba4f826a6c48d2e7"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d589c9bf4e45.txt",
+      "bytes": 11374,
+      "sha256": "33b819c8176a472e35074f6846d19fe552d3100397d45d841085f66506b1502d"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d6091f488677.json",
+      "bytes": 21801,
+      "sha256": "3f4920302e29a94560654a9753478bf67fcd6ce994fe806d95734738b30a957e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d6091f488677.txt",
+      "bytes": 20746,
+      "sha256": "ef6272c2aaee7aa7134aa79edf2adb560ee84f957123fb575c2709ff9281682f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d634d6480e46.json",
+      "bytes": 2290,
+      "sha256": "f3a0b7e2416145037e534598bb24d18618b9c1b69a47cc9192aed43cf37f3e2e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d634d6480e46.txt",
+      "bytes": 1936,
+      "sha256": "4e3fb264ec63719295175b3c6563e8c3653eab46f6f893f200f934cba2ed6f51"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d957f98a5861.json",
+      "bytes": 1037,
+      "sha256": "c9bd9a158b91060559e4f3ecc25004e75b154ab8a6549532335fb21040b481a2"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-d957f98a5861.txt",
+      "bytes": 727,
+      "sha256": "5fb09b7c32e9f72e1bd667f82823fc0088c98873f56689e0defdb275191b81f6"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-da3ed9de961f.json",
+      "bytes": 3114,
+      "sha256": "293f7c8f447f1a157e84245eeee5fa87a1fd27cf007db17662f669597f74e9ea"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-da3ed9de961f.txt",
+      "bytes": 2723,
+      "sha256": "a12329fdd9c5b7662b186a80a32addb2566a7f58b1df6b0fb1ba0e449e6d1c05"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-db7a741512f4.json",
+      "bytes": 13978,
+      "sha256": "d411cbb28c6be477960699f212ef3c6563bdd1356b510d5db4f00f2a7a6db18b"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-db7a741512f4.txt",
+      "bytes": 13326,
+      "sha256": "62d6b2fa0967b74ace7244405d1fa95b906af7879b45438b3b26ed86740a59f0"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-dc2f7d28c07e.json",
+      "bytes": 3097,
+      "sha256": "93ea92bd69863c48ca6425eeebdcce89bba6b76fca3dd8519b638fb2ce934132"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-dc2f7d28c07e.txt",
+      "bytes": 2676,
+      "sha256": "e2085725cc08d09610523ebb301bfacf402c415ab8657b9a02a4389bd9c64ab1"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-dd1682c3aeea.json",
+      "bytes": 31965,
+      "sha256": "d8d1088015998a47ab5a45f4d8949954dd1c688d44190d578b45db52780737b5"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-dd1682c3aeea.txt",
+      "bytes": 30569,
+      "sha256": "51f7311649ddc1afddd5ac74450e3378cd799d5dd0015bdaec6741ff43173c32"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-de4242d42148.json",
+      "bytes": 73305,
+      "sha256": "24770feb64ef4268f0f1d0f5f175c4c85c3014d0842ed5860ba654a4126bbb70"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-de4242d42148.txt",
+      "bytes": 70574,
+      "sha256": "b50b0f2e7549a3e131096b6c37b05b25b4110cffcb0bdff02c72f10f4e2f934e"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-de60c5160b42.json",
+      "bytes": 15228,
+      "sha256": "9e4a086c324e37af1225504c74da17d139aba1593f70f41d11749a076d1e94af"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-de60c5160b42.txt",
+      "bytes": 14498,
+      "sha256": "5e4962dece586bf32a6066f5f27ed4a2f5c0561de71e60fe74f7ed197176a0bd"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-dfe4c074a492.json",
+      "bytes": 41378,
+      "sha256": "cba7273e91e6f1322a5f0ff993aa47e386822abf73b2d18b921d90487df5bd34"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-dfe4c074a492.txt",
+      "bytes": 39807,
+      "sha256": "e612c8d271683698e08169338c08b79ab8170144456b9f42a3e62890a9cc0b8a"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-e97bdcbc26dd.json",
+      "bytes": 14453,
+      "sha256": "e0783d06f3e95acdec5438d8c711e02f1ffe4b5999140b3ff81c9443d8f72a95"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-e97bdcbc26dd.txt",
+      "bytes": 13653,
+      "sha256": "747d265e08080577d286e811ca9870170c4e77303e960ab031db786452104421"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ebe0ab07cfac.json",
+      "bytes": 5913,
+      "sha256": "aec545197d058e1cb1570f2d5ec43ddd48c33069f6267fbcc02a6ebc5a0439b7"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ebe0ab07cfac.txt",
+      "bytes": 5363,
+      "sha256": "7d1bcf29347537961d3c148fdc0e849ba0022df0ee607125fd87305039eb7194"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ed99bc9888ea.json",
+      "bytes": 44638,
+      "sha256": "3430e6aecd51b9ca3435bfcae4dd4290aacde3afd8d39888c536fa2aa6f86e67"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ed99bc9888ea.txt",
+      "bytes": 43362,
+      "sha256": "1438c0979d05c386d54ca02a65db2c98f3101e1d4a6f24af4377faaa581c2450"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ee18bd8ea7ed.json",
+      "bytes": 12109,
+      "sha256": "86e4870bc0ddde449c0f659f00364e4034ed819373f1d1d36e0b8086abb36497"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-ee18bd8ea7ed.txt",
+      "bytes": 11454,
+      "sha256": "9972794f5ae33df90e41f115bce9ece5fd2fe086370af1e9ba5d9e0675f3ee0c"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-eec27ccafc05.json",
+      "bytes": 9315,
+      "sha256": "e0dbf55f434c9cf8c6e4ea3cc5aa2b8eace309d6151d0a4c421415f33bc0cd8f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-eec27ccafc05.txt",
+      "bytes": 8720,
+      "sha256": "7838bed23fdbdb00d2428e5f01c3e49723bc815ace18a99f8c80fef94673eb4f"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-efb79fc8f643.json",
+      "bytes": 2310,
+      "sha256": "178784523b62087473f0debdbf169c654096f26f03a9dc695e9faae84e3b51c7"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-efb79fc8f643.txt",
+      "bytes": 1951,
+      "sha256": "9b91ee024fc768e9183fdda4adccbd1b3fbb85d08a4863579b6d560a7ac3a431"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-f121c951e635.json",
+      "bytes": 977,
+      "sha256": "5926665af0035d8497f7d8c417537b0d4815bcc4ead7f598cd56eb72c645d3cb"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-f121c951e635.txt",
+      "bytes": 666,
+      "sha256": "8a3d67789e9b713ad4b47275513133cdc8be344519dcafe29b4c19058f9292b6"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-f83d601cad9d.json",
+      "bytes": 117144,
+      "sha256": "ce11ac6a08a225dc68127325c382b479ef4345d0706b75ac9391f3a24e8d1a96"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-f83d601cad9d.txt",
+      "bytes": 113012,
+      "sha256": "503f8fefa953181ed39f7da0ea0f52c06691a3e937af78a923b1fff97aa588da"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-fbc669687b57.json",
+      "bytes": 2556,
+      "sha256": "e4a79cb3cbe5bd169d849334449496a240f79a3ae06121ba9a51969c603e9ad0"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-fbc669687b57.txt",
+      "bytes": 2187,
+      "sha256": "2cf068c7a8e6ad13b443675d0e1442b23753dc9eb90fc9c645e4dcb954cda7fd"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-fc10070932a3.json",
+      "bytes": 514,
+      "sha256": "d3eb56531f29353f4fe49f7ceed44c882790a73a7137738c94198964e185db16"
+    },
+    {
+      "path": "analysis/hermes/mcp/decompile_module-fc10070932a3.txt",
+      "bytes": 219,
+      "sha256": "5231d17d086c76c7fa7df5b9192686a7a61f6da7a1f1c79f2bb530fbf50fd4ee"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-17973bdeaf66.json",
+      "bytes": 1341,
+      "sha256": "c44c8c2c077cd23bf95c6586bad1ec71186c438418205f21225508f7612dbd68"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-17973bdeaf66.txt",
+      "bytes": 993,
+      "sha256": "b3662e249b95c0556e6b74a1350cfe9bd7935165bde8e5ebfc3a489a8a161f24"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-2926ce255ce3.json",
+      "bytes": 1842,
+      "sha256": "36893dadf065167a15a03b571e5223afc13b581431ce53ebdae57389244975ff"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-2926ce255ce3.txt",
+      "bytes": 1463,
+      "sha256": "a5e4772440ecf92c91cd9e4cca1ca0c27b3d73a095f18d1b9f44055066e48033"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-4f0b92f8f97a.json",
+      "bytes": 1037,
+      "sha256": "725e210c0ab5052cd00bf6d4114b02c9d7d5f4b9bbf0c2b574e569d61d8a7bc7"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-4f0b92f8f97a.txt",
+      "bytes": 706,
+      "sha256": "e84354629acf0e3b818c91ffeb26a1dd229ef4000fcafba0d582c3b19a028a9c"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-5948388b92e6.json",
+      "bytes": 859,
+      "sha256": "b6f75efd8e749c5beb39bced7ee186caf57b3e179a6cb3c976f0bc0077f461cd"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-5948388b92e6.txt",
+      "bytes": 538,
+      "sha256": "d739cacf15c600c21b2f630957d35e27a8a156e3d7b8bc640dc95e8b379ac3b8"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-5e6a49d2b7b6.json",
+      "bytes": 1776,
+      "sha256": "e963c5725bb9677f604c2878cb74c275501245e1fd008ba3d3366a00c65a00e8"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-5e6a49d2b7b6.txt",
+      "bytes": 1403,
+      "sha256": "fd7e8e99316aad7fc1f9e3ff274cac466250fa2953638c74761769666edb7c64"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-715968c0758d.json",
+      "bytes": 1093,
+      "sha256": "e93f16a2e463bfbfd8386808e27aa229cd9fe5c1bb79fe0512811066e64fe8b8"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-715968c0758d.txt",
+      "bytes": 757,
+      "sha256": "b4798512ef1e3b15aec95e36a73e69d7f75938e81336f4f72517eb12b025e75d"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-75f7ef9ab127.json",
+      "bytes": 1162,
+      "sha256": "dc70ae409ca16cea91074cd8df9a444d31e11e66f9886ac4e7916705991661a1"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-75f7ef9ab127.txt",
+      "bytes": 821,
+      "sha256": "a6e36a80923086399b1880206a28651bd9c17a8f123d403651ac9ec65ebe7549"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-777a358fec5b.json",
+      "bytes": 3794,
+      "sha256": "8fdb54e4c93719bb6b065c16d08703512e8f17fc2f988f9678d119f4a117cd95"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-777a358fec5b.txt",
+      "bytes": 3291,
+      "sha256": "9e95e23035004d81bfe6bd4399971aba59a97ac857068fb2104869a35c6ab4f2"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-79fb9020203a.json",
+      "bytes": 955,
+      "sha256": "e2e736fdbe996d765d832757a1f46d8915f0281c53b61c88a1e7f53712b6d952"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-79fb9020203a.txt",
+      "bytes": 629,
+      "sha256": "1194682faef8c4473822da01fdf7a027299ec9d1544b520a49de0b005f527b41"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-b530bc4994f2.json",
+      "bytes": 1175,
+      "sha256": "ea249dc56effdc98a4f34a4cff2569d86c24f4ebcb8b1dcabffe007e49d1f255"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-b530bc4994f2.txt",
+      "bytes": 834,
+      "sha256": "8cdad9effe58d713dfbc646f2fcf60bb5ec5f9eaa7e204bc4548aff3d7c6008f"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-b76f7a72f375.json",
+      "bytes": 1576,
+      "sha256": "bd5161fbac0a16ca4860a3c747bb66351c75a06ec3c999628aa374c959e337f2"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-b76f7a72f375.txt",
+      "bytes": 1195,
+      "sha256": "74ebe6ba15e803730ecc40fa2149b4457dad5ebe3ff28d2d5f5e6e3e84ac658b"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-feffd65feaa7.json",
+      "bytes": 1766,
+      "sha256": "cf858fda0cfea6130565f48dac9effcf1b507c36025334a2f79ac5c546edd027"
+    },
+    {
+      "path": "analysis/hermes/mcp/disassemble-feffd65feaa7.txt",
+      "bytes": 1399,
+      "sha256": "43b2404d9e55ab6852abcac47d29bf8f9656c2417fb19f84e64b9feb49db3228"
+    },
+    {
+      "path": "analysis/hermes/mcp/dump-457bf43e4dea.json",
+      "bytes": 2596062,
+      "sha256": "d054b00301900fa24f71759890e5791f22a8e802944d1ee3653011b5f1690bd6"
+    },
+    {
+      "path": "analysis/hermes/mcp/dump-457bf43e4dea.txt",
+      "bytes": 2468879,
+      "sha256": "921f38af7a9cf76bebd2b92511064f21bdaf63012a9cdfc2484de06e1f66ea8e"
+    },
+    {
+      "path": "analysis/hermes/mcp/file_info-44136fa355b3.json",
+      "bytes": 373,
+      "sha256": "0ab74a99601c40fd36f7509b832e6e9f5d73a033c2dcbada57c22069e9749a48"
+    },
+    {
+      "path": "analysis/hermes/mcp/file_info-44136fa355b3.txt",
+      "bytes": 129,
+      "sha256": "a24f2d03e81aa2d9fd4364e92be7a6dd467d91e70075cada1c10c8ec1439f93c"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-0ce57b883ac7.json",
+      "bytes": 403,
+      "sha256": "89038ec799c76496321e8b5fcd7ced5b8d09f3e32deed5aebab781da27247b79"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-0ce57b883ac7.txt",
+      "bytes": 128,
+      "sha256": "f3225755d033c5e27aa2e864f28c824009573c3d13484bc4219bd616f6db211b"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-23b2f996efc4.json",
+      "bytes": 389,
+      "sha256": "736e74a3e35b3f3d93f8af23db6b824560559aa90c627a945cea043794b9b061"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-23b2f996efc4.txt",
+      "bytes": 115,
+      "sha256": "ec0d60dd286333cbae35c6744a4d11c019be84cb7230d6f377465efa7f06e7e8"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-284875a09b4d.json",
+      "bytes": 387,
+      "sha256": "951440e183df808c8874fa9e3fe78dc51e971e5dc0346b6a4dae3beb7e6cc60f"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-284875a09b4d.txt",
+      "bytes": 112,
+      "sha256": "4d18cb66265de8f859c18220ac93a88f7e342b8c0285abe09f2cda983a85ac98"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-2ddbc937b425.json",
+      "bytes": 363,
+      "sha256": "9c575c97a69d90d0552e92a4b094c728eacad494cddf70b000cade1a1ac11a45"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-2ddbc937b425.txt",
+      "bytes": 88,
+      "sha256": "fe61854ac7cf4e25e8ac700c1363dbb6cfb0acce8ec06ec5dba0b28ddc3bb900"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-38e825389291.json",
+      "bytes": 379,
+      "sha256": "0b3b919f4b6fb1308dc9ee7bcf671eae5a5b6ba14e0aaf8257fdb3cce75d1c67"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-38e825389291.txt",
+      "bytes": 104,
+      "sha256": "3aa1ff08c41e5885953f17e852660927571642c3c4918065bf39863b28e4d4ce"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-3b4f7402f570.json",
+      "bytes": 407,
+      "sha256": "07f4e9d90b2af0e8d92648593c35d0542018d95d975b3c098184165a5e17a620"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-3b4f7402f570.txt",
+      "bytes": 132,
+      "sha256": "47e5b109dacc0b47a25492a16fc176aee532840b82e03d943ad7c055d9eec5bb"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-3debe565360c.json",
+      "bytes": 398,
+      "sha256": "4dd57d5275a7d2ff75b024676b3ff46104ab22d479029eb72011d834462a5263"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-3debe565360c.txt",
+      "bytes": 123,
+      "sha256": "e7c9f5529c8cc2313571b5cbae645169213622cd1b51ef3f3491c72c26f1007b"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-57d03ba83264.json",
+      "bytes": 385,
+      "sha256": "154a2b76cff23f4fa1349ebe89b1bb36b2f1da5d223a82f5500f2865be50a16a"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-57d03ba83264.txt",
+      "bytes": 110,
+      "sha256": "3f89a0aa1d7c5df9cead30d4b1d16bf3387a0c354fb593c60f37a2d77bce8725"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-7eb0938eb14b.json",
+      "bytes": 384,
+      "sha256": "58093103d411e98ffe754447b1c84106bcf810b59c94c28a6c12539eb89da7b3"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-7eb0938eb14b.txt",
+      "bytes": 109,
+      "sha256": "11fa391d381caeb2c4b6de25294333ce97b926bfce5f12ba2ce40bbe8d541755"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-910e22cfb062.json",
+      "bytes": 385,
+      "sha256": "a26bd2bfe137007c21cddddb6cff716c0098b19b3150f41eafdb5d45d31a3b41"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-910e22cfb062.txt",
+      "bytes": 110,
+      "sha256": "649fc4500001e0d7c252ff2834a0fe2b88ca3faf0637a887161486184547a45f"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-b222b21924ea.json",
+      "bytes": 399,
+      "sha256": "8ad27cb22f306fc1ce5dbc454e09d35669b27d3830662adb5b27d9208b78aea0"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-b222b21924ea.txt",
+      "bytes": 124,
+      "sha256": "acf3dceeb6cdc76f001011de2e7f50471a983dec92c3f83ba1cfee106d0f8a72"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-c2a24010d58d.json",
+      "bytes": 400,
+      "sha256": "24142651670f0270f966ba735e1f8eceb4fd20d8203495a21f6421d535d2e66d"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-c2a24010d58d.txt",
+      "bytes": 125,
+      "sha256": "92619f962ed4db8b8e520bd8ed95a0aa558a9fa80ad51091694f00fd131de9ef"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-c7a0712845e8.json",
+      "bytes": 393,
+      "sha256": "c4d141061975611ba5f527dfef59dfc836e41fc32dde57bd4c02ded6fe6eabb2"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-c7a0712845e8.txt",
+      "bytes": 118,
+      "sha256": "d9b958e2b091ffc191970d3d1e64ad71de69f6242914971fe0f777401b97e785"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-dd7bea1b6e79.json",
+      "bytes": 384,
+      "sha256": "0825333b0d1eb6b797ecf01a748f2737d46d33d375d14bff29262e40d47ee988"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-dd7bea1b6e79.txt",
+      "bytes": 109,
+      "sha256": "eca9ccf79b0dd7f38b47fdb75979e61e7f7e94932466c88020f7cbfed2f4071b"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-f04bcd778c3b.json",
+      "bytes": 383,
+      "sha256": "23fed1173b6da8bd97fb415c7cce3424b42e5cc146ab4323ef28080ca8b08d7f"
+    },
+    {
+      "path": "analysis/hermes/mcp/function_info-f04bcd778c3b.txt",
+      "bytes": 108,
+      "sha256": "b5b8a28aece465e745d3b050dbebbc41c05a45ee99ee971c1860163df69a4ad9"
+    },
+    {
+      "path": "analysis/hermes/mcp/list_modules-44136fa355b3.json",
+      "bytes": 357411,
+      "sha256": "5551a3375906c99fcf773c6c9d06c9ae8d192e996a2df0cbefbb8c2070bda211"
+    },
+    {
+      "path": "analysis/hermes/mcp/list_modules-44136fa355b3.txt",
+      "bytes": 352529,
+      "sha256": "230cf3761021c2131c5d8da12bdb775aa8dfd76194852f75c8a1197bf179a017"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-15dadc5250a6.json",
+      "bytes": 389,
+      "sha256": "b9b25206184a492d18035958b8fae90a809a94c647193d6864834c9c0673c978"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-15dadc5250a6.txt",
+      "bytes": 115,
+      "sha256": "c4aef10affd7927d7ed74492af536c8429576c23330a4d7d5823d76e4722de36"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-1c4f8b65d99a.json",
+      "bytes": 405,
+      "sha256": "7ef23b428cbf98f8b76674c185c9d281a8e97904681eb5a27ba7af3f4184eb55"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-1c4f8b65d99a.txt",
+      "bytes": 130,
+      "sha256": "14ec38ff35021531f8379cf4d237ec11857b84cefdc6206ff36152a73cedca4d"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-2ef794eb7974.json",
+      "bytes": 805,
+      "sha256": "6d3cdd70f7f1fc1ca715c3f5e7528de176355cdbb681eadf7b70222a5a114e01"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-2ef794eb7974.txt",
+      "bytes": 516,
+      "sha256": "2d5262ea17da5b1509fcfb06b191522e6f12caf1c5cd6d8008afd0878ec4f63b"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-30ecb090f536.json",
+      "bytes": 414,
+      "sha256": "2e2bcbc03aee1d686e5fd844040b37e27c48b39b6819ffc9282d186bce0ef062"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-30ecb090f536.txt",
+      "bytes": 139,
+      "sha256": "81989f633880537683fc545b120675eca69a8756572176b0dc5ef2f56c2d12f7"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-35e178e88f53.json",
+      "bytes": 1527,
+      "sha256": "0af4b7f50b423109396fc4e58cd5293b5c18cc828a684e99ab7a906257dcd785"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-35e178e88f53.txt",
+      "bytes": 1216,
+      "sha256": "ded6043b1547cd64b7512c98a9cd0955c19b9f962bc49af215baa40bb19f031b"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-5794c9e7b7d9.json",
+      "bytes": 392,
+      "sha256": "2aa69895786059b550f15b71803d367b196f71c3827aff9ad8636f56f1cdaa84"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-5794c9e7b7d9.txt",
+      "bytes": 118,
+      "sha256": "49a3430f55cbb1fe6150c63b1219613436733d8292f5d92b332e471d6b1b107e"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-672b56722771.json",
+      "bytes": 644,
+      "sha256": "a7d50e158861ca11c7cdfef7f5ad7deac7397d46d1bfa497d02b862d2e604d31"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-672b56722771.txt",
+      "bytes": 361,
+      "sha256": "cf91186fe8747bc7308d8dd12763a77e7699c0733e3fd383bbd7890b734d8a19"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-773deed94914.json",
+      "bytes": 395,
+      "sha256": "3fcab5f7a7acdc10c1b39aca3c05edb41382f382a8f09df074ed835d546394fb"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-773deed94914.txt",
+      "bytes": 121,
+      "sha256": "a2cff9b2f875ef3d3c281970b29daf7ffee5484b6ee3169971a95c3df640c53c"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-81e64b9204ee.json",
+      "bytes": 393,
+      "sha256": "c19a9955307132c3c28c2fd1502e72713f2028b343e47ebbafb6ca25d5664ac8"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-81e64b9204ee.txt",
+      "bytes": 118,
+      "sha256": "e69c248f26cd09db9b60852a1bb49577805b5356a3c2f7c2f5b1d4f434be6e0c"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-9912400322d8.json",
+      "bytes": 377,
+      "sha256": "9a827977ef3f85318f69a390daed96e75b04113ef7649dc9c6e6ee0799c562ae"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-9912400322d8.txt",
+      "bytes": 103,
+      "sha256": "13e84afc23e84d3b83838778a6f44f3602b57dbdd90bba8fc71a1d14e1bbd10f"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-9fe25a7c356c.json",
+      "bytes": 306,
+      "sha256": "7b4ac6f09b6343b0ffcc77693fd5e7760380fd6c905399f2a808f86fa0ca2394"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-9fe25a7c356c.txt",
+      "bytes": 36,
+      "sha256": "50145ffdb4f648fa6d800742ed85249ecdc1175cb84278b635c2cc90bfdca0a4"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-a7932396fe43.json",
+      "bytes": 420,
+      "sha256": "7df28f1c7cae6977d8035fb1000eb5f856aa3ff18ddfbad7da6591ac060a4e2c"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-a7932396fe43.txt",
+      "bytes": 145,
+      "sha256": "2703d42185a30681f3d908d40febe208b80effbc40ca6b31f9f1f2620dd9416b"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-b0485fd073cb.json",
+      "bytes": 389,
+      "sha256": "5e8dcaf0d2f24b40ccc0fbac02130b94cd232691cac78e6139b2e4db335eb62e"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-b0485fd073cb.txt",
+      "bytes": 115,
+      "sha256": "1a5291d261392ccce41f81e22c33095596ea468ec530a4da5276dca48a4efe40"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-c85ff859aea6.json",
+      "bytes": 416,
+      "sha256": "89a2c27b15762aebda48807dbf5a4b259c9c9189db1d6580b9d79eab476faa04"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-c85ff859aea6.txt",
+      "bytes": 142,
+      "sha256": "a0dd1e3a23dedfb44ac36487da9cb3b7ef1bb462d19893c9539f5b3711c9ce90"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-cbb2822dc75a.json",
+      "bytes": 546,
+      "sha256": "4437e4e323caa180ea3268cf6648e55f93a23882deb9183f37ca99f791f32ec9"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-cbb2822dc75a.txt",
+      "bytes": 266,
+      "sha256": "b3fcf4f3106157f649620920f59d04974327f1f95c9fd61b8f0a5b29ecf0859d"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-d128930ef2a2.json",
+      "bytes": 401,
+      "sha256": "542503914573cfe37098df3061afc895033773967b8889c2e99ff957c9a9fa6d"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-d128930ef2a2.txt",
+      "bytes": 127,
+      "sha256": "5445715ec8da8be1577a8627f1b4aedfd146cbf06b863e2a89d5ce4e804d8126"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-db7a741512f4.json",
+      "bytes": 2358,
+      "sha256": "fc873640c051ef1e640ccdbbb0bd331d97aabd53416678b78281a8f7e70b57dc"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-db7a741512f4.txt",
+      "bytes": 2026,
+      "sha256": "60000c601762d1222c099893589ce01e4cf71f4437abc0f0a7e93000fee253c4"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-efb79fc8f643.json",
+      "bytes": 380,
+      "sha256": "9a903483f3b7de6c51592b18f0435d80c35e9a1da8a80276d1a6dfa4b9a50164"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-efb79fc8f643.txt",
+      "bytes": 106,
+      "sha256": "ca76adbd0575b0c16df94884c7f79921580eba8d7589b2d0729911c4fdc844ad"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-f83d601cad9d.json",
+      "bytes": 325,
+      "sha256": "26cad9058ddac8a2780ad8d101d41158782278e5554b5b3bac3f18db30ea26c4"
+    },
+    {
+      "path": "analysis/hermes/mcp/module_exports-f83d601cad9d.txt",
+      "bytes": 55,
+      "sha256": "abf3ce09604f3237b1ef11da9109938e8fe41700c6d5d62b91b69568866866c8"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-172cf9ddf9cd.json",
+      "bytes": 317,
+      "sha256": "955613cdabbc5fc673433fa7671559796b5b64800ce90240558b636ad0aad6e2"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-172cf9ddf9cd.txt",
+      "bytes": 44,
+      "sha256": "b900c31a58162aa1002ab37070d3bc657f9065bc8583eab3e615ad62363e5b9d"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-28fd29be67cc.json",
+      "bytes": 210703,
+      "sha256": "abf19b7e8d1fd670615609753ff5892a8f526ff9e5153a954b4bc9520a66733a"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-28fd29be67cc.txt",
+      "bytes": 206798,
+      "sha256": "87e56ab1b0166532a153e2eec05fbf0ed6b64930f14fb8c515baaedc1d137896"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-466c612b6e0a.json",
+      "bytes": 2395,
+      "sha256": "1d4e9f950a79a3ec94c21e415f1c3c25ecb59fec4ea14c0283d403a7eb9df7aa"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-466c612b6e0a.txt",
+      "bytes": 2087,
+      "sha256": "a6189702abf4814f9ee83e3e4fbb780c1a742b021a0d5d428e82b567940b9dfa"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-65d9223de236.json",
+      "bytes": 384,
+      "sha256": "d378a38afba5ccf3be2d3133ed5df692166cc172e5827b47e163b1299d3f5ade"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-65d9223de236.txt",
+      "bytes": 102,
+      "sha256": "1353b5d93508a5986f59782d6687c49c5e52533eb630c2edf0565c9665a1ba29"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-8241894272aa.json",
+      "bytes": 320,
+      "sha256": "7d267e8f7c7d663a032b109795e29c297dd4e763651550e16c104209961cb9ef"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-8241894272aa.txt",
+      "bytes": 45,
+      "sha256": "cc0806aedbb72cc315074ba598dcca6af3b813bf67046c44ca726fa0d6c3ae12"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-ae8e34dcf44a.json",
+      "bytes": 22499,
+      "sha256": "6cbd52d5e8e7b290acee24b5b20c3cf9f0155ab04bff693a27329014e646f2d7"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-ae8e34dcf44a.txt",
+      "bytes": 21814,
+      "sha256": "050cb8eaffc6705bafefe98a8eca74a7fa801535f2e5f57cc25f62c4a66b8b1f"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-b0731339c81a.json",
+      "bytes": 9687,
+      "sha256": "cb8d42139141dff99f317b9e15481c293d40d1ef1016a3cf14f0e51de7e2882a"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-b0731339c81a.txt",
+      "bytes": 9248,
+      "sha256": "13a700ada3f5b1bf14058ff4a53a43f3143e1621d3ba6bf3463d976e5f63a468"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-b63b961833c4.json",
+      "bytes": 683,
+      "sha256": "76aca1efc576139a81fcd34a3ff1a487ca56efb566a37360b9e2e072039b318c"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-b63b961833c4.txt",
+      "bytes": 403,
+      "sha256": "9bb4d82a31f3c557c4b439f05e2875edf5d4d795baabb03b0b6e12f1229dd8c1"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-d60ec0c54ff0.json",
+      "bytes": 2572,
+      "sha256": "dddc8dd13938de887061b44e9b4eb2d26a367ac1c11bc1abf10fc0bf982b3d04"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-d60ec0c54ff0.txt",
+      "bytes": 2261,
+      "sha256": "25d71ae3f045cd00accd1eb81a24c3c519294eda14a0b5844b59303d030b6301"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-dffa2a5445a3.json",
+      "bytes": 542,
+      "sha256": "13c547311df076ff42d98f71e878b4f92c6665eff49ede5842d53b1e994d9c90"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-dffa2a5445a3.txt",
+      "bytes": 249,
+      "sha256": "8fba04a8286b5c696d10af38543ce59652bd336c197f49a682e9655d8c7b34ed"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-e180440566c4.json",
+      "bytes": 160969,
+      "sha256": "c0e9bb5b9ad27cc705b38bfb9c63c697df23bd95c7ff72be87b9138745d73853"
+    },
+    {
+      "path": "analysis/hermes/mcp/xref_search-e180440566c4.txt",
+      "bytes": 157796,
+      "sha256": "373c21c1fb245f3944201660f260ea893d31c2a3fe9386e779d77be9411992af"
+    }
+  ]
+}

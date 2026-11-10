@@ -1,0 +1,45 @@
+function trackLogin() {
+  // @0000
+  let obj = arg0;
+  // @0003
+  // @0005
+  if (arg0 === undefined) {
+    // @0009
+    obj = {};
+  }
+  // @000b
+  // @000d
+  // @0010
+  // @0014
+  // @0018
+  // @001c
+  // @0021
+  const incogniaService = closure_1_0(closure_1_1[26]).incogniaService;
+  // @0027
+  // @002d
+  // @0031
+  incogniaService.trackLogin("AUTHORIZED", obj);
+  // @0037
+  // @003d
+  // @0041
+  this.trackEvent("login", obj);
+  // @0047
+  // @004b
+  // @0050
+  // @0056
+  // @005b
+  // @0061
+  // @0067
+  const _default = closure_1_10.default;
+  _default.trackEvent(closure_1_10.default.EVENTS.LOGIN, obj);
+  // @006d
+  // @0071
+  // @0076
+  // @007c
+  // @0081
+  // @0087
+  // @008d
+  const _default2 = closure_1_9.default;
+  _default2.trackEvent(closure_1_9.default.EVENTS.LOGIN, obj);
+  // @0093
+}

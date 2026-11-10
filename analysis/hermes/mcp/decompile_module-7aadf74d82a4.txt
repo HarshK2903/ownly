@@ -1,0 +1,3 @@
+// Module 3943 (ScreenId)
+
+export const ScreenId = { HOME_PAGE: "homePage", RESTAURANT_PAGE: "restaurantPage", RESTAURANT_SEARCH_PAGE: "restaurantSearchPage" };

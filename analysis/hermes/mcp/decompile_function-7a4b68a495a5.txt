@@ -1,0 +1,84 @@
+function trackSearchQuerySubmitted(arg0) {
+  let obj6;
+  // @0000
+  // @0003
+  // @0005
+  // @000b
+  // @0010
+  let resultsByType = arg0.resultsByType;
+  // @0016
+  // @0018
+  const _Object = Object;
+  if (resultsByType == null) {
+    // @001c
+    resultsByType = {};
+  }
+  // @001e
+  // @0021
+  const entries1 = entries(resultsByType);
+  // @0026
+  // @002c
+  // @002e
+  // @0030
+  // @0035
+  const reduced = entries1.reduce(function() { /* body not rendered: F31677 */ }, {});
+  // @003b
+  // @003f
+  // @0043
+  // @0047
+  // @004c
+  // @0052
+  const obj1 = { ui_screen: null, ui_component: null, ui_element: null, action: "submit", prop_search_query: null };
+  // @005c
+  // @0060
+  const emitStandardInteraction = closure_1_0(closure_1_1[0]).emitStandardInteraction;
+  // @0065
+  // @006a
+  // @0070
+  obj1.ui_screen = closure_1_0(closure_1_1[1]).AnalyticsScreen.SEARCH_PAGE;
+  // @0074
+  // @0078
+  // @007d
+  // @0082
+  // @0088
+  obj1.ui_component = closure_1_0(closure_1_1[1]).AnalyticsComponent.SEARCH_BAR;
+  // @008c
+  // @0090
+  // @0095
+  // @009b
+  // @00a1
+  obj1.ui_element = closure_1_0(closure_1_1[1]).AnalyticsElement.SEARCH_INPUT;
+  // @00a5
+  // @00ab
+  obj1.prop_search_query = arg0.query;
+  // @00af
+  // @00b5
+  if (arg0.searchQueryId) {
+    // @00bc
+    const obj5 = { prop_search_query_id: null };
+    // @00c6
+    // @00cc
+    obj5.prop_search_query_id = arg0.searchQueryId;
+    // @00d0
+    obj6 = obj5;
+  } else {
+    // @00b8
+    obj6 = {};
+    // @00ba
+  }
+  // @00d3
+  // @00d6
+  // @00d9
+  const merged = Object.assign(obj6);
+  // @00dd
+  // @00e0
+  // @00e3
+  const merged1 = Object.assign(reduced);
+  // @00e7
+  const result = emitStandardInteraction(obj1);
+  // @00ec
+  // @00f1
+  // @00f6
+  result.catch(function() { /* body not rendered: F31678 */ });
+  // @00fb
+}

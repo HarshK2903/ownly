@@ -1,0 +1,675 @@
+// Module 1833 (CART_STORAGE_KEYS)
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass from "_createClass" /* 6 */;
+import _slicedToArray2 from "_slicedToArray" /* 29 */;
+import _mod1133 from "module_1133" /* 1133 */;
+import safeError from "safeError" /* 1659 */;
+import module_1 from "module_1" /* 1 */;
+
+const _slicedToArray = module_1(_slicedToArray2);
+const _classCallCheck = module_1(_classCallCheck2);
+const CART_STORAGE_KEYS = { CART_ITEMS: "cart_items", CART_RESTAURANT_DETAILS: "cart_restaurant_details", CART_ADDRESS_SELECTED: "cart_address_selected", CART_INSTRUCTIONS: "cart_instructions", CART_LAST_MODIFIED: "cart_last_modified", CART_TOTAL_ITEMS: "cart_total_items", CART_TOTAL_AMOUNT: "cart_total_amount", CART_ID: "cart_id", CART_API_RESPONSE: "cart_api_response", CART_ERROR: "cart_error", CART_PENDING_CONFLICT: "cart_pending_conflict", CART_SHOULD_NAVIGATE_CUSTOMIZATION: "cart_should_navigate_customization", CART_IS_UPDATING: "cart_is_updating" };
+class CartStorageService {
+  constructor() {
+    _classCallCheck.default(this, CartStorageService);
+    this.storage = _mod1133.createMMKV();
+  }
+}
+const entry = {
+  key: "saveCartState",
+  value: function saveCartState(lastModified) {
+    let addressSelected;
+    let cartApiResponse;
+    let cartId;
+    let error;
+    let instructions;
+    let num;
+    let num2;
+    let restaurantDetails;
+    const self = this;
+    try {
+      const cleanDataForStorageResult = self.cleanDataForStorage(lastModified);
+      const items = cleanDataForStorageResult.items || [];
+      const obj = { items, restaurantDetails, addressSelected, instructions, cartId, cartApiResponse, error };
+      restaurantDetails = tmp2.restaurantDetails || null;
+      addressSelected = tmp2.addressSelected || null;
+      instructions = tmp2.instructions || null;
+      cartId = tmp2.cartId || null;
+      cartApiResponse = tmp2.cartApiResponse || null;
+      error = cleanDataForStorageResult.error || null;
+      lastModified = lastModified.lastModified;
+      if (!lastModified) {
+        const _Date = Date;
+        lastModified = Date.now();
+      }
+      const obj2 = { lastModified, totalItems: num, totalAmount: num2, isUpdatingCart: false };
+      const storage = self.storage;
+      const _JSON = JSON;
+      num = lastModified.totalItems || 0;
+      num2 = lastModified.totalAmount || 0;
+      const result = storage.set("CART_DATA_BATCH", JSON.stringify(obj));
+      const storage2 = self.storage;
+      const _JSON2 = JSON;
+      const result1 = storage2.set("CART_META_BATCH", JSON.stringify(obj2));
+    } catch (tmp19) {
+      safeError.safeError("\u274C Error saving cart state (batched):", tmp19);
+      const result2 = self.saveCartStateFallback(lastModified);
+    }
+  }
+};
+let items = [
+  entry,
+  {
+    key: "saveCartStateFallback",
+    value: function saveCartStateFallback(restaurantDetails) {
+      const self = this;
+      try {
+        let _console = console;
+        console.log("\u26A0\uFE0F Using fallback storage method...");
+        function safeSerialize(addressSelected, addressSelected2) {
+          try {
+            if (addressSelected !== null) {
+              if (addressSelected !== undefined) {
+                const _JSON = JSON;
+                return JSON.stringify(self.cleanDataForStorage(addressSelected));
+              }
+            }
+            const _JSON2 = JSON;
+            return JSON.stringify(null);
+          } catch (tmp6) {
+            const _console = console;
+            const _HermesInternal = HermesInternal;
+            console.warn("\u26A0\uFE0F Failed to serialize " + addressSelected2 + ":", tmp6);
+            const _JSON3 = JSON;
+            return JSON.stringify(null);
+          }
+        }
+        const storage = self.storage;
+        const result = storage.set(obj.CART_ITEMS, safeSerialize(restaurantDetails.items, "items"));
+        const storage2 = self.storage;
+        const result1 = storage2.set(obj.CART_RESTAURANT_DETAILS, safeSerialize(restaurantDetails.restaurantDetails, "restaurantDetails"));
+        const storage3 = self.storage;
+        const result2 = storage3.set(obj.CART_ADDRESS_SELECTED, safeSerialize(restaurantDetails.addressSelected, "addressSelected"));
+        const storage4 = self.storage;
+        const result3 = storage4.set(obj.CART_INSTRUCTIONS, safeSerialize(restaurantDetails.instructions, "instructions"));
+        const storage5 = self.storage;
+        let lastModified = restaurantDetails.lastModified;
+        const CART_LAST_MODIFIED = obj.CART_LAST_MODIFIED;
+        const set = storage5.set;
+        const tmp3 = safeSerialize;
+        if (!lastModified) {
+          const _Date = Date;
+          lastModified = Date.now();
+        }
+        const result4 = set(CART_LAST_MODIFIED, lastModified);
+        const storage6 = self.storage;
+        let num = restaurantDetails.totalItems;
+        const CART_TOTAL_ITEMS = tmp4.CART_TOTAL_ITEMS;
+        const set2 = storage6.set;
+        if (!num) {
+          num = 0;
+        }
+        set2(CART_TOTAL_ITEMS, num);
+        const storage7 = self.storage;
+        let num2 = restaurantDetails.totalAmount;
+        const CART_TOTAL_AMOUNT = tmp4.CART_TOTAL_AMOUNT;
+        const set3 = storage7.set;
+        if (!num2) {
+          num2 = 0;
+        }
+        set3(CART_TOTAL_AMOUNT, num2);
+        const storage8 = self.storage;
+        let str6 = restaurantDetails.cartId;
+        const CART_ID = tmp4.CART_ID;
+        const set4 = storage8.set;
+        if (!str6) {
+          str6 = "";
+        }
+        set4(CART_ID, str6);
+        const storage9 = self.storage;
+        const result5 = storage9.set(tmp4.CART_API_RESPONSE, tmp3(restaurantDetails.cartApiResponse, "cartApiResponse"));
+        const storage10 = self.storage;
+        let str8 = restaurantDetails.error;
+        const CART_ERROR = tmp4.CART_ERROR;
+        const set5 = storage10.set;
+        if (!str8) {
+          str8 = "";
+        }
+        set5(CART_ERROR, str8);
+        const storage11 = self.storage;
+        let flag = restaurantDetails.isUpdatingCart;
+        const CART_IS_UPDATING = tmp4.CART_IS_UPDATING;
+        const set6 = storage11.set;
+        if (!flag) {
+          flag = false;
+        }
+        set6(CART_IS_UPDATING, flag);
+        const _console2 = console;
+        console.log("\u2705 Cart state saved using fallback method");
+      } catch (tmp18) {
+        safeError.safeError("\u274C Fallback storage also failed:", tmp18);
+        self.debugCartState(restaurantDetails);
+      }
+    }
+  },
+  {
+    key: "loadCartState",
+    value: function loadCartState() {
+      try {
+        const self = this;
+        const storage = this.storage;
+        if (storage.contains("CART_DATA_BATCH")) {
+          const storage2 = self.storage;
+          if (storage2.contains("CART_META_BATCH")) {
+            return self.loadCartStateBatched();
+          }
+        }
+        return self.loadCartStateLegacy();
+      } catch (tmp) {
+        safeError.safeError("\u274C Error loading cart state:", tmp);
+        return null;
+      }
+    }
+  },
+  {
+    key: "loadCartStateBatched",
+    value: function loadCartStateBatched() {
+      let addressSelected;
+      let cartApiResponse;
+      let cartId;
+      let error;
+      let instructions;
+      let lastModified;
+      let restaurantDetails;
+      const self = this;
+      try {
+        const storage = self.storage;
+        const string = storage.getString("CART_DATA_BATCH");
+        const storage2 = self.storage;
+        const string1 = storage2.getString("CART_META_BATCH");
+        if (string) {
+          const tmp4 = string1;
+          if (tmp4) {
+            const obj = { items: [], restaurantDetails: null, addressSelected: null, instructions: null, cartId: null, cartApiResponse: null, error: null };
+            const parseJsonResult = self.parseJson(string, obj);
+            const _Date = Date;
+            const parseJson = self.parseJson;
+            const obj2 = { lastModified: Date.now(), totalItems: 0, totalAmount: 0, isUpdatingCart: false };
+            const parseJsonResult1 = parseJson(string1, obj2);
+            const items = parseJsonResult.items || [];
+            const obj3 = { items, restaurantDetails, addressSelected, instructions, cartId, cartApiResponse, lastCartApiResponse: null, error, lastModified, totalItems: num, totalAmount: num2, isUpdatingCart: false, pendingRestaurantConflict: null, shouldNavigateToCustomization: null, shouldShowCustomizationChoiceModal: null, autoNavigateRequested: false, autoNavigateSourcePage: "slice", autoNavigateRequestedAt: "clearTimeout", autoNavigateExpectCustomization: false, customizationOpenedAt: "binaryType", customizationClosedAt: null, lastAddCompletedAt: null, navigationLock: "relative" };
+            restaurantDetails = tmp9.restaurantDetails || null;
+            addressSelected = tmp9.addressSelected || null;
+            instructions = tmp9.instructions || null;
+            cartId = tmp9.cartId || tmp9.cartLifecycleId || null;
+            cartApiResponse = tmp9.cartApiResponse || null;
+            error = parseJsonResult.error || null;
+            lastModified = parseJsonResult1.lastModified;
+            if (!lastModified) {
+              const _Date2 = Date;
+              lastModified = Date.now();
+            }
+            return obj3;
+          }
+        }
+        const _console = console;
+        console.log("\u{1F4ED} Incomplete batched data, falling back to legacy");
+        return self.loadCartStateLegacy();
+      } catch (tmp27) {
+        safeError.safeError("\u274C Error loading batched cart state:", tmp27);
+        return self.loadCartStateLegacy();
+      }
+    }
+  },
+  {
+    key: "loadCartStateLegacy",
+    value: function loadCartStateLegacy() {
+      let obj;
+      let parseJson;
+      let parseJson2;
+      let parseJson3;
+      let parseJson4;
+      let storage11;
+      let storage12;
+      let storage2;
+      let storage3;
+      let storage5;
+      let storage6;
+      try {
+        const self = this;
+        const storage = this.storage;
+        if (storage.contains(obj.CART_ITEMS)) {
+          ({ storage: storage2, parseJson, storage: storage3 } = self);
+          const storage4 = self.storage;
+          ({ parseJson: parseJson2, storage: storage5 } = self);
+          const parseJsonResult = parseJson(storage2.getString(obj.CART_ITEMS), []);
+          ({ parseJson: parseJson3, storage: storage6 } = self);
+          const parseJsonResult1 = self.parseJson(storage3.getString(obj.CART_RESTAURANT_DETAILS), null);
+          const parseJson2Result = parseJson2(storage4.getString(obj.CART_ADDRESS_SELECTED), null);
+          const parseJson3Result = parseJson3(storage5.getString(obj.CART_INSTRUCTIONS), null);
+          let string = storage6.getString(tmp.CART_ID);
+          if (!string) {
+            const storage7 = self.storage;
+            string = storage7.getString("cart_lifecycle_id");
+          }
+          if (!string) {
+            string = null;
+          }
+          const storage8 = self.storage;
+          let number = storage8.getNumber(tmp.CART_LAST_MODIFIED);
+          if (!number) {
+            const _Date = Date;
+            number = Date.now();
+          }
+          const storage9 = self.storage;
+          const storage10 = self.storage;
+          const num = storage9.getNumber(tmp.CART_TOTAL_ITEMS) || 0;
+          ({ storage: storage11, parseJson: parseJson4, storage: storage12 } = self);
+          const num2 = storage10.getNumber(tmp.CART_TOTAL_AMOUNT) || 0;
+          const parseJson4Result = parseJson4(storage11.getString(obj.CART_API_RESPONSE), null);
+          const string1 = storage12.getString(tmp.CART_ERROR) || null;
+          obj = { items: parseJsonResult, restaurantDetails: parseJsonResult1, addressSelected: parseJson2Result, instructions: parseJson3Result, cartId: string, lastModified: number, totalItems: num, totalAmount: num2, cartApiResponse: parseJson4Result, lastCartApiResponse: null, error: string1, isUpdatingCart: false, pendingRestaurantConflict: null, shouldNavigateToCustomization: null, shouldShowCustomizationChoiceModal: null, autoNavigateRequested: false, autoNavigateSourcePage: "slice", autoNavigateRequestedAt: "clearTimeout", autoNavigateExpectCustomization: false, customizationOpenedAt: "binaryType", customizationClosedAt: null, lastAddCompletedAt: null, navigationLock: "relative" };
+          return obj;
+        } else {
+          const _console = console;
+          console.log("\u{1F4ED} No cart data found in storage");
+          return null;
+        }
+      } catch (tmp19) {
+        safeError.safeError("\u274C Error loading legacy cart state:", tmp19);
+        return null;
+      }
+    }
+  },
+  {
+    key: "clearCartState",
+    value: function clearCartState() {
+      const self = this;
+      try {
+        const _console = console;
+        console.log("\u{1F5D1}\uFE0F Clearing cart state from local storage...");
+        const _Object = Object;
+        const values = Object.values(obj);
+        const item = values.forEach((item) => {
+          const storage = self.storage;
+          storage.remove(item);
+        });
+        let storage = self.storage;
+        storage.remove("CART_DATA_BATCH");
+        const storage2 = self.storage;
+        storage2.remove("CART_META_BATCH");
+        const storage3 = self.storage;
+        storage3.remove("cart_lifecycle_id");
+        const _console2 = console;
+        console.log("\u2705 Cart state cleared successfully (both formats)");
+      } catch (tmp9) {
+        safeError.safeError("\u274C Error clearing cart state:", tmp9);
+      }
+    }
+  },
+  {
+    key: "hasCartData",
+    value: function hasCartData() {
+      const self = this;
+      const storage = this.storage;
+      let hasItem = storage.contains("CART_DATA_BATCH");
+      if (hasItem) {
+        const storage2 = self.storage;
+        hasItem = storage2.contains("CART_META_BATCH");
+      }
+      const storage3 = self.storage;
+      if (!hasItem) {
+        hasItem = storage3.contains(obj.CART_ITEMS);
+      }
+      return hasItem;
+    }
+  },
+  {
+    key: "getCartDataSize",
+    value: function getCartDataSize() {
+      try {
+        const self = this;
+        const storage = this.storage;
+        const storage2 = self.storage;
+        const str = storage.getString(obj.CART_ITEMS) || "";
+        const storage3 = self.storage;
+        const str2 = storage2.getString(tmp.CART_RESTAURANT_DETAILS) || "";
+        const storage4 = self.storage;
+        const str3 = storage3.getString(tmp.CART_ADDRESS_SELECTED) || "";
+        const storage5 = self.storage;
+        const str4 = storage4.getString(tmp.CART_INSTRUCTIONS) || "";
+        const str5 = storage5.getString(tmp.CART_API_RESPONSE) || "";
+        return str.length + str2.length + str3.length + str4.length + str5.length;
+      } catch (tmp6) {
+        safeError.safeError("Error calculating cart data size:", tmp6);
+        return 0;
+      }
+    }
+  },
+  {
+    key: "saveCartItems",
+    value: function saveCartItems(arg0) {
+      const self = this;
+      try {
+        const items = arg0 || [];
+        const storage = self.storage;
+        const _JSON = JSON;
+        const result = storage.set(obj.CART_ITEMS, JSON.stringify(items));
+        const storage2 = self.storage;
+        const _Date = Date;
+        const result1 = storage2.set(obj.CART_LAST_MODIFIED, Date.now());
+        const _console = console;
+        console.log("\u2705 Cart items saved:", items.length);
+      } catch (tmp6) {
+        safeError.safeError("\u274C Error saving cart items:", tmp6);
+        const tmp7 = require;
+        try {
+          const storage3 = self.storage;
+          const _JSON2 = JSON;
+          const result2 = storage3.set(obj.CART_ITEMS, JSON.stringify([]));
+          const storage4 = self.storage;
+          const _Date2 = Date;
+          const result3 = storage4.set(obj.CART_LAST_MODIFIED, Date.now());
+          const _console2 = console;
+          console.log("\u2705 Fallback: Empty cart items saved");
+        } catch (tmp15) {
+          tmp7(1659).safeError("\u274C Fallback save also failed:", tmp15);
+        }
+      }
+    }
+  },
+  {
+    key: "saveRestaurantDetails",
+    value: function saveRestaurantDetails(name) {
+      const self = this;
+      try {
+        const storage = self.storage;
+        const _JSON = JSON;
+        const result = storage.set(obj.CART_RESTAURANT_DETAILS, JSON.stringify(name));
+        const storage2 = self.storage;
+        const _Date = Date;
+        const result1 = storage2.set(obj.CART_LAST_MODIFIED, Date.now());
+        let str;
+        const _console = console;
+        if (name != null) {
+          str = name.name;
+        }
+        if (!str) {
+          str = "None";
+        }
+        log("\u2705 Restaurant details saved:", str);
+      } catch (tmp8) {
+        safeError.safeError("\u274C Error saving restaurant details:", tmp8);
+        const tmp9 = require;
+        try {
+          const storage3 = self.storage;
+          const _JSON2 = JSON;
+          const result2 = storage3.set(obj.CART_RESTAURANT_DETAILS, JSON.stringify(null));
+          const storage4 = self.storage;
+          const _Date2 = Date;
+          const result3 = storage4.set(obj.CART_LAST_MODIFIED, Date.now());
+          const _console2 = console;
+          console.log("\u2705 Fallback: Null restaurant details saved");
+        } catch (tmp18) {
+          tmp9(1659).safeError("\u274C Fallback save also failed:", tmp18);
+        }
+      }
+    }
+  },
+  {
+    key: "saveAddressSelected",
+    value: function saveAddressSelected(address) {
+      const self = this;
+      try {
+        const storage = self.storage;
+        const _JSON = JSON;
+        const result = storage.set(obj.CART_ADDRESS_SELECTED, JSON.stringify(address));
+        const storage2 = self.storage;
+        const _Date = Date;
+        const result1 = storage2.set(obj.CART_LAST_MODIFIED, Date.now());
+        let str;
+        const _console = console;
+        if (address != null) {
+          str = address.address;
+        }
+        if (!str) {
+          str = "None";
+        }
+        log("\u2705 Address selected saved:", str);
+      } catch (tmp8) {
+        safeError.safeError("\u274C Error saving address selected:", tmp8);
+        const tmp9 = require;
+        try {
+          const storage3 = self.storage;
+          const _JSON2 = JSON;
+          const result2 = storage3.set(obj.CART_ADDRESS_SELECTED, JSON.stringify(null));
+          const storage4 = self.storage;
+          const _Date2 = Date;
+          const result3 = storage4.set(obj.CART_LAST_MODIFIED, Date.now());
+          const _console2 = console;
+          console.log("\u2705 Fallback: Null address selected saved");
+        } catch (tmp18) {
+          tmp9(1659).safeError("\u274C Fallback save also failed:", tmp18);
+        }
+      }
+    }
+  },
+  {
+    key: "saveInstructions",
+    value: function saveInstructions(data) {
+      const self = this;
+      try {
+        const storage = self.storage;
+        const _JSON = JSON;
+        const result = storage.set(obj.CART_INSTRUCTIONS, JSON.stringify(data));
+        const storage2 = self.storage;
+        const _Date = Date;
+        const result1 = storage2.set(obj.CART_LAST_MODIFIED, Date.now());
+        const _console = console;
+        console.log("\u2705 Instructions saved");
+      } catch (tmp7) {
+        safeError.safeError("\u274C Error saving instructions:", tmp7);
+        const tmp8 = require;
+        try {
+          const storage3 = self.storage;
+          const _JSON2 = JSON;
+          const result2 = storage3.set(obj.CART_INSTRUCTIONS, JSON.stringify(null));
+          const storage4 = self.storage;
+          const _Date2 = Date;
+          const result3 = storage4.set(obj.CART_LAST_MODIFIED, Date.now());
+          const _console2 = console;
+          console.log("\u2705 Fallback: Null instructions saved");
+        } catch (tmp17) {
+          tmp8(1659).safeError("\u274C Fallback save also failed:", tmp17);
+        }
+      }
+    }
+  },
+  {
+    key: "saveTotals",
+    value: function saveTotals(arg0, arg1) {
+      let obj;
+      const self = this;
+      try {
+        const storage = self.storage;
+        const result = storage.set(obj.CART_TOTAL_ITEMS, num);
+        const storage2 = self.storage;
+        const result1 = storage2.set(obj.CART_TOTAL_AMOUNT, num2);
+        const storage3 = self.storage;
+        const _Date = Date;
+        const result2 = storage3.set(obj.CART_LAST_MODIFIED, Date.now());
+        const _console = console;
+        obj = { totalItems: arg0 || 0, totalAmount: arg1 || 0 };
+        console.log("\u2705 Totals saved:", obj);
+      } catch (tmp8) {
+        safeError.safeError("\u274C Error saving totals:", tmp8);
+        const tmp9 = require;
+        try {
+          const storage4 = self.storage;
+          const result3 = storage4.set(obj.CART_TOTAL_ITEMS, 0);
+          const storage5 = self.storage;
+          const result4 = storage5.set(obj.CART_TOTAL_AMOUNT, 0);
+          const storage6 = self.storage;
+          const _Date2 = Date;
+          const result5 = storage6.set(obj.CART_LAST_MODIFIED, Date.now());
+          const _console2 = console;
+          console.log("\u2705 Fallback: Zero totals saved");
+        } catch (tmp18) {
+          tmp9(1659).safeError("\u274C Fallback save also failed:", tmp18);
+        }
+      }
+    }
+  },
+  {
+    key: "saveApiResponse",
+    value: function saveApiResponse(data) {
+      const self = this;
+      try {
+        const storage = self.storage;
+        const _JSON = JSON;
+        const result = storage.set(obj.CART_API_RESPONSE, JSON.stringify(data));
+        const _console = console;
+        console.log("\u2705 API response saved");
+      } catch (tmp6) {
+        safeError.safeError("\u274C Error saving API response:", tmp6);
+        const tmp7 = require;
+        try {
+          const storage2 = self.storage;
+          const _JSON2 = JSON;
+          const result1 = storage2.set(obj.CART_API_RESPONSE, JSON.stringify(null));
+          const _console2 = console;
+          console.log("\u2705 Fallback: Null API response saved");
+        } catch (tmp15) {
+          tmp7(1659).safeError("\u274C Fallback save also failed:", tmp15);
+        }
+      }
+    }
+  },
+  {
+    key: "debugCartState",
+    value: function debugCartState(restaurantDetails) {
+      console.log("\u{1F50D} Debugging cart state for storage issues...");
+      function checkData(addressSelected, addressSelected2) {
+        try {
+          if (addressSelected !== null) {
+            if (addressSelected !== undefined) {
+              if (typeof addressSelected !== "string") {
+                if (typeof addressSelected !== "number") {
+                  if (typeof addressSelected !== "boolean") {
+                    const _JSON = JSON;
+                    const json = JSON.stringify(addressSelected);
+                    const _console3 = console;
+                    const _HermesInternal4 = HermesInternal;
+                    console.log("\u2705 " + addressSelected2 + ": serializable");
+                    return true;
+                  }
+                }
+              }
+              const _console = console;
+              const _HermesInternal = HermesInternal;
+              console.log("\u2705 " + addressSelected2 + ": primitive type (safe)");
+              return true;
+            }
+          }
+          const _console2 = console;
+          const _HermesInternal2 = HermesInternal;
+          console.log("\u2705 " + addressSelected2 + ": null/undefined (safe)");
+          return true;
+        } catch (tmp7) {
+          const _HermesInternal3 = HermesInternal;
+          safeError.safeError("\u274C " + addressSelected2 + ": NOT serializable -", tmp7);
+          return false;
+        }
+      }
+      const obj = { items: checkData(restaurantDetails.items, "items"), restaurantDetails: checkData(restaurantDetails.restaurantDetails, "restaurantDetails"), addressSelected: checkData(restaurantDetails.addressSelected, "addressSelected"), instructions: checkData(restaurantDetails.instructions, "instructions"), cartApiResponse: checkData(restaurantDetails.cartApiResponse, "cartApiResponse") };
+      const values = Object.values(obj);
+      if (values.some((item) => !item)) {
+        safeError.safeError("\u{1F6A8} Cart state has serialization issues!");
+      } else {
+        let _console = console;
+        console.log("\u2705 All cart state data is serializable");
+      }
+    }
+  },
+  {
+    key: "parseJson",
+    value: function parseJson(string, arg1) {
+      if (string) {
+        try {
+          const _JSON = JSON;
+          return JSON.parse(string);
+        } catch (tmp2) {
+          safeError.safeError("Error parsing JSON:", tmp2);
+          return arg1;
+        }
+      } else {
+        return arg1;
+      }
+    }
+  },
+  {
+    key: "cleanDataForStorage",
+    value: function cleanDataForStorage(item) {
+      let tmp10;
+      let tmp9;
+      const self = this;
+      if (item !== null) {
+        if (item !== undefined) {
+          if (typeof item !== "string") {
+            if (typeof item !== "number") {
+              if (typeof item !== "boolean") {
+                const _Array = Array;
+                if (Array.isArray(item)) {
+                  return item.map((item) => self.cleanDataForStorage(item));
+                } else if (typeof item === "object") {
+                  const obj = {};
+                  const _Object = Object;
+                  const entries = Object.entries(item);
+                  const tmp3 = entries[Symbol.iterator]();
+                  while (tmp3 !== undefined) {
+                    let defaultResult = _slicedToArray.default(tmp5, 2);
+                    [tmp9, tmp10] = defaultResult;
+                    let tmp11 = tmp10;
+                    if (typeof tmp10 !== "function") {
+                      if (typeof tmp11 !== "symbol") {
+                        if (tmp11 === item) {
+                          continue;
+                        } else {
+                          obj[tmp9] = self.cleanDataForStorage(tmp11);
+                          continue;
+                        }
+                        continue;
+                      }
+                      continue;
+                    }
+                    continue;
+                  }
+                  return obj;
+                } else {
+                  return null;
+                }
+              }
+            }
+          }
+          return item;
+        }
+      }
+      return null;
+    }
+  },
+  {
+    key: "getStorageStats",
+    value: function getStorageStats() {
+      const hasData = this.hasCartData();
+      const storage = this.storage;
+      const dataSize = this.getCartDataSize();
+      const lastModified = storage.getNumber(obj.CART_LAST_MODIFIED) || null;
+      return { hasData, dataSize, lastModified };
+    }
+  }
+];
+let tmp3 = new module_1(_createClass).default(CartStorageService, items)();
+
+export { CART_STORAGE_KEYS };
+export const cartStorage = tmp3;
+export default tmp3;

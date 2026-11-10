@@ -1,0 +1,242 @@
+// Module 2035 (PaymentHandlers)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass from "_createClass" /* 6 */;
+import captureUserDroppedEvent from "captureUserDroppedEvent" /* 2037 */;
+import mapFriendlyErrorMessage from "mapFriendlyErrorMessage" /* 2038 */;
+import module_1 from "module_1" /* 1 */;
+
+let _self, closure_4, closure_5, closure_6;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+class PaymentHandlers {
+  constructor(callbackManager, pollingConfig) {
+    _classCallCheck.default(this, PaymentHandlers);
+    this.pollingController = null;
+    this.callbacksSuppressed = false;
+    this.callbackManager = callbackManager;
+    this.config = pollingConfig;
+  }
+}
+const entry = {
+  key: "handleSuccess",
+  value: function handleSuccess(arg0, arg1) {
+    return closure_0(...arguments);
+  }
+};
+const _default = module_1(_createClass).default;
+let closure_0 = _asyncToGenerator.default(async function(arg0, arg1) {
+  let closure_8;
+  const self = this;
+  let closure_1 = arg0;
+  let closure_2 = arg1;
+  let closure_3 = arg2;
+  let c9 = 0;
+  let c10 = 0;
+  let c7 = 0;
+  const iter = (async (arg0, value) => {
+    let id;
+    let isCurrentAttempt;
+    const callbackManager2 = closure_6.callbackManager;
+    const callbacks = callbackManager2.getCallbacks();
+    const _console5 = console;
+    const obj5 = { hasSuccessCallback: callbacks.success, hasFailureCallback: callbacks.failure, orderId: id };
+    if (_self != null) {
+      const order = _self.order;
+      if (order != null) {
+        id = order.id;
+      }
+    }
+    log("PAYMENTSERVICE - PaymentHandlers.handleSuccess called:", obj5);
+    closure_6.pollingController = self(closure_1[4]).createPollingController();
+    const _console4 = console;
+    const obj6 = { orderId: _self.order.id, retryDelayMs: closure_6.config.retryDelayMs, maxAttempts: closure_6.config.maxAttempts, maxConsecutiveFailures: closure_6.config.maxConsecutiveFailures };
+    console.log("PAYMENTSERVICE - PaymentHandlers.handleSuccess starting waitForOrderCompletion", obj6);
+    await self(closure_1[4]).waitForOrderCompletion(_self.order.id, closure_6.config, closure_6.pollingController);
+    if (2 === c9) {
+      c7 = 0;
+      closure_5 = closure_8;
+      if (!closure_6.callbacksSuppressed) {
+        if (isCurrentAttempt()) {
+          const _console3 = console;
+          console.error("PAYMENTSERVICE - PaymentHandlers.handleSuccess error during polling:", closure_5);
+          closure_6.handleError(closure_5, _self, closure_1);
+        }
+      }
+      c10 = 3;
+      return { value: "return", done: null };
+    } else if (arg0 === 1) {
+      c10 = 3;
+      throw value;
+    } else if (arg0 === 2) {
+      c7 = 0;
+      c10 = 3;
+      return { value, done: true };
+    } else {
+      closure_4 = value;
+      if (!closure_6.callbacksSuppressed) {
+        if (isCurrentAttempt()) {
+          const _console = console;
+          console.log("PAYMENTSERVICE - PaymentHandlers.handleSuccess invoking success callback with finalStatus");
+          const callbackManager = closure_6.callbackManager;
+          callbackManager.invokeSuccess(closure_4);
+          const _console2 = console;
+          console.log("PAYMENTSERVICE - PaymentHandlers.handleSuccess calling cleanup");
+          closure_1();
+          c7 = 0;
+        }
+      }
+      c7 = 0;
+      c10 = 3;
+      return { value: "return", done: null };
+    }
+    await "return";
+    closure_6 = self;
+    closure_5 = tmp;
+    closure_4 = self;
+    _self = closure_1;
+    closure_1 = closure_2;
+    isCurrentAttempt = callbacks;
+    if (callbacks === undefined) {
+      isCurrentAttempt = function isCurrentAttempt() {
+        return true;
+      };
+    }
+    return "slice";
+  })();
+  iter.next();
+  return iter;
+});
+const items = [
+  entry,
+  {
+    key: "handleCancellation",
+    value: function handleCancellation(order, fn) {
+      let flag = arg2;
+      if (arg2 === undefined) {
+        flag = true;
+      }
+      let error = arg3;
+      if (arg3 === undefined) {
+        const _Error = Error;
+        const self = this;
+        const self2 = this;
+        error = new Error("Payment canceled. Please try again!");
+      }
+      if (!this.callbacksSuppressed) {
+        let id;
+        const _console = console;
+        if (order != null) {
+          order = order.order;
+          if (order != null) {
+            id = order.id;
+          }
+        }
+        const obj = { orderId: id, message: error.message };
+        log("PAYMENTSERVICE - PaymentHandlers.handleCancellation called:", obj);
+        const callbackManager = tmp3.callbackManager;
+        callbackManager.invokeFailure(error, order);
+        if (flag) {
+          let id1;
+          if (order != null) {
+            const order2 = order.order;
+            if (order2 != null) {
+              id1 = order2.id;
+            }
+          }
+          if (id1) {
+            const result = captureUserDroppedEvent.captureUserDroppedEvent(order.order.id);
+            result.catch((error) => {
+              console.warn("PaymentHandlers - Failed to capture user dropped event:", error);
+            });
+          }
+        }
+        const _console2 = console;
+        console.log("PAYMENTSERVICE - PaymentHandlers.handleCancellation calling cleanup");
+        fn();
+      }
+    }
+  },
+  {
+    key: "handleError",
+    value: function handleError(arg0, order, fn) {
+      if (!this.callbacksSuppressed) {
+        let id;
+        const _console = console;
+        if (order != null) {
+          order = order.order;
+          if (order != null) {
+            id = order.id;
+          }
+        }
+        const obj = { orderId: id };
+        error("PAYMENTSERVICE - PaymentHandlers.handleError called with error:", arg0, obj);
+        const callbackManager = tmp.callbackManager;
+        callbackManager.invokeFailure(arg0, order);
+        const _console2 = console;
+        console.log("PAYMENTSERVICE - PaymentHandlers.handleError calling cleanup");
+        fn();
+      }
+    }
+  },
+  {
+    key: "routeError",
+    value: function routeError(arg0, order, arg2) {
+      let flag = arg3;
+      if (arg3 === undefined) {
+        flag = true;
+      }
+      let id;
+      const _console = console;
+      if (order != null) {
+        order = order.order;
+        if (order != null) {
+          id = order.id;
+        }
+      }
+      const self = this;
+      error("PAYMENTSERVICE - PaymentHandlers.routeError called with error:", arg0, { orderId: id });
+      const _console2 = console;
+      if (mapFriendlyErrorMessage.isUserCancellation(arg0)) {
+        log("PAYMENTSERVICE - PaymentHandlers.routeError identified user cancellation");
+        self.handleCancellation(order, arg2, flag, arg4);
+      } else {
+        log("PAYMENTSERVICE - PaymentHandlers.routeError routing to handleError");
+        self.handleError(arg0, order, arg2);
+      }
+    }
+  },
+  {
+    key: "cancelPolling",
+    value: function cancelPolling() {
+      const self = this;
+      if (this.pollingController) {
+        try {
+          const pollingController = self.pollingController;
+          pollingController.cancel();
+        } catch (tmp2) {
+          const _console = console;
+          console.warn("PAYMENTSERVICE - PaymentHandlers.cancelPolling error:", tmp2);
+        }
+        self.pollingController = null;
+      }
+    }
+  },
+  {
+    key: "suppressCallbacks",
+    value: function suppressCallbacks() {
+      this.callbacksSuppressed = true;
+      this.cancelPolling();
+    }
+  },
+  {
+    key: "resetSuppressedCallbacks",
+    value: function resetSuppressedCallbacks() {
+      this.callbacksSuppressed = false;
+    }
+  }
+];
+const PaymentHandlers_export = _default(PaymentHandlers, items);
+
+export { PaymentHandlers_export as PaymentHandlers };

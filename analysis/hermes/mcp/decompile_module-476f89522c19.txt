@@ -1,0 +1,729 @@
+// Module 2049 (JuspayGateway)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _classCallCheck2 from "_classCallCheck" /* 5 */;
+import _createClass from "_createClass" /* 6 */;
+import JUSPAY_PROCESS_CANCELLED_CODE from "JUSPAY_PROCESS_CANCELLED_CODE" /* 2050 */;
+import module_1 from "module_1" /* 1 */;
+
+let _self, closure_5, closure_7, closure_8, error, rawError2;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _classCallCheck = module_1(_classCallCheck2);
+class JuspayGateway {
+  constructor() {
+    _classCallCheck.default(this, JuspayGateway);
+  }
+}
+const entry = {
+  key: "getGatewayName",
+  value: function getGatewayName() {
+    return JuspayGateway.GATEWAY_NAME;
+  }
+};
+let items = [entry, , , , , , , , , ];
+const entry1 = {
+  key: "initiatePayment",
+  value: function initiatePayment(arg0, arg1, arg2, arg3) {
+    return closure_0(...arguments);
+  }
+};
+const _default = module_1(_createClass).default;
+_asyncToGenerator.default(async function(arg0, arg1, arg2, rawError) {
+  const self = this;
+  let closure_1 = arg0;
+  let c8 = 0;
+  let c9 = 0;
+  let c6 = 0;
+  return (async (arg0, value, arg2, arg3) => {
+    let gateway;
+    let obj11;
+    let obj15;
+    let obj7;
+    let str2;
+    if (c9 === 2) {
+      c9 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      try {
+        c9 = 2;
+        if (0 === c8) {
+          if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            error = self;
+            _self = closure_1;
+            closure_1 = rawError;
+            const obj19 = rawError;
+            rawError = undefined;
+            message = undefined;
+            c6 = 1;
+            onError = self.getSdkPayload(closure_1);
+            if (onError) {
+              onError = self(closure_1[5]).processWithJuspaySdk(onError);
+              c8 = 2;
+              c9 = 1;
+              return { value: onError, done: false };
+            } else {
+              let paymentDetails;
+              if (closure_1 != null) {
+                paymentDetails = tmp80.paymentDetails;
+              }
+              let id;
+              const _console3 = console;
+              error = console.error;
+              if (closure_1 != null) {
+                const order3 = tmp80.order;
+                if (order3 != null) {
+                  id = order3.id;
+                }
+              }
+              const obj5 = { orderId: id, gateway, paymentDetailsKeys: null, topLevelKeys: null };
+              gateway = undefined;
+              if (paymentDetails != null) {
+                gateway = paymentDetails.gateway;
+              }
+              if (paymentDetails) {
+                let keys;
+                if (typeof paymentDetails === "object") {
+                  const _Object = Object;
+                  keys = Object.keys(paymentDetails);
+                }
+                obj5.paymentDetailsKeys = keys;
+                if (closure_1) {
+                  let keys1;
+                  if (typeof closure_1 === "object") {
+                    const _Object2 = Object;
+                    keys1 = Object.keys(tmp80);
+                  }
+                  obj5.topLevelKeys = keys1;
+                  error("PAYMENTSERVICE - JuspayGateway missing SDK payload in order response", obj5);
+                  obj19.onError({ code: "missing_juspay_payload", message: "Juspay payload is missing in order response (expected jusPaySdkPayload/sessionPayload/sdk_payload).", type: "GATEWAY_ERROR" });
+                  let id1;
+                  const enqueueJuspayDebugSnackbar = self(closure_1[4]).enqueueJuspayDebugSnackbar;
+                  if (closure_1 != null) {
+                    const order4 = tmp80.order;
+                    if (order4 != null) {
+                      id1 = order4.id;
+                    }
+                  }
+                  const obj6 = { level: "error", meta: obj7 };
+                  obj7 = { orderId: id1 };
+                  const result = enqueueJuspayDebugSnackbar("gateway error: missing sdk payload", obj6);
+                  c6 = 0;
+                  c9 = 3;
+                  return { value: "return", done: null };
+                }
+                keys1 = [];
+              }
+              keys = [];
+            }
+          }
+        } else {
+          if (1 === c8) {
+            c6 = 0;
+            error = closure_7;
+            onError = self(closure_1[5]).isJuspayProcessCancelledError(error);
+            if (onError) {
+              onError = _self == null;
+              let id2;
+              const _console = console;
+              if (!onError) {
+                const order = _self.order;
+                onError = order == null;
+                if (!onError) {
+                  id2 = order.id;
+                }
+              }
+              const obj8 = { orderId: id2 };
+              log("PAYMENTSERVICE - JuspayGateway.initiatePayment cancelled, suppressing callback", obj8);
+              const _console2 = console;
+              const obj9 = { error };
+              console.log("PAYMENTSERVICE - JuspayGateway.initiatePayment cancelled, suppressing callback", obj9);
+              onError = self(closure_1[4]).enqueueJuspayDebugSnackbar;
+              let id3;
+              if (_self != null) {
+                const order2 = _self.order;
+                if (order2 != null) {
+                  id3 = order2.id;
+                }
+              }
+              const obj10 = { level: "warn", meta: obj11 };
+              obj11 = { orderId: id3 };
+              onError("old flow cancelled while new payment started", obj10);
+              c9 = 3;
+              return { value: "return", done: null };
+            } else {
+              message = error.mapError(error);
+              const obj12 = { level: "error", meta: message.message };
+              const result1 = self(closure_1[4]).enqueueJuspayDebugSnackbar("gateway initiate error", obj12);
+              onError = closure_1.onError(message);
+            }
+          } else if (2 === c8) {
+            if (arg0 === 1) {
+              c9 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c6 = 0;
+              c9 = 3;
+              return { value, done: true };
+            } else {
+              rawError = value;
+              onError = error.extractProcessResult(rawError);
+              const obj14 = { meta: obj15 };
+              obj15 = { status: onError.status, event: onError.event, errorCode: onError.errorCode };
+              const result2 = self(closure_1[4]).enqueueJuspayDebugSnackbar("gateway process result received", obj14);
+              onError = error.isImmediateUserExit(onError);
+              if (onError) {
+                const obj16 = { level: "warn", meta: onError.status };
+                const result3 = self(closure_1[4]).enqueueJuspayDebugSnackbar("user closed checkout before txn", obj16);
+                onError = closure_1.onError;
+                const obj17 = { code: onError.errorCode || "user_aborted", message: str2, type: "USER_CANCELLED", rawError };
+                str2 = onError.errorMessage || "Payment cancelled by user";
+                onError(obj17);
+                c6 = 0;
+                c9 = 3;
+                return { value: "return", done: null };
+              } else {
+                c8 = 3;
+                c9 = 1;
+                const obj18 = { value: error.verifyWithBackend(_self.order.id, closure_1, onError), done: false };
+                return obj18;
+              }
+            }
+          } else if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 0;
+            c9 = 3;
+            return { value, done: true };
+          } else {
+            c6 = 0;
+          }
+          c9 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp58) {
+        closure_7 = tmp58;
+        if (0 === c6) {
+          c9 = 3;
+          throw tmp58;
+        } else {
+          c8 = 1;
+        }
+      }
+    }
+  })();
+});
+items[1] = entry1;
+items[2] = {
+  key: "cleanup",
+  value: function cleanup(deferTerminate) {
+    JUSPAY_PROCESS_CANCELLED_CODE.cancelJuspayProcess();
+    deferTerminate = undefined;
+    if (deferTerminate != null) {
+      deferTerminate = deferTerminate.deferTerminate;
+    }
+    const tmpResult = JUSPAY_PROCESS_CANCELLED_CODE;
+    if (deferTerminate) {
+      const result = tmpResult.scheduleTerminateJuspaySdk();
+    } else {
+      tmpResult.terminateJuspaySdk();
+    }
+  }
+};
+items[3] = {
+  key: "isUserCancellation",
+  value: function isUserCancellation(message) {
+    message = undefined;
+    const _String = String;
+    if (message != null) {
+      message = message.message;
+    }
+    const str = _String(message);
+    const formatted = str.toLowerCase();
+    let str2;
+    const _String2 = String;
+    if (message != null) {
+      str2 = message.code;
+    }
+    if (!str2) {
+      str2 = "";
+    }
+    const str3 = _String2(str2);
+    const formatted1 = str3.toLowerCase();
+    let str4;
+    const _String3 = String;
+    if (message != null) {
+      const payload = message.payload;
+      if (payload != null) {
+        str4 = payload.status;
+      }
+    }
+    if (!str4) {
+      let status;
+      if (message != null) {
+        status = message.status;
+      }
+      str4 = status;
+    }
+    if (!str4) {
+      str4 = "";
+    }
+    const str5 = _String3(str4);
+    const formatted2 = str5.toLowerCase();
+    const hasItem = formatted.includes("cancel") || formatted.includes("cancelled") || formatted.includes("cancellation") || formatted2.includes("backpressed") || formatted2.includes("user_aborted") || formatted1.includes("cancel") || formatted1.includes("aborted");
+    return hasItem;
+  }
+};
+items[4] = {
+  key: "getSdkPayload",
+  value: function getSdkPayload(paymentDetails) {
+    paymentDetails = undefined;
+    if (paymentDetails != null) {
+      paymentDetails = paymentDetails.paymentDetails;
+    }
+    let jusPaySdkPayload;
+    if (paymentDetails != null) {
+      jusPaySdkPayload = paymentDetails.jusPaySdkPayload;
+    }
+    const items = [jusPaySdkPayload, , , ];
+    let sessionPayload;
+    if (paymentDetails != null) {
+      sessionPayload = paymentDetails.sessionPayload;
+    }
+    items[1] = sessionPayload;
+    let sdk_payload;
+    if (paymentDetails != null) {
+      sdk_payload = paymentDetails.sdk_payload;
+    }
+    items[2] = sdk_payload;
+    let sdkPayload;
+    if (paymentDetails != null) {
+      sdkPayload = paymentDetails.sdkPayload;
+    }
+    items[3] = sdkPayload;
+    const iter = items[Symbol.iterator]();
+    const nextResult = iter.next();
+    while (iter !== undefined) {
+      let tmp7 = nextResult;
+      if (tmp7) {
+        if (typeof tmp7 === "string") {
+          let _JSON = JSON;
+          let parsed = JSON.parse(tmp7);
+          let tmp11 = parsed;
+          if (tmp11) {
+            if (typeof tmp11 === "object") {
+              iter.return();
+              return tmp11;
+            }
+          }
+        }
+        if (typeof tmp7 === "object") {
+          iter.return();
+          return tmp7;
+        }
+      }
+      continue;
+    }
+    return null;
+  }
+};
+items[5] = {
+  key: "extractProcessResult",
+  value: function extractProcessResult(value) {
+    let _String3;
+    let _String4;
+    let _String5;
+    let _String6;
+    let str3;
+    let str4;
+    let str5;
+    let str6;
+    let str7;
+    const obj = value || {};
+    if (obj.payload) {
+      let payload;
+      if (typeof obj.payload === "object") {
+        payload = obj.payload;
+      }
+      let str = obj.event;
+      const _String = String;
+      if (!str) {
+        str = "";
+      }
+      let str2 = payload.status;
+      const _String2 = String;
+      const obj2 = { event: _String(str), status: str3.toLowerCase(), error: Boolean(obj.error), errorCode: _String3(str4), errorMessage: _String4(str5), paymentInstrument: _String5(str6), paymentInstrumentGroup: _String6(str7) };
+      if (!str2) {
+        str2 = obj.status;
+      }
+      if (!str2) {
+        str2 = "";
+      }
+      const _Boolean = Boolean;
+      str4 = obj.errorCode;
+      _String3 = String;
+      str3 = _String2(str2);
+      if (!str4) {
+        str4 = "";
+      }
+      str5 = obj.errorMessage;
+      _String4 = String;
+      if (!str5) {
+        str5 = obj.message;
+      }
+      if (!str5) {
+        str5 = "";
+      }
+      str6 = payload.paymentInstrument;
+      _String5 = String;
+      if (!str6) {
+        str6 = "";
+      }
+      str7 = payload.paymentInstrumentGroup;
+      _String6 = String;
+      if (!str7) {
+        str7 = "";
+      }
+      return obj2;
+    }
+    payload = {};
+  }
+};
+items[6] = {
+  key: "isImmediateUserExit",
+  value: function isImmediateUserExit(event) {
+    if (event.event !== JuspayGateway.PROCESS_RESULT_EVENT) {
+      return false;
+    } else if (event.status === "user_aborted") {
+      return true;
+    } else {
+      return event.status === "backpressed" && !(event.paymentInstrument.length > 0 || event.paymentInstrumentGroup.length > 0);
+    }
+  }
+};
+const entry2 = {
+  key: "verifyWithBackend",
+  value: function verifyWithBackend(id, arg1, arg2) {
+    return closure_0(...arguments);
+  }
+};
+let closure_0 = _asyncToGenerator.default(async function(arg0, arg1, rawError) {
+  const self = this;
+  let closure_1 = arg0;
+  let closure_2 = arg1;
+  let c9 = 0;
+  let c10 = 0;
+  let c7 = 0;
+  return (async (arg0, value, arg2) => {
+    let errorCode;
+    let str5;
+    if (c10 === 2) {
+      c10 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        return { value, done: true };
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c7;
+      try {
+        let waitBeforeRetry;
+        let isNonTerminalStatus;
+        c10 = 2;
+        if (0 === c9) {
+          if (arg0 === 1) {
+            c10 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c10 = 3;
+            return { value, done: true };
+          } else {
+            closure_5 = tmp;
+            closure_0 = closure_1;
+            closure_1 = closure_2;
+            closure_2 = rawError;
+            rawError = undefined;
+            rawError2 = undefined;
+            closure_8 = undefined;
+            waitBeforeRetry = function waitBeforeRetry() {
+              const promise = new Promise((arg0) => setTimeout(arg0, 800));
+              return promise;
+            };
+            isNonTerminalStatus = function isNonTerminalStatus(str) {
+              const formatted = str.toLowerCase();
+              return formatted === "pending" || formatted === "initiated" || formatted === "processing" || formatted.length === 0;
+            };
+            isDismissedByUser = 1;
+            if (isDismissedByUser > 3) {
+              c10 = 3;
+              return { value: "return", done: null };
+            }
+          }
+        } else {
+          if (1 === c9) {
+            c7 = 0;
+            message = closure_8;
+            rawError = message;
+            str2 = self(closure_1[4]).enqueueJuspayDebugSnackbar;
+            let str6 = "error";
+            if (isDismissedByUser < 3) {
+              str6 = "warn";
+            }
+            const _Error = Error;
+            const obj4 = { level: str6, meta: message };
+            if (message instanceof Error) {
+              message = message.message;
+            } else {
+              const _String = String;
+              message = String(message);
+            }
+            str2("backend verification error", obj4);
+            if (isDismissedByUser < 3) {
+              str2 = waitBeforeRetry();
+              c9 = 5;
+              c10 = 1;
+              return { value: str2, done: false };
+            } else {
+              str2 = closure_1;
+              const obj6 = { code: "payment_verification_error", message: "Failed to verify payment status", type: "GATEWAY_ERROR", rawError };
+              closure_1.onError(obj6);
+            }
+          } else if (2 === c9) {
+            if (arg0 === 1) {
+              c10 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c7 = 0;
+              c10 = 3;
+              return { value, done: true };
+            } else {
+              rawError2 = value;
+              str2 = String;
+              const str = rawError2.status || "";
+              str2 = str2(str);
+              closure_8 = str2.toLowerCase();
+              if (closure_8 !== "success") {
+                if (closure_8 !== "pending") {
+                  str2 = isDismissedByUser.isDismissedByUser;
+                  let status;
+                  if (closure_2 != null) {
+                    status = closure_2.status;
+                  }
+                  if (str2(status)) {
+                    if (closure_8 !== "success") {
+                      str2 = self(closure_1[4]).enqueueJuspayDebugSnackbar;
+                      let status1;
+                      if (closure_2 != null) {
+                        status1 = closure_2.status;
+                      }
+                      const obj8 = { level: "warn", meta: status1 };
+                      str2("backend verify skipped: user cancelled", obj8);
+                      str2 = closure_1;
+                      let str4;
+                      const onError2 = closure_1.onError;
+                      if (closure_2 != null) {
+                        str4 = closure_2.errorCode;
+                      }
+                      if (!str4) {
+                        str4 = "user_aborted";
+                      }
+                      const obj9 = { code: str4, message: str5, type: "USER_CANCELLED", rawError: rawError2 };
+                      str5 = undefined;
+                      if (closure_2 != null) {
+                        str5 = closure_2.errorMessage;
+                      }
+                      if (!str5) {
+                        str5 = "Payment cancelled by user";
+                      }
+                      onError2(obj9);
+                      c7 = 0;
+                      c10 = 3;
+                      return { value: "return", done: null };
+                    }
+                  }
+                  str2 = isNonTerminalStatus;
+                  if (isNonTerminalStatus(closure_8)) {
+                    str2 = isDismissedByUser;
+                    if (isDismissedByUser < 3) {
+                      str2 = waitBeforeRetry();
+                      c9 = 4;
+                      c10 = 1;
+                      return { value: str2, done: false };
+                    }
+                  }
+                  str2 = closure_2;
+                  const obj11 = { status: rawError2.status, message: rawError2.message, errorCode };
+                  errorCode = undefined;
+                  const enqueueJuspayDebugSnackbar = self(closure_1[4]).enqueueJuspayDebugSnackbar;
+                  if (closure_2 != null) {
+                    errorCode = str2.errorCode;
+                  }
+                  const obj12 = { level: "error", meta: obj11 };
+                  const result = enqueueJuspayDebugSnackbar("backend verification failed", obj12);
+                  str2 = closure_2;
+                  let str3;
+                  const onError = closure_1.onError;
+                  if (closure_2 != null) {
+                    str3 = str2.errorMessage;
+                  }
+                  if (!str3) {
+                    str2 = rawError2;
+                    str3 = rawError2.message;
+                  }
+                  if (!str3) {
+                    str3 = "Payment verification failed";
+                  }
+                  const obj13 = { code: "payment_verification_failed", message: str3, type: "GATEWAY_ERROR", rawError: rawError2 };
+                  str2 = onError(obj13);
+                  c7 = 0;
+                  c10 = 3;
+                  return { value: "return", done: null };
+                }
+              }
+              str2 = self(closure_1[4]).enqueueJuspayDebugSnackbar;
+              const obj14 = { meta: rawError2.status };
+              str2("backend verification success", obj14);
+              c9 = 3;
+              c10 = 1;
+              const obj15 = { value: closure_1.onSuccess(), done: false };
+              return obj15;
+            }
+          } else if (3 === c9) {
+            if (arg0 === 1) {
+              c10 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c7 = 0;
+              c10 = 3;
+              return { value, done: true };
+            } else {
+              c7 = 0;
+              c10 = 3;
+              return { value: "return", done: null };
+            }
+          } else if (4 === c9) {
+            if (arg0 === 1) {
+              c10 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c7 = 0;
+              c10 = 3;
+              return { value, done: true };
+            } else {
+              c7 = 0;
+            }
+          } else if (arg0 === 1) {
+            c10 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c10 = 3;
+            return { value, done: true };
+          }
+          isDismissedByUser = isDismissedByUser + 1;
+        }
+        c7 = 1;
+        const result1 = self(closure_1[4]).enqueueJuspayDebugSnackbar("verifying payment status with backend");
+        str2 = self;
+        c9 = 2;
+        c10 = 1;
+        const obj18 = { value: self(closure_1[6]).getPaymentDetails(closure_0), done: false };
+        return obj18;
+      } catch (tmp75) {
+        closure_8 = tmp75;
+        if (0 === c7) {
+          c10 = 3;
+          throw tmp75;
+        } else {
+          c9 = 1;
+        }
+      }
+    }
+  })();
+});
+items[7] = entry2;
+items[8] = {
+  key: "isDismissedByUser",
+  value: function isDismissedByUser(str) {
+    const tmp = str;
+    if (tmp) {
+      const formatted = str.toLowerCase();
+      return formatted === "user_aborted" || formatted === "backpressed";
+    } else {
+      return false;
+    }
+  }
+};
+items[9] = {
+  key: "mapError",
+  value: function mapError(errorCode) {
+    let str;
+    const _String = String;
+    if (errorCode != null) {
+      str = errorCode.errorCode;
+    }
+    if (!str) {
+      let code;
+      if (errorCode != null) {
+        code = errorCode.code;
+      }
+      str = code;
+    }
+    if (!str) {
+      str = "";
+    }
+    const _StringResult = _String(str);
+    let str2;
+    const _String2 = String;
+    if (errorCode != null) {
+      str2 = errorCode.errorMessage;
+    }
+    if (!str2) {
+      let message;
+      if (errorCode != null) {
+        message = errorCode.message;
+      }
+      str2 = message;
+    }
+    if (!str2) {
+      str2 = errorCode;
+    }
+    if (!str2) {
+      str2 = "Juspay payment failed";
+    }
+    const str3 = _String2(str2);
+    if (this.isUserCancellation(errorCode)) {
+      return { code: _StringResult, message: str3, type: "USER_CANCELLED", rawError: errorCode };
+    } else {
+      const formatted = str3.toLowerCase();
+      if (formatted.includes("network")) {
+        return { code: _StringResult, message: str3, type: "NETWORK_ERROR", rawError: errorCode };
+      } else {
+        return { code: _StringResult, message: str3, type: "GATEWAY_ERROR", rawError: errorCode };
+      }
+    }
+  }
+};
+const _defaultResult = _default(JuspayGateway, items);
+_defaultResult.GATEWAY_NAME = "Juspay";
+_defaultResult.PROCESS_RESULT_EVENT = "process_result";
+const JuspayGateway_export = _defaultResult;
+
+export { JuspayGateway_export as JuspayGateway };

@@ -1,0 +1,76 @@
+// Module 2017
+import _slicedToArray2 from "_slicedToArray" /* 29 */;
+import _mod1133 from "module_1133" /* 1133 */;
+import module_1 from "module_1" /* 1 */;
+import react from "react" /* 74 */;
+
+let closure_5;
+
+const _slicedToArray = module_1(_slicedToArray2);
+const mMKV = _mod1133.createMMKV({ id: "veg-mode-storage" });
+const veg_mode_enabled = "veg_mode_enabled";
+const set = new Set();
+let flag = mMKV.getBoolean("veg_mode_enabled");
+if (flag == null) {
+  flag = false;
+}
+function notifyListeners(arg0) {
+
+}
+function toggleVegModeGlobal() {
+
+}
+function setVegModeGlobal(arg0) {
+
+}
+
+export function useVegMode() {
+  let tmp2;
+  const defaultResult = _slicedToArray.default(react.useState(closure_5), 2);
+  [tmp2, _slicedToArray] = defaultResult;
+  const effect = react.useEffect(() => {
+    function listener(arg0) {
+      listener(arg0);
+    }
+    set.add(listener);
+    return () => {
+      set.delete(listener);
+    };
+  }, []);
+  const callback = react.useCallback(() => {
+    if (typeof toggleVegModeGlobal === "function") {
+      closure_5 = tmp2;
+      if (typeof notifyListeners === "function") {
+        let closure_0 = tmp2;
+        const item = set.forEach((fn) => fn(closure_0));
+        const result = mMKV.set(veg_mode_enabled, tmp2);
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  }, []);
+  const obj = {
+    isVegMode: tmp2,
+    toggleVegMode: callback,
+    setVegMode: react.useCallback((arg0) => {
+      if (typeof setVegModeGlobal === "function") {
+        closure_5 = arg0;
+        if (typeof notifyListeners === "function") {
+          let closure_0 = arg0;
+          const item = set.forEach((fn) => fn(closure_0));
+          const result = mMKV.set(veg_mode_enabled, arg0);
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }, [])
+  };
+  return obj;
+}
+export function getVegModeValue() {
+  return flag;
+}

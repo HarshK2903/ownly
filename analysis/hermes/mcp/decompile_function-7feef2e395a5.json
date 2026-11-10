@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 11728,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 6,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function enqueueAnalyticsJob(arg0) {\n  // @0000\n  // @0003\n  // @0006\n  closure_0 = arg0;\n  // @000a\n  let str = arg0.priority;\n  // @0010\n  // @0012\n  if (str == null) {\n    // @0016\n    str = \"high\";\n  }\n  // @001a\n  closure_1 = str;\n  // @001e\n  // @0020\n  // @0026\n  // @002a\n  // @002f\n  // @0032\n  // @0036\n  // @003a\n  const promise = new Promise(function() { /* body not rendered: F25802 */ });\n  return promise;\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

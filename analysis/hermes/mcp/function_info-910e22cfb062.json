@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 11277
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 19,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#11277 \"selectCanVerifyOtp\" params=2 frame=19 regs=4(num=2,nonptr=2) size=150 offset=0xdf1eee flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

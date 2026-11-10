@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1674
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1674 (APPSFLYER_EVENTS)\nimport AFParseJSONException2 from \"AFParseJSONException\" /* 1675 */;\nimport module_1 from \"module_1\" /* 1 */;\n\nfunction trackAppsFlyerEvent(arg0) {\n  let closure_0 = arg0;\n  let obj = arg1;\n  if (arg1 === undefined) {\n    obj = {};\n  }\n  try {\n    AFParseJSONException.default.logEvent(arg0, obj, () => {\n\n    }, (arg0) => {\n      console.warn(\"[AppsFlyer] Event failed:\", closure_0, arg0);\n    });\n  } catch (tmp6) {\n    const _console = console;\n    console.warn(\"[AppsFlyer] trackEvent error:\", arg0, tmp6);\n  }\n}\nconst AFParseJSONException = module_1(AFParseJSONException2);\nlet obj = { APP_OPENED: \"af_app_opened\", LOGIN: \"af_login\", COMPLETE_REGISTRATION: \"af_complete_registration\", ONBOARDING_COMPLETED: \"af_onboarding_completed\", ADD_TO_CART: \"af_add_to_cart\", VIEW_CART: \"af_view_cart\", INITIATED_CHECKOUT: \"af_initiated_checkout\" };\n\nexport { trackAppsFlyerEvent };\nexport const APPSFLYER_EVENTS = obj;\nexport default { trackEvent: trackAppsFlyerEvent, EVENTS: obj };\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

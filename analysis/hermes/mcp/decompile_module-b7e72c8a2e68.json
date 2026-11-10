@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 2039
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 16,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 2039\n\nexport function clearJuspayDebugLogs() {\n\n}\nexport function enqueueJuspayDebugSnackbar(process_result, arg1) {\n\n}\nexport function getJuspayDebugLogs() {\n  return [];\n}\nexport function isJuspayDebugSnackbarEnabled() {\n  return false;\n}\nexport function subscribeToJuspayDebugLogs(arg0) {\n  return () => {\n\n  };\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

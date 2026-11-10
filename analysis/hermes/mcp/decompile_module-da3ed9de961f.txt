@@ -1,0 +1,100 @@
+// Module 2625 (authRuntimeContainer)
+import _mod1127 from "module_1127" /* 1127 */;
+import module_1 from "module_1" /* 1 */;
+
+const module_1127 = module_1(_mod1127);
+function getStorage() {
+
+}
+const obj4 = {
+  sessionStore: {
+    getStoredToken() {
+      const _default = module_1127.default;
+      return _default.getStoredToken();
+    },
+    getStoredUser() {
+      const _default = module_1127.default;
+      return _default.getStoredUser();
+    },
+    getStoredCustomerDetails() {
+      const _default = module_1127.default;
+      return _default.getStoredCustomerDetails();
+    },
+    storeAuthSession(token, user) {
+      if (typeof getStorage === "function") {
+        let storage = module_1127.default.storage;
+        if (storage == null) {
+          storage = null;
+        }
+        if (storage) {
+          const result = storage.set("authToken", token);
+          if (user) {
+            const _JSON = JSON;
+            const result1 = storage.set("user", JSON.stringify(user));
+          }
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    },
+    storeCustomerDetails(data) {
+      if (typeof getStorage === "function") {
+        let storage = module_1127.default.storage;
+        if (storage == null) {
+          storage = null;
+        }
+        if (storage) {
+          const _JSON = JSON;
+          const result = storage.set("customerDetails", JSON.stringify(data));
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    },
+    updateStoredCustomerDetails(arg0) {
+      const _default = module_1127.default;
+      return _default.updateStoredCustomerDetails(arg0);
+    },
+    isLoggedIn() {
+      const _default = module_1127.default;
+      return _default.isLoggedIn();
+    },
+    addAuthStateCallback(arg0) {
+      const _default = module_1127.default;
+      _default.addAuthStateCallback(arg0);
+    },
+    removeAuthStateCallback(arg0) {
+      const _default = module_1127.default;
+      const result = _default.removeAuthStateCallback(arg0);
+    }
+  },
+  logoutCoordinator: {
+    logoutWithMessage(arg0) {
+      const _default = module_1127.default;
+      _default.logoutWithMessage(arg0);
+    },
+    logout() {
+      const _default = module_1127.default;
+      _default.logout();
+    }
+  },
+  otpAutoReadService: {
+    start(arg0) {
+      const _default = module_1127.default;
+      _default.setOtpCallback(arg0);
+    },
+    stop() {
+      const _default = module_1127.default;
+      _default.setOtpCallback(() => {
+
+      });
+    }
+  },
+  getDeviceId() {
+    const _default = module_1127.default;
+    return _default.getDeviceId();
+  }
+};
+
+export const authRuntimeContainer = obj4;
+export default obj4;

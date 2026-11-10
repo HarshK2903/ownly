@@ -1,0 +1,2 @@
+Module 1674 (APPSFLYER_EVENTS) exports (1 total):
+  export "trackAppsFlyerEvent" -> function 11484 (trackAppsFlyerEvent)

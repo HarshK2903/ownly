@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 2633
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 2633\nconst require = globalThis.__r;\n\nlet closure_3 = { VEG_MODE_REQUEST_HEADER: true, buildVegModeRequestHeaders: true, mergeRequestHeaders: true };\n\nexport const VEG_MODE_REQUEST_HEADER = require(\"VEG_MODE_REQUEST_HEADER\").VEG_MODE_REQUEST_HEADER;\nexport const buildVegModeRequestHeaders = require(\"VEG_MODE_REQUEST_HEADER\").buildVegModeRequestHeaders;\nexport const mergeRequestHeaders = require(\"VEG_MODE_REQUEST_HEADER\").mergeRequestHeaders;\nexport * from \"module_2635\";\nexport * from \"module_2636\";\nexport * from \"module_2637\";\nexport * from \"module_2639\";\nexport * from \"module_2638\";\nexport * from \"module_2640\";\nexport * from \"module_2649\";\nexport * from \"module_2651\";\nexport * from \"module_2655\";\nexport * from \"module_2658\";\nexport * from \"module_2659\";\nexport * from \"module_2660\";\nexport * from \"module_2661\";\nexport * from \"keys13\";\nexport * from \"keys14\";\nexport * from \"keys15\";\nexport * from \"keys16\";\nexport * from \"keys17\";\nexport * from \"keys18\";\nexport * from \"keys19\";\nexport * from \"keys20\";\nexport * from \"keys21\";\nexport * from \"keys22\";\nexport * from \"keys23\";\nexport * from \"keys24\";\nexport * from \"keys25\";\nexport * from \"keys26\";\nexport * from \"keys27\";\nexport * from \"keys28\";\nexport * from \"keys29\";\nexport * from \"keys30\";\nexport * from \"keys31\";\nexport * from \"keys32\";\nexport * from \"keys33\";\nexport * from \"keys34\";\nexport * from \"keys35\";\nexport * from \"keys36\";\nexport * from \"keys37\";\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

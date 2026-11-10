@@ -1,0 +1,121 @@
+// Module 1609 (calculateCartTotals)
+let closure_0;
+
+function roundCurrency(arg0) {
+
+}
+function calculateEffectiveUnitPrice(targetItem) {
+  const f36228 = (price) => {
+    let num = price.price;
+    let tmp = closure_0;
+    if (num == null) {
+      num = 0;
+    }
+    closure_0 = tmp + num;
+    let variantsSelected = price.variantsSelected;
+    if (variantsSelected == null) {
+      variantsSelected = [];
+    }
+    if (variantsSelected.length) {
+      if (typeof calculateEffectiveUnitPrice === "function") {
+        let c0 = 0;
+        const item = variantsSelected.forEach(f36228);
+        closure_0 = tmp2 + c0;
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+    let addOnsSelected = price.addOnsSelected;
+    if (addOnsSelected == null) {
+      addOnsSelected = [];
+    }
+    const item1 = addOnsSelected.forEach((price) => {
+      let num = price.price;
+      const tmp = closure_0;
+      if (num == null) {
+        num = 0;
+      }
+      closure_0 = tmp + num;
+    });
+  };
+  let price = targetItem.price;
+  function calcNested(arg0) {
+
+  }
+  const customizations = targetItem.customizations;
+  let variantsSelected;
+  if (customizations != null) {
+    variantsSelected = customizations.variantsSelected;
+  }
+  if (variantsSelected == null) {
+    variantsSelected = [];
+  }
+  if (variantsSelected.length) {
+    let tmp = price;
+    let num = 0;
+    let c0 = 0;
+    let item = variantsSelected.forEach(f36228);
+    price = price + c0;
+  }
+  const customizations2 = targetItem.customizations;
+  let addOnsSelected;
+  if (customizations2 != null) {
+    addOnsSelected = customizations2.addOnsSelected;
+  }
+  if (addOnsSelected == null) {
+    addOnsSelected = [];
+  }
+  let item1 = addOnsSelected.forEach((price) => {
+    let num = price.price;
+    const tmp = closure_0;
+    if (num == null) {
+      num = 0;
+    }
+    closure_0 = tmp + num;
+  });
+  if (typeof roundCurrency === "function") {
+    const _Math = Math;
+    const _Number = Number;
+    return Math.round((tmp5 + Number.EPSILON) * 100) / 100;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function calculateLineTotal(arg0) {
+  if (typeof roundCurrency === "function") {
+    const _Math = Math;
+    const _Number = Number;
+    return Math.round((tmp + Number.EPSILON) * 100) / 100;
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+
+export { calculateEffectiveUnitPrice };
+export { calculateLineTotal };
+export function calculateCartTotals(arr) {
+  const reduced = arr.reduce((acc, quantity) => acc + quantity.quantity, 0);
+  const obj = {
+    totalItems: reduced,
+    totalAmount: arr.reduce((acc, item) => {
+      if (typeof calculateLineTotal === "function") {
+        if (typeof roundCurrency === "function") {
+          const _Math = Math;
+          const _Number = Number;
+          if (typeof roundCurrency === "function") {
+            const _Math2 = Math;
+            const _Number2 = Number;
+            return Math.round((tmp6 + Number.EPSILON) * 100) / 100;
+          } else {
+            throw new TypeError("Trying to call a non-function");
+          }
+        } else {
+          throw new TypeError("Trying to call a non-function");
+        }
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }, 0)
+  };
+  return obj;
+}

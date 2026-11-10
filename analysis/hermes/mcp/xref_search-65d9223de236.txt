@@ -1,0 +1,2 @@
+Found 1 cross-references for '/api/v1/restaurant':
+  Function 1760 () at offset 004e: LoadConstString

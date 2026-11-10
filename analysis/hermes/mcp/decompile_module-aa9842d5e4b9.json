@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3320
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 19,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3320 (orderTrackingScreenReducer)\nimport _mod3318 from \"module_3318\" /* 3318 */;\n\nfunction sanitizeTimestamp(arg0) {\n\n}\n\nexport function orderTrackingScreenReducer(arg0, type) {\n  type = type.type;\n  if (\"order-tracking/setOrderId\" === type) {\n    const obj2 = { orderId: type.orderId };\n    const merged = Object.assign(arg0);\n    return obj2;\n  } else if (\"order-tracking/setOrder\" === type) {\n    const obj3 = { order: type.order };\n    const merged1 = Object.assign(arg0);\n    return obj3;\n  } else if (\"order-tracking/setRiderTracking\" === type) {\n    const obj4 = { riderTracking: type.riderTracking };\n    const merged2 = Object.assign(arg0);\n    return obj4;\n  } else if (\"order-tracking/setLoading\" === type) {\n    const obj5 = { isLoading: type.loading };\n    const merged3 = Object.assign(arg0);\n    return obj5;\n  } else if (\"order-tracking/setRefreshing\" === type) {\n    const obj6 = { isRefreshing: type.refreshing };\n    const merged4 = Object.assign(arg0);\n    return obj6;\n  } else if (\"order-tracking/setSupportLoading\" === type) {\n    const obj7 = { supportLoading: type.loading };\n    const merged5 = Object.assign(arg0);\n    return obj7;\n  } else if (\"order-tracking/setError\" === type) {\n    const obj8 = { errorMessage: type.message };\n    const merged6 = Object.assign(arg0);\n    return obj8;\n  } else if (\"order-tracking/touchUpdatedAt\" === type) {\n    const obj = {};\n    const merged7 = Object.assign(arg0);\n    const timestamp = type.timestamp;\n    if (typeof sanitizeTimestamp === \"function\") {\n      const _Number = Number;\n      if (Number.isFinite(timestamp)) {\n        let truncResult;\n        if (timestamp > 0) {\n          const _Math = Math;\n          truncResult = Math.trunc(timestamp);\n        }\n        obj.lastUpdatedAt = truncResult;\n        return obj;\n      }\n      const _Date = Date;\n      truncResult = Date.now();\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  } else if (\"order-tracking/reset\" === type) {\n    return _mod3318.createInitialOrderTrackingScreenState();\n  } else {\n    return arg0;\n  }\n}\nexport const createOrderTrackingScreenState = _mod3318.createInitialOrderTrackingScreenState;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

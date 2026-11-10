@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 1681
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 5,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 1681 (FIREBASE_EVENTS) exports (3 total):\n  export \"getFirebaseAppInstanceId\" -> function 11553 (getFirebaseAppInstanceId)\n  export \"setFirebaseUserId\" -> function 11555 (setFirebaseUserId)\n  export \"trackFirebaseEvent\" -> function 11551 (trackFirebaseEvent)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

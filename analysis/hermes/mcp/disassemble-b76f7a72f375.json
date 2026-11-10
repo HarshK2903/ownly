@@ -1,0 +1,20 @@
+{
+  "tool": "disassemble",
+  "arguments": {
+    "function_id": 18921,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "0000  LoadParam r0, 1\n0003  GetByIdShort r2, r0, 0, \"type\"\n0008  LoadConstString r1, \"interaction\"\n000c  JStrictEqual L57, r2, r1\n0010  GetByIdShort r5, r0, 0, \"type\"\n0015  GetById r4, r0, 1, \"entity\"\n001b  GetGlobalObject r1\n001d  TryGetById r1, r1, 2, \"HermesInternal\"\n0023  GetByIdShort r3, r1, 3, \"concat\"\n0028  LoadConstString r2, \"_\"\n002c  LoadConstString r1, \"\"\n0030  Call4 r1, r3, r1, r5, r2, r4\n0037  Ret r1\nL57:\n0039  GetByIdShort r7, r0, 0, \"type\"\n003e  GetById r6, r0, 4, \"screen\"\n0044  GetById r5, r0, 1, \"entity\"\n004a  GetById r1, r0, 5, \"element\"\n0050  LoadConstString r4, \"\"\n0054  Mov r3, r4\n0057  JmpFalse L118, r1\n005a  GetById r8, r0, 5, \"element\"\n0060  GetGlobalObject r1\n0062  TryGetById r1, r1, 2, \"HermesInternal\"\n0068  GetByIdShort r2, r1, 3, \"concat\"\n006d  LoadConstString r1, \"_\"\n0071  Call2 r3, r2, r1, r8\nL118:\n0076  GetByIdShort r9, r0, 6, \"action\"\n007b  GetGlobalObject r0\n007d  TryGetById r0, r0, 2, \"HermesInternal\"\n0083  GetByIdShort r1, r0, 3, \"concat\"\n0088  LoadConstString r0, \"_\"\n008c  Mov r17, r4\n008f  Mov r16, r7\n0092  Mov r15, r0\n0095  Mov r14, r6\n0098  Mov r13, r0\n009b  Mov r12, r5\n009e  Mov r11, r3\n00a1  Mov r10, r0\n00a4  Call r0, r1, 9\n00a8  Ret r0\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

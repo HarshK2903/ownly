@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1644
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 6,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1644 (runRequestOtp)\nimport _asyncToGenerator from \"_asyncToGenerator\" /* 2 */;\nimport module_1 from \"module_1\" /* 1 */;\n\nlet c2 = \"/api/v1/otp\";\nfunction createRequestOtpRequest(path) {\n  let obj2;\n  let obj4;\n  let str;\n  path = path.path;\n  if (path == null) {\n    path = c2;\n  }\n  const request = { method: \"POST\", url: path, body: obj2, timeoutMs: null, credentials: null };\n  obj2 = { phoneNumber: path.phoneNumber, smsType: str };\n  str = path.smsType;\n  if (str == null) {\n    str = \"otp\";\n  }\n  if (path.channel) {\n    obj4 = { channel: path.channel };\n    const obj3 = { channel: path.channel };\n  } else {\n    obj4 = {};\n  }\n  const merged = Object.assign(obj4);\n  ({ timeoutMs: obj.timeoutMs, credentials: obj.credentials } = path);\n  return request;\n}\nlet closure_0 = module_1(_asyncToGenerator).default(function*(arg0, value) {\n  closure_0 = arg0;\n  let closure_1 = value;\n  if (c2 === 2) {\n    c2 = 3;\n    throw new TypeError(\"Generator functions may not be called on executing generators\");\n  } else if (tmp2 === 3) {\n    if (arg0 === 1) {\n      throw value;\n    } else if (arg0 === 2) {\n      const obj2 = { value, done: true };\n      return obj2;\n    } else {\n      return { value: \"return\", done: null };\n    }\n  } else {\n    try {\n      c2 = 2;\n      if (arg0 === 1) {\n        c2 = 3;\n        throw value;\n      } else if (arg0 === 2) {\n        c2 = 3;\n        const obj3 = { value, done: true };\n        return obj3;\n      } else {\n        const obj = { operation: \"auth/request-otp\", includeResponseOnError: true, policy: { safeMethodsOnly: false } };\n        c2 = 3;\n        const obj4 = { value: closure_0(closure_1[2]).requestWithRetry(closure_0, createRequestOtpRequest(closure_1), obj), done: true };\n        return obj4;\n      }\n    } catch (tmp8) {\n      c2 = 3;\n      throw tmp8;\n    }\n  }\n});\n\nexport { createRequestOtpRequest };\nexport function runRequestOtp(arg0, arg1) {\n  return closure_0(...arguments);\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

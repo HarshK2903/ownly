@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 2017
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 6,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 2017\nimport _slicedToArray2 from \"_slicedToArray\" /* 29 */;\nimport _mod1133 from \"module_1133\" /* 1133 */;\nimport module_1 from \"module_1\" /* 1 */;\nimport react from \"react\" /* 74 */;\n\nlet closure_5;\n\nconst _slicedToArray = module_1(_slicedToArray2);\nconst mMKV = _mod1133.createMMKV({ id: \"veg-mode-storage\" });\nconst veg_mode_enabled = \"veg_mode_enabled\";\nconst set = new Set();\nlet flag = mMKV.getBoolean(\"veg_mode_enabled\");\nif (flag == null) {\n  flag = false;\n}\nfunction notifyListeners(arg0) {\n\n}\nfunction toggleVegModeGlobal() {\n\n}\nfunction setVegModeGlobal(arg0) {\n\n}\n\nexport function useVegMode() {\n  let tmp2;\n  const defaultResult = _slicedToArray.default(react.useState(closure_5), 2);\n  [tmp2, _slicedToArray] = defaultResult;\n  const effect = react.useEffect(() => {\n    function listener(arg0) {\n      listener(arg0);\n    }\n    set.add(listener);\n    return () => {\n      set.delete(listener);\n    };\n  }, []);\n  const callback = react.useCallback(() => {\n    if (typeof toggleVegModeGlobal === \"function\") {\n      closure_5 = tmp2;\n      if (typeof notifyListeners === \"function\") {\n        let closure_0 = tmp2;\n        const item = set.forEach((fn) => fn(closure_0));\n        const result = mMKV.set(veg_mode_enabled, tmp2);\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    } else {\n      throw new TypeError(\"Trying to call a non-function\");\n    }\n  }, []);\n  const obj = {\n    isVegMode: tmp2,\n    toggleVegMode: callback,\n    setVegMode: react.useCallback((arg0) => {\n      if (typeof setVegModeGlobal === \"function\") {\n        closure_5 = arg0;\n        if (typeof notifyListeners === \"function\") {\n          let closure_0 = arg0;\n          const item = set.forEach((fn) => fn(closure_0));\n          const result = mMKV.set(veg_mode_enabled, arg0);\n        } else {\n          throw new TypeError(\"Trying to call a non-function\");\n        }\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    }, [])\n  };\n  return obj;\n}\nexport function getVegModeValue() {\n  return flag;\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

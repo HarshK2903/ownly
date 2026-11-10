@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 31972,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 11,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function track(arg0) {\n  // @0000\n  // @0003\n  const event_name = arg0.event_name;\n  // @0009\n  if (typeof event_name === \"string\") {\n    // @0011\n    // @0016\n    // @0018\n    if (event_name.length !== 0) {\n      // @001c\n      // @001f\n      // @0023\n      // @0028\n      // @002e\n      // @0032\n      if (typeof closure_1_4 === \"function\") {\n        // @0042\n        const obj = {};\n        // @0044\n        // @0047\n        // @004a\n        const merged = Object.assign(arg0);\n        // @004e\n        // @0052\n        delete obj[\"event_name\"];\n        // @0057\n        tmp2(event_name, obj);\n        // @005d\n        // @005f\n      } else {\n        // @003a\n        // @003e\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    }\n  }\n  // @0061\n  // @0063\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

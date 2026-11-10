@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 2015
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 12,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 2015 (trackGpsEnablingAttempt) exports (20 total):\n  export \"trackGpsEnablingAttempt\" -> function 13391 (trackGpsEnablingAttempt)\n  export \"trackGpsEnablingResult\" -> function 13392 (trackGpsEnablingResult)\n  export \"trackLocationAddressDeletionInitiated\" -> function 13387 (trackLocationAddressDeletionInitiated)\n  export \"trackLocationAddressSaved\" -> function 13386 (trackLocationAddressSaved)\n  export \"trackLocationPermissionDialogAddManuallyTap\" -> function 13402 (trackLocationPermissionDialogAddManuallyTap)\n  export \"trackLocationPermissionDialogCloseTap\" -> function 13404 (trackLocationPermissionDialogCloseTap)\n  export \"trackLocationPermissionDialogEnableLocationTap\" -> function 13403 (trackLocationPermissionDialogEnableLocationTap)\n  export \"trackLocationPopupShown\" -> function 13390 (trackLocationPopupShown)\n  export \"trackLocationScreenAddNewAddressTap\" -> function 13394 (trackLocationScreenAddNewAddressTap)\n  export \"trackLocationScreenBackTap\" -> function 13401 (trackLocationScreenBackTap)\n  export \"trackLocationScreenContextLoaded\" -> function 13385 (trackLocationScreenContextLoaded)\n  export \"trackLocationScreenDeleteAddressConfirmTap\" -> function 13400 (trackLocationScreenDeleteAddressConfirmTap)\n  export \"trackLocationScreenDeleteAddressMenuTap\" -> function 13399 (trackLocationScreenDeleteAddressMenuTap)\n  export \"trackLocationScreenEditAddressTap\" -> function 13398 (trackLocationScreenEditAddressTap)\n  export \"trackLocationScreenRecentSearchTap\" -> function 13396 (trackLocationScreenRecentSearchTap)\n  export \"trackLocationScreenSavedAddressTap\" -> function 13395 (trackLocationScreenSavedAddressTap)\n  export \"trackLocationScreenSearchPredictionTap\" -> function 13397 (trackLocationScreenSearchPredictionTap)\n  export \"trackLocationScreenUseCurrentLocationTap\" -> function 13393 (trackLocationScreenUseCurrentLocationTap)\n  export \"trackLocationSelected\" -> function 13388 (trackLocationSelected)\n  export \"trackManualLocationAdded\" -> function 13389 (trackManualLocationAdded)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

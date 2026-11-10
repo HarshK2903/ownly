@@ -1,0 +1,5 @@
+Found 4 cross-references for 'createNativeStackNavigator':
+  Function 2075 () at offset 03d0: GetById
+  Function 4414 () at offset 007d: LoadConstString
+  Function 4521 () at offset 004d: PutByIdStrict
+  Function 19833 (get) at offset 0016: GetById

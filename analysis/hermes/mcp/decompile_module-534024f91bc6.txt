@@ -1,0 +1,241 @@
+// Module 3342
+import _mod1127 from "module_1127" /* 1127 */;
+import navigateWithNetworkCheck2 from "navigateWithNetworkCheck" /* 1831 */;
+import _mod2011 from "module_2011" /* 2011 */;
+import navigationAnalytics2 from "navigationAnalytics" /* 3343 */;
+import _mod3344 from "module_3344" /* 3344 */;
+import module_1 from "module_1" /* 1 */;
+import react from "react" /* 74 */;
+
+const module_1127 = module_1(_mod1127);
+
+export function useHomeNavigation() {
+  let callback4;
+  let navigation;
+  navigation = navigation(callback4[4]).useNavigation();
+  const items = [navigation];
+  const items1 = [navigation];
+  const callback = react.useCallback(() => {
+    const result = navigateWithNetworkCheck2.navigateWithNetworkCheck(navigation, "LocationScreen", { requireLocationSetup: false });
+  }, items);
+  const items2 = [navigation];
+  const callback1 = react.useCallback(() => {
+    const _default = module_1127.default;
+    const storedToken = _default.getStoredToken();
+    const navigateWithNetworkCheck = navigateWithNetworkCheck2.navigateWithNetworkCheck;
+    if (storedToken) {
+      const result = navigateWithNetworkCheck(tmp2, "ProfileScreen");
+    } else {
+      const result1 = navigateWithNetworkCheck(tmp2, "LoginScreen");
+    }
+  }, items1);
+  const items3 = [navigation];
+  const callback2 = react.useCallback(() => {
+    const navigationAnalytics = navigationAnalytics2.navigationAnalytics;
+    const result = navigationAnalytics.registerNavigationIntent({ fromRoute: "Home", toRoute: "Search", trigger: "tap" });
+    const result1 = navigateWithNetworkCheck2.navigateWithNetworkCheck(navigation, "Search");
+  }, items2);
+  const items4 = [navigation];
+  const callback3 = react.useCallback((prop_category_id) => {
+    const navigationAnalytics = navigationAnalytics2.navigationAnalytics;
+    const obj = { fromRoute: "Home", toRoute: "CategoryListingNova", trigger: "tap", params: { prop_category_id: prop_category_id.id, prop_category_name: prop_category_id.name } };
+    const result = navigationAnalytics.registerNavigationIntent(obj);
+    const obj2 = { categoryName: prop_category_id.name, categoryId: prop_category_id.id };
+    const result1 = navigateWithNetworkCheck2.navigateWithNetworkCheck(navigation, "CategoryListingNova", obj2);
+  }, items3);
+  callback4 = react.useCallback((curatedListId, sectionName, coverImageUrl) => {
+    let obj3;
+    const obj = { curatedListId, sectionName, coverImageUrl };
+    const route = _mod3344.buildRestaurantListingNovaRoute(obj);
+    if (route) {
+      const navigationAnalytics = tmp(3343).navigationAnalytics;
+      const obj2 = { fromRoute: "Home", toRoute: route.route, trigger: "tap", params: obj3 };
+      obj3 = { prop_curated_section_id: route.params.curatedListId, prop_curated_section_name: route.params.curatedListName };
+      const result = navigationAnalytics.registerNavigationIntent(obj2);
+      const result1 = tmp(1831).navigateWithNetworkCheck(navigation, route.route, route.params);
+    }
+  }, items4);
+  const items5 = [navigation, callback4];
+  const items6 = [navigation];
+  const callback5 = react.useCallback((id, prop_curated_section_id, prop_curated_section_name) => {
+    let obj14;
+    if (id.id) {
+      if (!id.entityId) {
+        if (id.name) {
+          callback4(id.id, id.name);
+        }
+      }
+    }
+    if (id.entityId) {
+      let obj3;
+      let obj5;
+      let obj9;
+      let obj11;
+      let obj13;
+      let obj16;
+      let obj18;
+      let obj20;
+      const navigationAnalytics = navigationAnalytics2.navigationAnalytics;
+      const registerNavigationIntent = navigationAnalytics.registerNavigationIntent;
+      const obj = { prop_item_id: id.entityId };
+      const tmp4 = require;
+      if (prop_curated_section_id) {
+        obj3 = { prop_curated_section_id };
+        const obj2 = { prop_curated_section_id };
+      } else {
+        obj3 = {};
+      }
+      const merged = Object.assign(obj3);
+      if (prop_curated_section_name) {
+        obj5 = { prop_curated_section_name };
+        const obj4 = { prop_curated_section_name };
+      } else {
+        obj5 = {};
+      }
+      const obj6 = { fromRoute: "Home", toRoute: "RestaurantPage", trigger: "tap", params: obj };
+      const merged1 = Object.assign(obj5);
+      const result = registerNavigationIntent(obj6);
+      const obj7 = { id: id.entityId, sourceContext: obj14 };
+      const navigateWithNetworkCheck = tmp4(1831).navigateWithNetworkCheck;
+      const tmp14 = navigation;
+      if (prop_curated_section_id) {
+        obj9 = { curatedListId: prop_curated_section_id };
+        const obj8 = { curatedListId: prop_curated_section_id };
+      } else {
+        obj9 = {};
+      }
+      const merged2 = Object.assign(obj9);
+      if (prop_curated_section_name) {
+        obj11 = { curatedListName: prop_curated_section_name };
+        const obj10 = { curatedListName: prop_curated_section_name };
+      } else {
+        obj11 = {};
+      }
+      const merged3 = Object.assign(obj11);
+      if (prop_curated_section_id) {
+        obj13 = { curatedListId: prop_curated_section_id };
+        const obj12 = { curatedListId: prop_curated_section_id };
+      } else {
+        obj13 = {};
+      }
+      obj14 = { sourceScreen: "Home" };
+      const merged4 = Object.assign(obj13);
+      if (prop_curated_section_name) {
+        obj16 = { curatedListName: prop_curated_section_name };
+        const obj15 = { curatedListName: prop_curated_section_name };
+      } else {
+        obj16 = {};
+      }
+      const merged5 = Object.assign(obj16);
+      if (prop_curated_section_id) {
+        obj18 = { curatedSectionId: prop_curated_section_id };
+        const obj17 = { curatedSectionId: prop_curated_section_id };
+      } else {
+        obj18 = {};
+      }
+      const merged6 = Object.assign(obj18);
+      if (prop_curated_section_name) {
+        obj20 = { curatedSectionName: prop_curated_section_name };
+        const obj19 = { curatedSectionName: prop_curated_section_name };
+      } else {
+        obj20 = {};
+      }
+      const merged7 = Object.assign(obj20);
+      const result1 = navigateWithNetworkCheck(tmp14, "RestaurantPage", obj7);
+    }
+  }, items5);
+  const items7 = [callback4];
+  const callback6 = react.useCallback((prop_category_id) => {
+    const navigationAnalytics = navigationAnalytics2.navigationAnalytics;
+    const obj = { fromRoute: "Home", toRoute: "CategoryListingNova", trigger: "tap", params: { prop_category_id: prop_category_id.sectionId, prop_category_name: prop_category_id.sectionName } };
+    const result = navigationAnalytics.registerNavigationIntent(obj);
+    const obj2 = { categoryId: prop_category_id.sectionId, categoryName: prop_category_id.sectionName, coverImageUrl: prop_category_id.coverImageUrl };
+    const result1 = navigateWithNetworkCheck2.navigateWithNetworkCheck(navigation, "CategoryListingNova", obj2);
+  }, items6);
+  let obj = {
+    handleSelectLocation: callback,
+    handleProfilePress: callback1,
+    handleSearchPress: callback2,
+    handleCategoryPress: callback3,
+    handleRestaurantPress: callback5,
+    handleMealForOneFoodListSeeAllPress: callback6,
+    handleRestaurantSeeAllPress: react.useCallback((arg0, arg1) => {
+      callback4(arg0, arg1);
+    }, items7)
+  };
+  return obj;
+}
+export function useHomeScreenLifecycle() {
+  let dispatch;
+  let navigation;
+  dispatch = dispatch(navigation[3]).useDispatch();
+  navigation = dispatch(navigation[4]).useNavigation();
+  const route = dispatch(navigation[4]).useRoute();
+  const isFocused = dispatch(navigation[4]).useIsFocused();
+  const selector = dispatch(navigation[3]).useSelector(dispatch(navigation[5]).selectCurrentSelectedLocation);
+  const deepLinkHandler = dispatch(navigation[6]).useDeepLinkHandler();
+  const markNavigationReady = deepLinkHandler.markNavigationReady;
+  const isProcessing = deepLinkHandler.isProcessing;
+  const items = [selector, markNavigationReady];
+  const focusEffect = dispatch(navigation[4]).useFocusEffect(route.useCallback(() => {
+    if (selector) {
+      markNavigationReady();
+    }
+  }, items));
+  const items1 = [selector, dispatch];
+  const effect = route.useEffect(() => {
+    const tmp = selector;
+    if (!tmp) {
+      dispatch(_mod2011.initializeCurrentSelectedLocation(undefined));
+    }
+  }, items1);
+  const items2 = [selector, isFocused, navigation, ];
+  let params = route.params;
+  let fromLocationFlow;
+  const useEffect = route.useEffect;
+  if (params != null) {
+    fromLocationFlow = params.fromLocationFlow;
+  }
+  items2[3] = fromLocationFlow;
+  const effect1 = useEffect(() => {
+    const params = route.params;
+    let flag;
+    if (params != null) {
+      flag = params.fromLocationFlow;
+    }
+    if (!flag) {
+      flag = false;
+    }
+    const tmp = selector;
+    if (!tmp) {
+      const tmp2 = isFocused;
+      if (tmp2) {
+        if (!flag) {
+          const replaced = navigation.replace("LocationScreen", { requireLocationSetup: true });
+        }
+      }
+    }
+  }, items2);
+  const items3 = [navigation];
+  const items4 = [navigation];
+  const callback = obj.useCallback(() => {
+    const result = navigateWithNetworkCheck2.navigateWithNetworkCheck(navigation, "LocationScreen", { requireLocationSetup: false });
+  }, items3);
+  const obj2 = {
+    currentLocation: selector,
+    isFocused,
+    isProcessing,
+    handleSelectLocation: callback,
+    handleProfilePress: route.useCallback(() => {
+      const _default = module_1127.default;
+      const storedToken = _default.getStoredToken();
+      const navigateWithNetworkCheck = navigateWithNetworkCheck2.navigateWithNetworkCheck;
+      if (storedToken) {
+        const result = navigateWithNetworkCheck(tmp2, "ProfileScreen");
+      } else {
+        const result1 = navigateWithNetworkCheck(tmp2, "LoginScreen");
+      }
+    }, items4)
+  };
+  return obj2;
+}

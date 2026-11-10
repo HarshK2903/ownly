@@ -1,0 +1,1282 @@
+// Module 3347
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _slicedToArray2 from "_slicedToArray" /* 29 */;
+import _mod2641 from "module_2641" /* 2641 */;
+import _mod3348 from "module_3348" /* 3348 */;
+import homeNovaRegistry from "homeNovaRegistry" /* 3447 */;
+import extractNovaMetaServiceability from "extractNovaMetaServiceability" /* 3763 */;
+import applyNovaServiceabilityPresentation from "applyNovaServiceabilityPresentation" /* 3764 */;
+import extractRestaurantTotalCount from "extractRestaurantTotalCount" /* 3765 */;
+import module_1 from "module_1" /* 1 */;
+import react from "react" /* 74 */;
+
+let c5, c9, pageSize, requestId, v0;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const _slicedToArray = module_1(_slicedToArray2);
+function normalizeInitialHomeNova(response) {
+  let obj2;
+  const normalizeNovaResponse = _mod2641.normalizeNovaResponse;
+  const result = normalizeNovaResponse(response, _mod3348.getNovaRegistryShape(homeNovaRegistry.homeNovaRegistry));
+  const result1 = extractNovaMetaServiceability.extractNovaMetaServiceability(response);
+  const result2 = applyNovaServiceabilityPresentation.applyNovaServiceabilityPresentation(result, result1);
+  const obj = { data: obj2, diagnostics: result.diagnostics, restaurantTotalCount: extractRestaurantTotalCount.extractRestaurantTotalCount(response), metaServiceability: result1, showServiceabilityScreen: result2.showServiceabilityScreen };
+  obj2 = { rowsByRegion: result2.rowsByRegion };
+  const merged = Object.assign(result);
+  return obj;
+}
+let c6 = 500;
+let c7 = 5;
+function buildRestaurantListQueryLoadingRows(arg0, arg1) {
+
+}
+
+export function useHomeViewModel() {
+  let combined;
+  let isVegMode;
+  let latitude;
+  let tmp = isVegMode;
+  let tmp2 = latitude;
+  const selector = isVegMode(latitude[10]).useSelector(isVegMode(latitude[11]).selectCurrentSelectedLocation);
+  isVegMode = isVegMode(latitude[12]).useVegMode().isVegMode;
+  latitude = undefined;
+  if (selector != null) {
+    latitude = selector.coordinates.latitude;
+  }
+  let longitude;
+  if (selector != null) {
+    longitude = selector.coordinates.longitude;
+  }
+  let obj = combined;
+  let items = [latitude, longitude];
+  const memo = combined.useMemo(() => {
+    let tmp2 = null;
+    if (typeof latitude === "number") {
+      const _Number = Number;
+      tmp2 = null;
+      if (Number.isFinite(latitude)) {
+        tmp2 = null;
+        if (typeof longitude === "number") {
+          const _Number2 = Number;
+          tmp2 = null;
+          if (Number.isFinite(longitude)) {
+            tmp2 = { lat: latitude, lng: longitude };
+            const obj = { lat: latitude, lng: longitude };
+          }
+        }
+      }
+    }
+    return tmp2;
+  }, items);
+  combined = null;
+  if (memo) {
+    let str;
+    if (selector != null) {
+      str = selector.id;
+    }
+    if (str == null) {
+      str = "selected";
+    }
+    let tmp8 = globalThis;
+    const _HermesInternal = HermesInternal;
+    let str2 = ":";
+    let tmp9 = str;
+    combined = "" + str + ":" + memo.lat + ":" + memo.lng;
+  }
+  let defaultResult = memo.default(obj.useState(tmp(tmp2[13]).initialHomeNovaLoadState), 2);
+  let first = defaultResult[0];
+  let closure_6 = defaultResult[1];
+  const defaultResult1 = memo.default(obj.useState(false), 2);
+  const first1 = defaultResult1[0];
+  let closure_8 = defaultResult1[1];
+  const defaultResult2 = memo.default(obj.useState(undefined), 2);
+  const first2 = defaultResult2[0];
+  let closure_10 = defaultResult2[1];
+  const defaultResult3 = memo.default(obj.useState(null), 2);
+  const first3 = defaultResult3[0];
+  let closure_12 = defaultResult3[1];
+  const defaultResult4 = memo.default(obj.useState(false), 2);
+  const first4 = defaultResult4[0];
+  let closure_14 = defaultResult4[1];
+  const defaultResult5 = memo.default(obj.useState(0), 2);
+  const first5 = defaultResult5[0];
+  let closure_16 = defaultResult5[1];
+  const defaultResult6 = memo.default(obj.useState(null), 2);
+  const first6 = defaultResult6[0];
+  let closure_18 = defaultResult6[1];
+  let closure_19 = obj.useRef(tmp(tmp2[13]).initialHomeNovaLoadState);
+  obj.useRef(false);
+  const ref2 = obj.useRef(false);
+  const ref3 = obj.useRef(false);
+  let closure_23 = obj.useRef(undefined);
+  let closure_24 = obj.useRef(null);
+  let closure_25 = obj.useRef(null);
+  const ref4 = obj.useRef(0);
+  let closure_27 = obj.useRef(0);
+  const ref5 = obj.useRef(null);
+  let closure_29 = obj.useRef(true);
+  const ref6 = obj.useRef(isVegMode);
+  const ref = obj.useRef(null);
+  const callback = obj.useCallback(function() {
+    if (!ref5.current) {
+      const _Map = Map;
+      const self = this;
+      const self2 = this;
+      ref5.current = new Map();
+      const map = new Map();
+    }
+    return ref5.current;
+  }, []);
+  const items1 = [first];
+  const effect = obj.useEffect(() => {
+    closure_19.current = current;
+  }, items1);
+  const items2 = [isVegMode];
+  const effect1 = obj.useEffect(() => {
+    ref6.current = isVegMode;
+  }, items2);
+  const items3 = [callback];
+  const effect2 = obj.useEffect(() => {
+    let closure_0 = callback();
+    closure_29.current = true;
+    return () => {
+      closure_29.current = false;
+      ref.current = ref.current + 1;
+      const values = closure_0.values();
+      const iter = values[Symbol.iterator]();
+      const nextResult = iter.next();
+      while (iter !== undefined) {
+        let _clearTimeout = clearTimeout;
+        let resolve = nextResult.resolve;
+        let clearTimeoutResult = clearTimeout(nextResult.timeout);
+        let resolveResult = resolve();
+        continue;
+      }
+      closure_0.clear();
+    };
+  }, items3);
+  const items4 = [callback];
+  const callback1 = obj.useCallback((arg0) => {
+    let closure_0 = arg0;
+    const obj = callback();
+    const value = obj.get(arg0);
+    const tmp = callback;
+    if (value) {
+      let tmp2 = globalThis;
+      const _clearTimeout = clearTimeout;
+      clearTimeout(value.timeout);
+      const tmpResult = tmp();
+      tmpResult.delete(arg0);
+      value.resolve();
+    }
+    closure_18((requestId) => {
+      requestId = undefined;
+      if (requestId != null) {
+        requestId = requestId.requestId;
+      }
+      let tmp2 = null;
+      if (requestId !== closure_0) {
+        tmp2 = requestId;
+      }
+      return tmp2;
+    });
+  }, items4);
+  const items5 = [callback];
+  const callback2 = obj.useCallback(() => {
+    const obj = callback();
+    const entries = obj.entries();
+    const tmp2 = entries[Symbol.iterator]();
+    while (tmp2 !== undefined) {
+      let defaultResult = _slicedToArray.default(tmp3, 2);
+      let obj2 = defaultResult[1];
+      let _clearTimeout = clearTimeout;
+      first = defaultResult[0];
+      let clearTimeoutResult = clearTimeout(obj2.timeout);
+      let deleteResult = obj.delete(first);
+      let resolveResult = obj2.resolve();
+      continue;
+    }
+    closure_18(null);
+  }, items5);
+  const items6 = [callback, callback1];
+  const callback3 = obj.useCallback((componentId) => {
+    const promise = new Promise((resolve) => {
+      ref.current = ref.current + 1;
+      const current = ref.current;
+      const timerId = setTimeout(() => closure_2_33(current), c6);
+      const obj = callback();
+      const obj2 = { resolve, timeout: timerId };
+      const result = obj.set(current, obj2);
+      const obj3 = { componentId, requestId: current };
+      closure_18(obj3);
+    });
+    return promise;
+  }, items6);
+  const useCallback = obj.useCallback;
+  longitude.default(function*(arg0, value) {
+    let closure_5;
+    let str;
+    closure_0 = arg0;
+    let closure_1 = value;
+    if (c9 === 2) {
+      c9 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let tmp79;
+      try {
+        let tmp;
+        let c1;
+        let current;
+        let items;
+        c9 = 2;
+        if (0 === c8) {
+          if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c9 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            closure_0 = closure_1;
+            tmp = undefined;
+            tmp79 = undefined;
+            const sum = ref4.current + 1;
+            c1 = sum;
+            ref4.current = sum;
+            current = ref.current;
+            items = closure_1 == null;
+            let requestIsVegMode;
+            if (!items) {
+              requestIsVegMode = tmp132.requestIsVegMode;
+            }
+            current = requestIsVegMode;
+            if (requestIsVegMode == null) {
+              current = ref3.current;
+            }
+            closure_1_22.current = false;
+            callback2();
+            items = tmp132 == null;
+            let showLoading;
+            const tmp59 = current;
+            if (!items) {
+              showLoading = tmp132.showLoading;
+            }
+            if (showLoading) {
+              ref.current = null;
+              closure_1_25.current = null;
+              closure_1_10(undefined);
+              closure_1_12(null);
+              closure_1_14(false);
+              const obj4 = { status: "loading", data: null, diagnostics: items, error: null, errorStatus: null };
+              items = [];
+              tmp79(obj4);
+            }
+            c7 = 1;
+            items = closure_0(latitude[14]).HOME_NOVA_DATA_SOURCE;
+            if (items === "fixture") {
+              c8 = 2;
+              c9 = 1;
+              const obj5 = { value: closure_0(latitude[15]).loadHomeNovaFixture(), done: false };
+              return obj5;
+            } else {
+              items = { mode: "initialCall", isVegMode: tmp59 };
+              const fetchHomeNovaApiPage = tmp74(tmp75[16]).fetchHomeNovaApiPage;
+              const merged = Object.assign(tmp131);
+              c8 = 3;
+              c9 = 1;
+              const obj6 = { value: fetchHomeNovaApiPage(items), done: false };
+              return obj6;
+            }
+          }
+        } else if (1 === c8) {
+          c7 = 0;
+          closure_8 = tmp79;
+          if (ref2.current) {
+            if (ref4.current === c1) {
+              items = closure_0 == null;
+              let preserveDataOnError;
+              if (!items) {
+                preserveDataOnError = closure_0.preserveDataOnError;
+              }
+              if (preserveDataOnError) {
+                ref.current = current;
+                c9 = 3;
+                return { value: false, done: true };
+              } else {
+                items = null;
+                if (closure_8) {
+                  items = null;
+                  if (typeof closure_8 === "object") {
+                    items = null;
+                    if ("status" in closure_8) {
+                      let status = null;
+                      if (typeof closure_8.status === "number") {
+                        status = closure_8.status;
+                      }
+                      items = status;
+                    }
+                  }
+                }
+                items = tmp79;
+                const obj7 = { status: "error", data: null, diagnostics: [], error: str, errorStatus: items };
+                const _Error = Error;
+                str = "Failed to load Home";
+                if (closure_8 instanceof Error) {
+                  str = closure_8.message;
+                }
+                items(obj7);
+                c9 = 3;
+                return { value: false, done: true };
+              }
+            }
+          }
+          c9 = 3;
+          return { value: false, done: true };
+        } else if (2 === c8) {
+          if (arg0 === 1) {
+            c9 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c7 = 0;
+            c9 = 3;
+            const obj8 = { value, done: true };
+            return obj8;
+          } else {
+            current = value;
+            items = first(current);
+            if (ref2.current) {
+              if (ref4.current === c1) {
+                ref.current = null;
+                closure_1_25.current = current;
+                closure_1_23.current = undefined;
+                closure_1_16((arg0) => arg0 + 1);
+                closure_1_10(items.restaurantTotalCount);
+                closure_1_12(items.metaServiceability);
+                closure_1_14(items.showServiceabilityScreen);
+                const obj9 = { status: "ready", data: items.data, diagnostics: items.diagnostics, error: null, errorStatus: null };
+                tmp79(obj9);
+                c7 = 0;
+                c9 = 3;
+                return { value: true, done: true };
+              }
+            }
+            c7 = 0;
+            c9 = 3;
+            return { value: false, done: true };
+          }
+        } else if (arg0 === 1) {
+          c9 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c7 = 0;
+          c9 = 3;
+          const obj10 = { value, done: true };
+          return obj10;
+        } else {
+          tmp = value;
+          tmp79 = first(tmp.response);
+          if (ref2.current) {
+            if (ref4.current === c1) {
+              ref.current = tmp.pagination;
+              closure_1_25.current = tmp.response;
+              closure_1_23.current = undefined;
+              closure_1_16((arg0) => arg0 + 1);
+              const pagination = tmp.pagination;
+              items = pagination == null;
+              let totalCount;
+              const tmp100 = closure_1_10;
+              if (!items) {
+                totalCount = pagination.totalCount;
+              }
+              let restaurantTotalCount = totalCount;
+              if (totalCount == null) {
+                restaurantTotalCount = tmp79.restaurantTotalCount;
+              }
+              tmp100(restaurantTotalCount);
+              closure_1_12(tmp79.metaServiceability);
+              closure_1_14(tmp79.showServiceabilityScreen);
+              const obj = { status: "ready", data: tmp79.data, diagnostics: items, error: null, errorStatus: null };
+              items = tmp79.diagnostics;
+              tmp79(obj);
+              c7 = 0;
+              c9 = 3;
+              return { value: true, done: true };
+            }
+          }
+          c7 = 0;
+          c9 = 3;
+          return { value: false, done: true };
+        }
+      } catch (tmp79) {
+        if (0 === c7) {
+          c9 = 3;
+          throw tmp79;
+        } else {
+          c8 = 1;
+        }
+      }
+    }
+  });
+  const items7 = [callback2];
+  const callback4 = useCallback(function(arg0, arg1) {
+    return closure_0(...arguments);
+  }, items7);
+  const items8 = [memo, callback4, combined, callback2];
+  const effect3 = obj.useEffect(() => {
+    if (memo) {
+      const tmp2 = combined;
+      if (tmp2) {
+        const obj = { showLoading: true, requestIsVegMode: ref6.current };
+        callback4(tmp, obj);
+      }
+    }
+    ref4.current = ref4.current + 1;
+    closure_24.current = null;
+    closure_25.current = null;
+    callback2();
+    closure_18(null);
+    closure_10(undefined);
+    closure_12(null);
+    closure_14(false);
+    closure_6({ status: "loading", data: null, diagnostics: [], error: null, errorStatus: null });
+  }, items8);
+  const items9 = [memo, isVegMode, callback4];
+  const layoutEffect = obj.useLayoutEffect(() => {
+    if (memo) {
+      if (ref.current === null) {
+        ref.current = isVegMode;
+      } else if (ref.current !== isVegMode) {
+        ref.current = isVegMode;
+        if (!ref.current) {
+          if (!ref2.current) {
+            if (!ref3.current) {
+              tmp5.current = true;
+              closure_8(false);
+              const obj = { showLoading: true, preserveDataOnError: true, requestIsVegMode: isVegMode };
+              const promise = callback4(tmp, obj);
+              promise.finally(() => {
+                ref.current = false;
+              });
+            }
+          }
+        }
+      }
+    } else {
+      ref.current = isVegMode;
+    }
+  }, items9);
+  const items10 = [memo, callback4, callback2];
+  const callback5 = obj.useCallback(longitude.default(function*(arg0, value) {
+    if (c4 === 2) {
+      c4 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c3;
+      try {
+        c4 = 2;
+        if (0 === c1) {
+          if (arg0 === 1) {
+            c4 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            let closure_0 = tmp;
+            if (memo) {
+              if (!ref.current) {
+                if (!ref2.current) {
+                  if (!ref3.current) {
+                    ref.current = true;
+                    closure_8(true);
+                    callback2();
+                    c3 = 1;
+                    const obj4 = { preserveDataOnError: true, requestIsVegMode: ref4.current };
+                    c1 = 2;
+                    c4 = 1;
+                    const obj5 = { value: callback4(tmp35, obj4), done: false };
+                    return obj5;
+                  }
+                }
+              }
+            }
+            c4 = 3;
+            return { value: "return", done: null };
+          }
+        } else if (1 === tmp4) {
+          c3 = 0;
+          closure_128_20.current = false;
+          closure_128_8(false);
+          throw closure_2;
+        } else if (arg0 === 1) {
+          c4 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c3 = 0;
+          closure_128_20.current = false;
+          closure_128_8(false);
+          c4 = 3;
+          const obj = { value, done: true };
+          return obj;
+        } else {
+          c3 = 0;
+          closure_128_20.current = false;
+          closure_128_8(false);
+          c4 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp29) {
+        closure_2 = tmp29;
+        if (0 === c3) {
+          c4 = 3;
+          throw tmp29;
+        } else {
+          c1 = 1;
+        }
+      }
+    }
+  }), items10);
+  const items11 = [memo, callback4];
+  const callback6 = obj.useCallback(longitude.default(function*(arg0, value) {
+    if (c4 === 2) {
+      c4 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c3;
+      try {
+        c4 = 2;
+        if (0 === c1) {
+          if (arg0 === 1) {
+            c4 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            let closure_0 = tmp;
+            if (memo) {
+              if (!ref.current) {
+                if (!ref2.current) {
+                  if (!ref3.current) {
+                    ref.current = true;
+                    closure_8(false);
+                    c3 = 1;
+                    const obj4 = { showLoading: true, preserveDataOnError: true, requestIsVegMode: ref4.current };
+                    c1 = 2;
+                    c4 = 1;
+                    const obj5 = { value: callback4(tmp27, obj4), done: false };
+                    return obj5;
+                  }
+                }
+              }
+            }
+            c4 = 3;
+            return { value: false, done: true };
+          }
+        } else if (1 === tmp4) {
+          c3 = 0;
+          closure_128_20.current = false;
+          throw closure_2;
+        } else if (arg0 === 1) {
+          c4 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c3 = 0;
+          closure_128_20.current = false;
+          c4 = 3;
+          const obj6 = { value, done: true };
+          return obj6;
+        } else {
+          c3 = 0;
+          closure_128_20.current = false;
+          c4 = 3;
+          const obj = { value, done: true };
+          return obj;
+        }
+      } catch (tmp21) {
+        closure_2 = tmp21;
+        if (0 === c3) {
+          c4 = 3;
+          throw tmp21;
+        } else {
+          c1 = 1;
+        }
+      }
+    }
+  }), items11);
+  const items12 = [memo, isVegMode];
+  const callback7 = obj.useCallback(longitude.default(function*(arg0, value) {
+    let closure_1;
+    let closure_2;
+    let restaurantTotalCount;
+    let v1;
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c4;
+      try {
+        let c0;
+        let tmp15;
+        let tmp;
+        c6 = 2;
+        if (0 === first) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            c0 = undefined;
+            tmp15 = undefined;
+            tmp = undefined;
+            const tmp53 = restaurantTotalCount;
+            const tmp54 = tmp15;
+            if (restaurantTotalCount(tmp15[14]).HOME_NOVA_DATA_SOURCE !== "fixture") {
+              if (memo) {
+                if (ref.current.status === "ready") {
+                  if (!ref2.current) {
+                    if (!ref3.current) {
+                      if (!ref4.current) {
+                        const sum = ref5.current + 1;
+                        c0 = sum;
+                        tmp15 = ref5;
+                        ref5.current = sum;
+                        c4 = 1;
+                        const obj4 = { mode: "serviceabilityCheck", isVegMode };
+                        const fetchHomeNovaApiPage = tmp53(tmp54[16]).fetchHomeNovaApiPage;
+                        let merged = Object.assign(tmp55);
+                        first = 2;
+                        c6 = 1;
+                        const obj5 = { value: fetchHomeNovaApiPage(obj4), done: false };
+                        return obj5;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            c6 = 3;
+            return { value: false, done: true };
+          }
+        } else if (1 === tmp4) {
+          c4 = 0;
+          c6 = 3;
+          return { value: false, done: true };
+        } else if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 0;
+          c6 = 3;
+          let obj = { value, done: true };
+          return obj;
+        } else {
+          tmp15 = first;
+          tmp = first(tmp15.response);
+          if (closure_130_29.current) {
+            if (closure_130_26.current === c0) {
+              if (tmp.showServiceabilityScreen) {
+                closure_130_24.current = tmp15.pagination;
+                closure_130_25.current = tmp15.response;
+                tmp15 = closure_130_10;
+                const pagination = tmp15.pagination;
+                let totalCount;
+                if (pagination != null) {
+                  totalCount = pagination.totalCount;
+                }
+                restaurantTotalCount = totalCount;
+                if (totalCount == null) {
+                  restaurantTotalCount = tmp.restaurantTotalCount;
+                }
+                tmp15(restaurantTotalCount);
+                tmp15 = closure_130_12;
+                closure_130_12(tmp.metaServiceability);
+                closure_130_14(true);
+                closure_130_6((status) => {
+                  let obj2;
+                  if (status.status !== "ready") {
+                    return status;
+                  } else {
+                    const obj = { status: "ready", data: obj2, diagnostics: closure_1_2.diagnostics, error: null, errorStatus: null };
+                    obj2 = { rowsByRegion: closure_1_2.data.rowsByRegion };
+                    const merged = Object.assign(status.data);
+                    return obj;
+                  }
+                });
+                c4 = 0;
+                c6 = 3;
+                return { value: true, done: true };
+              } else {
+                c4 = 0;
+                c6 = 3;
+                return { value: true, done: true };
+              }
+            }
+          }
+          c4 = 0;
+          c6 = 3;
+          return { value: false, done: true };
+        }
+      } catch (tmp40) {
+        let closure_3 = tmp40;
+        if (0 === c4) {
+          c6 = 3;
+          throw tmp40;
+        } else {
+          first = 1;
+        }
+      }
+    }
+  }), items12);
+  const items13 = [memo, isVegMode, first4, first.status];
+  const callback8 = obj.useCallback(longitude.default(function*(arg0, value) {
+    let closure_1;
+    let closure_2;
+    if (c5 === 2) {
+      c5 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        let obj3 = { value, done: true };
+        return obj3;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let tmp61;
+      let c3;
+      try {
+        let current2;
+        let self;
+        let current;
+        c5 = 2;
+        const tmp4 = c4;
+        if (0 === c4) {
+          if (arg0 === 1) {
+            c5 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c5 = 3;
+            const obj4 = { value, done: true };
+            return obj4;
+          } else {
+            latitude = tmp;
+            current2 = undefined;
+            tmp61 = undefined;
+            self = undefined;
+            current = ref5.current;
+            if (memo) {
+              if (first.status === "ready") {
+                const tmp73 = first4;
+                if (!tmp73) {
+                  if (!ref.current) {
+                    if (!ref2.current) {
+                      if (!ref3.current) {
+                        let hasMore;
+                        if (current != null) {
+                          hasMore = current.hasMore;
+                        }
+                        if (hasMore) {
+                          ref2.current = true;
+                          current2 = ref6.current;
+                          c3 = 2;
+                          const obj5 = { mode: "paginatedCall", isVegMode, filters: ref4.current };
+                          const fetchHomeNovaApiPage = self(latitude[16]).fetchHomeNovaApiPage;
+                          let merged = Object.assign(tmp72);
+                          ({ offset: obj2.offset, pageSize: obj2.pageSize, scrollTargetId: obj2.targetComponentId } = current);
+                          self = fetchHomeNovaApiPage(obj5);
+                          c4 = 3;
+                          c5 = 1;
+                          const obj9 = { value: self, done: false };
+                          return obj9;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            c5 = 3;
+            return { value: "return", done: null };
+          }
+        } else if (1 === tmp4) {
+          c3 = 0;
+          self = closure_129_21;
+          closure_129_21.current = false;
+          throw tmp61;
+        } else {
+          if (2 === tmp4) {
+            c3 = 1;
+          } else if (arg0 === 1) {
+            c5 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c3 = 0;
+            closure_129_21.current = false;
+            c5 = 3;
+            let obj = { value, done: true };
+            return obj;
+          } else {
+            tmp61 = value;
+            if (tmp61.pagination) {
+              const response = tmp61.response;
+              const normalizeNovaPaginationResponse = self(latitude[4]).normalizeNovaPaginationResponse;
+              self = normalizeNovaPaginationResponse(response, self(latitude[5]).getNovaRegistryShape(self(latitude[6]).homeNovaRegistry), closure_129_25.current, current.scrollTargetId, tmp61.pagination);
+              const tmp20 = self;
+              if (tmp20) {
+                if (closure_129_29.current) {
+                  self = closure_129_26.current;
+                  if (self === current2) {
+                    closure_129_24.current = tmp61.pagination;
+                    closure_129_10(tmp61.pagination.totalCount);
+                    self = closure_129_6;
+                    closure_129_6((status) => {
+                      let items;
+                      let obj2;
+                      let obj3;
+                      if (status.status !== "ready") {
+                        return status;
+                      } else {
+                        const obj = { status: "ready", data: obj2, diagnostics: items, error: null, errorStatus: null };
+                        obj2 = { rowsByRegion: obj3 };
+                        const merged = Object.assign(status.data);
+                        obj3 = { body: self(latitude[4]).mergeNovaPagination(status.data.rowsByRegion.body, closure_1_3.rowsByRegion.body, scrollTargetId.scrollTargetId) };
+                        const merged1 = Object.assign(status.data.rowsByRegion);
+                        items = [];
+                        HermesBuiltin.arraySpread(items, closure_1_3.diagnostics, HermesBuiltin.arraySpread(items, status.diagnostics, 0));
+                        return obj;
+                      }
+                    });
+                    c3 = 1;
+                  }
+                }
+                c3 = 0;
+                closure_129_21.current = false;
+                c5 = 3;
+                return { value: "return", done: null };
+              } else {
+                const _Error2 = Error;
+                self = this;
+                const self3 = this;
+                const error = new Error("Initial Home feed metadata for pagination is missing");
+                throw error;
+              }
+            } else {
+              const _Error = Error;
+              self = this;
+              const self2 = this;
+              const error1 = new Error("Home page feed pagination metadata is missing");
+              throw error1;
+            }
+          }
+          c3 = 0;
+          closure_129_21.current = false;
+          c5 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp61) {
+        if (0 === c3) {
+          c5 = 3;
+          throw tmp61;
+        } else if (1 === tmp63) {
+          c4 = 1;
+        } else {
+          c4 = 2;
+        }
+      }
+    }
+  }), items13);
+  const useCallback2 = obj.useCallback;
+  let closure_0 = longitude.default((isVegMode, arg1) => {
+    let closure_4;
+    let closure_5;
+    let closure_1 = arg1;
+    c7 = 0;
+    let c8 = 0;
+    c6 = 0;
+    return (function*(arg0, value) {
+      let getNovaRegistryShape;
+      if (c8 === 2) {
+        c8 = 3;
+        throw new TypeError("Generator functions may not be called on executing generators");
+      } else if (tmp3 === 3) {
+        if (arg0 === 1) {
+          throw value;
+        } else if (arg0 === 2) {
+          let obj2 = { value, done: true };
+          return obj2;
+        } else {
+          return { value: "return", done: null };
+        }
+      } else {
+        let tmp109;
+        try {
+          let obj6;
+          let body;
+          c8 = 2;
+          if (0 === c7) {
+            if (arg0 === 1) {
+              c8 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c8 = 3;
+              let obj3 = { value, done: true };
+              return obj3;
+            } else {
+              obj6 = undefined;
+              pageSize = undefined;
+              value = undefined;
+              body = undefined;
+              tmp109 = undefined;
+              closure_6 = undefined;
+              if (isVegMode(latitude[14]).HOME_NOVA_DATA_SOURCE !== "fixture") {
+                if (getNovaRegistryShape) {
+                  if (tmp109.status === "ready") {
+                    const tmp141 = closure_1_13;
+                    if (!tmp141) {
+                      if (!ref2.current) {
+                        if (closure_1.filter.length > 0) {
+                          let obj5;
+                          let obj8;
+                          if (closure_1.filter.length > 0) {
+                            let obj4 = { filter: closure_1.filter };
+                            obj5 = obj4;
+                          } else {
+                            obj5 = {};
+                          }
+                          obj6 = {};
+                          let merged = Object.assign(obj5);
+                          if (closure_1.sort) {
+                            obj8 = { sort: closure_1.sort };
+                            const obj7 = { sort: closure_1.sort };
+                          } else {
+                            obj8 = {};
+                          }
+                          let merged1 = Object.assign(obj8);
+                        }
+                        obj6 = tmp88;
+                        const current = ref3.current;
+                        pageSize = undefined;
+                        if (current != null) {
+                          pageSize = current.pageSize;
+                        }
+                        if (pageSize == null) {
+                          pageSize = 20;
+                        }
+                        const sum = closure_1_26.current + 1;
+                        pageSize = sum;
+                        closure_1_26.current = sum;
+                        closure_1_22.current = true;
+                        const obj9 = { mode: "paginatedCall", isVegMode, offset: 0, pageSize, targetComponentId: isVegMode, filters: tmp88 };
+                        const fetchHomeNovaApiPage = isVegMode(latitude[16]).fetchHomeNovaApiPage;
+                        const merged2 = Object.assign(tmp140);
+                        value = fetchHomeNovaApiPage(obj9);
+                        c7 = 1;
+                        c8 = 1;
+                        const obj10 = { value: closure_1_35(isVegMode), done: false };
+                        return obj10;
+                      }
+                    }
+                  }
+                }
+              }
+              c8 = 3;
+              return { value: false, done: true };
+            }
+          } else if (1 === c7) {
+            if (arg0 === 1) {
+              c8 = 3;
+              throw value;
+            } else if (arg0 === 2) {
+              c8 = 3;
+              return { value, done: true };
+            } else {
+              if (ref5.current) {
+                if (closure_1_26.current === pageSize) {
+                  body = null;
+                  if (ref.current.status === "ready") {
+                    body = ref.current.data.rowsByRegion.body;
+                  }
+                  v0((status) => {
+                    let obj3;
+                    let obj4;
+                    if (status.status !== "ready") {
+                      return status;
+                    } else {
+                      body = status.data.rowsByRegion.body;
+                      if (typeof c8 === "function") {
+                        let items;
+                        closure_0 = tmp5;
+                        const found = body.find((sourceId) => sourceId.sourceId === sourceId);
+                        if (found) {
+                          const _Array = Array;
+                          let obj = { length: c7 };
+                          items = Array.from(obj, (arg0, arg1) => {
+                            let dataType;
+                            let type;
+                            let variant;
+                            const obj = { key: "" + found.region + ":" + sourceId + ":restaurantList:queryLoading:" + arg1, id: "" + sourceId + ":queryLoading:" + arg1, sourceId, region: found.region, type: found.type, variant: found.variant, dataType: found.dataType, recyclableType: "" + type + ":" + variant + ":" + dataType + ":queryLoading", rank: null, background: null, spacing: "borderRadius", sticky: null, rowKind: null };
+                            ({ type, variant, dataType } = found);
+                            const tmp = found;
+                            if (dataType == null) {
+                              dataType = "none";
+                            }
+                            ({ rank: obj.rank, background: obj.background } = tmp);
+                            return obj;
+                          });
+                        } else {
+                          items = [];
+                        }
+                        if (items.length === 0) {
+                          return status;
+                        } else {
+                          const obj2 = { status: "ready", data: obj3, diagnostics: status.diagnostics, error: null, errorStatus: null };
+                          obj3 = { rowsByRegion: obj4 };
+                          const merged = Object.assign(status.data);
+                          obj4 = { body: closure_0(closure_1[4]).replaceNovaPaginationSegment(status.data.rowsByRegion.body, items, isVegMode) };
+                          const merged1 = Object.assign(status.data.rowsByRegion);
+                          return obj2;
+                        }
+                      } else {
+                        throw new TypeError("Trying to call a non-function");
+                      }
+                    }
+                  });
+                  v0 = 2;
+                  c7 = 4;
+                  c8 = 1;
+                  return { value, done: false };
+                }
+              }
+              getNovaRegistryShape = value;
+              value.catch(() => {
+
+              });
+              closure_1_22.current = false;
+              c8 = 3;
+              return { value: false, done: true };
+            }
+          } else if (2 === c7) {
+            v0 = 0;
+            const tmp64 = tmp109;
+            if (closure_1_26.current === pageSize) {
+              closure_1_22.current = false;
+            }
+            throw tmp64;
+          } else if (3 === c7) {
+            v0 = 1;
+            const tmp45 = body;
+            if (tmp45) {
+              if (ref5.current) {
+                if (closure_1_26.current === pageSize) {
+                  v0((status) => {
+                    let obj2;
+                    let obj3;
+                    if (status.status !== "ready") {
+                      return status;
+                    } else {
+                      const obj = { status: "ready", data: obj2, diagnostics: status.diagnostics, error: null, errorStatus: null };
+                      obj2 = { rowsByRegion: obj3 };
+                      const merged = Object.assign(status.data);
+                      obj3 = { body };
+                      const merged1 = Object.assign(status.data.rowsByRegion);
+                      return obj;
+                    }
+                  });
+                }
+              }
+            }
+            v0 = 0;
+            if (closure_1_26.current === pageSize) {
+              closure_1_22.current = false;
+            }
+            c8 = 3;
+            return { value: false, done: true };
+          } else if (arg0 === 1) {
+            c8 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            v0 = 0;
+            if (closure_1_26.current === pageSize) {
+              closure_1_22.current = false;
+            }
+            c8 = 3;
+            let obj = { value, done: true };
+            return obj;
+          } else {
+            tmp109 = value;
+            if (tmp109.pagination) {
+              const response = tmp109.response;
+              const normalizeNovaPaginationResponse = isVegMode(latitude[4]).normalizeNovaPaginationResponse;
+              getNovaRegistryShape = isVegMode(latitude[5]).getNovaRegistryShape;
+              closure_6 = normalizeNovaPaginationResponse(response, getNovaRegistryShape(isVegMode(latitude[6]).homeNovaRegistry), ref4.current, isVegMode, tmp109.pagination);
+              const tmp20 = closure_6;
+              if (tmp20) {
+                if (ref5.current) {
+                  if (closure_1_26.current === pageSize) {
+                    closure_1_23.current = obj6;
+                    ref3.current = tmp109.pagination;
+                    getNovaRegistryShape = closure_1_10;
+                    closure_1_10(tmp109.pagination.totalCount);
+                    v0((status) => {
+                      let items;
+                      let obj2;
+                      let obj3;
+                      if (status.status !== "ready") {
+                        return status;
+                      } else {
+                        const obj = { status: "ready", data: obj2, diagnostics: items, error: null, errorStatus: null };
+                        obj2 = { rowsByRegion: obj3 };
+                        const merged = Object.assign(status.data);
+                        obj3 = { body: closure_0(closure_1[4]).replaceNovaPaginationSegment(status.data.rowsByRegion.body, v0.rowsByRegion.body, closure_1_0) };
+                        const merged1 = Object.assign(status.data.rowsByRegion);
+                        items = [];
+                        HermesBuiltin.arraySpread(items, v0.diagnostics, HermesBuiltin.arraySpread(items, status.diagnostics, 0));
+                        return obj;
+                      }
+                    });
+                    v0 = 0;
+                    if (closure_1_26.current === pageSize) {
+                      closure_1_22.current = false;
+                    }
+                    c8 = 3;
+                    return { value: true, done: true };
+                  }
+                }
+                v0 = 0;
+                if (closure_1_26.current === pageSize) {
+                  closure_1_22.current = false;
+                }
+                c8 = 3;
+                return { value: false, done: true };
+              } else {
+                const _Error2 = Error;
+                const self3 = this;
+                const self4 = this;
+                const error = new Error("Initial Home feed metadata for filtered pagination is missing");
+                throw error;
+              }
+            } else {
+              const _Error = Error;
+              const self = this;
+              const self2 = this;
+              const error1 = new Error("Filtered Home feed pagination metadata is missing");
+              throw error1;
+            }
+          }
+        } catch (tmp109) {
+          if (0 === v0) {
+            c8 = 3;
+            throw tmp109;
+          } else if (1 === tmp111) {
+            c7 = 2;
+          } else {
+            c7 = 3;
+          }
+        }
+      }
+    })();
+  });
+  const items14 = [memo, isVegMode, callback3, first4, first.status];
+  const callback21 = useCallback2(function(arg0, arg1) {
+    return closure_0(...arguments);
+  }, items14);
+  const callback9 = obj.useCallback(() => {
+    if (!ref.current) {
+      closure_8(false);
+    }
+  }, []);
+  const items15 = [memo, callback4];
+  const callback10 = obj.useCallback(() => {
+    if (memo) {
+      const obj = { showLoading: true, requestIsVegMode: ref6.current };
+      callback4(tmp, obj);
+    }
+  }, items15);
+  let data = first.data;
+  let overlays;
+  const useHomeOverlayController = tmp(tmp2[17]).useHomeOverlayController;
+  if (data != null) {
+    overlays = data.rowsByRegion.overlays;
+  }
+  if (overlays == null) {
+    overlays = [];
+  }
+  let obj2 = { overlays, isDataReady: first.status === "ready", showServiceabilityScreen: first4 };
+  const homeOverlayController = useHomeOverlayController(obj2);
+  const items16 = [callback21, callback9, first5, isVegMode, callback8, combined, first3, homeOverlayController, callback7, callback5, callback6, first1, callback10, first2, first6, callback1, first4, first];
+  return obj.useMemo(() => {
+    let obj3;
+    let obj4;
+    let rowsByRegion;
+    let str;
+    let str2;
+    let tmp;
+    const data = state.data;
+    const obj = { state, registry: homeNovaRegistry.homeNovaRegistry, rowsByRegion, restaurantTotalCount: first2, metaServiceability: first3, showServiceabilityScreen: first4, diagnostics: tmp.diagnostics, overlay: homeOverlayController, actions: obj3, ui: obj4 };
+    rowsByRegion = undefined;
+    tmp = state;
+    if (data != null) {
+      rowsByRegion = data.rowsByRegion;
+    }
+    if (rowsByRegion == null) {
+      rowsByRegion = { header: [], body: [], footer: [], overlays: [] };
+      const obj2 = { header: [], body: [], footer: [], overlays: [] };
+    }
+    obj3 = { refresh: callback5, refreshWithShimmer: callback6, checkServiceabilityOnRevisit: callback7, loadMore: callback8, applyRestaurantListQuery: callback21, dismissRefresh: callback9, retry: callback10, settleRestaurantListScrollRequest: callback1 };
+    obj4 = { refreshing: first1, filterScopeKey: "" + str + ":" + str2 + ":" + first5, restaurantListScrollRequest: first6 };
+    str = combined;
+    if (combined == null) {
+      str = "no-location";
+    }
+    str2 = "all";
+    if (isVegMode) {
+      str2 = "veg";
+    }
+    return obj;
+  }, items16);
+}

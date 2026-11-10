@@ -1,0 +1,159 @@
+// Module 3942 (HomePageConfig)
+import _mod3941 from "module_3941" /* 3941 */;
+import ScreenId from "ScreenId" /* 3943 */;
+
+let MEDIUM;
+let MEDIUM10;
+let MEDIUM12;
+let MEDIUM3;
+let MEDIUM4;
+let MEDIUM5;
+let MEDIUM6;
+let MEDIUM7;
+let MEDIUM8;
+let MEDIUM9;
+let obj10;
+let obj11;
+let obj12;
+let obj13;
+let obj14;
+let obj15;
+let obj16;
+let obj17;
+let obj18;
+let obj19;
+let obj2;
+let obj20;
+let obj21;
+let obj22;
+let obj23;
+let obj24;
+let obj25;
+let obj3;
+let obj4;
+let obj5;
+let obj6;
+let obj7;
+let obj9;
+const items = [_mod3941.Sink.CONSOLE, _mod3941.Sink.CLEVERTAP];
+function interaction(arg0, arg1, arg2) {
+
+}
+function pair(header, bannerCard) {
+  let MEDIUM;
+  const tmp = interaction;
+  if (typeof interaction === "function") {
+    let obj3;
+    const obj = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: header, action: tmp4, sinks: items, priority: MEDIUM };
+    MEDIUM = tmp2(3941).Priority.MEDIUM;
+    if (bannerCard) {
+      obj3 = { element: bannerCard };
+      const obj2 = { element: bannerCard };
+    } else {
+      obj3 = {};
+    }
+    const obj4 = { tap: obj, impression: null };
+    const merged = Object.assign(obj3);
+    const IMPRESSION = tmp2(3941).InteractionAction.IMPRESSION;
+    let MEDIUM2 = tmp2(3941).Priority.LOW;
+    const tmp10 = items;
+    if (typeof tmp === "function") {
+      let obj7;
+      if (MEDIUM2 === undefined) {
+        MEDIUM2 = tmp2(3941).Priority.MEDIUM;
+      }
+      const obj5 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: header, action: IMPRESSION, sinks: tmp10, priority: MEDIUM2 };
+      if (bannerCard) {
+        obj7 = { element: bannerCard };
+        const obj6 = { element: bannerCard };
+      } else {
+        obj7 = {};
+      }
+      const merged1 = Object.assign(obj7);
+      obj4.impression = obj5;
+      return obj4;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+let obj = { Screen: obj2, Business: obj4, TopBanner: pair("topBanner", "bannerCard"), BannerGroups: pair("bannerGroups", "bannerCard"), MarketingBanner: pair("marketingBanner", "bannerCard"), RestaurantGrid: pair("restaurantGrid", "restaurantGridCardComponent"), PopularBrands: pair("popularBrandsList", "restaurantLogoComponent"), RestaurantRow: pair("restaurantHorizontalCuratedList", "restaurantSmallCard"), Reorder: pair("restaurantReorder", "restaurantReorderComponent"), RestaurantList: pair("restaurantList", "restaurantBigCard"), TopDealsFoodGrid: pair("topDealsFoodGrid", "foodGridItemCard"), SelectMealFoodGrid: pair("selectMealFoodGrid", "foodGridItemCard"), SeeAll: obj9, LowestPriceToggle: pair("searchBar", "lowestPriceToggle"), Serviceability: obj11, Promo: obj17, SearchPromo: pair("searchBar", "image"), HeaderIcon: pair("header", "icon"), HeaderVegToggle: pair("header", "vegToggle"), DiscountPromo: pair("overlay", "image"), TopSection: obj22, SearchFilter: obj24 };
+obj2 = { view: obj3 };
+obj3 = { type: _mod3941.EventType.SCREEN_VIEW, entity: ScreenId.ScreenId.HOME_PAGE, includeEntityInPayload: false, sinks: items, priority: _mod3941.Priority.MEDIUM };
+obj4 = { cartExists: obj5, restaurantAvailable: obj6, promoIntroRevealShown: obj7, promoIntroSessionEnded: { type: _mod3941.EventType.BUSINESS, entity: "user_promoIntroSessionEnded", payloadEntity: "user", payloadAction: "promoIntroSessionEnded", sinks: items, priority: _mod3941.Priority.MEDIUM } };
+obj5 = { type: _mod3941.EventType.BUSINESS, entity: "cart_exists", payloadEntity: "cart", payloadAction: "exists", sinks: items, priority: _mod3941.Priority.MEDIUM };
+obj6 = { type: _mod3941.EventType.BUSINESS, entity: "restaurant_available", payloadEntity: "restaurant", payloadAction: "available", sinks: items, priority: _mod3941.Priority.MEDIUM };
+obj7 = { type: _mod3941.EventType.BUSINESS, entity: "user_promoIntroRevealShown", payloadEntity: "user", payloadAction: "promoIntroRevealShown", sinks: items, priority: _mod3941.Priority.MEDIUM };
+({ type: _mod3941.EventType.BUSINESS, entity: "user_promoIntroSessionEnded", payloadEntity: "user", payloadAction: "promoIntroSessionEnded", sinks: items, priority: _mod3941.Priority.MEDIUM });
+obj9 = { tap: obj10 };
+const TAP = _mod3941.InteractionAction.TAP;
+obj10 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "header", action: TAP, sinks: items, priority: MEDIUM };
+MEDIUM = _mod3941.Priority.MEDIUM;
+let merged = Object.assign({ element: "seeAllButton" });
+let IMPRESSION = _mod3941.InteractionAction.IMPRESSION;
+let MEDIUM2 = _mod3941.Priority.LOW;
+if (MEDIUM2 === undefined) {
+  MEDIUM2 = _mod3941.Priority.MEDIUM;
+}
+obj11 = { impression: obj12, selectLocation: obj13, socialFollow: obj14, requestOwnly: obj15, notifyMe: obj16 };
+obj12 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "serviceabilityScreen", action: IMPRESSION, sinks: items, priority: MEDIUM2 };
+let merged1 = Object.assign({});
+const TAP2 = _mod3941.InteractionAction.TAP;
+obj13 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "serviceabilityScreen", action: TAP2, sinks: items, priority: MEDIUM3 };
+MEDIUM3 = _mod3941.Priority.MEDIUM;
+const merged2 = Object.assign({ element: "selectLocationButton" });
+const TAP3 = _mod3941.InteractionAction.TAP;
+obj14 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "serviceabilityScreen", action: TAP3, sinks: items, priority: MEDIUM4 };
+MEDIUM4 = _mod3941.Priority.MEDIUM;
+const merged3 = Object.assign({ element: "socialFollowButton" });
+const TAP4 = _mod3941.InteractionAction.TAP;
+obj15 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "serviceabilityScreen", action: TAP4, sinks: items, priority: MEDIUM5 };
+MEDIUM5 = _mod3941.Priority.MEDIUM;
+const merged4 = Object.assign({ element: "requestOwnlyButton" });
+const TAP5 = _mod3941.InteractionAction.TAP;
+obj16 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "serviceabilityScreen", action: TAP5, sinks: items, priority: MEDIUM6 };
+MEDIUM6 = _mod3941.Priority.MEDIUM;
+const merged5 = Object.assign({ element: "notifyMeButton" });
+obj17 = { overlayImpression: obj18, imageTap: obj19, ballTap: obj20, closeTap: obj21 };
+const IMPRESSION2 = _mod3941.InteractionAction.IMPRESSION;
+obj18 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "popup", action: IMPRESSION2, sinks: items, priority: MEDIUM7 };
+MEDIUM7 = _mod3941.Priority.MEDIUM;
+const merged6 = Object.assign({ element: "image" });
+const TAP6 = _mod3941.InteractionAction.TAP;
+obj19 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "popup", action: TAP6, sinks: items, priority: MEDIUM8 };
+MEDIUM8 = _mod3941.Priority.MEDIUM;
+const merged7 = Object.assign({ element: "image" });
+const TAP7 = _mod3941.InteractionAction.TAP;
+obj20 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "popup", action: TAP7, sinks: items, priority: MEDIUM9 };
+MEDIUM9 = _mod3941.Priority.MEDIUM;
+const merged8 = Object.assign({ element: "icon" });
+const TAP8 = _mod3941.InteractionAction.TAP;
+obj21 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "popup", action: TAP8, sinks: items, priority: MEDIUM10 };
+MEDIUM10 = _mod3941.Priority.MEDIUM;
+const merged9 = Object.assign({ element: "closeButton" });
+const IMPRESSION3 = _mod3941.InteractionAction.IMPRESSION;
+let MEDIUM11 = _mod3941.Priority.LOW;
+if (MEDIUM11 === undefined) {
+  MEDIUM11 = _mod3941.Priority.MEDIUM;
+}
+obj22 = { impression: obj23 };
+obj23 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "topSection", action: IMPRESSION3, sinks: items, priority: MEDIUM11 };
+const merged10 = Object.assign({ element: "section" });
+obj24 = { tap: obj25 };
+const TAP9 = _mod3941.InteractionAction.TAP;
+obj25 = { type: _mod3941.EventType.INTERACTION, screen: ScreenId.ScreenId.HOME_PAGE, entity: "searchFilters", action: TAP9, sinks: items, priority: MEDIUM12 };
+MEDIUM12 = _mod3941.Priority.MEDIUM;
+const merged11 = Object.assign({ element: "filterChip" });
+let values = Object.values(obj);
+let closure_4 = values.flatMap((item) => {
+  const values = Object.values(item);
+  return values.filter((type) => type.type === _mod3941.EventType.INTERACTION);
+});
+
+export const HomePageConfig = obj;
+export function resolveHomePageInteractionConfig(arg0) {
+  let closure_0 = arg0;
+  return closure_4.find((entity) => entity.entity === component.component && entity.element === component.element && entity.action === component.action);
+}

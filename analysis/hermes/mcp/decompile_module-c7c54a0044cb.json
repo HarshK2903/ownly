@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1609
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 15,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1609 (calculateCartTotals)\nlet closure_0;\n\nfunction roundCurrency(arg0) {\n\n}\nfunction calculateEffectiveUnitPrice(targetItem) {\n  const f36228 = (price) => {\n    let num = price.price;\n    let tmp = closure_0;\n    if (num == null) {\n      num = 0;\n    }\n    closure_0 = tmp + num;\n    let variantsSelected = price.variantsSelected;\n    if (variantsSelected == null) {\n      variantsSelected = [];\n    }\n    if (variantsSelected.length) {\n      if (typeof calculateEffectiveUnitPrice === \"function\") {\n        let c0 = 0;\n        const item = variantsSelected.forEach(f36228);\n        closure_0 = tmp2 + c0;\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    }\n    let addOnsSelected = price.addOnsSelected;\n    if (addOnsSelected == null) {\n      addOnsSelected = [];\n    }\n    const item1 = addOnsSelected.forEach((price) => {\n      let num = price.price;\n      const tmp = closure_0;\n      if (num == null) {\n        num = 0;\n      }\n      closure_0 = tmp + num;\n    });\n  };\n  let price = targetItem.price;\n  function calcNested(arg0) {\n\n  }\n  const customizations = targetItem.customizations;\n  let variantsSelected;\n  if (customizations != null) {\n    variantsSelected = customizations.variantsSelected;\n  }\n  if (variantsSelected == null) {\n    variantsSelected = [];\n  }\n  if (variantsSelected.length) {\n    let tmp = price;\n    let num = 0;\n    let c0 = 0;\n    let item = variantsSelected.forEach(f36228);\n    price = price + c0;\n  }\n  const customizations2 = targetItem.customizations;\n  let addOnsSelected;\n  if (customizations2 != null) {\n    addOnsSelected = customizations2.addOnsSelected;\n  }\n  if (addOnsSelected == null) {\n    addOnsSelected = [];\n  }\n  let item1 = addOnsSelected.forEach((price) => {\n    let num = price.price;\n    const tmp = closure_0;\n    if (num == null) {\n      num = 0;\n    }\n    closure_0 = tmp + num;\n  });\n  if (typeof roundCurrency === \"function\") {\n    const _Math = Math;\n    const _Number = Number;\n    return Math.round((tmp5 + Number.EPSILON) * 100) / 100;\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\nfunction calculateLineTotal(arg0) {\n  if (typeof roundCurrency === \"function\") {\n    const _Math = Math;\n    const _Number = Number;\n    return Math.round((tmp + Number.EPSILON) * 100) / 100;\n  } else {\n    throw new TypeError(\"Trying to call a non-function\");\n  }\n}\n\nexport { calculateEffectiveUnitPrice };\nexport { calculateLineTotal };\nexport function calculateCartTotals(arr) {\n  const reduced = arr.reduce((acc, quantity) => acc + quantity.quantity, 0);\n  const obj = {\n    totalItems: reduced,\n    totalAmount: arr.reduce((acc, item) => {\n      if (typeof calculateLineTotal === \"function\") {\n        if (typeof roundCurrency === \"function\") {\n          const _Math = Math;\n          const _Number = Number;\n          if (typeof roundCurrency === \"function\") {\n            const _Math2 = Math;\n            const _Number2 = Number;\n            return Math.round((tmp6 + Number.EPSILON) * 100) / 100;\n          } else {\n            throw new TypeError(\"Trying to call a non-function\");\n          }\n        } else {\n          throw new TypeError(\"Trying to call a non-function\");\n        }\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    }, 0)\n  };\n  return obj;\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,398 @@
+// Module 3855
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import module_1 from "module_1" /* 1 */;
+import react from "react" /* 74 */;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+function createGetPollingInterval(arg0) {
+
+}
+
+export function usePollingManager(orderId) {
+  orderId = orderId.orderId;
+  const onOrderStatusChange = orderId.onOrderStatusChange;
+  const onRiderLocationChange = orderId.onRiderLocationChange;
+  const onRiderDetailsUpdate = orderId.onRiderDetailsUpdate;
+  const onRecenterMap = orderId.onRecenterMap;
+  const ref = onRiderDetailsUpdate.useRef(null);
+  const ref2 = onRiderDetailsUpdate.useRef(null);
+  const ref3 = onRiderDetailsUpdate.useRef(null);
+  let closure_8 = onRiderDetailsUpdate.useRef(null);
+  const remoteConfig = orderId(onOrderStatusChange[3]).useRemoteConfig();
+  const orderPollingIntervals = remoteConfig.orderPollingIntervals;
+  const riderPollingInterval = remoteConfig.riderPollingInterval;
+  let items = [orderPollingIntervals];
+  const callback = onRiderDetailsUpdate.useCallback((arg0) => {
+    if (typeof createGetPollingInterval === "function") {
+      let preAssignment;
+      const items = ["ORDER_REQUESTED", "ORDER_PLACED", "RESTAURANT_ACCEPTED", "ORDER_CONFIRMED", "ORDER_PREPARING", "FOOD_READY"];
+      if (items.includes(arg0)) {
+        preAssignment = tmp.preAssignment;
+      } else {
+        const items1 = ["RIDER_ASSIGNED", "RIDER_AT_STORE", "OUT_FOR_DELIVERY", "REACHED_DROP_LOCATION"];
+        preAssignment = items1.includes(arg0) ? tmp.activeDelivery : tmp.default;
+      }
+      return preAssignment;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  }, items);
+  let closure_12 = onRiderDetailsUpdate.useRef(null);
+  let closure_13 = onRiderDetailsUpdate.useRef(null);
+  const callback1 = onRiderDetailsUpdate.useCallback((order, order2) => {
+    const tmp = order;
+    if (tmp) {
+      if (order.order.status !== order2.order.status) {
+        return true;
+      } else if (order.order.updatedAt !== order2.order.updatedAt) {
+        return true;
+      } else {
+        const displayText2 = order.order.displayText;
+        let code;
+        if (displayText2 != null) {
+          code = displayText2.code;
+        }
+        const displayText = order2.order.displayText;
+        let code1;
+        if (displayText != null) {
+          code1 = displayText.code;
+        }
+        if (code !== code1) {
+          return true;
+        } else {
+          const riderDetails4 = order.order.riderDetails;
+          let name;
+          if (riderDetails4 != null) {
+            name = riderDetails4.name;
+          }
+          const riderDetails = order2.order.riderDetails;
+          let name1;
+          if (riderDetails != null) {
+            name1 = riderDetails.name;
+          }
+          if (name !== name1) {
+            return true;
+          } else {
+            const riderDetails2 = order.order.riderDetails;
+            let phone;
+            if (riderDetails2 != null) {
+              phone = riderDetails2.phone;
+            }
+            const riderDetails3 = order2.order.riderDetails;
+            let phone1;
+            if (riderDetails3 != null) {
+              phone1 = riderDetails3.phone;
+            }
+            if (phone !== phone1) {
+              return true;
+            } else {
+              return false;
+            }
+          }
+        }
+      }
+    } else {
+      return true;
+    }
+  }, []);
+  const callback2 = onRiderDetailsUpdate.useCallback((data, data2) => {
+    const tmp = data;
+    if (tmp) {
+      const _location = data.data.location;
+      let lat;
+      const _Number = Number;
+      if (_location != null) {
+        lat = _location.lat;
+      }
+      const _location2 = data.data.location;
+      let lng;
+      const _Number2 = Number;
+      const _NumberResult = _Number(lat);
+      if (_location2 != null) {
+        lng = _location2.lng;
+      }
+      const _location3 = data2.data.location;
+      let lat1;
+      const _Number3 = Number;
+      const _Number2Result = _Number2(lng);
+      if (_location3 != null) {
+        lat1 = _location3.lat;
+      }
+      const _location4 = data2.data.location;
+      let lng1;
+      const _Number4 = Number;
+      const _Number3Result = _Number3(lat1);
+      if (_location4 != null) {
+        lng1 = _location4.lng;
+      }
+      const _Math = Math;
+      const _Math2 = Math;
+      const _Number4Result = _Number4(lng1);
+      const absolute = Math.abs(_NumberResult - _Number3Result);
+      const tmp14 = absolute > 0.00005 || Math.abs(_Number2Result - _Number4Result) > 0.00005;
+      if (tmp14) {
+        return true;
+      } else if (data.data.driverName !== data2.data.driverName) {
+        return true;
+      } else if (data.data.driverNumber !== data2.data.driverNumber) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }, []);
+  let items1 = [orderId, callback1, onOrderStatusChange, onRecenterMap, callback];
+  const startOrderPolling = onRiderDetailsUpdate.useCallback(() => {
+    let current = ref.current;
+    let isActiveResult;
+    let tmp = ref;
+    if (current != null) {
+      isActiveResult = current.isActive();
+    }
+    if (isActiveResult) {
+      let _console2 = console;
+      console.log("[usePollingManager] Order polling already active");
+    } else {
+      let current2 = ref3.current;
+      let str;
+      if (current2 != null) {
+        str = current2.order.status;
+      }
+      if (!str) {
+        str = "ORDER_REQUESTED";
+      }
+      const tmp5 = callback(str);
+      const obj = { interval: tmp5, maxDuration: 7200000, retryOnError: true, maxRetries: 3 };
+      const pollingService = orderId(onOrderStatusChange[4]).pollingService;
+      const _HermesInternal = HermesInternal;
+      const startPolling = pollingService.startPolling;
+      const obj2 = {
+        onPoll() {
+            return closure_0(...arguments);
+          },
+        onError(arg0) {
+            console.error("[usePollingManager] Order polling error:", arg0);
+          },
+        onTimeout() {
+            console.log("[usePollingManager] Order polling timeout");
+          }
+      };
+      let closure_0;
+      const combined = "order-" + closure_0;
+      closure_0 = onRiderLocationChange.default(function*() {
+        let c2;
+        let c3;
+        let closure_1;
+        let tmp;
+        const orderService = tmp(onOrderStatusChange[5]).orderService;
+        tmp = yield orderService.getOrderStatus(tmp);
+        if (tmp(onOrderStatusChange[6]).isOrderInFinalState(tmp.order.status)) {
+          const _console = console;
+          console.log("[usePollingManager] Order in final state, stopping polling");
+          stopOrderPolling();
+        }
+        if (callback1(ref2.current, tmp)) {
+          const current = ref2.current;
+          let status;
+          if (current != null) {
+            status = current.order.status;
+          }
+          const status2 = tmp.order.status;
+          if (status !== status2) {
+            const restaurant = tmp.order.restaurant;
+            let name;
+            const trackOrderStatusChanged = tmp(onOrderStatusChange[7]).trackOrderStatusChanged;
+            if (restaurant != null) {
+              name = restaurant.name;
+            }
+            const billing = tmp.order.billing;
+            let total;
+            if (billing != null) {
+              total = billing.total;
+            }
+            const riderDetails = tmp.order.riderDetails;
+            let name1;
+            if (riderDetails != null) {
+              name1 = riderDetails.name;
+            }
+            const result = trackOrderStatusChanged(tmp103, tmp104, tmp105, name, total, name1);
+          }
+          const riderDetails2 = tmp.order.riderDetails;
+          const current2 = ref2.current;
+          let riderDetails1;
+          if (current2 != null) {
+            riderDetails1 = current2.order.riderDetails;
+          }
+          const tmp43 = riderDetails2 && !riderDetails1;
+          let closure_5 = tmp43;
+          const tmp47 = closure_5;
+          if (tmp47) {
+            const _console2 = console;
+            console.log("[usePollingManager] Rider assigned, starting rider polling");
+            const current3 = ref3.current;
+            if (current3 != null) {
+              current3();
+            }
+          }
+          const tmp54 = tmp.order.status === "DELIVERED" || tmp.order.status === "ORDER_DELIVERED";
+          let closure_6 = tmp54;
+          const tmp58 = closure_6;
+          if (tmp58) {
+            const _console3 = console;
+            console.log("[usePollingManager] Order delivered, stopping rider polling");
+            const current4 = ref4.current;
+            if (current4 != null) {
+              current4();
+            }
+          }
+          let closure_7 = callback(status2);
+          if (closure_7 !== tmp) {
+            if (ref.current) {
+              const current5 = ref.current;
+              current5.updateInterval(closure_7);
+            }
+          }
+          ref2.current = tmp;
+          if (closure_2_1 != null) {
+            tmp80(tmp);
+          }
+          if (onRecenterMap != null) {
+            tmp85(tmp, true);
+          }
+        }
+        return tmp;
+      });
+      tmp.current = startPolling(combined, obj, obj2);
+      let _console = console;
+      console.log("[usePollingManager] Started order polling");
+    }
+  }, items1);
+  const stopOrderPolling = onRiderDetailsUpdate.useCallback(() => {
+    if (ref.current) {
+      const current = tmp.current;
+      current.stop();
+      ref.current = null;
+      const _console = console;
+      console.log("[usePollingManager] Stopped order polling");
+    }
+  }, []);
+  const items2 = [startOrderPolling, stopOrderPolling];
+  const items3 = [orderId, callback2, onRiderLocationChange, onRiderDetailsUpdate, riderPollingInterval];
+  const restartOrderPolling = onRiderDetailsUpdate.useCallback(() => {
+    stopOrderPolling();
+    const timerId = setTimeout(() => {
+      startOrderPolling();
+    }, 100);
+  }, items2);
+  const startRiderPolling = onRiderDetailsUpdate.useCallback(() => {
+    const current = ref2.current;
+    let isActiveResult;
+    let tmp = ref2;
+    if (current != null) {
+      isActiveResult = current.isActive();
+    }
+    if (isActiveResult) {
+      const tmp11 = globalThis;
+      const _console2 = console;
+      console.log("[usePollingManager] Rider polling already active");
+    } else {
+      let obj = { interval: riderPollingInterval, maxDuration: 7200000, retryOnError: true, maxRetries: 3 };
+      const pollingService = orderId(onOrderStatusChange[4]).pollingService;
+      const _HermesInternal = HermesInternal;
+      const startPolling = pollingService.startPolling;
+      const obj2 = {
+        onPoll() {
+            return closure_0(...arguments);
+          },
+        onError(arg0) {
+            console.error("[usePollingManager] Rider polling error:", arg0);
+          },
+        onTimeout() {
+            console.log("[usePollingManager] Rider polling timeout");
+          }
+      };
+      let closure_0;
+      const combined = "rider-" + closure_0;
+      closure_0 = onRiderLocationChange.default(function*() {
+        let closure_1;
+        let tmp;
+        const orderService = tmp(onOrderStatusChange[5]).orderService;
+        tmp = yield orderService.getRiderLocation(tmp);
+        if (callback2(ref.current, tmp)) {
+          ref.current = tmp;
+          if (tmp.data.driverName) {
+            if (c3) {
+              const obj = { name: tmp.data.driverName, phone: tmp.data.driverNumber, id: tmp.data.orderId };
+              tmp11(obj);
+            }
+          }
+          if (c2 != null) {
+            tmp18(tmp);
+          }
+        }
+        return tmp;
+      });
+      tmp.current = startPolling(combined, obj, obj2);
+      const _console = console;
+      console.log("[usePollingManager] Started rider polling");
+    }
+  }, items3);
+  const items4 = [startRiderPolling];
+  const effect = onRiderDetailsUpdate.useEffect(() => {
+    closure_12.current = startRiderPolling;
+  }, items4);
+  const stopRiderPolling = onRiderDetailsUpdate.useCallback(() => {
+    if (ref2.current) {
+      const current = tmp.current;
+      current.stop();
+      ref2.current = null;
+      const _console = console;
+      console.log("[usePollingManager] Stopped rider polling");
+    }
+  }, []);
+  const items5 = [stopRiderPolling];
+  const effect1 = onRiderDetailsUpdate.useEffect(() => {
+    closure_13.current = stopRiderPolling;
+  }, items5);
+  const items6 = [startRiderPolling, stopRiderPolling];
+  const items7 = [stopOrderPolling, stopRiderPolling];
+  const restartRiderPolling = onRiderDetailsUpdate.useCallback(() => {
+    stopRiderPolling();
+    const timerId = setTimeout(() => {
+      startRiderPolling();
+    }, 200);
+  }, items6);
+  const stopAllPolling = onRiderDetailsUpdate.useCallback(() => {
+    stopOrderPolling();
+    stopRiderPolling();
+  }, items7);
+  const isOrderPollingActive = onRiderDetailsUpdate.useCallback(() => {
+    const current = ref.current;
+    let flag;
+    if (current != null) {
+      flag = current.isActive();
+    }
+    if (flag == null) {
+      flag = false;
+    }
+    return flag;
+  }, []);
+  const items8 = [stopAllPolling];
+  const isRiderPollingActive = onRiderDetailsUpdate.useCallback(() => {
+    const current = ref2.current;
+    let flag;
+    if (current != null) {
+      flag = current.isActive();
+    }
+    if (flag == null) {
+      flag = false;
+    }
+    return flag;
+  }, []);
+  const effect2 = onRiderDetailsUpdate.useEffect(() => () => {
+    stopAllPolling();
+  }, items8);
+  return { startOrderPolling, stopOrderPolling, restartOrderPolling, startRiderPolling, stopRiderPolling, restartRiderPolling, stopAllPolling, isOrderPollingActive, isRiderPollingActive };
+}

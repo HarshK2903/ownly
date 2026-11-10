@@ -1,0 +1,233 @@
+// Module 2073 (Navigation)
+import react2 from "react" /* 74 */;
+import logAndRecordError from "logAndRecordError" /* 1157 */;
+import asyncRequire from "asyncRequire" /* 1813 */;
+import _mod1850 from "module_1850" /* 1850 */;
+import _mod1851 from "module_1851" /* 1851 */;
+import _mod2006 from "module_2006" /* 2006 */;
+import NavigationWithConflictHandler2 from "NavigationWithConflictHandler" /* 2074 */;
+import RestaurantConflictDialog2 from "RestaurantConflictDialog" /* 2416 */;
+import RepeatCustomizationBottomSheet2 from "RepeatCustomizationBottomSheet" /* 2430 */;
+import LoginScreen2 from "LoginScreen" /* 2495 */;
+import OnboardingScreen2 from "OnboardingScreen" /* 2598 */;
+import SplashScreen2 from "SplashScreen" /* 2605 */;
+import AddressesScreen2 from "AddressesScreen" /* 2694 */;
+import LocationScreen2 from "LocationScreen" /* 2712 */;
+import LocationSearchScreen2 from "LocationSearchScreen" /* 2988 */;
+import MapScreen2 from "MapScreen" /* 2989 */;
+import OrderPlaceStatusScreen2 from "OrderPlaceStatusScreen" /* 3206 */;
+import _mod3207 from "module_3207" /* 3207 */;
+import OrderCancelledScreen2 from "OrderCancelledScreen" /* 3209 */;
+import HomePage2 from "HomePage" /* 3341 */;
+import navigationAnalytics2 from "navigationAnalytics" /* 3343 */;
+import NoInternetScreen2 from "NoInternetScreen" /* 3835 */;
+import OrderTrackingScreen2 from "OrderTrackingScreen" /* 3846 */;
+import _mod3890 from "module_3890" /* 3890 */;
+import RestaurantMenuLandingPage2 from "RestaurantMenuLandingPage" /* 3924 */;
+import RestaurantSearchPage2 from "RestaurantSearchPage" /* 4068 */;
+import CartPage2 from "CartPage" /* 4074 */;
+import _mod4093 from "module_4093" /* 4093 */;
+import FoodCustomisationBottomSheet2 from "FoodCustomisationBottomSheet" /* 4148 */;
+import FoodDescriptionBottomSheet2 from "FoodDescriptionBottomSheet" /* 4159 */;
+import FilterBottomSheet2 from "FilterBottomSheet" /* 4161 */;
+import PaymentFailedScreen2 from "PaymentFailedScreen" /* 4162 */;
+import RestaurantListingPage2 from "RestaurantListingPage" /* 4163 */;
+import _mod4412 from "module_4412" /* 4412 */;
+import _mod4520 from "module_4520" /* 4520 */;
+import _mod4538 from "module_4538" /* 4538 */;
+import module_1 from "module_1" /* 1 */;
+import react_native from "react-native" /* 15 */;
+import Fragment from "Fragment" /* 244 */;
+
+const react = _interopRequireWildcard(react2);
+const NavigationWithConflictHandler = module_1(NavigationWithConflictHandler2);
+const OrderPlaceStatusScreen = module_1(OrderPlaceStatusScreen2);
+const module_3207 = module_1(_mod3207);
+const OrderCancelledScreen = module_1(OrderCancelledScreen2);
+const LoginScreen = module_1(LoginScreen2);
+const OnboardingScreen = module_1(OnboardingScreen2);
+const SplashScreen = module_1(SplashScreen2);
+const HomePage = module_1(HomePage2);
+const AddressesScreen = module_1(AddressesScreen2);
+const LocationScreen = module_1(LocationScreen2);
+const LocationSearchScreen = module_1(LocationSearchScreen2);
+const MapScreen = module_1(MapScreen2);
+const NoInternetScreen = module_1(NoInternetScreen2);
+const OrderTrackingScreen = module_1(OrderTrackingScreen2);
+const module_3890 = module_1(_mod3890);
+const RestaurantMenuLandingPage = module_1(RestaurantMenuLandingPage2);
+const RestaurantSearchPage = module_1(RestaurantSearchPage2);
+const CartPage = module_1(CartPage2);
+const module_4093 = module_1(_mod4093);
+const FoodCustomisationBottomSheet = module_1(FoodCustomisationBottomSheet2);
+const RepeatCustomizationBottomSheet = module_1(RepeatCustomizationBottomSheet2);
+const FoodDescriptionBottomSheet = module_1(FoodDescriptionBottomSheet2);
+const FilterBottomSheet = module_1(FilterBottomSheet2);
+const PaymentFailedScreen = module_1(PaymentFailedScreen2);
+const RestaurantConflictDialog = module_1(RestaurantConflictDialog2);
+const RestaurantListingPage = module_1(RestaurantListingPage2);
+let _default = react.default;
+const component = _default.lazy(() => asyncRequire(4183, dependencyMap.paths));
+const _default2 = react.default;
+const component2 = _default2.lazy(() => asyncRequire(4249, dependencyMap.paths));
+const _default3 = react.default;
+const component3 = _default3.lazy(() => asyncRequire(4250, dependencyMap.paths));
+const _default4 = react.default;
+const component4 = _default4.lazy(() => asyncRequire(4252, dependencyMap.paths));
+const _default5 = react.default;
+const component5 = _default5.lazy(() => asyncRequire(4266, dependencyMap.paths));
+const _default6 = react.default;
+const component6 = _default6.lazy(() => asyncRequire(4333, dependencyMap.paths));
+const _default7 = react.default;
+const component7 = _default7.lazy(() => asyncRequire(4334, dependencyMap.paths));
+const _default8 = react.default;
+const component8 = _default8.lazy(() => asyncRequire(4335, dependencyMap.paths));
+const _default9 = react.default;
+const component9 = _default9.lazy(() => asyncRequire(4336, dependencyMap.paths));
+const _default10 = react.default;
+const component10 = _default10.lazy(() => asyncRequire(4338, dependencyMap.paths));
+const _default11 = react.default;
+const component11 = _default11.lazy(() => asyncRequire(4340, dependencyMap.paths));
+const _default12 = react.default;
+const component12 = _default12.lazy(() => asyncRequire(4342, dependencyMap.paths));
+const _default13 = react.default;
+const component13 = _default13.lazy(() => asyncRequire(4391, dependencyMap.paths));
+const _default14 = react.default;
+const component14 = _default14.lazy(() => asyncRequire(4394, dependencyMap.paths));
+const _default15 = react.default;
+const component15 = _default15.lazy(() => asyncRequire(4409, dependencyMap.paths));
+let Navigator = _mod4412.createNativeStackNavigator();
+function handleNavigationStateChange(routes) {
+  let length;
+  if (routes != null) {
+    routes = routes.routes;
+    if (routes != null) {
+      length = routes.length;
+    }
+  }
+  if (length) {
+    if (typeof routes.index === "number") {
+      let name1;
+      if (routes.routes[routes.index] != null) {
+        name1 = tmp12.name;
+      }
+      if (name1) {
+        const state = tmp12.state;
+        let routes1;
+        if (state != null) {
+          routes1 = state.routes;
+        }
+        if (routes1) {
+          let name;
+          if (typeof state.index === "number") {
+            let name2;
+            if (state.routes[state.index] != null) {
+              name2 = tmp4.name;
+            }
+            if (name2 == null) {
+              name2 = tmp12.name;
+            }
+            name = name2;
+          }
+          const _HermesInternal = HermesInternal;
+          logAndRecordError.logBreadcrumb("Screen: " + name);
+          logAndRecordError.setAttributeSafe("last_screen", name);
+          const navigationAnalytics = navigationAnalytics2.navigationAnalytics;
+          const result = navigationAnalytics.handleNavigationStateChange(routes);
+        }
+        name = tmp12.name;
+      }
+    }
+  }
+}
+function handleNavigationReady() {
+  const navigationAnalytics = navigationAnalytics2.navigationAnalytics;
+  handleNavigationReady = navigationAnalytics.handleNavigationReady;
+  const navigationRef = _mod1850.navigationRef;
+  const result = handleNavigationReady(navigationRef.getRootState());
+}
+
+export default function Navigation(linking) {
+  let _default;
+  let jsx3;
+  let obj3;
+  linking = linking.linking;
+  console.log("[Navigation] Navigation component initialized with linking:", linking);
+  const effect = react.useEffect(() => {
+    let closure_0 = _mod2006.startAppForegroundResumeTracking();
+    const _default = module_3207.default;
+    const instance = _default.getInstance();
+    return () => {
+      closure_0();
+      closure_1.cleanup();
+    };
+  }, []);
+  const jsx = Fragment.jsx;
+  const NavigationContainer = _mod1851.NavigationContainer;
+  const obj2 = { fallback: null, children: jsx3(_default, obj3) };
+  const jsx2 = Fragment.jsx;
+  const Suspense = react.Suspense;
+  jsx3 = Fragment.jsx;
+  _default = NavigationWithConflictHandler.default;
+  const jsxs = Fragment.jsxs;
+  Navigator = Navigator.Navigator;
+  const items = [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ];
+  obj3 = { children: null };
+  items[0] = <closure_46.Screen name="SplashScreen" component={SplashScreen.default} />;
+  items[1] = <closure_46.Screen options={{ animation: "fade" }} name="LoginScreen" component={LoginScreen.default} />;
+  items[2] = <closure_46.Screen options={{ animation: "fade" }} name="OnboardingScreen" component={OnboardingScreen.default} />;
+  items[3] = <closure_46.Screen name="Home" component={HomePage.default} />;
+  items[4] = <closure_46.Screen name="Search" component={module_3890.default} />;
+  items[5] = <closure_46.Screen name="SearchResults" component={module_4093.default} />;
+  items[6] = <closure_46.Screen name="SearchFeedback" component={component3} options={{ headerShown: false }} />;
+  items[7] = <closure_46.Screen name="CategoryListingNova" component={component} />;
+  items[8] = <closure_46.Screen name="RestaurantListingNova" component={component2} />;
+  items[9] = <closure_46.Screen name="RestaurantListing" component={RestaurantListingPage.default} />;
+  items[10] = <closure_46.Screen name="LocationScreen" component={LocationScreen.default} />;
+  items[11] = <closure_46.Screen name="LocationSearchScreen" component={LocationSearchScreen.default} />;
+  items[12] = <closure_46.Screen name="MapScreen" component={MapScreen.default} />;
+  items[13] = <closure_46.Screen name="RestaurantPage" component={RestaurantMenuLandingPage.default} />;
+  items[14] = <closure_46.Screen name="RestaurantSearchPage" component={RestaurantSearchPage.default} />;
+  items[15] = <closure_46.Screen name="RestaurantSearch" component={component4} />;
+  items[16] = <closure_46.Screen name="FoodCustomisation" component={FoodCustomisationBottomSheet.default} options={{ presentation: "transparentModal", animation: "none" }} />;
+  items[17] = <closure_46.Screen name="RepeatCustomization" component={RepeatCustomizationBottomSheet.default} options={{ presentation: "transparentModal", animation: "none" }} />;
+  items[18] = <closure_46.Screen name="FoodDescription" component={FoodDescriptionBottomSheet.default} options={{ headerShown: false, presentation: "transparentModal", animation: "none" }} />;
+  items[19] = <closure_46.Screen name="CartPage" component={CartPage.default} />;
+  items[20] = <closure_46.Screen name="FilterBottomSheet" component={FilterBottomSheet.default} options={{ presentation: "transparentModal", animation: "fade" }} />;
+  items[21] = <closure_46.Screen name="OrderPlaceStatus" component={OrderPlaceStatusScreen.default} />;
+  items[22] = <closure_46.Screen name="OrderTrackingScreen" component={OrderTrackingScreen.default} />;
+  items[23] = <closure_46.Screen name="OrderCancelledScreen" component={OrderCancelledScreen.default} />;
+  items[24] = <closure_46.Screen name="PaymentFailedScreen" component={PaymentFailedScreen.default} />;
+  items[25] = <closure_46.Screen name="ProfileScreen" component={component5} />;
+  items[26] = <closure_46.Screen name="EditProfileScreen" component={component6} />;
+  items[27] = <closure_46.Screen name="ProgressOrderScreen" component={component7} />;
+  items[28] = <closure_46.Screen name="PastOrdersScreen" component={component8} />;
+  items[29] = <closure_46.Screen name="OrderDetailsScreen" component={component9} />;
+  items[30] = <closure_46.Screen name="AppSettingsScreen" component={component10} />;
+  items[31] = <closure_46.Screen name="ReferAndEarnPocScreen" component={_mod4520.ReferAndEarnPocScreen} />;
+  items[32] = <closure_46.Screen name="RootsDesignSystemScreen" component={_mod4538.RootsDesignSystemScreen} />;
+  items[33] = <closure_46.Screen name="RootsFoundationScreen" component={_mod4538.RootsFoundationScreen} />;
+  items[34] = <closure_46.Screen name="RootsIconsShowcaseScreen" component={_mod4538.RootsIconsShowcaseScreen} />;
+  items[35] = <closure_46.Screen name="RootsButtonsShowcaseScreen" component={_mod4538.RootsButtonsShowcaseScreen} />;
+  items[36] = <closure_46.Screen name="RootsInputsShowcaseScreen" component={_mod4538.RootsInputsShowcaseScreen} />;
+  items[37] = <closure_46.Screen name="RootsLabelsShowcaseScreen" component={_mod4538.RootsLabelsShowcaseScreen} />;
+  items[38] = <closure_46.Screen name="RootsNavigationShowcaseScreen" component={_mod4538.RootsNavigationShowcaseScreen} />;
+  items[39] = <closure_46.Screen name="RootsToastShowcaseScreen" component={_mod4538.RootsToastShowcaseScreen} />;
+  items[40] = <closure_46.Screen name="RootsBottomSheetShowcaseScreen" component={_mod4538.RootsBottomSheetShowcaseScreen} />;
+  items[41] = <closure_46.Screen name="RootsColorsShowcaseScreen" component={_mod4538.RootsColorsShowcaseScreen} />;
+  items[42] = <closure_46.Screen name="RootsTypographyShowcaseScreen" component={_mod4538.RootsTypographyShowcaseScreen} />;
+  items[43] = <closure_46.Screen name="RootsSpacingShowcaseScreen" component={_mod4538.RootsSpacingShowcaseScreen} />;
+  items[44] = <closure_46.Screen name="RootsRadiusShowcaseScreen" component={_mod4538.RootsRadiusShowcaseScreen} />;
+  items[45] = <closure_46.Screen name="RootsShadowsShowcaseScreen" component={_mod4538.RootsShadowsShowcaseScreen} />;
+  items[46] = <closure_46.Screen name="RootsBordersShowcaseScreen" component={_mod4538.RootsBordersShowcaseScreen} />;
+  items[47] = <closure_46.Screen name="RootsHapticsShowcaseScreen" component={_mod4538.RootsHapticsShowcaseScreen} />;
+  items[48] = <closure_46.Screen name="NotificationPreferencesScreen" component={component11} />;
+  items[49] = <closure_46.Screen name="AddressesScreen" component={AddressesScreen.default} />;
+  items[50] = <closure_46.Screen name="SupportWebViewScreen" component={component12} />;
+  items[51] = <closure_46.Screen name="GenericWebViewScreen" component={component13} />;
+  items[52] = <closure_46.Screen name="HelpIngressScreen" component={component14} />;
+  items[53] = <closure_46.Screen name="PastOrderHelpScreen" component={component15} />;
+  items[54] = <closure_46.Screen name="NoInternetScreen" component={NoInternetScreen.default} />;
+  items[55] = <closure_46.Screen name="RestaurantConflictBottomSheet" component={RestaurantConflictDialog.default} options={{ presentation: "transparentModal", animation: "none", headerShown: false }} />;
+  return <NavigationContainer ref={_mod1850.navigationRef} linking={linking} onReady={handleNavigationReady} onStateChange={handleNavigationStateChange}>{jsx2(Suspense, obj2)}</NavigationContainer>;
+};

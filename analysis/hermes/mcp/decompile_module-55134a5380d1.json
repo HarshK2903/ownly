@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 1659
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 9,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 1659 (safeError)\nfunction safeStringify(arg0) {\n  try {\n    const _String = String;\n    return String(arg0);\n  } catch (err) {\n    return \"[Unable to stringify value]\";\n  }\n}\nfunction safeError(arg0, arg1) {\n  try {\n    if (arg1 === undefined) {\n      const _console2 = console;\n      console.error(arg0);\n    } else {\n      const _console = console;\n      console.error(arg0, safeStringify(arg1));\n    }\n  } catch (err) {\n    try {\n      const _console3 = console;\n      console.error(arg0, \"[Error details unavailable]\");\n    } catch (err) {\n    }\n  }\n}\nfunction safeWarn(arg0, arg1) {\n\n}\nfunction safeLog(arg0, arg1) {\n\n}\n\nexport { safeError };\nexport { safeLog };\nexport { safeWarn };\nexport default { error: safeError, warn: safeWarn, log: safeLog };\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

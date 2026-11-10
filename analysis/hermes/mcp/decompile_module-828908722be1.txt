@@ -1,0 +1,66 @@
+// Module 3959 (consoleSink)
+const log2 = function log() {
+  const items = [...HermesBuiltin.copyRestArgs()];
+  return console.log.apply(items);
+};
+function initialize() {
+
+}
+function isAvailable() {
+  return true;
+}
+let log = log2;
+
+export function createConsoleSink() {
+  log = arg0;
+  if (arg0 === undefined) {
+    log = log2;
+  }
+  let obj = {
+    sink: "console",
+    initialize,
+    isAvailable,
+    track(arg0) {
+      log("[Analytics V2]", arg0);
+    },
+    identify(identity) {
+      const obj = { operation: "identify", identity };
+      log("[Analytics V2 Profile]", obj);
+    },
+    updateProfile(patch) {
+      const obj = { operation: "update", patch };
+      log("[Analytics V2 Profile]", obj);
+    },
+    setLocation(lat, lng) {
+      const obj = { operation: "setLocation", lat, lng };
+      log("[Analytics V2 Profile]", obj);
+    },
+    clearIdentity() {
+      log("[Analytics V2 Profile]", { operation: "clearIdentity" });
+    }
+  };
+  return obj;
+}
+export const consoleSink = {
+  sink: "console",
+  initialize,
+  isAvailable,
+  track(arg0) {
+    log("[Analytics V2]", arg0);
+  },
+  identify(identity) {
+    const obj = { operation: "identify", identity };
+    log("[Analytics V2 Profile]", obj);
+  },
+  updateProfile(patch) {
+    const obj = { operation: "update", patch };
+    log("[Analytics V2 Profile]", obj);
+  },
+  setLocation(lat, lng) {
+    const obj = { operation: "setLocation", lat, lng };
+    log("[Analytics V2 Profile]", obj);
+  },
+  clearIdentity() {
+    log("[Analytics V2 Profile]", { operation: "clearIdentity" });
+  }
+};

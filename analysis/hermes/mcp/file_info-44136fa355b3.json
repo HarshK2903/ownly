@@ -1,0 +1,17 @@
+{
+  "tool": "file_info",
+  "arguments": {},
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Path: /home/bugulnoz/research/ownly/analysis/hermes/ownly.hbc\nVersion: 98\nFunctions: 42307\nStrings: 55800\nGlobal code: function 0"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

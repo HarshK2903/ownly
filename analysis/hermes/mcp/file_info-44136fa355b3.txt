@@ -1,0 +1,5 @@
+Path: /home/bugulnoz/research/ownly/analysis/hermes/ownly.hbc
+Version: 98
+Functions: 42307
+Strings: 55800
+Global code: function 0

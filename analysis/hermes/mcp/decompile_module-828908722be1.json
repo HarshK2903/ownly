@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 3959
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 14,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 3959 (consoleSink)\nconst log2 = function log() {\n  const items = [...HermesBuiltin.copyRestArgs()];\n  return console.log.apply(items);\n};\nfunction initialize() {\n\n}\nfunction isAvailable() {\n  return true;\n}\nlet log = log2;\n\nexport function createConsoleSink() {\n  log = arg0;\n  if (arg0 === undefined) {\n    log = log2;\n  }\n  let obj = {\n    sink: \"console\",\n    initialize,\n    isAvailable,\n    track(arg0) {\n      log(\"[Analytics V2]\", arg0);\n    },\n    identify(identity) {\n      const obj = { operation: \"identify\", identity };\n      log(\"[Analytics V2 Profile]\", obj);\n    },\n    updateProfile(patch) {\n      const obj = { operation: \"update\", patch };\n      log(\"[Analytics V2 Profile]\", obj);\n    },\n    setLocation(lat, lng) {\n      const obj = { operation: \"setLocation\", lat, lng };\n      log(\"[Analytics V2 Profile]\", obj);\n    },\n    clearIdentity() {\n      log(\"[Analytics V2 Profile]\", { operation: \"clearIdentity\" });\n    }\n  };\n  return obj;\n}\nexport const consoleSink = {\n  sink: \"console\",\n  initialize,\n  isAvailable,\n  track(arg0) {\n    log(\"[Analytics V2]\", arg0);\n  },\n  identify(identity) {\n    const obj = { operation: \"identify\", identity };\n    log(\"[Analytics V2 Profile]\", obj);\n  },\n  updateProfile(patch) {\n    const obj = { operation: \"update\", patch };\n    log(\"[Analytics V2 Profile]\", obj);\n  },\n  setLocation(lat, lng) {\n    const obj = { operation: \"setLocation\", lat, lng };\n    log(\"[Analytics V2 Profile]\", obj);\n  },\n  clearIdentity() {\n    log(\"[Analytics V2 Profile]\", { operation: \"clearIdentity\" });\n  }\n};\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

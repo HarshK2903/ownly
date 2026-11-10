@@ -1,0 +1,133 @@
+// Module 2615
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import API_CONFIGS from "API_CONFIGS" /* 1153 */;
+import _mod2616 from "module_2616" /* 2616 */;
+import _mod2622 from "module_2622" /* 2622 */;
+import _mod2633 from "module_2633" /* 2633 */;
+import _mod2685 from "module_2685" /* 2685 */;
+import module_1 from "module_1" /* 1 */;
+
+let c2, c3;
+
+let createHomeMockHttpPort;
+let obj3;
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+const apiConfigs = API_CONFIGS.getApiConfigs();
+let obj = {
+  logPrefix: "ownly-rn",
+  baseUrl: apiConfigs.BASE_URL,
+  headersPort: _mod2622.rnHeadersPort,
+  afterResponse(ok, request) {
+    if (!ok.ok) {
+      if (ok.status === 0) {
+        const rnCrashPort = _mod2622.rnCrashPort;
+        const _HermesInternal = HermesInternal;
+        rnCrashPort.breadcrumb("API error: " + request.request.method + " " + request.request.url + " " + ok.status);
+      }
+    }
+    return ok;
+  },
+  onError(arg0, request) {
+    const rnCrashPort = _mod2622.rnCrashPort;
+    rnCrashPort.breadcrumb("API exception: " + request.request.method + " " + request.request.url + " " + String(arg0));
+  },
+  onUnauthorized() {
+    return closure_0(...arguments);
+  }
+};
+const createRnEnv = _mod2616.createRnEnv;
+let closure_0 = _asyncToGenerator.default(async (arg0, value) => {
+  if (c3 === 2) {
+    c3 = 3;
+    throw new TypeError("Generator functions may not be called on executing generators");
+  } else if (tmp3 === 3) {
+    if (arg0 === 1) {
+      throw value;
+    } else if (arg0 === 2) {
+      const obj2 = { value, done: true };
+      return obj2;
+    } else {
+      return { value: "return", done: null };
+    }
+  } else {
+    try {
+      let closure_1;
+      let tmp;
+      c3 = 2;
+      if (0 === c2) {
+        if (arg0 === 1) {
+          c3 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c3 = 3;
+          const obj3 = { value, done: true };
+          return obj3;
+        } else {
+          closure_1 = tmp4;
+          tmp = undefined;
+          const rnAuthPort2 = tmp(closure_1[4]).rnAuthPort;
+          c2 = 1;
+          c3 = 1;
+          const obj4 = { value: rnAuthPort2.getAccessToken(), done: false };
+          return obj4;
+        }
+      } else if (1 === c2) {
+        if (arg0 === 1) {
+          c3 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c3 = 3;
+          const obj5 = { value, done: true };
+          return obj5;
+        } else {
+          tmp = value;
+          const tmp6 = tmp;
+          if (tmp6) {
+            const rnAuthPort = tmp(closure_1[4]).rnAuthPort;
+            c2 = 2;
+            c3 = 1;
+            const obj6 = { value: rnAuthPort.logout({ reason: "unauthorized", message: "Session expired. Please login again!" }), done: false };
+            return obj6;
+          } else {
+            c3 = 3;
+            return { value: "return", done: null };
+          }
+        }
+      } else if (arg0 === 1) {
+        c3 = 3;
+        throw value;
+      } else if (arg0 === 2) {
+        c3 = 3;
+        const obj = { value, done: true };
+        return obj;
+      } else {
+        c3 = 3;
+        return { value: "return", done: null };
+      }
+    } catch (tmp12) {
+      c3 = 3;
+      throw tmp12;
+    }
+  }
+});
+const rnEnv = createRnEnv(obj);
+let obj2 = { http: createHomeMockHttpPort(obj3) };
+const merged = Object.assign(rnEnv);
+obj3 = {
+  base: rnEnv.http,
+  enabled: false,
+  getScenario: function getHomeMockScenario() {
+    return "off";
+  },
+  getFeedConfigResponse: _mod2685.getHomeLocalFeedConfigResponse
+};
+createHomeMockHttpPort = _mod2633.createHomeMockHttpPort;
+const rnEnv_export = obj2;
+
+export function setRnHomeMockScenario(__OWNLY_HOME_MOCK_SCENARIO) {
+  globalThis.__OWNLY_HOME_MOCK_SCENARIO = __OWNLY_HOME_MOCK_SCENARIO;
+}
+export { rnEnv_export as rnEnv };
+export function getRnNetworkEnvironment() {
+  return API_CONFIGS.getApiEnvironment();
+}

@@ -1,0 +1,472 @@
+// Module 1713 (enqueueAnalyticsJob)
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import module_1 from "module_1" /* 1 */;
+
+let c5;
+
+const f25797 = () => clearTimeout(closure_3);
+function yieldAnalyticsTurn() {
+  const promise = new Promise((arg0) => {
+    const timerId = setTimeout(arg0, 0);
+  });
+  return promise;
+}
+function dropOldestLowPriorityJob() {
+  const arr = closure_4.shift();
+  if (arr) {
+    droppedLow.droppedLow = droppedLow.droppedLow + 1;
+    arr.resolve();
+    return true;
+  } else {
+    return false;
+  }
+}
+function scheduleProcessing(arg0) {
+  let tmp = c6;
+  if (!tmp) {
+    const tmp2 = c7;
+    if (!tmp2) {
+      let fn;
+      if (arg0 === "low") {
+        let fn2;
+        let timeout2 = processAnalyticsQueue;
+        const _globalThis = globalThis;
+        const _globalThis2 = globalThis;
+        if (requestIdleCallback) {
+          let closure_2 = _requestIdleCallback(() => closure_0(), { timeout: 2000 });
+          fn2 = () => {
+            let tmpResult;
+            if (cancelIdleCallback != null) {
+              tmpResult = tmp(closure_2);
+            }
+            return tmpResult;
+          };
+        } else {
+          const _requestAnimationFrame = requestAnimationFrame;
+          if (typeof requestAnimationFrame !== "function") {
+            const _setTimeout2 = setTimeout;
+            let timeout = setTimeout(tmp7, 0);
+            fn2 = f25797;
+          } else {
+            closure_4 = null;
+            const _requestAnimationFrame2 = requestAnimationFrame;
+            let closure_5 = requestAnimationFrame(() => {
+              const timeout = setTimeout(closure_0, 0);
+            });
+            fn2 = () => {
+              if (typeof cancelAnimationFrame === "function") {
+                const _cancelAnimationFrame = cancelAnimationFrame;
+                cancelAnimationFrame(closure_5);
+              }
+              const tmp = closure_4;
+              if (tmp) {
+                const _clearTimeout = clearTimeout;
+                clearTimeout(closure_4);
+              }
+            };
+          }
+        }
+        fn = fn2;
+      } else if (typeof scheduleAnalyticsSoon === "function") {
+        const _setTimeout = setTimeout;
+        timeout2 = setTimeout(tmp5, 0);
+        fn = () => clearTimeout(closure_0);
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+      c7 = { cancel: fn };
+      const obj = { cancel: fn };
+    }
+  }
+}
+function runJob(arg0) {
+  return _runJob(...arguments);
+}
+function _runJob() {
+  const defaultResult = _asyncToGenerator.default(async (arg0, value) => {
+    let closure_0 = arg0;
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c4;
+      try {
+        let closure_1;
+        c6 = 2;
+        if (0 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            let closure_2 = tmp;
+            closure_1 = tmp4;
+            c4 = 2;
+            c5 = 3;
+            c6 = 1;
+            const obj4 = { value: closure_0.run(), done: false };
+            return obj4;
+          }
+        } else if (1 === c5) {
+          c4 = 0;
+          throw closure_3;
+        } else {
+          if (2 === c5) {
+            c4 = 1;
+            closure_1 = closure_3;
+            closure_0.reject(closure_1);
+          } else if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c6 = 3;
+            const obj = { value, done: true };
+            return obj;
+          } else {
+            closure_130_5.processed = closure_130_5.processed + 1;
+            closure_0.resolve();
+            c4 = 1;
+          }
+          c4 = 0;
+          c6 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp19) {
+        closure_3 = tmp19;
+        if (0 === c4) {
+          c6 = 3;
+          throw tmp19;
+        } else if (1 === tmp21) {
+          c5 = 1;
+        } else {
+          c5 = 2;
+        }
+      }
+    }
+  });
+  _runJob = defaultResult;
+  return defaultResult(...arguments);
+}
+function processAnalyticsQueue() {
+  return _processAnalyticsQueue(...arguments);
+}
+function _processAnalyticsQueue() {
+  let length2;
+  const defaultResult = _asyncToGenerator.default(async (arg0, value) => {
+    if (c6 === 2) {
+      c6 = 3;
+      throw new TypeError("Generator functions may not be called on executing generators");
+    } else if (tmp3 === 3) {
+      if (arg0 === 1) {
+        throw value;
+      } else if (arg0 === 2) {
+        const obj2 = { value, done: true };
+        return obj2;
+      } else {
+        return { value: "return", done: null };
+      }
+    } else {
+      let c4;
+      try {
+        let priority;
+        c6 = 2;
+        if (0 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c6 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            let closure_2 = tmp;
+            let closure_1 = tmp4;
+            priority = undefined;
+            c7 = null;
+            const tmp79 = c6;
+            if (tmp79) {
+              c6 = 3;
+              return { value: "return", done: null };
+            } else {
+              c6 = true;
+              c4 = 1;
+              if (length.length <= 0) {
+                if (length2.length <= 0) {
+                  c4 = 0;
+                  c6 = false;
+                  if (closure_130_3.length > 0) {
+                    let str4 = "low";
+                    const tmp44 = closure_130_11;
+                    if (closure_130_3.length > 0) {
+                      str4 = "high";
+                    }
+                    tmp44(str4);
+                  }
+                  c6 = 3;
+                  return { value: "return", done: null };
+                }
+              }
+            }
+          }
+        } else if (1 === c5) {
+          c4 = 0;
+          c6 = false;
+          const tmp28 = closure_3;
+          if (closure_130_3.length > 0) {
+            let str3 = "low";
+            const tmp34 = closure_130_11;
+            if (closure_130_3.length > 0) {
+              str3 = "high";
+            }
+            tmp34(str3);
+          }
+          throw tmp28;
+        } else if (2 === c5) {
+          if (arg0 === 1) {
+            c6 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c4 = 0;
+            c6 = false;
+            if (closure_130_3.length > 0) {
+              let str2 = "low";
+              const tmp24 = closure_130_11;
+              if (closure_130_3.length > 0) {
+                str2 = "high";
+              }
+              tmp24(str2);
+            }
+            c6 = 3;
+            const obj4 = { value, done: true };
+            return obj4;
+          } else if (priority.priority === "low") {
+            if (closure_130_3.length === 0) {
+              if (closure_130_4.length > 0) {
+                c5 = 3;
+                c6 = 1;
+                const obj5 = { value: closure_130_8(), done: false };
+                return obj5;
+              }
+            }
+          }
+        } else if (arg0 === 1) {
+          c6 = 3;
+          throw value;
+        } else if (arg0 === 2) {
+          c4 = 0;
+          c6 = false;
+          if (closure_130_3.length > 0) {
+            let str = "low";
+            const tmp8 = closure_130_11;
+            if (closure_130_3.length > 0) {
+              str = "high";
+            }
+            tmp8(str);
+          }
+          c6 = 3;
+          const obj = { value, done: true };
+          return obj;
+        }
+        const arr = closure_130_3.shift();
+        priority = arr;
+        if (arr == null) {
+          priority = closure_130_4.shift();
+        }
+        const tmp54 = priority;
+        if (tmp54) {
+          c5 = 2;
+          c6 = 1;
+          const obj6 = { value: closure_130_12(priority), done: false };
+          return obj6;
+        } else {
+          c4 = 0;
+          c6 = false;
+          if (closure_130_3.length > 0) {
+            let str5 = "low";
+            const tmp60 = closure_130_11;
+            if (closure_130_3.length > 0) {
+              str5 = "high";
+            }
+            tmp60(str5);
+          }
+          c6 = 3;
+          return { value: "return", done: null };
+        }
+      } catch (tmp66) {
+        closure_3 = tmp66;
+        if (0 === c4) {
+          c6 = 3;
+          throw tmp66;
+        } else {
+          c5 = 1;
+        }
+      }
+    }
+  });
+  _processAnalyticsQueue = defaultResult;
+  return defaultResult(...arguments);
+}
+function _flushAnalyticsQueue() {
+  const defaultResult = _asyncToGenerator.default(async () => {
+    let c3;
+    let c4;
+    let closure_1;
+    let obj4;
+    let closure_0 = arg0;
+    if (c7) {
+      c7.cancel();
+      c7 = null;
+    }
+    if (obj4.dropLowPriority) {
+      if (closure_130_4.length > 0) {
+        do {
+          let tmp13 = closure_130_10();
+          length = closure_130_4.length;
+        } while (length > 0);
+      }
+    }
+    await closure_130_14();
+    await "return";
+    let closure_2 = tmp4;
+    obj4 = closure_0;
+    if (closure_0 === undefined) {
+      obj4 = {};
+    }
+    return "slice";
+  });
+  _flushAnalyticsQueue = defaultResult;
+  return defaultResult(...arguments);
+}
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+let c1 = 100;
+let c2 = 300;
+let length = [];
+let closure_4 = [];
+const droppedLow = { highQueued: 0, lowQueued: 0, droppedLow: 0, droppedHigh: 0, processed: 0 };
+let c6 = false;
+let c7 = null;
+function scheduleAnalyticsSoon(arg0) {
+
+}
+
+export function enqueueAnalyticsJob(priority) {
+  let str = priority.priority;
+  if (str == null) {
+    str = "high";
+  }
+  const promise = new Promise((resolve, reject) => {
+    const obj = { eventName: priority.eventName, priority: str, itemCount: priority.itemCount, run: priority.run, resolve, reject };
+    const tmp = str;
+    if (str === "high") {
+      length.push(obj);
+      droppedLow.highQueued = droppedLow.highQueued + 1;
+      if (c7) {
+        const tmp8 = c6;
+        if (!tmp8) {
+          c7.cancel();
+          c7 = null;
+        }
+      }
+    } else {
+      closure_4.push(obj);
+      droppedLow.lowQueued = droppedLow.lowQueued + 1;
+    }
+    if (closure_4.length > c2) {
+      do {
+        let arr6 = closure_4.shift();
+        if (arr6) {
+          droppedLow.droppedLow = droppedLow.droppedLow + 1;
+          let resolveResult = arr6.resolve();
+        }
+      } while (closure_4.length > c2);
+    }
+    if (length.length > c1) {
+      while (true) {
+        let arr7 = closure_4.shift();
+        let flag = false;
+        if (arr7) {
+          droppedLow.droppedLow = droppedLow.droppedLow + 1;
+          let resolveResult1 = arr7.resolve();
+          flag = true;
+        }
+        if (flag) {
+          if (length.length <= c1) {
+            break;
+          }
+        } else {
+          let arr8 = length.shift();
+          if (!arr8) {
+            break;
+          } else {
+            droppedLow.droppedHigh = droppedLow.droppedHigh + 1;
+            let resolveResult2 = arr8.resolve();
+          }
+        }
+        break;
+      }
+    }
+    scheduleProcessing(tmp);
+  });
+  return promise;
+}
+export function flushAnalyticsQueue() {
+  return _flushAnalyticsQueue(...arguments);
+}
+export function getAnalyticsQueueStats() {
+  const obj = { highQueued: length.length, lowQueued: closure_4.length };
+  const merged = Object.assign(droppedLow);
+  return obj;
+}
+export function scheduleAnalyticsLowPriority(arg0) {
+  let cancelIdleCallback;
+  let closure_3;
+  let closure_0 = arg0;
+  if (requestIdleCallback) {
+    let closure_2 = _requestIdleCallback(() => closure_0(), { timeout: 2000 });
+    return () => {
+      let tmpResult;
+      if (cancelIdleCallback != null) {
+        tmpResult = tmp(closure_2);
+      }
+      return tmpResult;
+    };
+  } else {
+    const _requestAnimationFrame = requestAnimationFrame;
+    if (typeof requestAnimationFrame !== "function") {
+      const _setTimeout = setTimeout;
+      const timeout = setTimeout(arg0, 0);
+      return f25797;
+    } else {
+      let c4 = null;
+      const _requestAnimationFrame2 = requestAnimationFrame;
+      let closure_5 = requestAnimationFrame(() => {
+        const timeout = setTimeout(closure_0, 0);
+      });
+      return () => {
+        if (typeof cancelAnimationFrame === "function") {
+          const _cancelAnimationFrame = cancelAnimationFrame;
+          cancelAnimationFrame(closure_5);
+        }
+        const tmp = closure_4;
+        if (tmp) {
+          const _clearTimeout = clearTimeout;
+          clearTimeout(closure_4);
+        }
+      };
+    }
+  }
+}
+export { yieldAnalyticsTurn };

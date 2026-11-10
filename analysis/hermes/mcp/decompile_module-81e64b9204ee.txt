@@ -1,0 +1,101 @@
+// Module 3960 (cleverTapSink)
+import _mod1671 from "module_1671" /* 1671 */;
+import _mod3940 from "module_3940" /* 3940 */;
+import module_1 from "module_1" /* 1 */;
+
+function initialize() {
+
+}
+function isAvailable() {
+  let recordEvent;
+  if (module_1671.default != null) {
+    recordEvent = _default.recordEvent;
+  }
+  return typeof recordEvent === "function";
+}
+function track(event_name) {
+  event_name = event_name.event_name;
+  if (typeof event_name === "string") {
+    if (event_name.length !== 0) {
+      if (typeof toCleverTapProperties === "function") {
+        const obj = {};
+        const merged = Object.assign(event_name);
+        delete obj["event_name"];
+        tmp2(event_name, obj);
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    }
+  }
+}
+function identify(name) {
+  let actorType;
+  if (typeof toCleverTapProfile === "function") {
+    const obj = { Identity: null, Type: actorType };
+    ({ actorId: obj.Identity, actorType } = name);
+    if (actorType == null) {
+      actorType = "user";
+    }
+    if (name.name !== undefined) {
+      obj.Name = name.name;
+    }
+    if (name.email !== undefined) {
+      obj.Email = name.email;
+    }
+    if (name.phone !== undefined) {
+      obj.Phone = name.phone;
+    }
+    tmp(obj);
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function updateProfile(arg0) {
+  if (typeof toCleverTapPatch === "function") {
+    const _Object = Object;
+    const _Object2 = Object;
+    const entries = Object.entries(arg0);
+    const fromEntriesResult = fromEntries(entries.filter((item) => item[1] !== undefined));
+    const _Object3 = Object;
+    if (Object.keys(fromEntriesResult).length !== 0) {
+      const _default = module_1671.default;
+      _default.profileSet(fromEntriesResult);
+    }
+  } else {
+    throw new TypeError("Trying to call a non-function");
+  }
+}
+function setLocation(arg0, arg1) {
+  if (Number.isFinite(arg0)) {
+    const _Number = Number;
+    if (Number.isFinite(arg1)) {
+      if (arg0 >= -90) {
+        if (arg0 <= 90) {
+          if (arg1 >= -180) {
+            if (arg1 <= 180) {
+              const _default = module_1671.default;
+              _default.setLocation(arg0, arg1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+const module_1671 = module_1(_mod1671);
+function toCleverTapProfile(arg0) {
+
+}
+function toCleverTapProperties(arg0) {
+
+}
+function toCleverTapPatch(arg0) {
+
+}
+let obj = { sink: _mod3940.Sink.CLEVERTAP, initialize, isAvailable, track, identify, updateProfile, setLocation };
+
+export function createCleverTapSink() {
+  let obj = { sink: _mod3940.Sink.CLEVERTAP, initialize, isAvailable, track, identify, updateProfile, setLocation };
+  return obj;
+}
+export const cleverTapSink = obj;

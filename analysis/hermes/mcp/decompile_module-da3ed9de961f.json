@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 2625
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 16,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 2625 (authRuntimeContainer)\nimport _mod1127 from \"module_1127\" /* 1127 */;\nimport module_1 from \"module_1\" /* 1 */;\n\nconst module_1127 = module_1(_mod1127);\nfunction getStorage() {\n\n}\nconst obj4 = {\n  sessionStore: {\n    getStoredToken() {\n      const _default = module_1127.default;\n      return _default.getStoredToken();\n    },\n    getStoredUser() {\n      const _default = module_1127.default;\n      return _default.getStoredUser();\n    },\n    getStoredCustomerDetails() {\n      const _default = module_1127.default;\n      return _default.getStoredCustomerDetails();\n    },\n    storeAuthSession(token, user) {\n      if (typeof getStorage === \"function\") {\n        let storage = module_1127.default.storage;\n        if (storage == null) {\n          storage = null;\n        }\n        if (storage) {\n          const result = storage.set(\"authToken\", token);\n          if (user) {\n            const _JSON = JSON;\n            const result1 = storage.set(\"user\", JSON.stringify(user));\n          }\n        }\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    },\n    storeCustomerDetails(data) {\n      if (typeof getStorage === \"function\") {\n        let storage = module_1127.default.storage;\n        if (storage == null) {\n          storage = null;\n        }\n        if (storage) {\n          const _JSON = JSON;\n          const result = storage.set(\"customerDetails\", JSON.stringify(data));\n        }\n      } else {\n        throw new TypeError(\"Trying to call a non-function\");\n      }\n    },\n    updateStoredCustomerDetails(arg0) {\n      const _default = module_1127.default;\n      return _default.updateStoredCustomerDetails(arg0);\n    },\n    isLoggedIn() {\n      const _default = module_1127.default;\n      return _default.isLoggedIn();\n    },\n    addAuthStateCallback(arg0) {\n      const _default = module_1127.default;\n      _default.addAuthStateCallback(arg0);\n    },\n    removeAuthStateCallback(arg0) {\n      const _default = module_1127.default;\n      const result = _default.removeAuthStateCallback(arg0);\n    }\n  },\n  logoutCoordinator: {\n    logoutWithMessage(arg0) {\n      const _default = module_1127.default;\n      _default.logoutWithMessage(arg0);\n    },\n    logout() {\n      const _default = module_1127.default;\n      _default.logout();\n    }\n  },\n  otpAutoReadService: {\n    start(arg0) {\n      const _default = module_1127.default;\n      _default.setOtpCallback(arg0);\n    },\n    stop() {\n      const _default = module_1127.default;\n      _default.setOtpCallback(() => {\n\n      });\n    }\n  },\n  getDeviceId() {\n    const _default = module_1127.default;\n    return _default.getDeviceId();\n  }\n};\n\nexport const authRuntimeContainer = obj4;\nexport default obj4;\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "module_exports",
+  "arguments": {
+    "module_id": 1674
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Module 1674 (APPSFLYER_EVENTS) exports (1 total):\n  export \"trackAppsFlyerEvent\" -> function 11484 (trackAppsFlyerEvent)\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "decompile_module",
+  "arguments": {
+    "module_id": 2055
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 10,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "// Module 2055 (resolveGatewayType)\nimport PaymentGatewayType2 from \"PaymentGatewayType\" /* 2041 */;\n\nconst set = new Set([\"CASHFREE\", \"CASHFREE_PG\"]);\nconst set1 = new Set([\"JUSPAY\", \"HYPERCHECKOUT\", \"HYPER_CHECKOUT\", \"JUSPAY_SANDBOX\", \"HYPERCHECKOUT_SANDBOX\"]);\n\nexport function resolveGatewayType(gateway) {\n  let str = \"\";\n  if (gateway) {\n    const str2 = gateway.trim();\n    str = str2.toUpperCase();\n  }\n  if (set.has(str)) {\n    return PaymentGatewayType2.PaymentGatewayType.CASHFREE;\n  } else {\n    const hasItem = set1.has(str);\n    const PaymentGatewayType = PaymentGatewayType2.PaymentGatewayType;\n    return hasItem ? PaymentGatewayType.JUSPAY : PaymentGatewayType.CASHFREE;\n  }\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

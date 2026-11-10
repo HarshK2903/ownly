@@ -1,0 +1,168 @@
+// Module 2620
+import _asyncToGenerator2 from "_asyncToGenerator" /* 2 */;
+import _mod2617 from "module_2617" /* 2617 */;
+import _mod2618 from "module_2618" /* 2618 */;
+import _mod2619 from "module_2619" /* 2619 */;
+import _mod2621 from "module_2621" /* 2621 */;
+import module_1 from "module_1" /* 1 */;
+
+let c1, closure_1;
+
+const _asyncToGenerator = module_1(_asyncToGenerator2);
+function toArray(arg0) {
+
+}
+
+export function createRnEnv(arg0) {
+  let afterResponse;
+  let beforeRequest;
+  let obj = arg0;
+  if (arg0 === undefined) {
+    obj = {};
+  }
+  let clock = obj.clock;
+  if (clock == null) {
+    const tmp2 = require;
+    clock = _mod2621.createSystemClockPort();
+  }
+  let logger = obj.logger;
+  if (logger == null) {
+    let obj2 = { prefix: obj.logPrefix };
+    logger = _mod2617.createConsoleLoggerPort(obj2);
+  }
+  let storage = obj.storage;
+  if (storage == null) {
+    const tmp6 = require;
+    let obj3 = { prefix: obj.storageKeyPrefix };
+    storage = _mod2619.createMmkvStoragePort(obj3);
+  }
+  let fn = null;
+  if (obj.headersPort) {
+    let closure_0 = _asyncToGenerator.default(async (arg0) => {
+      let closure_2;
+      const config = arg0;
+      let c3 = 0;
+      let c4 = 0;
+      return (async (arg0) => {
+        let obj7;
+        const headersPort = config.headersPort;
+        const request = { method: null, url: null };
+        ({ method: obj5.method, url: obj5.url } = config);
+        closure_1 = await headersPort.getHeaders(request);
+        const obj = { headers: obj7 };
+        const merged = Object.assign(config);
+        obj7 = {};
+        const merged1 = Object.assign(closure_1);
+        const headers = config.headers;
+        closure_1 = headers;
+        if (headers == null) {
+          closure_1 = {};
+        }
+        const merged2 = Object.assign(closure_1);
+        return obj;
+      })();
+    });
+    fn = function(arg0) {
+      return closure_0(...arguments);
+    };
+  }
+  let fn2 = null;
+  if (obj.onUnauthorized) {
+    closure_0 = _asyncToGenerator.default(async (arg0, value) => {
+      let closure_0;
+      value = arg0;
+      if (c1 === 2) {
+        c1 = 3;
+        throw new TypeError("Generator functions may not be called on executing generators");
+      } else if (tmp2 === 3) {
+        if (arg0 === 1) {
+          throw value;
+        } else if (arg0 === 2) {
+          const obj2 = { value, done: true };
+          return obj2;
+        } else {
+          return { value: "return", done: null };
+        }
+      } else {
+        try {
+          c1 = 2;
+          if (arg0 === 1) {
+            c1 = 3;
+            throw value;
+          } else if (arg0 === 2) {
+            c1 = 3;
+            const obj3 = { value, done: true };
+            return obj3;
+          } else {
+            if (!value.ok) {
+              if (value.status === 401) {
+                value.onUnauthorized();
+              }
+            }
+            c1 = 3;
+            const obj = { value, done: true };
+            return obj;
+          }
+        } catch (tmp6) {
+          c1 = 3;
+          throw tmp6;
+        }
+      }
+    });
+    fn2 = function(arg0) {
+      return value(...arguments);
+    };
+  }
+  const obj4 = { fetch: obj.fetch, baseUrl: obj.baseUrl, defaultHeaders: obj.defaultHeaders, beforeRequest, afterResponse, onError: obj.onError };
+  const createFetchHttpPort = _mod2618.createFetchHttpPort;
+  if (fn) {
+    const items = [fn];
+    const beforeRequest2 = obj.beforeRequest;
+    if (typeof toArray === "function") {
+      let items2;
+      if (beforeRequest2) {
+        const _Array = Array;
+        let tmp12 = beforeRequest2;
+        if (!Array.isArray(beforeRequest2)) {
+          const items1 = [beforeRequest2];
+          tmp12 = items1;
+        }
+        items2 = tmp12;
+      } else {
+        items2 = [];
+      }
+      HermesBuiltin.arraySpread(items, items2, 1);
+      beforeRequest = items;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    beforeRequest = obj.beforeRequest;
+  }
+  if (fn2) {
+    const afterResponse2 = obj.afterResponse;
+    if (typeof toArray === "function") {
+      let items4;
+      if (afterResponse2) {
+        const _Array2 = Array;
+        let tmp18 = afterResponse2;
+        if (!Array.isArray(afterResponse2)) {
+          const items3 = [afterResponse2];
+          tmp18 = items3;
+        }
+        items4 = tmp18;
+      } else {
+        items4 = [];
+      }
+      const items5 = [];
+      items5[HermesBuiltin.arraySpread(items5, items4, 0)] = fn2;
+      afterResponse = items5;
+    } else {
+      throw new TypeError("Trying to call a non-function");
+    }
+  } else {
+    afterResponse = obj.afterResponse;
+  }
+  const obj5 = { http: createFetchHttpPort(obj4), storage, logger, clock };
+  return obj5;
+}

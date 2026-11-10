@@ -1,0 +1,19 @@
+{
+  "tool": "function_info",
+  "arguments": {
+    "function_id": 11165
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 13,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "fn#11165 \"createCheckoutPaymentVerificationRequest\" params=2 frame=15 regs=1(num=0,nonptr=1) size=110 offset=0xdef2a2 flags=[strict]"
+        }
+      ],
+      "isError": false
+    }
+  }
+}

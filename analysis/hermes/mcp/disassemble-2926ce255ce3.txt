@@ -1,0 +1,48 @@
+0000  GetParentEnvironment r4, 0
+0003  LoadParam r2, 1
+0006  LoadFromEnvironment r1, r4, 5
+000a  GetByIdShort r7, r2, 0, "path"
+000f  LoadConstNull r0
+0011  JNotEqual L25, r7, r0
+0015  LoadFromEnvironment r7, r4, 2
+L25:
+0019  GetById r6, r2, 1, "orderId"
+001f  JmpTypeOfIs L47, r1, 128
+0027  LoadConstString r13, "Trying to call a non-function"
+002b  CallBuiltin r1, 44, 2
+L47:
+002f  LoadFromEnvironment r1, r4, 4
+0033  JmpTypeOfIs L67, r1, 128
+003b  LoadConstString r13, "Trying to call a non-function"
+003f  CallBuiltin r1, 44, 2
+L67:
+0043  NewObjectWithBufferLong r1, 3235, 111044
+004d  GetByIdShort r5, r7, 2, "replace"
+0052  LoadConstString r9, ""
+0056  CreateRegExp r3, "\\/+$", "", 225
+0064  Call3 r8, r5, r7, r3, r9
+006a  GetGlobalObject r3
+006c  TryGetById r5, r3, 3, "encodeURIComponent"
+0072  LoadConstUndefined r0
+0074  Call2 r11, r5, r0, r6
+0079  TryGetById r3, r3, 4, "HermesInternal"
+007f  GetByIdShort r6, r3, 5, "concat"
+0084  LoadConstString r10, "/track"
+0088  LoadConstString r12, "/"
+008c  Mov r14, r9
+008f  Mov r13, r8
+0092  Call r3, r6, 5
+0096  PutOwnBySlotIdx r1, r3, 1
+009a  NewObject r3
+009c  LoadFromEnvironment r12, r4, 3
+00a0  Mov r13, r3
+00a3  CallBuiltin r4, 46, 3
+00a7  GetById r12, r2, 6, "headers"
+00ad  Mov r13, r3
+00b0  CallBuiltin r4, 46, 3
+00b4  PutOwnBySlotIdx r1, r3, 2
+00b8  GetById r3, r2, 7, "timeoutMs"
+00be  PutOwnBySlotIdx r1, r3, 3
+00c2  GetById r2, r2, 8, "credentials"
+00c8  PutOwnBySlotIdx r1, r2, 4
+00cc  Ret r1

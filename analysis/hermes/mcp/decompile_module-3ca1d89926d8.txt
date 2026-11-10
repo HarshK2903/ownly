@@ -1,0 +1,31 @@
+// Module 3937
+import _mod3938 from "module_3938" /* 3938 */;
+import _mod3961 from "module_3961" /* 3961 */;
+import _mod3994 from "module_3994" /* 3994 */;
+import react from "react" /* 74 */;
+
+
+export function useRestaurantNewPageViewModel(restaurantSearchAnalytics, restaurantSearchPage, menuData1) {
+  let restaurantPageAnalytics = restaurantSearchAnalytics;
+  if (restaurantSearchAnalytics === undefined) {
+    restaurantPageAnalytics = _mod3938.restaurantPageAnalytics;
+  }
+  let str = restaurantSearchPage;
+  if (restaurantSearchPage === undefined) {
+    str = "restaurantPage";
+  }
+  const restaurantNewViewModel = _mod3961.useRestaurantNewViewModel(menuData1);
+  let obj = { screenKey: str };
+  const useRestaurantNewInteractionViewModel = _mod3994.useRestaurantNewInteractionViewModel;
+  let merged = Object.assign(restaurantNewViewModel.trackingContext);
+  const restaurantNewInteractionViewModel = useRestaurantNewInteractionViewModel(obj, restaurantPageAnalytics);
+  const items = [, , ];
+  ({ interactions: arr[0], novaHandlers: arr[1] } = restaurantNewInteractionViewModel);
+  items[2] = restaurantNewViewModel;
+  return react.useMemo(() => {
+    const obj = {};
+    const merged = Object.assign(restaurantNewViewModel);
+    ({ interactions: obj.interactions, novaHandlers: obj.novaHandlers } = restaurantNewInteractionViewModel);
+    return obj;
+  }, items);
+}

@@ -1,0 +1,19 @@
+// Module 3953 (generateEventName)
+
+export function generateEventName(type) {
+  let entity;
+  let screen;
+  if (type.type === "interaction") {
+    ({ type, screen, entity } = type);
+    let str4 = "";
+    if (type.element) {
+      const _HermesInternal2 = HermesInternal;
+      str4 = "_" + type.element;
+    }
+    const _HermesInternal3 = HermesInternal;
+    return "" + type + "_" + screen + "_" + entity + str4 + "_" + type.action;
+  } else {
+    const _HermesInternal = HermesInternal;
+    return "" + type.type + "_" + type.entity;
+  }
+}

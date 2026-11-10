@@ -1,0 +1,96 @@
+// Module 1638 (selectCanRequestOtp)
+import _mod1639 from "module_1639" /* 1639 */;
+
+function onlyDigits(arg0) {
+
+}
+
+export function createAuthFlowSelectors(profile) {
+  const obj = { otpValue: _mod1639.selectOtpValue(profile), isPhoneValid: _mod1639.selectIsPhoneValid(profile), canRequestOtp: _mod1639.selectCanRequestOtp(profile), canVerifyOtp: _mod1639.selectCanVerifyOtp(profile), canSubmitProfile: _mod1639.selectCanSubmitProfile(profile), isEmailValid: _mod1639.selectIsEmailValid(profile.profile.email) };
+  return obj;
+}
+export function createAuthFlowActions(arg0) {
+  let closure_0 = arg0;
+  let obj = {
+    setPhone(str) {
+      let replaced;
+      if (typeof onlyDigits === "function") {
+        const obj = { type: "auth/setPhone", phone: replaced.slice(0, 10) };
+        replaced = str.replace(/\D/g, "");
+        tmp(obj);
+      } else {
+        throw new TypeError("Trying to call a non-function");
+      }
+    },
+    setOtpDigit(index, str) {
+      let replaced;
+      const obj = { type: "auth/setOtpDigit", index, value: replaced.slice(0, 1) };
+      replaced = str.replace(/\D/g, "");
+      closure_0(obj);
+    },
+    setOtpFromValue(otp) {
+      const obj = { type: "auth/setOtpFromValue", otp };
+      closure_0(obj);
+    },
+    clearOtp() {
+      closure_0({ type: "auth/clearOtp" });
+    },
+    backToPhone() {
+      closure_0({ type: "auth/backToPhone" });
+    },
+    setProfileName(name) {
+      const obj = { type: "auth/setProfileName", name };
+      closure_0(obj);
+    },
+    setProfileEmail(email) {
+      const obj = { type: "auth/setProfileEmail", email };
+      closure_0(obj);
+    },
+    setProfileDataSharing(value) {
+      const obj = { type: "auth/setProfileDataSharing", value };
+      closure_0(obj);
+    },
+    setProfileGender(gender) {
+      const obj = { type: "auth/setProfileGender", gender };
+      closure_0(obj);
+    },
+    requestOtpStart() {
+      closure_0({ type: "auth/requestOtpStart" });
+    },
+    requestOtpSuccess() {
+      closure_0({ type: "auth/requestOtpSuccess" });
+    },
+    requestOtpFailure(message) {
+      const obj = { type: "auth/requestOtpFailure", message };
+      closure_0(obj);
+    },
+    verifyOtpStart() {
+      closure_0({ type: "auth/verifyOtpStart" });
+    },
+    verifyOtpSuccess(token, isNewUser) {
+      const obj = { type: "auth/verifyOtpSuccess", token, isNewUser };
+      closure_0(obj);
+    },
+    verifyOtpFailure(message) {
+      const obj = { type: "auth/verifyOtpFailure", message };
+      closure_0(obj);
+    },
+    submitProfileStart() {
+      closure_0({ type: "auth/submitProfileStart" });
+    },
+    submitProfileSuccess() {
+      closure_0({ type: "auth/submitProfileSuccess" });
+    },
+    submitProfileFailure(message) {
+      const obj = { type: "auth/submitProfileFailure", message };
+      closure_0(obj);
+    },
+    resetErrors() {
+      closure_0({ type: "auth/resetErrors" });
+    },
+    resetFlow() {
+      closure_0({ type: "auth/resetFlow" });
+    }
+  };
+  return obj;
+}

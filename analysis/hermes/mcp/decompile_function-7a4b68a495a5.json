@@ -1,0 +1,20 @@
+{
+  "tool": "decompile_function",
+  "arguments": {
+    "function_id": 18768,
+    "show_offsets": true
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 6,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "function trackSearchQuerySubmitted(arg0) {\n  let obj6;\n  // @0000\n  // @0003\n  // @0005\n  // @000b\n  // @0010\n  let resultsByType = arg0.resultsByType;\n  // @0016\n  // @0018\n  const _Object = Object;\n  if (resultsByType == null) {\n    // @001c\n    resultsByType = {};\n  }\n  // @001e\n  // @0021\n  const entries1 = entries(resultsByType);\n  // @0026\n  // @002c\n  // @002e\n  // @0030\n  // @0035\n  const reduced = entries1.reduce(function() { /* body not rendered: F31677 */ }, {});\n  // @003b\n  // @003f\n  // @0043\n  // @0047\n  // @004c\n  // @0052\n  const obj1 = { ui_screen: null, ui_component: null, ui_element: null, action: \"submit\", prop_search_query: null };\n  // @005c\n  // @0060\n  const emitStandardInteraction = closure_1_0(closure_1_1[0]).emitStandardInteraction;\n  // @0065\n  // @006a\n  // @0070\n  obj1.ui_screen = closure_1_0(closure_1_1[1]).AnalyticsScreen.SEARCH_PAGE;\n  // @0074\n  // @0078\n  // @007d\n  // @0082\n  // @0088\n  obj1.ui_component = closure_1_0(closure_1_1[1]).AnalyticsComponent.SEARCH_BAR;\n  // @008c\n  // @0090\n  // @0095\n  // @009b\n  // @00a1\n  obj1.ui_element = closure_1_0(closure_1_1[1]).AnalyticsElement.SEARCH_INPUT;\n  // @00a5\n  // @00ab\n  obj1.prop_search_query = arg0.query;\n  // @00af\n  // @00b5\n  if (arg0.searchQueryId) {\n    // @00bc\n    const obj5 = { prop_search_query_id: null };\n    // @00c6\n    // @00cc\n    obj5.prop_search_query_id = arg0.searchQueryId;\n    // @00d0\n    obj6 = obj5;\n  } else {\n    // @00b8\n    obj6 = {};\n    // @00ba\n  }\n  // @00d3\n  // @00d6\n  // @00d9\n  const merged = Object.assign(obj6);\n  // @00dd\n  // @00e0\n  // @00e3\n  const merged1 = Object.assign(reduced);\n  // @00e7\n  const result = emitStandardInteraction(obj1);\n  // @00ec\n  // @00f1\n  // @00f6\n  result.catch(function() { /* body not rendered: F31678 */ });\n  // @00fb\n}\n"
+        }
+      ],
+      "isError": false
+    }
+  }
+}
